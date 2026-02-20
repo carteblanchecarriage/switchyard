@@ -5,11 +5,20 @@ const { JSDOM } = require('jsdom');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'keyboard-data.json');
 
-// Ensure data directory exists
-const dataDir = path.dirname(DATA_FILE);
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
+// Write to multiple locations for GitHub Pages deployment
+const DATA_FILES = [
+  DATA_FILE,  // data/keyboard-data.json
+  path.join(__dirname, '..', 'data.json'),  // root for GitHub Pages
+  path.join(__dirname, '..', 'dashboard', 'data.json')  // dashboard folder
+];
+
+// Ensure directories exist
+DATA_FILES.forEach(file => {
+  const dir = path.dirname(file);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+});
 
 // Vendor configurations with scraping strategies
 const VENDORS = {
@@ -575,8 +584,11 @@ async function runEnhancedScraper() {
     totalMonthly: 100 * 0.20 * avgKeyboardPrice * avgCommission + 1000
   };
   
-  // Save to file
-  fs.writeFileSync(DATA_FILE, JSON.stringify(finalData, null, 2));
+  // Save to all locations
+  const jsonData = JSON.stringify(finalData, null, 2);
+  DATA_FILES.forEach(file => {
+    fs.writeFileSync(file, jsonData);
+  });
   
   const duration = ((Date.now() - startTime) / 1000).toFixed(2);
   
@@ -587,7 +599,8 @@ async function runEnhancedScraper() {
   console.log(`   Reddit Posts: ${redditPosts.length}`);
   console.log(`\n💰 REVENUE PROJECTION:`);
   console.log(`   Potential Monthly: $${finalData.revenueProjection.totalMonthly.toFixed(2)}`);
-  console.log(`\n💾 Data saved to: ${DATA_FILE}`);
+  console.log(`\n💾 Data saved to ${DATA_FILES.length} locations:`);
+  DATA_FILES.forEach(file => console.log(`   - ${file}`));;
   
   // Log sample of real URLs
   console.log('\n🔗 SAMPLE REAL PRODUCT URLS:');

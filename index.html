@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keebshelf | Mechanical Keyboard Collection</title>
+    <meta name="description" content="Curated mechanical keyboard group buys and interest checks. Track drops from Keychron, Drop, KBDfans, NovelKeys, and more. Find your next custom keyboard.">
+    <meta name="keywords" content="mechanical keyboard, group buy, keycaps, switches, custom keyboard, Keychron, Drop, KBDfans, NovelKeys">
+    <meta name="author" content="Keebshelf">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carteblanchecarriage.github.io/keebshelf/">
+    <meta property="og:title" content="Keebshelf | Mechanical Keyboard Collection">
+    <meta property="og:description" content="Curated mechanical keyboard group buys and interest checks. Track drops from Keychron, Drop, KBDfans, NovelKeys, and more.">
+    <meta property="og:image" content="https://carteblanchecarriage.github.io/keebshelf/og-image.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://carteblanchecarriage.github.io/keebshelf/">
+    <meta property="twitter:title" content="Keebshelf | Mechanical Keyboard Collection">
+    <meta property="twitter:description" content="Curated mechanical keyboard group buys and interest checks. Track drops from Keychron, Drop, KBDfans, NovelKeys, and more.">
+    <meta property="twitter:image" content="https://carteblanchecarriage.github.io/keebshelf/og-image.png">
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -782,7 +798,95 @@
         // Fetch real data from API
         let collection = { items: [], proposals: [], curators: [] };
         
+        // localStorage cache configuration
+        const CACHE_KEY = 'keebshelf_data';
+        const CACHE_TIMESTAMP_KEY = 'keebshelf_data_timestamp';
+        const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+        
+        function getCachedData() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+                if (cached && timestamp) {
+                    const age = Date.now() - parseInt(timestamp, 10);
+                    if (age < CACHE_TTL) {
+                        console.log('📦 Using cached data from localStorage');
+                        return JSON.parse(cached);
+                    }
+                }
+            } catch (e) {
+                console.log('Cache unavailable:', e.message);
+            }
+            return null;
+        }
+        
+        function setCachedData(data) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+            } catch (e) {
+                console.log('Could not cache data:', e.message);
+            }
+        }
+        
+        function processData(data) {
+            // Transform allProducts to dashboard format
+            collection.items = (data.allProducts || []).map((item, idx) => ({
+                id: idx + 1,
+                name: item.name,
+                origin: item.vendor,
+                category: item.category || 'keyboard',
+                price: item.price,
+                status: item.status || 'active',
+                joins: item.joins || Math.floor(Math.random() * 1000) + 50,
+                description: item.description || `${item.name} - ${item.category || 'keyboard'} product`,
+                image: item.image,
+                url: item.affiliateUrl || item.url,
+                verified: true
+            }));
+            
+            // Use interest checks as proposals
+            collection.proposals = (data.interestChecks || []).map((ic, idx) => ({
+                id: `P-${String(idx + 1).padStart(3, '0')}`,
+                name: ic.name,
+                platform: ic.platform,
+                category: ic.category || 'keyboard',
+                price: ic.estimatedPrice || ic.price || 'TBA',
+                votes: ic.votes || ic.upvotes || 0,
+                comments: ic.comments || 0,
+                url: ic.url
+            }));
+            
+            // Load vendors from metadata
+            collection.curators = (data.vendors || []).map(v => ({
+                name: v.name,
+                commission: v.commission,
+                items: v.activeGroupBuys || 0,
+                url: v.url
+            }));
+            
+            // Render (paginated)
+            displayedItems = collection.items;
+            currentBatch = 0;
+            renderItems(displayedItems, document.getElementById('currentShelf'));
+            renderProposals(collection.proposals, document.getElementById('proposalShelf'));
+            renderCurators(collection.curators, document.getElementById('curatorShelf'));
+            document.getElementById('acquisitionCount').textContent = `${collection.items.length} items`;
+            
+            // Remove loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 300);
+        }
+        
         async function loadData() {
+            // Try cache first
+            const cached = getCachedData();
+            if (cached) {
+                processData(cached);
+                return;
+            }
+            
             // Try loading from static JSON file first (GitHub Pages compatible)
             try {
                 const response = await fetch('data.json');
@@ -790,54 +894,11 @@
                     const data = await response.json();
                     console.log('Loaded data from data.json:', data.allProducts?.length || 0, 'products');
                     
-                    // Transform allProducts to dashboard format
-                    collection.items = (data.allProducts || []).map((item, idx) => ({
-                        id: idx + 1,
-                        name: item.name,
-                        origin: item.vendor,
-                        category: item.category || 'keyboard',
-                        price: item.price,
-                        status: item.status || 'active',
-                        joins: item.joins || Math.floor(Math.random() * 1000) + 50,
-                        description: item.description || `${item.name} - ${item.category || 'keyboard'} product`,
-                        image: item.image,
-                        url: item.affiliateUrl || item.url,
-                        verified: true
-                    }));
+                    // Cache for next time
+                    setCachedData(data);
                     
-                    // Use interest checks as proposals
-                    collection.proposals = (data.interestChecks || []).map((ic, idx) => ({
-                        id: `P-${String(idx + 1).padStart(3, '0')}`,
-                        name: ic.name,
-                        platform: ic.platform,
-                        category: ic.category || 'keyboard',
-                        price: ic.estimatedPrice || ic.price || 'TBA',
-                        votes: ic.votes || ic.upvotes || 0,
-                        comments: ic.comments || 0,
-                        url: ic.url
-                    }));
-                    
-                    // Load vendors from metadata
-                    collection.curators = (data.vendors || []).map(v => ({
-                        name: v.name,
-                        commission: v.commission,
-                        items: v.activeGroupBuys || 0,
-                        url: v.url
-                    }));
-                    
-                    // Render (paginated)
-                    displayedItems = collection.items;
-                    currentBatch = 0;
-                    renderItems(displayedItems, document.getElementById('currentShelf'));
-                    renderProposals(collection.proposals, document.getElementById('proposalShelf'));
-                    renderCurators(collection.curators, document.getElementById('curatorShelf'));
-                    document.getElementById('acquisitionCount').textContent = `${collection.items.length} items`;
-                    
-                    // Remove loading screen
-                    setTimeout(() => {
-                        document.getElementById('loadingScreen').classList.add('hidden');
-                    }, 300);
-                    return; // Success - exit function
+                    processData(data);
+                    return;
                 }
             } catch (e) {
                 console.log('data.json not found, trying API...');
@@ -848,25 +909,52 @@
                 const response = await fetch('/api/groupbuys');
                 const data = await response.json();
                 
-                // Transform API data to dashboard format
-                collection.items = data.data.map((item, idx) => ({
-                    id: idx + 1,
-                    name: item.name,
-                    origin: item.vendor,
-                    category: item.category || 'keyboard',
-                    price: item.price,
-                    status: item.status || 'active',
-                    joins: item.joins || Math.floor(Math.random() * 1000) + 50,
-                    description: item.description || `${item.name} - ${item.category || 'keyboard'} product`,
-                    image: item.image,
-                    url: item.affiliateUrl || item.url,
-                    verified: true
-                }));
+                const processedData = {
+                    allProducts: data.data || [],
+                    interestChecks: [],
+                    vendors: []
+                };
                 
-                // Use interest checks as proposals
-                const icResponse = await fetch('/api/interest-checks');
-                const icData = await icResponse.json();
-                collection.proposals = icData.data?.map((ic, idx) => ({
+                try {
+                    const icResponse = await fetch('/api/interest-checks');
+                    const icData = await icResponse.json();
+                    processedData.interestChecks = icData.data || [];
+                } catch (e) {
+                    console.log('No interest checks from API');
+                }
+                
+                try {
+                    const vendorResponse = await fetch('/api/vendors');
+                    const vendorData = await vendorResponse.json();
+                    processedData.vendors = vendorData.data || [];
+                } catch (e) {
+                    console.log('No vendors from API');
+                }
+                
+                setCachedData(processedData);
+                processData(processedData);
+                return;
+            } catch (e) {
+                console.error('API failed:', e);
+            }
+            
+            // Use fallback data
+            console.log('Using fallback data...');
+            loadFallbackData();
+            
+            // Render fallback data
+            displayedItems = collection.items;
+            currentBatch = 0;
+            renderItems(displayedItems, document.getElementById('currentShelf'));
+            renderProposals(collection.proposals, document.getElementById('proposalShelf'));
+            renderCurators(collection.curators, document.getElementById('curatorShelf'));
+            document.getElementById('acquisitionCount').textContent = `${collection.items.length} items`;
+            
+            // Remove loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 300);
+        }
                     id: `P-${String(idx + 1).padStart(3, '0')}`,
                     name: ic.name,
                     platform: ic.platform,
@@ -1107,7 +1195,7 @@
             const html = batchItems.map((item, idx) => `
                 <article class="item" style="animation-delay: ${(startIdx + idx) * 0.03}s">
                     <div class="item-image-wrap">
-                        ${item.image ? `<img data-src="${item.image}" alt="${item.name}">` : ''}
+                        ${item.image ? `<img data-src="${item.image}" alt="${item.name}" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2218%22 fill=%22%23999%22%3ENo Image%3C/text%3E%3C/svg%3E';this.classList.add('loaded')">` : '<div class="no-image" style="height:100%;display:flex;align-items:center;justify-content:center;background:var(--paper-dark);color:var(--faded);font-size:0.875rem;">No Image</div>'}
                         <div class="item-peek">Click to examine</div>
                     </div>
                     <div class="item-index">${String(item.id).padStart(3, '0')}</div>
