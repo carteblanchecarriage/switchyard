@@ -146,7 +146,7 @@
                 image: item.image,
                 url: item.affiliateUrl || item.url,
                 description: item.description || ''
-            }));
+            })).filter(item => parsePrice(item.price) > 0);
             
             applyFilterAndSort();
         }
