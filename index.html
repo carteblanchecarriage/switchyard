@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keebshelf | Mechanical Keyboard Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f7f6f2;
+            --ink: #1a1a1a;
+            --ink-light: #2d2d2d;
+            --faded: #6b6b6b;
+            --faded-light: #999;
+            --accent: #c4a35a;
+            --accent-hover: #b3924a;
+            --border: #e8e8e8;
+            --border-light: #f0f0f0;
+            --shadow: rgba(0,0,0,0.06);
+            --shadow-hover: rgba(0,0,0,0.12);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Newsreader', Georgia, serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+            overflow-x: hidden;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--paper);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        
+        /* Header */
+        .masthead {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2.5rem 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .masthead::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .masthead-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        
+        .brand-lockup {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+        
+        .brand-lockup h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .brand-lockup span {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .masthead-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #888;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        /* Controls Bar */
+        .controls-bar {
+            background: rgba(253, 252, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 77px;
+            z-index: 99;
+            padding: 1.25rem 2rem;
+        }
+        
+        .controls-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 2.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Newsreader', serif;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.2s ease;
+        }
+        
+        .search-box::before {
+            content: '⌕';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            color: var(--faded);
+            transition: color 0.2s;
+        }
+        
+        .search-box:focus-within::before {
+            color: var(--accent);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.1);
+        }
+        
+        .search-box input::placeholder {
+            color: var(--faded-light);
+        }
+        
+        .filter-chips {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .chip {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: white;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .chip span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+        
+        .chip.active {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: white;
+        }
+        
+        .chip.active:hover {
+            color: white;
+        }
+        
+        /* Collection */
+        .collection {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--faded);
+        }
+        
+        .section-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--faded-light);
+        }
+        
+        /* Shelf Grid */
+        .shelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        
+        .item-image-wrap {
+            height: 220px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .item-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+            opacity: 0;
+        }
+        
+        .item-image-wrap img.loaded {
+            opacity: 1;
+        }
+        
+        .item:hover .item-image-wrap img {
+            transform: scale(1.05);
+        }
+        
+        .item-image-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 60%, rgba(0,0,0,0.03));
+            pointer-events: none;
+        }
+        
+        .item-peek {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(transparent, rgba(26,26,26,0.8));
+            color: white;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .item-peek::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+        
+        .item:hover .item-peek {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .item:hover .item-peek::after {
+            transform: translateX(4px);
+        }
+        
+        .item-index {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: rgba(255,255,255,0.95);
+            padding: 0.35rem 0.7rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            color: var(--faded);
+            border-radius: 2px;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .item-meta {
+            padding: 1.25rem;
+        }
+        
+        .item-category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.35rem;
+            font-weight: 500;
+        }
+        
+        .item-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 0.25rem;
+            color: var(--ink);
+        }
+        
+        .item-origin {
+            font-size: 0.9rem;
+            color: var(--faded);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+        
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .item-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        
+        .item-status {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--faded);
+        }
+        
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        
+        .status-active { background: #4a7c59; }
+        .status-ending { background: var(--accent); }
+        .status-closed { background: #8b4513; }
+        .status-interest_check { background: #6b8fa3; }
+        
+        .item-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem;
+            background: var(--ink);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            border-top: 1px solid var(--ink-light);
+        }
+        
+        .item-action:hover {
+            background: var(--accent);
+            color: var(--ink);
+        }
+        
+        .item-action::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+        
+        .item-action:hover::after {
+            transform: translateX(4px);
+        }
+        
+        /* Proposal Cards */
+        .proposal-card {
+            background: var(--paper-dark);
+            border-style: dashed;
+        }
+        
+        .proposal-card .item-image-wrap {
+            background: linear-gradient(135deg, #e5e5e5 0%, #d5d5d5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .proposal-icon {
+            font-size: 3.5rem;
+            opacity: 0.25;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--faded);
+        }
+        
+        .empty-state-icon {
+            font-size: 3rem;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: #888;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--paper);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-brand span {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-copy {
+            font-size: 0.8rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .controls-inner {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+            
+            .filter-chips {
+                order: -1;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+                -webkit-overflow-scrolling: touch;
+                flex-wrap: nowrap;
+            }
+            
+            .chip {
+                flex-shrink: 0;
+            }
+            
+            .masthead-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .shelf {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-lockup h1 {
+                font-size: 1.75rem;
+            }
+        }
+        
+        /* Curator Cards */
+        .curator-card {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+        
+        .curator-card .item-image-wrap {
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .curator-card .item-category {
+            color: var(--ink);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">Loading Collection...</div>
+    </div>
+    
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1>Keeb<span>shelf</span></h1>
+            </div>
+            <div class="masthead-tagline">Curated Mechanical Keyboard Collection</div>
+        </div>
+    </header>
+    
+    <div class="controls-bar">
+        <div class="controls-inner">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search keyboards, keycaps, switches...">
+            </div>
+            <div class="filter-chips">
+                <button class="chip active" data-filter="all"><span>All</span></button>
+                <button class="chip" data-filter="keyboard"><span>Keyboards</span></button>
+                <button class="chip" data-filter="keycaps"><span>Keycaps</span></button>
+                <button class="chip" data-filter="switches"><span>Switches</span></button>
+                <button class="chip" data-filter="ending_soon"><span>Ending Soon</span></button>
+            </div>
+        </div>
+    </div>
+    
+    <main class="collection">
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">Current Acquisitions</span>
+                <span class="section-count" id="acquisitionCount">8 items</span>
+            </div>
+            <div class="shelf" id="currentShelf"></div>
+        </section>
+        
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">Under Consideration</span>
+                <span class="section-count">Community proposals</span>
+            </div>
+            <div class="shelf" id="proposalShelf"></div>
+        </section>
+        
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">Trusted Curators</span>
+                <span class="section-count">Verified vendors</span>
+            </div>
+            <div class="shelf" id="curatorShelf"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">Keeb<span>shelf</span></div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Attribution</a>
+            </div>
+            <div class="footer-copy">
+                Affiliate links help support this free collection. All product images are copyright their respective owners. Data sourced from public community forums and vendor listings.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const collection = {
+            items: [
+                {
+                    id: 1,
+                    name: "DSS SUMO Keycap Set",
+                    origin: "Drop",
+                    category: "keycaps",
+                    price: "$99",
+                    status: "active",
+                    joins: 312,
+                    description: "Thick PBT keycaps with Japanese-inspired SUMO wrestling theme. Dye-sublimated legends.",
+                    image: "https://massdrop-s3.imgix.net/product-images/dss-sumo-keycap-set/FP/hhZwNSPRSKarUv8P2C5Z_PC2.png?auto=format&fm=jpg&fit=fill&w=400&h=300&bg=0fff",
+                    url: "https://drop.com/buy/dss-sumo-keycap-set"
+                },
+                {
+                    id: 2,
+                    name: "KKB Stratos Keyboard",
+                    origin: "Kono.store",
+                    category: "keyboard",
+                    price: "$249-299",
+                    status: "interest_check",
+                    joins: 89,
+                    description: "75% gasket mount keyboard with southpaw numpad layout. Premium anodized aluminum.",
+                    image: "https://cdn.shopify.com/s/files/1/0016/6845/5018/files/kkb-stratos-render.jpg?v=1707500000",
+                    url: "https://kono.store/products/kkb-stratos"
+                },
+                {
+                    id: 3,
+                    name: "Keychron Q1 Pro",
+                    origin: "Keychron",
+                    category: "keyboard",
+                    price: "$199",
+                    status: "active",
+                    joins: 1247,
+                    description: "Wireless QMK/VIA mechanical keyboard with 75% layout. Full aluminum CNC body.",
+                    image: "https://cdn.shopify.com/s/files/1/0059/0630/1017/products/Keychron-Q1-Pro-QMK-VIA-wireless-custom-mechanical-keyboard-full-aluminum-black-full-assembly-01.jpg?v=1685000000",
+                    url: "https://keychron.com/products/keychron-q1-pro"
+                },
+                {
+                    id: 4,
+                    name: "GMK Serika 2",
+                    origin: "Drop",
+                    category: "keycaps",
+                    price: "$140",
+                    status: "ending_soon",
+                    joins: 2847,
+                    description: "Popular GMK keycap set with Japanese sublegends. Doubleshot ABS construction.",
+                    image: "https://massdrop-s3.imgix.net/product-images/gmk-serika-2/FP/your-image-here.jpg?auto=format&fm=jpg&fit=fill&w=400&h=300",
+                    url: "https://drop.com/buy/gmk-serika-2"
+                },
+                {
+                    id: 5,
+                    name: "Gateron Oil King Switches",
+                    origin: "Kono.store",
+                    category: "switches",
+                    price: "$5.50/pack",
+                    status: "active",
+                    joins: 892,
+                    description: "Smooth linear switches with factory lube. 55g actuation, deep sound profile.",
+                    image: "https://cdn.shopify.com/s/files/1/0016/6845/5018/files/gateron-oil-king.jpg?v=1707500000",
+                    url: "https://kono.store/products/gateron-oil-king"
+                },
+                {
+                    id: 6,
+                    name: "NovelKeys NK65 Entry Edition",
+                    origin: "NovelKeys",
+                    category: "keyboard",
+                    price: "$135",
+                    status: "active",
+                    joins: 645,
+                    description: "Entry-level 65% mechanical keyboard with aluminum case. Hot-swap PCB.",
+                    image: "https://cdn.shopify.com/s/files/1/0016/6845/5018/products/nk65-entry.jpg?v=1707500000",
+                    url: "https://novelkeys.com/products/nk65-entry-edition"
+                },
+                {
+                    id: 7,
+                    name: "KBDfans D60 Lite",
+                    origin: "KBDfans",
+                    category: "keyboard",
+                    price: "$119",
+                    status: "active",
+                    joins: 423,
+                    description: "Budget-friendly 60% keyboard kit with polycarbonate case. Gasket mount.",
+                    image: "https://cdn.shopify.com/s/files/1/1472/6424/products/d60lite_01.jpg?v=1707500000",
+                    url: "https://kbdfans.com/products/d60lite"
+                },
+                {
+                    id: 8,
+                    name: "ePBT Avant Garde",
+                    origin: "KBDfans",
+                    category: "keycaps",
+                    price: "$89",
+                    status: "active",
+                    joins: 567,
+                    description: "Artistic keycap set inspired by 1920s modernist art. Dye-sub PBT.",
+                    image: "https://cdn.shopify.com/s/files/1/1472/6424/products/epbt-avant-garde.jpg?v=1707500000",
+                    url: "https://kbdfans.com/products/epbt-avant-garde"
+                }
+            ],
+            proposals: [
+                {
+                    id: "P-001",
+                    name: "Phantom TKL Aluminum Case",
+                    platform: "Geekhack",
+                    category: "case",
+                    price: "$280-320",
+                    votes: 234,
+                    comments: 67,
+                    url: "https://geekhack.org/index.php?topic=122456.0"
+                },
+                {
+                    id: "P-002",
+                    name: "Vintage Beige PBT Keycaps",
+                    platform: "Geekhack",
+                    category: "keycaps",
+                    price: "$85",
+                    votes: 189,
+                    comments: 45,
+                    url: "https://geekhack.org/index.php?topic=122345.0"
+                },
+                {
+                    id: "P-003",
+                    name: "Magnetic Hall Effect Switches",
+                    platform: "Geekhack",
+                    category: "switches",
+                    price: "$6/pack",
+                    votes: 456,
+                    comments: 123,
+                    url: "https://geekhack.org/index.php?topic=122789.0"
+                }
+            ],
+            curators: [
+                { name: "Drop", commission: "5%", items: 3, url: "https://drop.com" },
+                { name: "Kono.store", commission: "10%", items: 2, url: "https://kono.store" },
+                { name: "NovelKeys", commission: "10%", items: 1, url: "https://novelkeys.com" },
+                { name: "Keychron", commission: "8%", items: 4, url: "https://keychron.com" },
+                { name: "KBDfans", commission: "8%", items: 6, url: "https://kbdfans.com" }
+            ]
+        };
+        
+        // Lazy load images
+        function setupLazyLoading() {
+            const images = document.querySelectorAll('.item-image-wrap img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                        };
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '50px' });
+            
+            images.forEach(img => imageObserver.observe(img));
+        }
+        
+        function renderItems(items, container) {
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">◫</div>
+                        <div class="empty-state-text">No items match your search</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = items.map((item, idx) => `
+                <article class="item" style="animation-delay: ${idx * 0.05}s">
+                    <div class="item-image-wrap">
+                        ${item.image ? `<img data-src="${item.image}" alt="${item.name}">` : ''}
+                        <div class="item-peek">Click to examine</div>
+                    </div>
+                    <div class="item-index">${String(item.id).padStart(3, '0')}</div>
+                    <div class="item-meta">
+                        <div class="item-category">${item.category}</div>
+                        <h3 class="item-name">${item.name}</h3>
+                        <div class="item-origin">From ${item.origin}</div>
+                        <p class="item-desc">${item.description}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${item.price}</span>
+                            <span class="item-status">
+                                <span class="status-dot status-${item.status}"></span>
+                                ${item.status.replace('_', ' ')}
+                            </span>
+                        </div>
+                    </div>
+                    <a href="${item.url}" class="item-action" target="_blank" rel="noopener">View details</a>
+                </article>
+            `).join('');
+            
+            // Trigger lazy loading for new images
+            setupLazyLoading();
+        }
+        
+        function renderProposals(proposals, container) {
+            container.innerHTML = proposals.map((p, idx) => `
+                <article class="item proposal-card" style="animation-delay: ${idx * 0.05}s">
+                    <div class="item-image-wrap">
+                        <span class="proposal-icon">◫</span>
+                    </div>
+                    <div class="item-index">${p.id}</div>
+                    <div class="item-meta">
+                        <div class="item-category">${p.category}</div>
+                        <h3 class="item-name">${p.name}</h3>
+                        <div class="item-origin">Proposed on ${p.platform}</div>
+                        <p class="item-desc">Estimated value: ${p.price}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${p.votes} votes</span>
+                            <span class="item-status">${p.comments} comments</span>
+                        </div>
+                    </div>
+                    <a href="${p.url}" class="item-action" target="_blank" rel="noopener">Review proposal</a>
+                </article>
+            `).join('');
+        }
+        
+        function renderCurators(curators, container) {
+            container.innerHTML = curators.map((c, idx) => `
+                <article class="item curator-card" style="animation-delay: ${idx * 0.05}s">
+                    <div class="item-image-wrap">
+                        <span style="font-size: 2.5rem; opacity: 0.8;">◈</span>
+                    </div>
+                    <div class="item-meta">
+                        <div class="item-category">Curator</div>
+                        <h3 class="item-name">${c.name}</h3>
+                        <p class="item-desc">Commission rate: ${c.commission} • ${c.items} active items in collection</p>
+                    </div>
+                    <a href="${c.url}" class="item-action" target="_blank" rel="noopener">Browse catalog</a>
+                </article>
+            `).join('');
+        }
+        
+        // Initialize
+        function init() {
+            renderItems(collection.items, document.getElementById('currentShelf'));
+            renderProposals(collection.proposals, document.getElementById('proposalShelf'));
+            renderCurators(collection.curators, document.getElementById('curatorShelf'));
+            
+            // Remove loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 300);
+        }
+        
+        // Search with debounce
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const query = e.target.value.toLowerCase().trim();
+                const filtered = query 
+                    ? collection.items.filter(item =>
+                        item.name.toLowerCase().includes(query) ||
+                        item.origin.toLowerCase().includes(query) ||
+                        item.category.toLowerCase().includes(query) ||
+                        item.description.toLowerCase().includes(query)
+                      )
+                    : collection.items;
+                
+                renderItems(filtered, document.getElementById('currentShelf'));
+                document.getElementById('acquisitionCount').textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+            }, 150);
+        });
+        
+        // Filter chips
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                
+                const filter = chip.dataset.filter;
+                let filtered = collection.items;
+                
+                if (filter === 'ending_soon') {
+                    filtered = collection.items.filter(i => i.status === 'ending_soon');
+                } else if (filter !== 'all') {
+                    filtered = collection.items.filter(i => i.category === filter);
+                }
+                
+                renderItems(filtered, document.getElementById('currentShelf'));
+                document.getElementById('acquisitionCount').textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+            });
+        });
+        
+        // Start
+        init();
+    </script>
+</body>
+</html>
