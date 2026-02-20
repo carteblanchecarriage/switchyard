@@ -68,11 +68,27 @@
     </div>
 
     <div class="filter-wrap">
-        <span class="chip active" data-filter="all">All</span>
-        <span class="chip" data-filter="keyboard">Keyboards</span>
-        <span class="chip" data-filter="case">Cases</span>
-        <span class="chip" data-filter="switches">Switches</span>
-        <span class="chip" data-filter="keycaps">Keycaps</span>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <div>
+                <span class="chip active" data-filter="all">All</span>
+                <span class="chip" data-filter="keyboard">Keyboards</span>
+                <span class="chip" data-filter="case">Cases</span>
+                <span class="chip" data-filter="switches">Switches</span>
+                <span class="chip" data-filter="keycaps">Keycaps</span>
+            </div>
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+                <label for="sortSelect" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded);">Sort by:</label>
+                <select id="sortSelect" style="padding: 0.5rem 1rem; font-family: inherit; border: 1px solid var(--border); border-radius: 4px; background: white; cursor: pointer;">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-az">Name: A-Z</option>
+                    <option value="name-za">Name: Z-A</option>
+                    <option value="vendor-az">Vendor: A-Z</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <main class="main">
@@ -93,6 +109,8 @@
         let collection = { items: [] };
         let displayedItems = [];
         let currentBatch = 0;
+        let currentFilter = 'all';
+        let currentSort = 'featured';
         const ITEMS_PER_BATCH = 50;
         
         const CACHE_KEY = 'keebshelf_data';
@@ -130,8 +148,7 @@
                 description: item.description || ''
             }));
             
-            displayedItems = collection.items;  // Initialize displayed items
-            displayData();
+            applyFilterAndSort();
         }
         
         function displayData() {
@@ -210,42 +227,99 @@
             }
         }
         
+        // Apply filter, sort, and update display
+        function applyFilterAndSort() {
+            // Filter
+            let filtered = collection.items;
+            
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(item => item.category === currentFilter);
+            }
+            
+            // Sort
+            displayedItems = sortItemList(filtered, currentSort);
+            currentBatch = 0;
+            displayData();
+        }
+        
+        // Parse price string (e.g., "$199", "$11/pack", "$10.00", "$50+") to number
+        function parsePrice(priceStr) {
+            if (!priceStr || priceStr === 'N/A' || priceStr === 'TBA') return 0;
+            // Extract first number from string
+            const match = priceStr.match(/[\d,]+\.?\d*/);
+            if (!match) return 0;
+            return parseFloat(match[0].replace(/,/g, ''));
+        }
+        
+        // Sort a list of items
+        function sortItemList(items, sortValue) {
+            let sorted = [...items];
+            
+            switch(sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+                    break;
+                case 'name-az':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'name-za':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'vendor-az':
+                    sorted.sort((a, b) => a.origin.localeCompare(b.origin, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'newest':
+                    // Keep original order (assumed newest first in data)
+                    break;
+                case 'featured':
+                default:
+                    // Shuffle slightly for variety
+                    sorted.sort(() => Math.random() - 0.5);
+                    break;
+            }
+            
+            return sorted;
+        }
+        
+        // Search handler
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
+            
             if (!query) {
-                displayedItems = collection.items;
+                applyFilterAndSort();
             } else {
-                displayedItems = collection.items.filter(item =>
+                const searchResults = collection.items.filter(item =>
                     item.name.toLowerCase().includes(query) ||
                     item.origin.toLowerCase().includes(query) ||
                     item.category.toLowerCase().includes(query)
                 );
+                displayedItems = sortItemList(searchResults, currentSort);
+                currentBatch = 0;
+                displayData();
             }
-            currentBatch = 0;
-            displayData();
-            updateActiveChip('all');
         });
         
         // Filter chips
         document.querySelectorAll('.chip').forEach(chip => {
             chip.addEventListener('click', () => {
-                const filter = chip.dataset.filter;
-                
+                currentFilter = chip.dataset.filter;
                 document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
-                
-                if (filter === 'all') {
-                    displayedItems = collection.items;
-                } else {
-                    displayedItems = collection.items.filter(item => item.category === filter);
-                }
-                
-                currentBatch = 0;
-                displayData();
+                applyFilterAndSort();
             });
         });
         
+        // Sort dropdown
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            applyFilterAndSort();
+        });
+        
         function updateActiveChip(filter) {
+            currentFilter = filter;
             document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
             const activeChip = document.querySelector(`.chip[data-filter="${filter}"]`);
             if (activeChip) activeChip.classList.add('active');
