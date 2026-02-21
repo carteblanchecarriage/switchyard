@@ -207,6 +207,24 @@
         .loading-screen { position: fixed; inset: 0; background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; }
         .loading-screen.hidden { opacity: 0; visibility: hidden; transition: opacity 0.5s; }
         .loading-text { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
+        
+        /* Loading Spinner */
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spinner 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        [data-theme="dark"] .spinner {
+            border-color: var(--border);
+            border-top-color: var(--accent);
+        }
         .masthead { background: var(--ink); color: var(--paper); padding: 2rem; }
         .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; }
         .brand-lockup { display: flex; align-items: baseline; gap: 0.75rem; }
@@ -468,7 +486,8 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite" aria-label="Loading keyboard collection">
-        <div class="loading-text" aria-live="polite">Loading collection...</div>
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="loading-text" aria-live="polite">Loading keyboard collection...</div>
     </div>
 
     <div id="sr-announcer" class="sr-announcer" aria-live="polite" aria-atomic="true"></div>
