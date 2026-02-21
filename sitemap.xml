@@ -4,6 +4,7 @@
         <loc>https://carteblanchecarriage.github.io/keebshelf/</loc>
         <priority>1.0</priority>
         <changefreq>hourly</changefreq>
+        <lastmod>2026-02-21</lastmod>
     </url>
     <url>
         <loc>https://carteblanchecarriage.github.io/keebshelf/blog.html</loc>
@@ -15,6 +16,7 @@
         <loc>https://carteblanchecarriage.github.io/keebshelf/beginner/</loc>
         <priority>0.9</priority>
         <changefreq>monthly</changefreq>
+        <lastmod>2026-02-21</lastmod>
     </url>
     <url>
         <loc>https://carteblanchecarriage.github.io/keebshelf/guides/switches/</loc>
@@ -31,6 +33,60 @@
     <url>
         <loc>https://carteblanchecarriage.github.io/keebshelf/guides/lubing/</loc>
         <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/best/</loc>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/best-budget/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/best-programming/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/best-60-percent/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/gaming/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/switches/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/build/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/guide/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/keebshelf/glossary/</loc>
+        <priority>0.7</priority>
         <changefreq>monthly</changefreq>
         <lastmod>2026-02-21</lastmod>
     </url>
