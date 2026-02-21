@@ -13,7 +13,9 @@
 #### Professional Design Refresh
 - [x] **Fix dark mode card backgrounds** — Replaced hardcoded `white` with `var(--paper)` so cards respect dark theme
 - [x] **Remove excess emojis** — Replaced casual emojis with minimal icons or clean text across ALL pages
-- [ ] **Professional header redesign** — Cleaner nav, better typography, no emojis  
+- [x] **Professional header redesign - Remove theme toggle emojis** — Theme toggle now shows clean "Dark"/"Light" text labels only
+- [x] **Improve dark mode toggle** — Created modern sliding toggle with cubic-bezier animation, accent colors, and accessibility
+- [ ] **Professional header redesign - Clean navigation** — Minimal text-based nav instead of icons
 - [ ] **Consistent color palette audit** — Ensure all pages use same brand colors (#1a1a1a, #FAF9F7, #C9A227) (index.html, blog.html, guides/, beginner/)
 - [ ] **Professional header redesign** — Cleaner nav, better spacing, refined typography, remove emoji decorations
 - [ ] **Consistent color palette audit** — Ensure all pages use same brand colors (#1a1a1a, #FAF9F7, #C9A227)
