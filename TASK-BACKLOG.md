@@ -8,7 +8,30 @@
 
 ## Current Sprint: Content & Growth
 
-### 🔥 HIGH PRIORITY (Do First)
+### 🔥 HIGH PRIORITY - User Requests (Do First)
+
+#### Professional Design Refresh
+- [ ] **Remove excess emojis** — Replace casual emojis with minimal icons or text across all pages (index.html, blog.html, guides/, beginner/)
+- [ ] **Professional header redesign** — Cleaner nav, better spacing, refined typography, remove emoji decorations
+- [ ] **Consistent color palette audit** — Ensure all pages use same brand colors (#1a1a1a, #FAF9F7, #C9A227)
+
+#### Mobile Compatibility Sprint  
+- [ ] **Mobile viewport audit** — Check all pages on mobile widths (320px, 375px, 414px)
+- [ ] **Fix header on mobile** — Collapse nav to hamburger menu below 768px
+- [ ] **Touch-friendly buttons** — Ensure all interactive elements are 44px+ touch targets
+- [ ] **Mobile filter bar** — Redesign vendor filters to stack vertically on small screens
+
+#### Product Retention Features (Keep Users On Site)
+- [ ] **Quick View Modal** — Click card → modal opens with full product details (image, description, specs, price) without leaving site
+- [ ] **Back button detection** — Use `document.referrer` to show "← Back to Keebshelf" banner on external sites
+- [ ] **Exit intent modal** — When user clicks external link, show "Compare other options first" modal with related products
+
+#### Header & Styling
+- [ ] **Minimal navigation** — Text-based nav instead of emoji icons (Home, Keyboards, Guides, Blog)
+- [ ] **Refined hero section** — Professional subhead, less busy layout
+- [ ] **Consistent footer** — Same footer across all pages with clean links (no emojis)
+
+### 🔥 HIGH PRIORITY (Original Sprint)
 
 #### Data Source Tasks
 - [x] **Add Epomaker to scraper** — Add https://epomaker.com as scrapeable source  
