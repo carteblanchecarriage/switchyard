@@ -888,7 +888,37 @@
                         </div>
                     </div>
                 </div>
-                <div id="wizard-step-4" class="wizard-step" data-step="4" style="display: none;"></div>
+                <div id="wizard-step-4" class="wizard-step" data-step="4" style="display: none;">
+                    <div class="wizard-step-number">Step 4 of 5</div>
+                    <h3 class="wizard-question">Want to customize switches later?</h3>
+                    <p class="wizard-subtitle">Hot-swap lets you change switches without soldering. Great for experimenting.</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="yes" onclick="selectWizardOption(4, 'yes')">
+                            <div class="wizard-icon" style="color: #27ae60;">[Y]</div>
+                            <h4 class="wizard-option-title">Yes, definitely</h4>
+                            <p class="wizard-option-desc">I want to try different switches without soldering.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="maybe" onclick="selectWizardOption(4, 'maybe')">
+                            <div class="wizard-icon" style="color: #f39c12;">[M]</div>
+                            <h4 class="wizard-option-title">Maybe later</h4>
+                            <p class="wizard-option-desc">Not now, but I'd like the option in the future.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="no" onclick="selectWizardOption(4, 'no')">
+                            <div class="wizard-icon" style="color: #3498db;">[N]</div>
+                            <h4 class="wizard-option-title">No thanks</h4>
+                            <p class="wizard-option-desc">Soldered is fine. I'm happy with my choice.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(4, 'unsure')">
+                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
+                            <h4 class="wizard-option-title">What's that?</h4>
+                            <p class="wizard-option-desc">Hot-swap = pop switches in/out. No soldering needed.</p>
+                        </div>
+                    </div>
+                </div>
                 <div id="wizard-step-5" class="wizard-step" data-step="5" style="display: none;"></div>
                 <div id="wizard-results" style="display: none;"></div>
             </div>
