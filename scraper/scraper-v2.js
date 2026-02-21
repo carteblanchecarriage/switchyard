@@ -50,6 +50,16 @@ const VENDORS = {
       { path: '/keycaps', category: 'keycaps' }
     ]
   },
+  'Epomaker': {
+    name: 'Epomaker',
+    baseUrl: 'https://epomaker.com',
+    shopifyDomain: 'epomaker.com',
+    affiliateBase: 'https://epomaker.com',
+    commission: '6%',
+    categories: ['keyboards'],
+    scrapeStrategy: 'shopify',
+    collections: ['keyboard']
+  },
   'Kono.store': {
     name: 'Kono.store',
     baseUrl: 'https://kono.store',
