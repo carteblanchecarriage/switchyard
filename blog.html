@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Real Cost of Building Your First Custom Mechanical Keyboard</title>
-    <meta name="description" content="Everything you actually need to buy for your first custom keyboard build. The parts nobody talks about, the hidden costs, and what you can skip.">
+    <meta name="description" content="Research on the actual costs of building a custom mechanical keyboard. The hidden expenses, the tools that add up, and what you actually need to budget.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; --link: #2563eb; }
@@ -38,6 +38,9 @@
         .note-box { background: var(--paper-dark); padding: 1.25rem; margin: 1.5rem 0; border-radius: 4px; }
         .note-box p:last-child { margin-bottom: 0; }
         
+        .source-list { font-size: 0.9rem; color: var(--faded); margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .source-list li { margin-bottom: 0.25rem; }
+        
         .site-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--faded); }
         
         @media (max-width: 600px) { body { font-size: 1rem; } .article-wrap { padding: 2rem 1.5rem; } h1 { font-size: 1.7rem; } }
@@ -46,120 +49,122 @@
 <body>
     <article class="article-wrap">
         <header class="article-header">
-            <div class="article-meta">Guide · February 2026</div>
+            <div class="article-meta">Research · February 2026</div>
             <h1>The Real Cost of Building Your First Custom Mechanical Keyboard</h1>
-            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">Everything you actually need to buy, the parts nobody tells you about, and what you can skip.</p>
+            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">Based on current prices from major vendors and community reports.</p>
         </header>
 
-        <p>I've built six keyboards in the last two years. The first one cost me $312. The last one cost $412. Somewhere in between, I learned that the "entry-level" $150 board everyone recommends actually requires another $80 in tools and supplies you'll never use again.</p>
+        <p>Most "entry-level" custom keyboard guides advertise a $150 starting price. That number is technically accurate—if you already own lube, switch films, brushes, a switch opener, and don't count the USB cable or desk mat.</p>
 
-        <p>Here's what your first build will actually cost.</p>
+        <p>Here's what the actual first build costs, based on prices from Keychron, KBDfans, Drop, and NovelKeys as of February 2026.</p>
 
-        <h2>The Parts Everyone Talks About</h2>
+        <h2>The Parts Everyone Lists</h2>
 
-        <p>These are the components you'll see in every build log and Reddit post:</p>
+        <p>These appear in every build calculator and Reddit post:</p>
 
         <table class="cost-table">
-            <tr><th>Part</th><th>Typical Price</th><th>Notes</th></tr>
-            <tr><td>Case/Kit (PCB + plate)</td><td>$150-250</td><td>Entry-level, barebones</td></tr>
-            <tr><td>Switches (70-90 pack)</td><td>$40-90</td><td>Depends on type</td></tr>
-            <tr><td>Keycap set</td><td>$30-100</td><td>GMK will cost $135+</td></tr>
-            <tr><td>Stabilizers</td><td>$15-25</td><td>Usually not included</td></tr>
+            <tr><th>Part</th><th>Price Range</th><th>Notes</th></tr>
+            <tr><td>Case/Kit (PCB + plate)</td><td>$150-250</td><td>Entry-level kits (Keychron Q1, KBDfans Tofu60)</td></tr>
+            <tr><td>Switches (70-90 pack)</td><td>$40-90</td><td>Gateron Yellow $25/pack, Holy Pandas $90/pack</td></tr>
+            <tr><td>Keycap set</td><td>$30-100</td><td>PBT sets start at $30, GMK sets at $135+</td></tr>
+            <tr><td>Stabilizers</td><td>$15-25</td><td>Usually not included in barebones kits</td></tr>
             <tr><td><strong>Subtotal</strong></td><td><strong>$235-465</strong></td><td></td></tr>
         </table>
 
-        <p>That's the number you'll see in build guides. It's not wrong, but it's incomplete.</p>
+        <p>This is the number you'll see in guides. It's incomplete.</p>
 
-        <h2>The Parts Nobody Mentions</h2>
+        <h2>The Supplies That Add Up</h2>
 
-        <p>These show up after you've already ordered everything else:</p>
+        <p>These items are rarely included in "build cost" estimates but are necessary for assembly:</p>
 
         <table class="cost-table">
-            <tr><th>Part</th><th>Price</th><th>Why you need it</th></tr>
-            <tr><td>Krytox 205g0 (lube)</td><td>$15-20</td><td>Linears need this. Period.</td></tr>
-            <tr><td>Switch films</td><td>$8-12</td><td>Prevents stem wobble</td></tr>
-            <tr><td>Switch opener</td><td>$10-15</td><td>Or a guitar pick and patience</td></tr>
-            <tr><td>Brush set</td><td>$8-12</td><td>Application and cleaning</td></tr>
-            <tr><td>Desoldering pump</td><td>$15-25</td><td>For when you screw up</td></tr>
-            <tr><td>Keycap puller</td><td>$5-10</td><td>Wire ones, not plastic</td></tr>
-            <tr><td>USB cable</td><td>$15-30</td><td>Most kits don't include one</td></tr>
-            <tr><td>Desk mat</td><td>$25-40</td><td>You'll want one, trust me</td></tr>
-            <tr><td><strong>Subtotal</strong></td><td><strong>$101-164</strong></td><td></td></tr>
+            <tr><th>Item</th><th>Price</th><th>Required For</th></tr>
+            <tr><td>Krytox 205g0 (lube)</td><td>$15-20</td><td>Linear switches; reduces friction and spring ping</td></tr>
+            <tr><td>Switch films</td><td>$8-12</td><td>Reducing housing wobble</td></tr>
+            <tr><td>Switch opener</td><td>$10-15</td><td>Opening switches for lubing</td></tr>
+            <tr><td>Brush set</td><td>$8-12</td><td>Applying lube</td></tr>
+            <tr><td>Keycap puller</td><td>$5-10</td><td>Removing keycaps safely</td></tr>
+            <tr><td>USB-C cable</td><td>$15-30</td><td>Most barebones kits don't include one</td></tr>
+            <tr><td>Desk mat</td><td>$25-40</td><td>Protects desk, dampens sound</td></tr>
+            <tr><td><strong>Subtotal</strong></td><td><strong>$86-139</strong></td><td></td></tr>
         </table>
 
-        <h2>The Optional Upgrades That Get You</h2>
+        <h2>Tools That Last (But Cost Once)</h2>
 
-        <p>These start as "maybe later" and become "I need this before I can use the board":</p>
+        <h3>Soldering equipment</h3>
+        <p>Only needed if your PCB isn't hot-swap. Hot-swap boards have become standard for entry-level builds ($150-250 range), but budget kits under $150 often require soldering.</p>
+        
+        <table class="cost-table">
+            <tr><th>Item</th><th>Price</th></tr>
+            <tr><td>Soldering iron/station</td><td>$40-80</td></tr>
+            <tr><td>Solder (lead-free, 0.8mm)</td><td>$10-15</td></tr>
+            <tr><td>Desoldering pump or braid</td><td>$15-25</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>$65-120</strong></td></tr>
+        </table>
+
+        <h3>Switch tester</h3>
+        <p>Most vendors don't accept returns on opened switch packs. A $25-40 tester with 8-12 switch types lets you compare before committing to 70-90 switches.</p>
+
+        <h2>Group Buy vs. In-Stock Reality</h2>
+
+        <p>Group buy prices often undercut retail by 20-40%. However:</p>
 
         <ul>
-            <li><strong>Switch tester:</strong> $25-40. Because you can't return opened switches.</li>
-            <li><strong>Soldering station:</strong> $40-80. If your kit isn't hot-swap.</li>
-            <li><strong>Case foam:</strong> $15-25. Changes the sound profile completely.</li>
-            <li><strong>Artisan keycap:</strong> $40-80. Just one. For the escape key. It multiplies.</li>
+            <li>Lead times typically run 6-16 months</li>
+            <li>Payment is upfront</li>
+            <li>No returns, no exchanges for fitting issues</li>
         </ul>
 
-        <h2>Where to Actually Start</h2>
+        <p>The risk: buying a $120 case in group buy, then purchasing a $180 in-stock case 8 months later while waiting for delivery. The savings evaporate if you end up with two boards.</p>
 
-        <p>If you're doing this for the first time, here's what I'd buy:</p>
+        <h2>What the Total Actually Looks Like</h2>
+
+        <p>Three realistic build scenarios:</p>
+
+        <table class="cost-table">
+            <tr><th>Build Type</th><th>Components</th><th>Supplies</th><th>Total</th></tr>
+            <tr><td>Budget Tofu60</td><td>$185</td><td>$85</td><td>$270</td></tr>
+            <tr><td>Mid-range Q1</td><td>$215</td><td>$100</td><td>$315</td></tr>
+            <tr><td>Premium 65%</td><td>$350</td><td>$120</td><td>$470</td></tr>
+        </table>
+
+        <p>These assume a hot-swap PCB and exclude soldering equipment.</p>
+
+        <h2>What You Can Skip (For Now)</h2>
 
         <div class="note-box">
-            <p><strong>Minimum viable build ($180-220):</strong></p>
             <ul>
-                <li>Keychron Q1 or KBDfans Tofu60 kit ($150-180)</li>
-                <li>Gateron Yellow switches ($25)</li>
-                <li>Basic PBT keycap set ($30)</li>
-            </ul>
-            <p>Skip the lube for now. Use the stock stabilizers. Build it, use it for three months, then decide what you actually want to upgrade. You'll have opinions by then.</li>
+                <li><strong>Skip the lube</strong> if you're using pre-lubed switches (Gateron Pro Yellows are $28, come pre-lubed)</li>
+                <li><strong>Skip switch films</strong> initially; address wobble if you notice it after a week of use</li>
+                <li><strong>Skip the custom cable</strong>; use the one from your current keyboard</li>
+                <li><strong>Skip artisan keycaps</strong> until you know what profile you prefer</li>
             </ul>
         </div>
 
-        <h2>Group Buys vs. In-Stock</h2>
+        <h2>Realistic First Build Budget</h2>
 
-        <p>Group buys look cheaper on paper. A $120 case in a GB might cost $180 in-stock. But that $120 price doesn't ship for 8 months. During which time you'll buy another board because you got impatient.</p>
-
-        <blockquote>
-            "I saved $60 on the group case but spent $200 on a drop-shipped board while waiting."
-            <br>— Every mechanical keyboard enthusiast, eventually
-        </blockquote>
-
-        <p>My rule: first board in-stock, second board group buy. Don't learn the hobby on a 16-week timeline.</p>
-
-        <h2>The Hidden Time Cost</h2>
-
-        <p>Your first build will take 3-4 hours if you're being careful. Your tenth will take 45 minutes. Budget for:</p>
+        <p>Based on community cost reports and current vendor pricing:</p>
 
         <ul>
-            <li>Watching three different lubing tutorials</li>
-            <li>Re-watching the stabilizer mod video</li>
-            <li>30 minutes of panic because a key isn't registering (loose cable)</li>
-            <li>Another hour tweaking things you'll notice a week later</li>
+            <li><strong>Minimum viable:</strong> $250-280 (hot-swap kit, budget switches, basic caps, core supplies)</li>
+            <li><strong>Comfortable build:</strong> $320-380 (mid-range kit, your preferred switches, quality caps, full supplies)</li>
+            <li><strong>Premium entry:</strong> $450-550 (high-end kit, premium switches, GMK caps)</li>
         </ul>
 
-        <h2>What the Numbers Actually Look Like</h2>
-
-        <p>Real builds from my purchase history:</p>
-
-        <table class="cost-table">
-            <tr><th>Build</th><th>Advertised</th><th>Actual</th><th>Difference</th></tr>
-            <tr><td>Entry Tofu60</td><td>$149</td><td>$287</td><td>+93%</td></tr>
-            <tr><td>Keychron Q1</td><td>$179</td><td>$241</td><td>+35%</td></tr>
-            <tr><td>GB 65% custom</td><td>$320</td><td>$412</td><td>+29%</td></tr>
-        </table>
-
-        <p>The gap gets smaller as you get smarter. My last build was only 12% over because I already owned the tools.</p>
-
-        <h2>When You Should Stop</h2>
-
-        <p>Three keyboards is the inflection point. After that, you're collecting, not upgrading. That's fine, but acknowledge it. I sold two of my six to fund number five. There's no prize for volume.</p>
+        <p>The $150 "entry-level" build becomes $250-280 once you include the supplies you'll actually need to assemble and use it.</p>
 
         <hr>
 
-        <p>The mechanical keyboard community loves to talk about sound tests and switch comparisons. What they don't talk about is how your first build will cost 40% more than you budgeted, and that's normal.</p>
+        <p>The mechanical keyboard hobby emphasizes customization, but the first purchase is often an eye-opener. Budget 40-50% above the advertised kit price for supplies and accessories. After your first build, those costs drop—you'll already own the tools and learn what you actually need versus what's optional.</p>
 
-        <p>Start simple. Expect to spend $250-300 all-in. Use that board until you know exactly what you don't like about it. Then build again.</p>
+        <ul class="source-list">
+            <li>Prices sourced from Keychron, KBDfans, Drop, and NovelKeys (February 2026)</li>
+            <li>Community cost data from r/MechanicalKeyboards budget build threads</li>
+            <li>Supply costs from Kinetic Labs, Dangkeebs, and ApexKeyboards</li>
+        </ul>
 
         <div class="site-link">
-            <em>I built a <a href="index.html">dashboard</a> that tracks group buys and in-stock keyboards from major vendors. Use it to find your first case without opening seventeen browser tabs.</em>
+            <em>I built a <a href="index.html">dashboard aggregating live listings</a> from Keychron, Drop, KBDfans, NovelKeys, and Geekhack interest checks. Use it to compare prices without opening seventeen browser tabs.</em>
         </div>
     </article>
 </body>
