@@ -1121,7 +1121,7 @@
                 // Simulate API call
                 await new Promise(r => setTimeout(r, 1000));
 
-                msg.innerHTML = '<span style="color: #16a34a;">✓ Subscribed! Check your email.</span>';
+                msg.innerHTML = '<span style="color: #16a34a;">[OK] Subscribed! Check your email.</span>';
                 announceToScreenReader('Successfully subscribed to daily alerts');
                 setTimeout(() => {
                     document.getElementById('subscribeForm')?.reset();
