@@ -832,7 +832,34 @@
                         </div>
                     </div>
                 </div>
-                <div id="wizard-step-2" class="wizard-step" data-step="2" style="display: none;"></div>
+                <div id="wizard-step-2" class="wizard-step" data-step="2" style="display: none;">
+                    <div class="wizard-step-number">Step 2 of 5</div>
+                    <h3 class="wizard-question">What's your workspace environment?</h3>
+                    <p class="wizard-subtitle">Different switches make different sounds. Pick what works for your space.</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="quiet" onclick="selectWizardOption(2, 'quiet')">
+                            <div class="wizard-icon" style="color: #27ae60;">[Q]</div>
+                            <h4 class="wizard-option-title">Shared / Office</h4>
+                            <p class="wizard-option-desc">Need quiet switches. Linear reds or silent variants recommended.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="medium" onclick="selectWizardOption(2, 'medium')">
+                            <div class="wizard-icon" style="color: #f39c12;">[M]</div>
+                            <h4 class="wizard-option-title">Home Office</h4>
+                            <p class="wizard-option-desc">Some noise OK. Tactile browns are a good middle ground.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="loud" onclick="selectWizardOption(2, 'loud')">
+                            <div class="wizard-icon" style="color: #e74c3c;">[L]</div>
+                            <h4 class="wizard-option-title">Private Space</h4>
+                            <p class="wizard-option-desc">Clicky blue switches. Satisfying tactile bump and audible click.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(2, 'unsure')">
+                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
+                            <h4 class="wizard-option-title">Not Sure</h4>
+                            <p class="wizard-option-desc">We'll show you all options. Check out our Switch Guide to learn more.</p>
+                        </div>
+                    </div>
+                </div>
                 <div id="wizard-step-3" class="wizard-step" data-step="3" style="display: none;"></div>
                 <div id="wizard-step-4" class="wizard-step" data-step="4" style="display: none;"></div>
                 <div id="wizard-step-5" class="wizard-step" data-step="5" style="display: none;"></div>
