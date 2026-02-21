@@ -24,6 +24,12 @@
 - [ ] **Task 9: Results UI** — Display matches with "✓ Why this fits" badges, learn more links
 - [ ] **Task 10: Launch trigger** — Add "Find My Keyboard" CTA button to hero section
 
+### Analytics & Tracking Tasks (NEW)
+- [ ] **Set up web analytics** — Research and implement free analytics tool (Plausible, Google Analytics 4, Cloudflare Analytics, or privacy-focused alternative)
+- [ ] **Add basic tracking** — Page views, popular products, wizard completion rate, click-through rates
+- [ ] **Set up dashboard** — Simple view of: daily visitors, top products, conversion funnel, which vendors get most clicks
+- [ ] **Track wizard performance** — How many start vs complete, drop-off points, most common paths
+
 ---
 
 ## Current Sprint: Content & Growth
