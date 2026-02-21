@@ -1,0 +1,101 @@
+🚀 Keyboard Tracker - Enhanced Product Scraper
+
+🎯 Fetching real product URLs from vendor sites...
+
+🔍 Scraping Drop.com...
+  ✅ Found 5 Drop products with verified URLs
+🔍 Scraping Epomaker (Shopify)...
+    ⚠️ Skipping sold out: EPOMAKER Galaxy65
+    ⚠️ Skipping sold out: EPOMAKER Magforce 68
+    ⚠️ Skipping sold out: EPOMAKER Peace Lily Switch Set
+    ⚠️ Skipping sold out: FirstBlood B6
+    ⚠️ Skipping sold out: Epomaker Chocolate Mechanical Switch Set
+    ⚠️ Skipping sold out: Epomaker HE65 Mag
+    ⚠️ Skipping sold out: Ajazz AS Switch
+    ⚠️ Skipping sold out: EPOMAKER SereniTea Keycaps Set
+    ⚠️ Skipping sold out: VTER ATO87 HE Series
+    ⚠️ Skipping sold out: Epomaker P75
+    ⚠️ Skipping sold out: EPOMAKER Galaxy68
+    ⚠️ Skipping sold out: SKYLOONG GK61 HE
+    ⚠️ Skipping sold out: SKYLOONG GK68 HE
+    ⚠️ Skipping sold out: EPOMAKER QK81
+    ⚠️ Skipping sold out: EPOMAKER EA75
+    ⚠️ Skipping sold out: EPOMAKER x AULA F65 PRO
+    ⚠️ Skipping sold out: EPOMAKER Luma84
+    ⚠️ Skipping sold out: EPOMAKER P65
+    ⚠️ Skipping sold out: Epomaker HE65 Mec
+    ⚠️ Skipping sold out: VTER Fighting68 HE Series
+    ⚠️ Skipping sold out: Epomaker TH85
+    ⚠️ Skipping sold out: Epomaker P87
+    ⚠️ Skipping sold out: Epomaker Alice 66
+    ⚠️ Skipping sold out: Epomaker HE75 Mag
+    ⚠️ Skipping sold out: Ajazz AK820 Max
+    ⚠️ Skipping sold out: CIDOO C75
+    ⚠️ Skipping sold out: LEOBOG Rocklee Switch Set
+    ⚠️ Skipping sold out: LEOBOG Purple King Switch Set
+    ⚠️ Skipping sold out: KiiBOOM Transparent PC Keycaps
+    ⚠️ Skipping sold out: KiiBOOM Phantom 21
+    ⚠️ Skipping sold out: CIDOO ABM066
+    ⚠️ Skipping sold out: EPOMAKER RT100
+    ⚠️ Skipping sold out: EPOMAKER Switch Opener Kit
+    ⚠️ Skipping sold out: Cherry MX Switch Set
+  ✅ Found 102 products from Epomaker
+🔍 Scraping Kono.store (Shopify)...
+  ⚠️ Kono.store: Request failed with status code 404
+    ⚠️ Collection switches: Request failed with status code 404
+    ⚠️ Collection keyboards: Request failed with status code 404
+    ⚠️ Collection keycaps: Request failed with status code 404
+🔍 Scraping NovelKeys (Shopify)...
+    ⚠️ Skipping sold out: KBDFans Roller Switches V2
+    ⚠️ Skipping sold out: Smurve80
+    ⚠️ Skipping sold out: Matrix Solder PCB Packs
+    ⚠️ Skipping sold out: Matrix Carnival
+    ⚠️ Skipping sold out: NESON NoryTek70
+    ⚠️ Skipping sold out: Keycult No. 2/TKL
+    ⚠️ Skipping sold out: NK87 - Olive Edition
+    ⚠️ Skipping sold out: NK65 - Oblivion Edition
+    ⚠️ Skipping sold out: Cherry PBoW
+    ⚠️ Skipping sold out: NK65 - Entry Edition
+    ⚠️ Skipping sold out: CLASSIC-TKL Mictlan Edition
+    ⚠️ Skipping sold out: [Extra Case] Cloudnine 2
+    ⚠️ Skipping sold out: Cloudnine 2 | Grand Machina Version
+    ⚠️ Skipping sold out: Cloudnine 2
+    ⚠️ Skipping sold out: Beetle 60
+    ⚠️ Skipping sold out: Keyboard Bundle
+    ⚠️ Skipping sold out: CLASSIC-TKL Hatsune Miku Edition
+    ⚠️ Skipping sold out: Matrix NOSTATION
+    ⚠️ Skipping sold out: Matrix NOOS WING
+    ⚠️ Skipping sold out: Lily R2 Extra Components
+    ⚠️ Skipping sold out: Lily R2 MX Keyboard Kit
+    ⚠️ Skipping sold out: Lily R2 EC Keyboard Kit
+    ⚠️ Skipping sold out: Keycult No. 1 / 1800
+    ⚠️ Skipping sold out: Matrix NOOS Components
+    ⚠️ Skipping sold out: Matrix NOOS
+    ⚠️ Skipping sold out: Keycult No. 1 / 60
+    ⚠️ Skipping sold out: Keycult No. 1 / 60 Top
+    ⚠️ Skipping sold out: Keycult No. 1 / 60 Plate
+    ⚠️ Skipping sold out: FFXIV Eorzean Keycaps
+    ⚠️ Skipping sold out: CLASSIC-TKL FFXIV Edition
+    ⚠️ Skipping sold out: Keycult Zero Accent Layout Bars
+    ⚠️ Skipping sold out: Keycult Zero Accent Bars
+    ⚠️ Skipping sold out: Keycult Zero Base
+    ⚠️ Skipping sold out: Keycult No.1 / 1800 Darling Edition
+    ⚠️ Skipping sold out: Random Warehouse Keyboards
+    ⚠️ Skipping sold out: Cherry Charcoal
+    ⚠️ Skipping sold out: NK65 - Mictlan Edition
+    ⚠️ Skipping sold out: NK87 - Entry Edition
+    ⚠️ Skipping sold out: NK65 - Aluminum Edition
+    ⚠️ Skipping sold out: HMX Switch Sample Pack
+    ⚠️ Skipping sold out: CLASSIC-TKL
+    ⚠️ Skipping sold out: NK65 - Olivia Edition
+    ⚠️ Skipping sold out: Cherry Stone
+    ⚠️ Skipping sold out: KAT Milkshake
+    ⚠️ Skipping sold out: Cherry Copper
+    ⚠️ Skipping sold out: Cherry MX2A Switches
+    ⚠️ Skipping sold out: XOX70 FRL TKL Addons
+    ⚠️ Skipping sold out: XOX70 FRL TKL Plate
+    ⚠️ Skipping sold out: Switch Opener
+    ⚠️ Skipping sold out: Gateron Switches
+    ⚠️ Skipping sold out: Key Kobo Darling
+    ⚠️ Skipping sold out: CYL Hangul
+  ✅ Found 46 products from NovelKeys

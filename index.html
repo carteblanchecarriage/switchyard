@@ -679,6 +679,7 @@
         let currentBatch = 0;
         let currentFilter = 'all';
         let currentSort = 'featured';
+        let selectedVendors = ['keychron', 'drop', 'kbdfans', 'novelkeys', 'epomaker', 'kono.store'];
         const ITEMS_PER_BATCH = 50;
 
         const CACHE_KEY = 'keebshelf_data';
@@ -827,9 +828,22 @@
             // Filter
             let filtered = collection.items;
 
+            // Category filter
             if (currentFilter !== 'all') {
                 filtered = filtered.filter(item => item.category === currentFilter);
             }
+
+            // Vendor filter
+            filtered = filtered.filter(item => {
+                const origin = item.origin?.toLowerCase() || '';
+                return selectedVendors.some(vendor => {
+                    const vendorLower = vendor.toLowerCase();
+                    return origin.includes(vendorLower) || 
+                           (vendorLower === 'kbdfans' && origin.includes('kbd')) ||
+                           (vendorLower === 'novelkeys' && origin.includes('novel')) ||
+                           (vendorLower === 'epomaker' && origin.includes('epomaker'));
+                });
+            });
 
             // Sort
             displayedItems = sortItemList(filtered, currentSort);
@@ -916,6 +930,22 @@
                 const count = displayedItems.length;
                 const label = chip.textContent.trim();
                 announceToScreenReader(`Showing ${count} ${label === 'All' ? 'items' : label.toLowerCase()}`);
+            });
+        });
+
+        // Vendor filter checkboxes
+        document.querySelectorAll('.vendor-checkbox input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const value = checkbox.value;
+                if (checkbox.checked) {
+                    if (!selectedVendors.includes(value)) {
+                        selectedVendors.push(value);
+                    }
+                } else {
+                    selectedVendors = selectedVendors.filter(v => v !== value);
+                }
+                applyFilterAndSort();
+                announceToScreenReader(`${value} ${checkbox.checked ? 'added to' : 'removed from'} vendor filter`);
             });
         });
 
