@@ -5,6 +5,21 @@ const { JSDOM } = require('jsdom');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'keyboard-data.json');
 
+// Rate limiting: track consecutive failures per vendor
+const vendorFailures = {};
+const CIRCUIT_BREAKER_THRESHOLD = 3; // Skip vendor after 3 consecutive failures
+
+// Sleep with jitter to avoid pattern detection
+function sleep(ms) {
+  const jitter = Math.random() * 500; // 0-500ms additional random delay
+  return new Promise(resolve => setTimeout(resolve, ms + jitter));
+}
+
+// Exponential backoff for failed requests
+function getBackoffTime(failureCount) {
+  return Math.min(1000 * Math.pow(2, failureCount), 30000); // Max 30s backoff
+}
+
 // Write to multiple locations for GitHub Pages deployment
 const DATA_FILES = [
   DATA_FILE,  // data/keyboard-data.json
@@ -543,20 +558,52 @@ async function runEnhancedScraper() {
   const dropProducts = await scrapeDrop();
   allProducts.push(...dropProducts);
   
-  // Shopify vendors
+  // Shopify vendors with circuit breaker protection
   for (const [vendorKey, vendorConfig] of Object.entries(VENDORS)) {
-    if (vendorKey !== 'Drop') {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Rate limiting
+    if (vendorKey === 'Drop') continue;
+    
+    // Check circuit breaker
+    if ((vendorFailures[vendorKey] || 0) >= CIRCUIT_BREAKER_THRESHOLD) {
+      console.log(`  ⏸️  Skipping ${vendorConfig.name} (circuit breaker active: ${vendorFailures[vendorKey]} failures)`);
+      continue;
+    }
+    
+    // Rate limiting with jitter (2-3 seconds between vendors)
+    await sleep(2000);
+    
+    try {
       const products = await scrapeShopify(vendorKey, vendorConfig);
       allProducts.push(...products);
+      // Reset failure count on success
+      if (vendorFailures[vendorKey]) delete vendorFailures[vendorKey];
+    } catch (e) {
+      console.log(`  ❌ ${vendorConfig.name} failed: ${e.message}`);
+      vendorFailures[vendorKey] = (vendorFailures[vendorKey] || 0) + 1;
+      
+      // Exponential backoff before continuing
+      const backoff = getBackoffTime(vendorFailures[vendorKey]);
+      console.log(`  ⏳ Backing off for ${backoff}ms before next request`);
+      await sleep(backoff);
     }
   }
   
-  // Reddit posts
-  const redditPosts = await scrapeReddit();
+  // Reddit posts (add delay before third-party requests)
+  await sleep(1000);
+  let redditPosts = [];
+  try {
+    redditPosts = await scrapeReddit();
+  } catch (e) {
+    console.log(`  ❌ Reddit failed: ${e.message}`);
+  }
   
-  // Geekhack ICs
-  const interestChecks = await scrapeGeekhackIC();
+  // Geekhack ICs (add delay)
+  await sleep(1000);
+  let interestChecks = [];
+  try {
+    interestChecks = await scrapeGeekhackIC();
+  } catch (e) {
+    console.log(`  ❌ Geekhack failed: ${e.message}`);
+  }
   
   // Combine into final dataset
   

@@ -1,6 +1,6 @@
 #!/bin/bash
-# Keebshelf Scraper - Runs every 2 hours
-# Place this in crontab: */2 * * * * /home/klondike/Desktop/keyboard-tracker/tools/scrape-cron.sh
+# Keebshelf Scraper - Runs every 30 minutes
+# Place this in crontab: */30 * * * * /home/klondike/Desktop/keyboard-tracker/tools/scrape-cron.sh
 
 cd /home/klondike/Desktop/keyboard-tracker
 
