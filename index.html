@@ -215,10 +215,11 @@
         .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
         .acquisition-count { font-size: 0.875rem; color: var(--faded); }
         .shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-        .item { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-        .item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .item { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease; display: flex; flex-direction: column; }
+        .item:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04); border-color: var(--accent); }
         .item-image-wrap { height: 200px; position: relative; overflow: hidden; background: var(--paper-dark); }
-        .item-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .item-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .item:hover .item-image-wrap img { transform: scale(1.05); }
         .item-no-image { height: 100%; display: flex; align-items: center; justify-content: center; background: var(--paper-dark); color: var(--faded); font-size: 0.875rem; }
         .item-meta { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
         .item-category { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--faded); margin-bottom: 0.5rem; }
