@@ -67,6 +67,19 @@
         <input type="search" class="search-input" id="searchInput" placeholder="Search keyboards, keycaps, switches...">
     </div>
 
+    <!-- Stats Bar -->
+    <div style="background: var(--paper-dark); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--faded);">
+                <span>🔍 <strong id="totalItems" style="color: var(--ink);">276</strong> items tracked</span>
+                <span>🏪 <strong>5</strong> vendors</span>
+            </div>
+            <button onclick="openSubscribeModal()" style="background: var(--accent); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; font-family: inherit; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                🔔 Get Daily Alerts
+            </button>
+        </div>
+    </div>
+
     <div class="filter-wrap">
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
             <div>
@@ -88,6 +101,32 @@
                     <option value="newest">Newest First</option>
                 </select>
             </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribeModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center;" onclick="closeSubscribeModal(event)">
+        <div style="background: white; border-radius: 8px; max-width: 400px; width: 90%; padding: 2rem; position: relative;" onclick="event.stopPropagation()">
+            <button onclick="closeSubscribeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--faded);">×</button>
+            <h3 style="margin-bottom: 1rem;">Get Daily Alerts</h3>
+            <p style="color: var(--faded); margin-bottom: 1.5rem; font-size: 0.9rem;">Never miss a drop. Get daily emails with new products and price drops.</p>
+            
+            <form onsubmit="handleSubscribe(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Email</label>
+                    <input type="email" id="subEmail" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px;" placeholder="you@example.com">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Preferences</label>
+                    <select id="subPref" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px;">
+                        <option value="digest">Daily digest</option>
+                        <option value="alerts">Price alerts only</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <button type="submit" id="subBtn" style="width: 100%; padding: 0.75rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">Subscribe</button>
+                <div id="subMsg" style="margin-top: 1rem; text-align: center;"></div>
+            </form>
         </div>
     </div>
 
@@ -324,6 +363,52 @@
             document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
             const activeChip = document.querySelector(`.chip[data-filter="${filter}"]`);
             if (activeChip) activeChip.classList.add('active');
+        }
+        
+        // Subscribe Modal Functions
+        function openSubscribeModal() {
+            document.getElementById('subscribeModal').style.display = 'flex';
+        }
+        
+        function closeSubscribeModal(e) {
+            if (!e || e.target.id === 'subscribeModal') {
+                document.getElementById('subscribeModal').style.display = 'none';
+            }
+        }
+        
+        async function handleSubscribe(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('subEmail').value;
+            const preference = document.getElementById('subPref').value;
+            const btn = document.getElementById('subBtn');
+            const msg = document.getElementById('subMsg');
+            
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            msg.innerHTML = '';
+            
+            try {
+                // Note: This is a placeholder. In production, this would call your API
+                // await fetch('/api/subscribe', {...})
+                
+                // Simulate API call
+                await new Promise(r => setTimeout(r, 1000));
+                
+                msg.innerHTML = '<span style="color: #16a34a;">✓ Subscribed! Check your email.</span>';
+                setTimeout(() => {
+                    document.getElementById('subscribeForm').reset();
+                    closeSubscribeModal();
+                }, 2000);
+                
+            } catch (err) {
+                msg.innerHTML = '<span style="color: #dc2626;">❌ Failed to subscribe. Please try again.</span>';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            }
+            
+            return false;
         }
         
         loadData();
