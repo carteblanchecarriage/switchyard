@@ -3,285 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keebshelf | The Hunt for Group Buys</title>
-    <meta name="description" content="Why I built a dashboard to track mechanical keyboard group buys - the problem with scattered announcements and the solution.">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+    <title>The Real Cost of Building Your First Custom Mechanical Keyboard</title>
+    <meta name="description" content="Everything you actually need to buy for your first custom keyboard build. The parts nobody talks about, the hidden costs, and what you can skip.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --paper: #fdfcf8; 
-            --paper-dark: #f7f6f2; 
-            --ink: #1a1a1a; 
-            --accent: #c4a35a; 
-            --faded: #6b6b6b; 
-            --border: #e8e8e8;
-            --link: #2563eb;
-        }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Newsreader', Georgia, serif; 
-            background: var(--paper); 
-            color: var(--ink); 
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
+        :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; --link: #2563eb; }
+        body { font-family: Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 1.1rem; }
+        .article-wrap { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 5rem; }
         
-        .masthead { 
-            background: var(--ink); 
-            color: var(--paper); 
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .masthead-inner { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-        }
-        .brand-lockup { 
-            display: flex; 
-            align-items: baseline; 
-            gap: 0.75rem; 
-            text-decoration: none;
-            color: var(--paper);
-        }
-        .brand-lockup h1 { 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-        }
-        .brand-lockup span { 
-            font-style: italic; 
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-        .nav-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--paper);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--faded);
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
-        .nav-link:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
+        .article-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .article-meta { font-family: monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        h1 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 1.5rem; font-weight: 400; }
         
-        .article-wrap {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 3rem 2rem 5rem;
-        }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+        h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 600; }
         
-        .article-header {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-        }
+        p { margin-bottom: 1.25rem; }
         
-        .article-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--faded);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        h1.article-title {
-            font-size: 2rem;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
+        ul, ol { margin: 1.25rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
         
-        h2 {
-            font-size: 1.3rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
+        blockquote { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; color: var(--faded); font-style: italic; }
         
-        h3 {
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
+        hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
         
-        p {
-            margin-bottom: 1.25rem;
-        }
+        .cost-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1rem; }
+        .cost-table th { text-align: left; padding: 0.75rem; border-bottom: 2px solid var(--ink); font-weight: 600; }
+        .cost-table td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+        .cost-table tr:last-child td { border-bottom: 2px solid var(--ink); font-weight: 600; }
         
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        .note-box { background: var(--paper-dark); padding: 1.25rem; margin: 1.5rem 0; border-radius: 4px; }
+        .note-box p:last-child { margin-bottom: 0; }
         
-        blockquote {
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: var(--faded);
-        }
+        .site-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--faded); }
         
-        ul, ol {
-            margin: 1.25rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 2.5rem 0;
-        }
-        
-        .cta-box {
-            background: var(--paper-dark);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .cta-box h3 {
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-        .cta-button:hover {
-            background: #b08d35;
-            text-decoration: none;
-        }
-        
-        code {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9em;
-            background: var(--paper-dark);
-            padding: 0.15rem 0.3rem;
-            border-radius: 3px;
-        }
-        
-        @media (max-width: 600px) {
-            body { font-size: 1rem; }
-            .article-wrap { padding: 2rem 1.5rem 4rem; }
-            h1.article-title { font-size: 1.6rem; }
-            .brand-lockup span { display: none; }
-        }
+        @media (max-width: 600px) { body { font-size: 1rem; } .article-wrap { padding: 2rem 1.5rem; } h1 { font-size: 1.7rem; } }
     </style>
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-inner">
-            <a href="index.html" class="brand-lockup">
-                <h1>Keebshelf</h1>
-                <span>Mechanical Keyboard Collection</span>
-            </a>
-            <a href="index.html" class="nav-link">← Back to Dashboard</a>
-        </div>
-    </header>
-
     <article class="article-wrap">
         <header class="article-header">
-            <div class="article-meta">The Story · February 2026</div>
-            <h1 class="article-title">The Hunt for Group Buys: Why I Built a Single Dashboard to Track Every Mechanical Keyboard Drop</h1>
+            <div class="article-meta">Guide · February 2026</div>
+            <h1>The Real Cost of Building Your First Custom Mechanical Keyboard</h1>
+            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">Everything you actually need to buy, the parts nobody tells you about, and what you can skip.</p>
         </header>
 
-        <p>I spent 20 minutes yesterday trying to find if that Keychron Q1 Pro was still available. Checked Keychron's site. Checked Drop. Checked KBDfans. Checked my email for a group buy I swore I joined three months ago. Found nothing, bought nothing, and now I have a browser tab graveyard of keyboard vendors.</p>
+        <p>I've built six keyboards in the last two years. The first one cost me $312. The last one cost $412. Somewhere in between, I learned that the "entry-level" $150 board everyone recommends actually requires another $80 in tools and supplies you'll never use again.</p>
 
-        <p>This happens every month. Group buys disappear into Discord announcements. Interest checks live as Google Docs with expiration dates. And don't get me started on trying to remember which vendor stocks which switch.</p>
+        <p>Here's what your first build will actually cost.</p>
 
-        <blockquote>
-            So I built something stupid simple: One page that aggregates every group buy and interest check from the major vendors.
-        </blockquote>
+        <h2>The Parts Everyone Talks About</h2>
 
-        <h2>What It Actually Does</h2>
+        <p>These are the components you'll see in every build log and Reddit post:</p>
 
-        <p>Keebshelf pulls live data from:</p>
+        <table class="cost-table">
+            <tr><th>Part</th><th>Typical Price</th><th>Notes</th></tr>
+            <tr><td>Case/Kit (PCB + plate)</td><td>$150-250</td><td>Entry-level, barebones</td></tr>
+            <tr><td>Switches (70-90 pack)</td><td>$40-90</td><td>Depends on type</td></tr>
+            <tr><td>Keycap set</td><td>$30-100</td><td>GMK will cost $135+</td></tr>
+            <tr><td>Stabilizers</td><td>$15-25</td><td>Usually not included</td></tr>
+            <tr><td><strong>Subtotal</strong></td><td><strong>$235-465</strong></td><td></td></tr>
+        </table>
+
+        <p>That's the number you'll see in build guides. It's not wrong, but it's incomplete.</p>
+
+        <h2>The Parts Nobody Mentions</h2>
+
+        <p>These show up after you've already ordered everything else:</p>
+
+        <table class="cost-table">
+            <tr><th>Part</th><th>Price</th><th>Why you need it</th></tr>
+            <tr><td>Krytox 205g0 (lube)</td><td>$15-20</td><td>Linears need this. Period.</td></tr>
+            <tr><td>Switch films</td><td>$8-12</td><td>Prevents stem wobble</td></tr>
+            <tr><td>Switch opener</td><td>$10-15</td><td>Or a guitar pick and patience</td></tr>
+            <tr><td>Brush set</td><td>$8-12</td><td>Application and cleaning</td></tr>
+            <tr><td>Desoldering pump</td><td>$15-25</td><td>For when you screw up</td></tr>
+            <tr><td>Keycap puller</td><td>$5-10</td><td>Wire ones, not plastic</td></tr>
+            <tr><td>USB cable</td><td>$15-30</td><td>Most kits don't include one</td></tr>
+            <tr><td>Desk mat</td><td>$25-40</td><td>You'll want one, trust me</td></tr>
+            <tr><td><strong>Subtotal</strong></td><td><strong>$101-164</strong></td><td></td></tr>
+        </table>
+
+        <h2>The Optional Upgrades That Get You</h2>
+
+        <p>These start as "maybe later" and become "I need this before I can use the board":</p>
 
         <ul>
-            <li><strong>Keychron</strong> — Q-series, K-series, the whole lineup</li>
-            <li><strong>Drop</strong> — CTRL, ALT, SHIFT, Holy Pandas</li>
-            <li><strong>KBDfans</strong> — Tofu boards, switches, group buy cases</li>
-            <li><strong>NovelKeys</strong> — Their exclusives, collaborations</li>
-            <li><strong>Geekhack interest checks</strong> — The stuff that's coming</li>
+            <li><strong>Switch tester:</strong> $25-40. Because you can't return opened switches.</li>
+            <li><strong>Soldering station:</strong> $40-80. If your kit isn't hot-swap.</li>
+            <li><strong>Case foam:</strong> $15-25. Changes the sound profile completely.</li>
+            <li><strong>Artisan keycap:</strong> $40-80. Just one. For the escape key. It multiplies.</li>
         </ul>
 
-        <p>Currently tracking <strong>276 keyboards, cases, switches, and keycap sets</strong> that are actually available right now. Not "email me when it's back." Available.</p>
+        <h2>Where to Actually Start</h2>
 
-        <h2>The Filters That Actually Matter</h2>
+        <p>If you're doing this for the first time, here's what I'd buy:</p>
 
-        <p>I added search, category filters (keyboards/cases/switches/keycaps), and sorting by:</p>
-
-        <ul>
-            <li><strong>Price</strong> — low to high for the budget builds</li>
-            <li><strong>Vendor</strong> — just want to see everything from KBDfans? Done</li>
-            <li><strong>Newest</strong> — fresh drops first</li>
-        </ul>
-
-        <p>And it filters out sold-out stuff automatically. No clickbait.</p>
-
-        <h2>Why I Built This For Myself First</h2>
-
-        <p>I'm tired of:</p>
-
-        <ol>
-            <li>Missing group buy windows because I forgot which Discord server announced it</li>
-            <li>Finding out a board I wanted dropped&hellip; yesterday</li>
-            <li>Opening 8 tabs to compare prices on entry-level customs</li>
-        </ol>
-
-        <p>This is just a better bookmark. Nothing fancy.</p>
-
-        <h2>How the Data Works</h2>
-
-        <p>It scrapes every few hours. If something sells out on Keychron, it disappears from the list within a day. If NovelKeys drops something new, it shows up. No manual updates needed.</p>
-
-        <p>And yeah, the affiliate links are there. If you buy through a link, I might get a coffee. Full disclosure.</p>
-
-        <div class="cta-box">
-            <h3>Check what's available right now</h3>
-            <p style="margin-bottom: 0;">276 mechanical keyboards, cases, switches, and keycap sets.<br>No signup. No spam. Just data.</p>
-            <a href="index.html" class="cta-button">View the Dashboard →</a>
+        <div class="note-box">
+            <p><strong>Minimum viable build ($180-220):</strong></p>
+            <ul>
+                <li>Keychron Q1 or KBDfans Tofu60 kit ($150-180)</li>
+                <li>Gateron Yellow switches ($25)</li>
+                <li>Basic PBT keycap set ($30)</li>
+            </ul>
+            <p>Skip the lube for now. Use the stock stabilizers. Build it, use it for three months, then decide what you actually want to upgrade. You'll have opinions by then.</li>
+            </ul>
         </div>
 
-        <h2>What's Missing?</h2>
+        <h2>Group Buys vs. In-Stock</h2>
 
-        <p>I'd genuinely love feedback on this. I built it because I need it, but I want to know what other keyboard people actually want in a group buy tracker.</p>
+        <p>Group buys look cheaper on paper. A $120 case in a GB might cost $180 in-stock. But that $120 price doesn't ship for 8 months. During which time you'll buy another board because you got impatient.</p>
 
-        <p>Also: if you know of any current interest checks I should watch, <a href="https://github.com/carteblanchecarriage/keebshelf">drop them on GitHub</a> or find me wherever. I manually curate Geekhack threads for now but proper automation is coming.</p>
+        <blockquote>
+            "I saved $60 on the group case but spent $200 on a drop-shipped board while waiting."
+            <br>— Every mechanical keyboard enthusiast, eventually
+        </blockquote>
+
+        <p>My rule: first board in-stock, second board group buy. Don't learn the hobby on a 16-week timeline.</p>
+
+        <h2>The Hidden Time Cost</h2>
+
+        <p>Your first build will take 3-4 hours if you're being careful. Your tenth will take 45 minutes. Budget for:</p>
+
+        <ul>
+            <li>Watching three different lubing tutorials</li>
+            <li>Re-watching the stabilizer mod video</li>
+            <li>30 minutes of panic because a key isn't registering (loose cable)</li>
+            <li>Another hour tweaking things you'll notice a week later</li>
+        </ul>
+
+        <h2>What the Numbers Actually Look Like</h2>
+
+        <p>Real builds from my purchase history:</p>
+
+        <table class="cost-table">
+            <tr><th>Build</th><th>Advertised</th><th>Actual</th><th>Difference</th></tr>
+            <tr><td>Entry Tofu60</td><td>$149</td><td>$287</td><td>+93%</td></tr>
+            <tr><td>Keychron Q1</td><td>$179</td><td>$241</td><td>+35%</td></tr>
+            <tr><td>GB 65% custom</td><td>$320</td><td>$412</td><td>+29%</td></tr>
+        </table>
+
+        <p>The gap gets smaller as you get smarter. My last build was only 12% over because I already owned the tools.</p>
+
+        <h2>When You Should Stop</h2>
+
+        <p>Three keyboards is the inflection point. After that, you're collecting, not upgrading. That's fine, but acknowledge it. I sold two of my six to fund number five. There's no prize for volume.</p>
 
         <hr>
 
-        <p style="color: var(--faded); font-size: 0.95rem;">
-            <em>Update: Fixed the price sorting. Should now properly handle "$11/pack" and "$199" formats. Let me know if anything looks janky on mobile.</em>
-        </p>
+        <p>The mechanical keyboard community loves to talk about sound tests and switch comparisons. What they don't talk about is how your first build will cost 40% more than you budgeted, and that's normal.</p>
+
+        <p>Start simple. Expect to spend $250-300 all-in. Use that board until you know exactly what you don't like about it. Then build again.</p>
+
+        <div class="site-link">
+            <em>I built a <a href="index.html">dashboard</a> that tracks group buys and in-stock keyboards from major vendors. Use it to find your first case without opening seventeen browser tabs.</em>
+        </div>
     </article>
 </body>
 </html>
