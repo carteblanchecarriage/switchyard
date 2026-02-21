@@ -71,14 +71,14 @@
 </head>
 <body>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
+        <span id="themeIcon"></span>
         <span id="themeText">Dark</span>
     </button>
 
     <nav class="nav">
         <div class="nav-inner">
             <a href="../"><h1>Keebshelf</h1></a>
-            <a href="../" style="color: white;">← Back</a>
+            <a href="../" style="color: white;">< Back</a>
         </div>
     </nav>
 
@@ -117,7 +117,7 @@
 
         <div class="card">
             <span class="difficulty" style="background: #ffedd5; color: #9a3412;">Medium</span>
-            <h3>📦 Case</h3>
+            <h3>Case</h3>
             <p><strong>The box everything goes in.</strong> Plastic cases feel hollow and light. Metal (aluminum) cases feel premium and make a deeper "thock" sound.</p>
             <p class="price">Price: Usually part of a kit ($100-400)</p>
         </div>
@@ -215,7 +215,7 @@
         
         function updateThemeUI() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.textContent = isDark ? '' : '';
             themeText.textContent = isDark ? 'Light' : 'Dark';
             themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }

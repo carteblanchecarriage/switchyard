@@ -94,13 +94,13 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
+        <span id="themeIcon"></span>
         <span id="themeText">Dark</span>
     </button>
     
     <article class="article-wrap" id="main-content">
         <nav class="nav-back">
-            <a href="../../index.html">← Back to Keebshelf</a>
+            <a href="../../index.html">< Back to Keebshelf</a>
         </nav>
         
         <header class="article-header">
@@ -149,7 +149,7 @@
                 <div class="feature-desc">Modern connectivity, easy cable management, and travel-friendly.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
+                <div class="feature-icon"></div>
                 <div class="feature-title">Clean Aesthetic</div>
                 <div class="feature-desc">No gamer aesthetics, no rainbow vomit. Professional, minimal design.</div>
             </div>
@@ -362,7 +362,7 @@
         const themeText = document.getElementById('themeText');
         function updateThemeUI() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.textContent = isDark ? '' : '';
             themeText.textContent = isDark ? 'Light' : 'Dark';
             themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }

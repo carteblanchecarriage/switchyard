@@ -94,7 +94,7 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
+        <span id="themeIcon" style="display: inline-block; width: 1em; height: 1em; border: 1.5px solid currentColor; border-radius: 50%; position: relative;"></span>
         <span id="themeText">Dark</span>
     </button>
     <article class="article-wrap" id="main-content">
@@ -217,5 +217,32 @@
             <em>I built a <a href="index.html">dashboard aggregating live listings</a> from Keychron, Drop, KBDfans, NovelKeys, and Geekhack interest checks. Use it to compare prices without opening seventeen browser tabs.</em>
         </div>
     </article>
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        
+        function updateThemeUI() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (themeText) {
+                themeText.textContent = isDark ? 'Light' : 'Dark';
+            }
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('keebshelf-theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('keebshelf-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+    </script>
 </body>
 </html>

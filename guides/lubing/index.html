@@ -106,13 +106,13 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
+        <span id="themeIcon"></span>
         <span id="themeText">Dark</span>
     </button>
     
     <article class="article-wrap" id="main-content">
         <nav class="nav-back">
-            <a href="../../index.html">← Back to Keebshelf</a>
+            <a href="../../index.html">< Back to Keebshelf</a>
         </nav>
         
         <header class="article-header">
@@ -133,7 +133,7 @@
         <p>Lubing switches is the single best upgrade you can make to a mechanical keyboard. It's tedious work—plan on spending an afternoon—but the results are dramatic:</p>
 
         <ul>
-            <li>✨ <strong>Smoother feel</strong>—eliminates scratchy plastic-on-plastic sound</li>
+            <li><strong>Smoother feel</strong>—eliminates scratchy plastic-on-plastic sound</li>
             <li>🔇 <strong>Quieter operation</strong>—reduces spring ping and housing rattle</li>
             <li>🎵 <strong>Better sound</strong>—transforms cheap-sounding switches into premium thocks</li>
             <li>💰 <strong>Value add</strong>—makes budget switches feel like expensive ones</li>
@@ -150,7 +150,7 @@
                 <div class="tool-price">$8-15</div>
             </div>
             <div class="tool-card">
-                <div class="tool-icon">🔧</div>
+                <div class="tool-icon"></div>
                 <div class="tool-name">Switch Opener</div>
                 <div class="tool-price">$10-15</div>
             </div>
@@ -165,7 +165,7 @@
                 <div class="tool-price">$5-8</div>
             </div>
             <div class="tool-card">
-                <div class="tool-icon">📦>/div>
+                <div class="tool-icon">>/div>
                 <div class="tool-name">Switch Containers</div>
                 <div class="tool-price">$5</div>
             </div>
@@ -195,7 +195,7 @@
                 <div class="lube-desc">Thin oil for bag-lubing springs. Eliminates spring ping entirely. Can also use for switch springs if you prefer oil over grease.</div>
             </div>
             <div class="lube-card">
-                <div class="lube-name">📋 Dielectric Grease</div>
+                <div class="lube-name">Dielectric Grease</div>
                 <div class="lube-use">Best for: Stabilizers</div>
                 <div class="lube-desc">Cheap and effective for stab wires. Apply to the wire ends where they clip into housings. Don't use on switch internals.</div>
             </div>
@@ -229,7 +229,7 @@
                 <p>Place the switch in the opener (or use a flathead screwdriver carefully). Push down on the four clips to release the top housing. Be gentle—breaking clips means the switch won't close properly.</p>
                 
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Open 5-10 switches at a time. If you open all 90 at once, springs will roll away and you'll have a bad time.
+                    <strong>Tip:</strong> Open 5-10 switches at a time. If you open all 90 at once, springs will roll away and you'll have a bad time.
                 </div>
             </div>
         </div>
@@ -294,7 +294,7 @@
                 <p>Place the stem in the housing, set the spring on top, align the top housing clips, and press down until it clicks. Test each switch on a spare PCB or with a multimeter.</p>
                 
                 <div class="tip-box">
-                    <strong>💡 Time Saver:</strong> Lube 10 switches, install 10, test 10. Don't lube all 90 before testing—you might hate the feel and have to clean them all.
+                    <strong>Time Saver:</strong> Lube 10 switches, install 10, test 10. Don't lube all 90 before testing—you might hate the feel and have to clean them all.
                 </div>
             </div>
         </div>
@@ -335,7 +335,7 @@
         const themeText = document.getElementById('themeText');
         function updateThemeUI() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.textContent = isDark ? '' : '';
             themeText.textContent = isDark ? 'Light' : 'Dark';
             themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }

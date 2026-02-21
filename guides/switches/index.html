@@ -109,13 +109,13 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
+        <span id="themeIcon"></span>
         <span id="themeText">Dark</span>
     </button>
     
     <article class="article-wrap" id="main-content">
         <nav class="nav-back">
-            <a href="../index.html">← Back to Keebshelf</a>
+            <a href="../index.html">< Back to Keebshelf</a>
         </nav>
         
         <header class="article-header">
@@ -205,7 +205,7 @@
 
         <div class="switch-card">
             <span class="switch-label label-clicky">Clicky</span>
-            <div class="switch-name">⌨️ Typewriter Vibes</div>
+            <div class="switch-name">Typewriter Vibes</div>
             <div class="switch-desc">Clicky switches combine the tactile bump with an audible "click" sound. They're the loudest, most tactile switches—love them or hate them. The distinct sound provides both tactile and auditory feedback. Best for people who type alone and enjoy the classic mechanical sound.</div>
             
             <div class="sound-indicator">
@@ -413,7 +413,7 @@
         
         function updateThemeUI() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.textContent = isDark ? '' : '';
             themeText.textContent = isDark ? 'Light' : 'Dark';
             themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }
