@@ -469,7 +469,7 @@
             const html = batch.map(item => `
                 <div class="item">
                     <div class="item-image-wrap">
-                        ${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">` : ''}
+                        ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
                         ${!item.image ? `<div class="item-no-image">No Image</div>` : ''}
                     </div>
                     <div class="item-meta">
