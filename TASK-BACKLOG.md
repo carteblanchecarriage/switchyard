@@ -11,6 +11,7 @@
 ### 🔥 HIGH PRIORITY - User Requests (Do First)
 
 #### Professional Design Refresh
+- [x] **Fix dark mode card backgrounds** — Replaced hardcoded `white` with `var(--paper)` so cards respect dark theme
 - [ ] **Remove excess emojis** — Replace casual emojis with minimal icons or text across all pages (index.html, blog.html, guides/, beginner/)
 - [ ] **Professional header redesign** — Cleaner nav, better spacing, refined typography, remove emoji decorations
 - [ ] **Consistent color palette audit** — Ensure all pages use same brand colors (#1a1a1a, #FAF9F7, #C9A227)
