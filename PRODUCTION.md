@@ -1,105 +1,99 @@
-# Keebshelf Production Guide
+# Keebshelf Production Setup
 
-## Architecture
+## 2-Hour Cron Configuration
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   SCRAPER   │────▶│   STATIC    │────▶│   GITHUB    │
-│  (Weekly)   │     │    DATA     │     │    PAGES    │
-└─────────────┘     └─────────────┘     └─────────────┘
-       │                   │                    │
-       ▼                   ▼                    ▼
-Reddit/Geekhack      products.json       User sees live
-Vendor APIs                               site instantly
+### Option 1: System Crontab
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line to run every 2 hours
+0 */2 * * * /home/klondike/Desktop/keyboard-tracker/tools/scrape-cron.sh
 ```
 
-## How It Works
+### Option 2: PM2 (Recommended)
+```bash
+# Install PM2 if not present
+npm install -g pm2
 
-### Current Setup (Static MVP)
-- ✅ Data embedded in HTML → No server needed
-- ✅ GitHub Pages hosts for free
-- ✅ Instant load time
-- ✅ Links go direct to vendors
-- ⚠️ Manual updates required
+# Run ecosystem
+pm2 start ecosystem.json
 
-### Production Setup (Full System)
-```
-1. SCRAPER runs weekly (cron job)
-   ↓
-2. Fetches from Reddit, Geekhack, vendor APIs
-   ↓
-3. Saves to products.json
-   ↓
-4. Rebuilds dashboard with new data
-   ↓
-5. Auto-pushes to GitHub
-   ↓
-6. Site updates automatically
+# Save
+pm2 save
+pm2 startup
 ```
 
-## Health Monitoring
+## Environment Variables
 
-- **Weekly auto-check**: Mondays 9am ET
-- **Script**: `scripts/health-check.js`
-- **Report**: `health-report.json`
-- **Alerts**: Telegram notification if broken links found
+Create `.env` file:
+```bash
+# Supabase (for price tracking & alerts)
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_KEY=your-service-key
 
-## Updating Products
+# Email service (for alerts)
+# SENDGRID_API_KEY=your-key
+# MAILGUN_API_KEY=your-key
+```
 
-### Option 1: Manual (Now)
-1. Edit `dashboard/index.html`
-2. Update product URLs
-3. `git add . && git commit -m "Update products" && git push`
-4. Live in 2 minutes
+## Price Tracking
 
-### Option 2: Auto (Later)
-Set up scraper to auto-update weekly
+Enable price history:
+1. Set up Supabase project
+2. Run `supabase/schema-price-history.sql` in SQL Editor
+3. Set env vars above
 
-## Link Strategy
+Price history starts collecting automatically on next scrape.
 
-### Working Link Patterns:
-- ✅ `https://drop.com/[category]/[product-name]`
-- ✅ `https://keychron.com/products/[product]`
-- ✅ `https://novelkeys.com/products/[product]`
-- ✅ `https://kbdfans.com/collections/[category]/products/[product]`
-- ✅ `https://kono.store/collections/[category]`
+## Email Alerts
 
-### Broken Patterns to Avoid:
-- ❌ `/buy/[product]` (Drop ended group buys)
-- ❌ Direct `/products/[name]` (Shopify 404s)
-- ❌ Guessed URLs (always verify first)
+To enable daily digest:
+1. Configure SendGrid or Mailgun
+2. Add API key to `.env`
+3. Update `api/subscribe.js` with email service
 
-## Revenue Model
+## Monitoring
 
-### Affiliate Links
-1. Apply to vendor programs:
-   - Drop: `https://drop.com/partners`
-   - Kono: Email support@kono.store
-   - NovelKeys: `https://novelkeys.com/pages/affiliate`
-   - KBDfans: `https://kbdfans.com/pages/affiliate`
-   - Keychron: `https://keychron.com/pages/affiliate`
+Check logs:
+```bash
+# Recent scrapes
+tail -20 logs/cron.log
 
-2. Replace URLs:
-   ```
-   Before: https://drop.com/mechanical-keyboards/drop-ctrl
-   After:  https://drop.com/mechanical-keyboards/drop-ctrl?referer=keebshelf
-   ```
+# Recent output
+ls -la logs/ | tail -20
+```
 
-3. Track commissions via vendor dashboards
+## Manual Refresh
+
+```bash
+cd /home/klondike/Desktop/keyboard-tracker
+node scraper/scraper-v2.js
+```
+
+## Features Added
+
+✅ **2-hour scraping** - Fresh data twice daily
+✅ **Price history** - Track price trends over time
+✅ **Subscribe modal** - Email alerts for users
+✅ **Daily digest** - New products + price drops
+✅ **Beautiful UI** - Newspaper aesthetic
+✅ **Sorting** - Price, name, vendor filters
+✅ **Search** - Full-text search
 
 ## Next Steps
 
-1. [ ] Verify all current links work (manual click-test)
-2. [ ] Apply to affiliate programs
-3. [ ] Set up auto-scraper for weekly updates
-4. [ ] Add analytics (Google Analytics/Plausible)
-5. [ ] Custom domain (keeb.shelf or similar)
+- [ ] Connect email service
+- [ ] Add product detail pages
+- [ ] Price trend charts
+- [ ] Mobile app
+- [ ] Discord notifications
+- [ ] API rate limiting
 
-## Cost Breakdown
+## Ethics
 
-| Item | Cost |
-|------|------|
-| GitHub Pages | FREE |
-| Domain (optional) | ~$12/year |
-| Analytics (Plausible) | $9/month |
-| **Total** | **$0-21/month** |
+- ✅ Public data only (same as search engines)
+- ✅ Affiliate links disclosed
+- ✅ Equal vendor treatment
+- ✅ No fake scarcity
+- ✅ Respects robots.txt
