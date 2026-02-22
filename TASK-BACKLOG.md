@@ -12,7 +12,7 @@
 **Read full spec:** `~/Desktop/keyboard-tracker/WIZARD-SPEC.md` ← UPDATED v2.0
 
 ### Phase 1: Widget Structure
-- [ ] **Task 1: Create floating widget HTML** — Fixed position bottom-right, toggle button (64px circle)
+- [x] **Task 1: Create floating widget HTML** — COMPLETED: Fixed position bottom-right, 64px toggle button, expandable panel, click/hover/escape interactions
 - [ ] **Task 2: Widget styling** — FAB design, shadow, hover lift, accent border, dark mode
 - [ ] **Task 3: Expand/collapse logic** — Hover to expand (300ms delay), click to pin, click outside to close
 
