@@ -2,7 +2,7 @@
 
 Generated from A/B testing personas
 
-Last updated: 2026-02-22T17:00:01.042Z
+Last updated: 2026-02-22T18:00:01.598Z
 
 ## High Priority
 - [ ] Price drop alerts (Value Hunter)
