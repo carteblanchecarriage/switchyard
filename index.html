@@ -1101,49 +1101,207 @@
         function applyWizardFilters() {
             filteredData = [...allData];
             
-            // Apply each wizard filter
-            if (wizardData[1]) { // Use case
-                const useCaseFilters = {
-                    gaming: ['gaming', 'rgb', 'fast'],
-                    office: ['office', 'ergonomic', 'quiet'],
-                    creative: ['creative', 'macro', 'media'],
-                    general: []
-                };
-                // This would filter based on keyboard tags/features
-            }
+            // Build scoring for each item - rather than strict filtering, we'll score
+            const itemScores = new Map();
+            filteredData.forEach(item => {
+                itemScores.set(item.id, { item, score: 0, matches: [] });
+            });
             
-            if (wizardData[2]) { // Noise level
-                // Filter by switch type implied from noise preference
-            }
-            
-            if (wizardData[3]) { // Size
-                const sizeFilters = {
-                    compact: ['60%', '65%'],
-                    tkl: ['75%', '80%', 'tkl', 'tenkeyless'],
-                    fullsize: ['100%', 'full', '1800']
-                };
-                if (wizardData[3] !== 'any' && sizeFilters[wizardData[3]]) {
-                    filteredData = filteredData.filter(item => {
-                        const name = item.name.toLowerCase();
-                        return sizeFilters[wizardData[3]].some(size => name.includes(size));
+            // Step 1: Use case
+            if (wizardData[1]) {
+                const desc = item => (item.description + ' ' + item.name).toLowerCase();
+                if (wizardData[1] === 'gaming') {
+                    // Gaming keyboards: look for RGB, fast, gaming keywords
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        let points = 0;
+                        if (d.includes('rgb')) points += 3;
+                        if (d.includes('gaming')) points += 3;
+                        if (d.includes('fast')) points += 2;
+                        if (d.includes('response')) points += 2;
+                        if (d.includes('aluminum')) points += 1; // Premium gaming
+                        if (points > 0) {
+                            itemScores.get(item.id).score += points;
+                            itemScores.get(item.id).matches.push('Gaming');
+                        }
+                    });
+                } else if (wizardData[1] === 'office') {
+                    // Office: look for ergonomic, comfortable, quiet features
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        let points = 0;
+                        if (d.includes('ergonomic')) points += 3;
+                        if (d.includes('comfortable')) points += 2;
+                        if (d.includes('office')) points += 2;
+                        if (d.includes('wireless') || d.includes('bluetooth')) points += 2;
+                        if (d.includes('quiet') || d.includes('silent')) points += 2;
+                        if (points > 0) {
+                            itemScores.get(item.id).score += points;
+                            itemScores.get(item.id).matches.push('Office');
+                        }
+                    });
+                } else if (wizardData[1] === 'creative') {
+                    // Creative: look for media controls, macros, knob
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        let points = 0;
+                        if (d.includes('knob')) points += 3;
+                        if (d.includes('media')) points += 3;
+                        if (d.includes('macro')) points += 3;
+                        if (d.includes('creative')) points += 2;
+                        if (d.includes('precision')) points += 1;
+                        if (points > 0) {
+                            itemScores.get(item.id).score += points;
+                            itemScores.get(item.id).matches.push('Creative');
+                        }
                     });
                 }
             }
             
-            if (wizardData[5]) { // Budget
+            // Step 2: Noise level (using switch type keywords)
+            if (wizardData[2]) {
+                const desc = item => (item.description + ' ' + item.name).toLowerCase();
+                if (wizardData[2] === 'quiet') {
+                    // Silent switches, linear
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        if (d.includes('silent') || d.includes('quiet') || d.includes('linear')) {
+                            itemScores.get(item.id).score += 3;
+                            itemScores.get(item.id).matches.push('Quiet switches');
+                        }
+                    });
+                } else if (wizardData[2] === 'medium') {
+                    // Tactile, standard
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        if (d.includes('tactile') && !d.includes('clicky')) {
+                            itemScores.get(item.id).score += 3;
+                            itemScores.get(item.id).matches.push('Tactile');
+                        }
+                    });
+                } else if (wizardData[2] === 'loud') {
+                    // Clicky switches
+                    filteredData.forEach(item => {
+                        const d = desc(item);
+                        if (d.includes('clicky') || d.includes('loud')) {
+                            itemScores.get(item.id).score += 3;
+                            itemScores.get(item.id).matches.push('Clicky');
+                        }
+                    });
+                }
+            }
+            
+            // Step 3: Size
+            if (wizardData[3] && wizardData[3] !== 'any') {
+                const desc = item => (item.description + ' ' + item.name).toLowerCase();
+                filteredData.forEach(item => {
+                    const d = desc(item);
+                    const name = item.name.toLowerCase();
+                    let isMatch = false;
+                    
+                    if (wizardData[3] === 'compact') {
+                        // 60%, 65%, small, compact, portable
+                        if (d.includes('60%') || d.includes('65%') || 
+                            d.includes('compact') || d.includes('portable') ||
+                            d.includes('small desk') || (d.includes('60') && d.includes('%')) ||
+                            d.includes('mini')) {
+                            isMatch = true;
+                            itemScores.get(item.id).matches.push('Compact');
+                        }
+                    } else if (wizardData[3] === 'tkl') {
+                        // 75%, 80%, tkl, tenkeyless
+                        if (d.includes('75%') || d.includes('80%') || d.includes('tkl') || 
+                            d.includes('tenkeyless') || d.includes('ten-keyless') ||
+                            d.includes('75') || d.includes('function keys')) {
+                            isMatch = true;
+                            itemScores.get(item.id).matches.push('TKL');
+                        }
+                    } else if (wizardData[3] === 'fullsize') {
+                        // 100%, full-size, numpad, 96%
+                        if (d.includes('100%') || d.includes('full size') || 
+                            d.includes('full-size') || d.includes('numpad') ||
+                            d.includes('96%') || d.includes('number pad') ||
+                            d.includes('data entry') || 
+                            (name.includes('100') && name.includes('%')) ||
+                            d.includes('rt100')) {
+                            isMatch = true;
+                            itemScores.get(item.id).matches.push('Full-size');
+                        }
+                    }
+                    
+                    if (isMatch) {
+                        itemScores.get(item.id).score += 5;
+                    }
+                });
+            }
+            
+            // Step 4: Hot-swap (look in description)
+            if (wizardData[4] && wizardData[4] !== 'any') {
+                const desc = item => (item.description || '').toLowerCase();
+                filteredData.forEach(item => {
+                    const d = desc(item);
+                    const hasHotSwap = d.includes('hot-swap') || d.includes('hotswap') || 
+                                      d.includes('hot swap') || d.includes('swappable') ||
+                                      d.includes('swappable');
+                    
+                    if (wizardData[4] === 'hotswap' && hasHotSwap) {
+                        itemScores.get(item.id).score += 5;
+                        itemScores.get(item.id).matches.push('Hot-swap');
+                    } else if (wizardData[4] === 'solder' && !hasHotSwap) {
+                        itemScores.get(item.id).score += 3;
+                    }
+                });
+            }
+            
+            // Step 5: Budget - STRICT filter
+            if (wizardData[5] && wizardData[5] !== 'any') {
                 const budgetRanges = {
-                    budget: [0, 99],
-                    mid: [100, 200],
-                    premium: [200, 10000]
+                    budget: { min: 0, max: 99, label: 'Under $100' },
+                    mid: { min: 0, max: 200, label: '$100-200' },
+                    premium: { min: 0, max: 10000, label: '$200+' }
                 };
-                if (wizardData[5] !== 'any' && budgetRanges[wizardData[5]]) {
-                    filteredData = filteredData.filter(item => {
-                        const price = parseFloat(item.price?.toString().replace(/[^0-9.]/g, '')) || 0;
-                        const [min, max] = budgetRanges[wizardData[5]];
-                        return price >= min && price <= max;
-                    });
+                
+                if (budgetRanges[wizardData[5]]) {
+                    const range = budgetRanges[wizardData[5]];
+                    if (wizardData[5] === 'budget') {
+                        filteredData = filteredData.filter(item => {
+                            const price = parseFloat(item.price?.toString().replace(/[^0-9.]/g, '')) || 0;
+                            return price <= 99;
+                        });
+                    } else if (wizardData[5] === 'mid') {
+                        filteredData = filteredData.filter(item => {
+                            const price = parseFloat(item.price?.toString().replace(/[^0-9.]/g, '')) || 0;
+                            return price >= 100 && price <= 200;
+                        });
+                    } else if (wizardData[5] === 'premium') {
+                        filteredData = filteredData.filter(item => {
+                            const price = parseFloat(item.price?.toString().replace(/[^0-9.]/g, '')) || 0;
+                            return price > 200;
+                        });
+                    }
                 }
             }
+            
+            // Sort by score (highest first), then by price
+            filteredData.sort((a, b) => {
+                const scoreA = itemScores.get(a.id)?.score || 0;
+                const scoreB = itemScores.get(b.id)?.score || 0;
+                if (scoreB !== scoreA) return scoreB - scoreA;
+                
+                // If scores equal, sort by price
+                const priceA = parseFloat(a.price?.toString().replace(/[^0-9.]/g, '')) || 0;
+                const priceB = parseFloat(b.price?.toString().replace(/[^0-9.]/g, '')) || 0;
+                return priceA - priceB;
+            });
+            
+            // Update items with match info
+            filteredData.forEach(item => {
+                const info = itemScores.get(item.id);
+                if (info) {
+                    item.relevanceScore = info.score;
+                    item.matchReasons = info.matches;
+                }
+            });
             
             displayLimit = 12;
             displayData();
