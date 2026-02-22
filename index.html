@@ -790,6 +790,286 @@
         .footer-bottom-links { display: flex; gap: 1.5rem; }
         .footer-bottom-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.875rem; }
         .footer-bottom-links a:hover { color: var(--accent); }
+        
+        /* ============================================
+           PRODUCT DETAIL MODAL
+           ============================================ */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(4px);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .product-modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: var(--paper);
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            margin: 2rem auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--paper);
+            z-index: 10;
+        }
+        
+        .modal-vendor {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--faded);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--faded);
+            padding: 0.5rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        
+        .modal-close:hover {
+            color: var(--ink);
+        }
+        
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        .modal-image-section {
+            background: var(--paper-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-image-placeholder {
+            font-size: 4rem;
+            color: var(--border);
+        }
+        
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        
+        .modal-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 0;
+        }
+        
+        .modal-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .modal-description {
+            color: var(--faded);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--paper-dark);
+            border-radius: 8px;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .meta-label {
+            font-size: 0.7rem;
+            color: var(--faded);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .meta-value {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .modal-btn-primary {
+            background: var(--accent);
+            color: var(--ink);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 163, 90, 0.4);
+        }
+        
+        .modal-btn-secondary {
+            background: var(--paper-dark);
+            color: var(--ink);
+            border: 1px solid var(--border);
+        }
+        
+        .modal-btn-secondary:hover {
+            border-color: var(--accent);
+        }
+        
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--paper-dark);
+        }
+        
+        .related-products h4 {
+            font-size: 0.85rem;
+            color: var(--faded);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        
+        .related-item {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .related-item:hover {
+            opacity: 0.7;
+        }
+        
+        .related-image {
+            aspect-ratio: 16/10;
+            background: var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .related-name {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .related-price {
+            font-size: 0.7rem;
+            color: var(--faded);
+        }
+        
+        @media (max-width: 768px) {
+            .product-modal {
+                padding: 0;
+            }
+            
+            .modal-content {
+                border-radius: 0;
+                min-height: 100vh;
+                margin: 0;
+            }
+            
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -799,7 +1079,7 @@
                 <div class="brand-icon">SY</div>
                 <div class="brand-text">
                     <h1>Switchyard</h1>
-                    <span>Group Buy Tracker</span>
+                    <span>Keyboard Tracker</span>
                 </div>
             </a>
             
@@ -853,7 +1133,17 @@
     <div class="stats-bar">
         <span><strong id="totalItems">0</strong> items tracked</span>
         <span><strong id="vendorCount">—</strong> vendors</span>
-        <span id="lastUpdated" style="margin-left: auto;">Last updated: —</span>
+        <div class="sort-dropdown" style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+            <label for="sortSelect" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded);">Sort:</label>
+            <select id="sortSelect" style="padding: 0.5rem 1rem; font-family: inherit; border: 1px solid var(--border); border-radius: 4px; background: var(--paper); color: var(--ink); cursor: pointer; font-size: 0.85rem;">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-az">Name: A-Z</option>
+                <option value="name-za">Name: Z-A</option>
+                <option value="newest">Newest</option>
+            </select>
+        </div>
     </div>
 
     <main class="shelf-wrap">
@@ -995,27 +1285,20 @@
                 <ul>
                     <li><a href="/">All Products</a></li>
                     <li><a href="/artisan/">Artisan Keys</a></li>
-                    <li><a href="/best/">Best Overall</a></li>
-                    <li><a href="/best-budget/">Budget Picks</a></li>
-                    <li><a href="/best-60-percent/">60% Keyboards</a></li>
-                    <li><a href="/gaming/">Gaming</a></li>
+                    <li><a href="/blog/">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Learn</h4>
                 <ul>
+                    <li><a href="/blog/what-are-group-buys.html">What Are Group Buys?</a></li>
                     <li><a href="/beginner/">Beginner's Guide</a></li>
-                    <li><a href="/switches/">Switch Guide</a></li>
-                    <li><a href="/glossary/">Glossary</a></li>
-                    <li><a href="/blog.html">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Tools</h4>
+                <h4>Contact</h4>
                 <ul>
-                    <li><a href="/price-alerts/">Price Alerts</a></li>
-                    <li><a href="/dashboard/">Dashboard</a></li>
-                    <li><a href="/api/pricing">API Access</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1051,9 +1334,51 @@
         let allData = [];
         let filteredData = [];
         let displayLimit = 12;
+        let currentSort = 'featured';
 
         // Minimum products required to show site as "live"
         const MIN_PRODUCTS_REQUIRED = 1;
+        
+        // Parse price for sorting
+        function parsePrice(price) {
+            if (!price) return 0;
+            const match = price.toString().match(/[\d,.]+/);
+            if (!match) return 0;
+            return parseFloat(match[0].replace(/,/g, ''));
+        }
+        
+        // Sort items
+        function sortItems(items, sortValue) {
+            let sorted = [...items];
+            
+            switch(sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+                    break;
+                case 'name-az':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'name-za':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'newest':
+                    // Keep original order (assumed newest first)
+                    break;
+                default:
+                    // 'featured' - keep as is
+                    break;
+            }
+            return sorted;
+        }
+        
+        // Apply current sort
+        function applySort() {
+            filteredData = sortItems(filteredData, currentSort);
+            displayData();
+        }
         
         async function loadData() {
             try {
@@ -1168,8 +1493,10 @@
         }
 
         function createCard(item) {
+            // Use URL as ID if no ID exists
+            const productId = item.id || item.url;
             return `
-                <article class="item" data-category="${item.category}">
+                <article class="item" data-category="${item.category}" onclick="openProductModal('${productId}')" style="cursor: pointer;">
                     <div class="item-image-wrap">
                         ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
                     </div>
@@ -1180,7 +1507,7 @@
                             <span class="item-price">${formatPrice(item.price)}</span>
                         </div>
                     </div>
-                    <a href="${item.url}" class="buy-btn" target="_blank" rel="noopener">View on Store →</a>
+                    <button class="buy-btn" onclick="event.stopPropagation(); openProductModal('${productId}')">View Details</button>
                 </article>
             `;
         }
@@ -1678,8 +2005,95 @@
             }
         }
 
+        // Product Modal Functions
+        function openProductModal(productId) {
+            const product = allData.find(p => p.id === productId || p.url === productId);
+            if (!product) return;
+            
+            document.getElementById('modalVendor').textContent = product.vendor || 'Unknown Vendor';
+            document.getElementById('modalTitle').textContent = product.name;
+            document.getElementById('modalPrice').textContent = product.price || 'Contact for price';
+            document.getElementById('modalDescription').textContent = product.description || 'Premium mechanical keyboard product. Click through to view full specifications and pricing on the vendor store.';
+            document.getElementById('modalCategory').textContent = product.category ? product.category.charAt(0).toUpperCase() + product.category.slice(1) : 'Keyboard';
+            document.getElementById('modalStatus').textContent = product.status || 'Available';
+            document.getElementById('modalBuyBtn').href = product.url;
+            
+            const img = document.getElementById('modalImage');
+            const placeholder = document.getElementById('modalImagePlaceholder');
+            
+            if (product.image) {
+                img.src = product.image;
+                img.style.display = 'block';
+                placeholder.style.display = 'none';
+                img.onerror = function() {
+                    img.style.display = 'none';
+                    placeholder.style.display = 'flex';
+                };
+            } else {
+                img.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
+            
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('productModal').classList.contains('active')) {
+                closeProductModal();
+            }
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('productModal')) {
+                closeProductModal();
+            }
+        });
+
         // Init
         loadData();
     </script>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-vendor" id="modalVendor">Vendor</span>
+                <button class="modal-close" onclick="closeProductModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                    <div class="modal-image-placeholder" id="modalImagePlaceholder" style="display: none;">⌨️</div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title" id="modalTitle">Product Title</h2>
+                    <div class="modal-price" id="modalPrice">$0.00</div>
+                    <p class="modal-description" id="modalDescription">Product description goes here...</p>
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Category</span>
+                            <span class="meta-value" id="modalCategory">Keyboard</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Status</span>
+                            <span class="meta-value" id="modalStatus">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="modal-btn modal-btn-primary" id="modalBuyBtn" target="_blank" rel="noopener">Buy Now →</a>
+                        <button class="modal-btn modal-btn-secondary" onclick="closeProductModal()">Continue Browsing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
