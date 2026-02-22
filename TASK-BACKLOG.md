@@ -19,8 +19,8 @@
 ### Phase 2: Wizard Steps
 - [ ] **Task 4: Step 1 (Use Case)** — "What will you use this for?" Gaming/Office/Creative/General
 - [ ] **Task 5: Step 2 (Noise)** — "Your workspace?" with switch education
-- [ ] **Task 6: Step 3 (Size)** — "Your desk space?" 60%/75%/Full-size
-- [ ] **Task 7: Step 4 (Hot-swap)** — "Customize later?" Yes/Maybe/No
+- [x] **Task 6: Step 3 (Size)** — "Your desk space?" Compact/TKL/Full-size (ALREADY IN HTML)
+- [x] **Task 7: Step 4 (Hot-swap)** — "Customize later?" Hot-swap vs Soldered vs Either (ADDED TO HTML+JS)
 - [ ] **Task 8: Step 5 (Budget)** — Price tiers with live count "X keyboards match"
 
 ### Phase 3: Real-Time Filtering

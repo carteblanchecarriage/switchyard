@@ -540,6 +540,8 @@
             background: var(--paper-dark);
             border-color: var(--border);
         }
+        
+        .wizard-panel-title {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             font-weight: 600;
@@ -1278,24 +1280,44 @@
                     </div>
                 </div>
 
-                <!-- Step 4: Budget -->
+                <!-- Step 4: Hot-swap -->
                 <div id="wizard-step-4" class="wizard-step" data-step="4" style="display: none;">
+                    <h3 class="wizard-question">Want to customize later?</h3>
+                    <p class="wizard-subtitle">Hot-swap lets you change switches without soldering</p>
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="hotswap" onclick="selectWizardOption(4, 'hotswap', this)">
+                            <h4 class="wizard-option-title">Hot-swap Only</h4>
+                            <p class="wizard-option-desc">Easy switch changes later. Great for beginners.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="soldered" onclick="selectWizardOption(4, 'soldered', this)">
+                            <h4 class="wizard-option-title">Soldered is OK</h4>
+                            <p class="wizard-option-desc">Better for experienced builders. Often cheaper.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="any" onclick="selectWizardOption(4, 'any', this)">
+                            <h4 class="wizard-option-title">Any</h4>
+                            <p class="wizard-option-desc">Show me both options.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Budget (was Step 4) -->
+                <div id="wizard-step-5" class="wizard-step" data-step="5" style="display: none;">
                     <h3 class="wizard-question">What's your budget?</h3>
                     <p class="wizard-subtitle">We'll find the best in your range</p>
                     <div class="wizard-options-grid">
-                        <div class="wizard-option-card" data-value="budget" onclick="selectWizardOption(4, 'budget', this)">
+                        <div class="wizard-option-card" data-value="budget" onclick="selectWizardOption(5, 'budget', this)">
                             <h4 class="wizard-option-title">Under $100</h4>
                             <p class="wizard-option-desc">Great entry-level options.</p>
                         </div>
-                        <div class="wizard-option-card" data-value="mid" onclick="selectWizardOption(4, 'mid', this)">
+                        <div class="wizard-option-card" data-value="mid" onclick="selectWizardOption(5, 'mid', this)">
                             <h4 class="wizard-option-title">$100 - $200</h4>
                             <p class="wizard-option-desc">Sweet spot for quality.</p>
                         </div>
-                        <div class="wizard-option-card" data-value="premium" onclick="selectWizardOption(4, 'premium', this)">
+                        <div class="wizard-option-card" data-value="premium" onclick="selectWizardOption(5, 'premium', this)">
                             <h4 class="wizard-option-title">$200+</h4>
                             <p class="wizard-option-desc">Premium builds, top switches.</p>
                         </div>
-                        <div class="wizard-option-card" data-value="any" onclick="selectWizardOption(4, 'any', this)">
+                        <div class="wizard-option-card" data-value="any" onclick="selectWizardOption(5, 'any', this)">
                             <h4 class="wizard-option-title">Any Price</h4>
                             <p class="wizard-option-desc">Show me the best.</p>
                         </div>
@@ -1432,7 +1454,7 @@
             const DATA_URLS = [
                 'data.json',
                 './data.json', 
-                'https://raw.githubusercontent.com/carteblanchecarriage/keebshelf/master/data.json'
+                'https://raw.githubusercontent.com/carteblanchecarriage/switchyard/master/data.json'
             ];
             
             showDebug('Starting data load...');
@@ -1785,7 +1807,7 @@
         // ============================================
         
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 5;
         const wizardSelections = {};
         const widget = document.getElementById('keyboard-wizard');
         const toggle = document.getElementById('wizardToggle');
@@ -2007,14 +2029,33 @@
                 }
             }
             
-            // Budget filter
+            // Hot-swap filter (new Step 4)
             if (wizardSelections[4] && wizardSelections[4] !== 'any') {
+                const hotswapTerms = ['hotswap', 'hot-swap', 'hot swap', 'swappable'];
+                filteredData = filteredData.filter(item => {
+                    const name = item.name.toLowerCase();
+                    const desc = (item.description || '').toLowerCase();
+                    const hasHotswap = hotswapTerms.some(term => 
+                        name.includes(term) || desc.includes(term)
+                    );
+                    
+                    if (wizardSelections[4] === 'hotswap') {
+                        return hasHotswap;
+                    } else if (wizardSelections[4] === 'soldered') {
+                        return !hasHotswap;
+                    }
+                    return true;
+                });
+            }
+            
+            // Budget filter (now Step 5)
+            if (wizardSelections[5] && wizardSelections[5] !== 'any') {
                 const ranges = {
                     budget: [0, 99],
                     mid: [100, 200],
                     premium: [201, 10000]
                 };
-                const [min, max] = ranges[wizardSelections[4]] || [0, 10000];
+                const [min, max] = ranges[wizardSelections[5]] || [0, 10000];
                 filteredData = filteredData.filter(item => {
                     const price = parseFloat(item.price?.toString().replace(/[^0-9.]/g, '')) || 0;
                     return price >= min && price <= max;
@@ -2027,7 +2068,7 @@
 
         function updateActiveFilters() {
             const container = document.getElementById('activeFilters');
-            const labels = { 1: 'Use', 2: 'Noise', 3: 'Size', 4: 'Budget' };
+            const labels = { 1: 'Use', 2: 'Noise', 3: 'Size', 4: 'Hot-swap', 5: 'Budget' };
             const chips = Object.entries(wizardSelections)
                 .filter(([_, v]) => v && v !== 'any')
                 .map(([step, value]) => `
