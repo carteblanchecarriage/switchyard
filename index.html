@@ -492,22 +492,27 @@
            ============================================ */
         
         /* Dark mode FAB */
+        [data-theme="dark"] .wizard-toggle {
             background: linear-gradient(135deg, var(--accent) 0%, #c4a35a 100%);
             box-shadow: 0 4px 16px rgba(212, 181, 106, 0.3);
         }
         
+        [data-theme="dark"] .wizard-toggle:hover {
             box-shadow: 0 8px 28px rgba(212, 181, 106, 0.4), 0 0 0 6px rgba(212, 181, 106, 0.12);
         }
         
+        [data-theme="dark"] .wizard-toggle::before {
             background: var(--paper-dark);
             color: var(--ink);
             border: 1px solid var(--border);
         }
         
+        [data-theme="dark"] .wizard-toggle::after {
             border-left-color: var(--border);
         }
         
         /* Dark mode badge */
+        [data-theme="dark"] .match-count {
             background: var(--paper);
             color: var(--ink);
             border-color: var(--accent);
@@ -515,6 +520,7 @@
         }
         
         /* Dark mode panel */
+        [data-theme="dark"] .wizard-panel {
             background: var(--paper);
             box-shadow: 0 -10px 40px rgba(0,0,0,0.5), 0 4px 20px rgba(0,0,0,0.3);
             border-color: var(--border);
@@ -530,11 +536,10 @@
             background: var(--paper-dark);
         }
         
+        [data-theme="dark"] .wizard-panel-header {
             background: var(--paper-dark);
             border-color: var(--border);
         }
-        
-        .wizard-panel-title {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             font-weight: 600;
@@ -582,6 +587,7 @@
             color: var(--ink);
         }
         
+        [data-theme="dark"] .wizard-close:hover {
             background: var(--border);
             color: var(--paper);
         }
@@ -605,9 +611,11 @@
         .wizard-options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
         .wizard-option-card { border: 2px solid var(--border); border-radius: 12px; padding: 1rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; gap: 0.5rem; background: var(--paper); position: relative; }
         .wizard-option-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 163, 90, 0.15); }
+        [data-theme="dark"] .wizard-option-card:hover {
             box-shadow: 0 8px 24px rgba(212, 181, 106, 0.1);
         }
         .wizard-option-card.selected { border-color: var(--accent); background: linear-gradient(135deg, rgba(196, 163, 90, 0.08) 0%, transparent 100%); }
+        [data-theme="dark"] .wizard-option-card.selected {
             background: linear-gradient(135deg, rgba(212, 181, 106, 0.12) 0%, transparent 100%);
         }
         .wizard-option-title { font-family: 'Newsreader', Georgia, serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin: 0; }
@@ -617,6 +625,7 @@
         .match-display-count { font-size: 2rem; font-weight: 600; color: var(--accent); }
         .match-display-text { font-size: 0.875rem; color: var(--faded); }
         
+        [data-theme="dark"] .match-display {
             background: var(--paper-dark);
         }
         
@@ -1412,7 +1421,7 @@
             const DATA_URLS = [
                 'data.json',
                 './data.json', 
-                'https://raw.githubusercontent.com/carteblanchecarriage/keebshelf/master/data.json'
+                'https://raw.githubusercontent.com/carteblanchecarriage/switchyard/master/data.json'
             ];
             
             for (const url of DATA_URLS) {
@@ -2144,3 +2153,4 @@
     </div>
 </body>
 </html>
+// Cache bust: 1771782535
