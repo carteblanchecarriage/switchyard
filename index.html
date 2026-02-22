@@ -1265,10 +1265,14 @@
             
             // Close mobile nav when clicking a link
             mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = '';
+                link.addEventListener('click', (e) => {
+                    // Don't prevent default - let navigation happen
+                    // Just close the menu with a slight delay so navigation works
+                    setTimeout(() => {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }, 50);
                 });
             });
             
