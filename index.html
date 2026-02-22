@@ -1182,6 +1182,7 @@
     </div>
 
     <main class="shelf-wrap">
+        <div id="debugPanel" style="display:none; max-width:1400px; margin:0 auto; padding:1rem; background:#ffe; border:2px solid #fc0; margin-bottom:1rem; font-family:monospace; font-size:12px;"></div>
         <div class="shelf" id="currentShelf"></div>
         <div class="load-more" id="loadMoreContainer" style="display: none;">
             <button class="load-more-btn" onclick="loadMore()">Load More</button>
@@ -1416,6 +1417,16 @@
             displayData();
         }
         
+        // DEBUG PANEL - Visible to user
+        function showDebug(message) {
+            const debugPanel = document.getElementById('debugPanel');
+            if (debugPanel) {
+                debugPanel.innerHTML += '<div>' + message + '</div>';
+                debugPanel.style.display = 'block';
+            }
+            console.log('[DEBUG]', message);
+        }
+
         // BULLETPROOF DATA LOADER - Production Ready
         async function loadDataWithFallbacks() {
             const DATA_URLS = [
@@ -1424,26 +1435,32 @@
                 'https://raw.githubusercontent.com/carteblanchecarriage/keebshelf/master/data.json'
             ];
             
+            showDebug('Starting data load...');
+            
             for (const url of DATA_URLS) {
                 try {
-                    console.log('[SWITCHYARD] Trying:', url);
+                    showDebug('Trying: ' + url);
                     const response = await fetch(url, { 
                         cache: 'no-cache',
                         headers: { 'Accept': 'application/json' }
                     });
                     
                     if (!response.ok) {
-                        console.warn('[SWITCHYARD] Failed:', url, response.status);
+                        showDebug('Failed: ' + url + ' (status ' + response.status + ')');
                         continue;
                     }
                     
                     const jsonData = await response.json();
+                    showDebug('Got JSON from: ' + url);
+                    
                     let rawData = jsonData.allProducts || jsonData.groupBuys || jsonData.products || (Array.isArray(jsonData) ? jsonData : []);
                     
                     if (!Array.isArray(rawData)) rawData = [];
                     
+                    showDebug('Found ' + rawData.length + ' raw products');
+                    
                     if (rawData.length > 0) {
-                        console.log('[SWITCHYARD] SUCCESS from', url, ':', rawData.length, 'products');
+                        showDebug('✅ SUCCESS: ' + rawData.length + ' products');
                         // Cache for offline
                         try {
                             localStorage.setItem('switchyard_data', JSON.stringify(rawData));
@@ -1452,7 +1469,7 @@
                         return rawData;
                     }
                 } catch (err) {
-                    console.warn('[SWITCHYARD] Error loading', url, ':', err.message);
+                    showDebug('Error: ' + url + ' - ' + err.message);
                 }
             }
             
@@ -1460,7 +1477,7 @@
             try {
                 const cached = localStorage.getItem('switchyard_data');
                 if (cached) {
-                    console.log('[SWITCHYARD] Using cached data');
+                    showDebug('Using cached data');
                     return JSON.parse(cached);
                 }
             } catch(e) {}
