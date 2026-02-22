@@ -118,12 +118,34 @@ These will be comprehensive, authoritative, and heavily interlinked.
 **Target Metrics Month 1:** 500 visitors, 50 subscribers, 5 conversions  
 **Target Metrics Month 6:** 10K visitors, 1K subscribers, 200 conversions
 
-### Nice to Have (Post Launch)
-1. Price history graphs
-2. User reviews system
-3. Comparison tool
-4. Wishlist functionality
-5. Discord bot integration
+### Feature Development & MVP Gap Analysis ✅ (2026-02-22)
+- [x] RICE prioritization framework applied
+- [x] MVP gap analysis complete (`docs/MVP-GAP-ANALYSIS.md`)
+- [x] Feature status tracking script (`tools/feature-status.sh`)
+- [ ] Product detail enhancement (enhanced specs)
+- [ ] Email/wishlist capture (P0 - launch blocker)
+- [ ] Price history charts
+- [ ] Comparison tool
+- [ ] "Find My Perfect Board" wizard
+
+**Current Gap Status:**
+| Priority | Status | Feature |
+|----------|--------|---------|
+| P0 | ⚠️ Partial | Enhanced product details |
+| P0 | ❌ Missing | Email alerts/capture |
+| P1 | ⚠️ Partial | Price history (schema ready) |
+| P2 | ❌ Missing | Comparison tool |
+| P3 | ❌ Missing | Wizard |
+
+**RICE Scores:**
+- Product Details: 120 (Highest) ✅ Build first
+- Email Alerts: 63 (High priority) ⚠️ Build week 1
+- Search Enhancement: 96 (High impact) ✅ Quick win
+- Advanced Sorting: 90 (Low effort) ✅ Easy win
+- Comparison Tool: 49 (Medium) ⏳ Week 2-3
+- Reviews: 27 (High effort) ⏳ Month 2+
+
+**Decision:** MVP = Current state + Product details + Email capture. Ship within 7 days.
 
 ---
 
