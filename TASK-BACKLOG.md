@@ -13,7 +13,7 @@
 
 ### Phase 1: Widget Structure
 - [x] **Task 1: Create floating widget HTML** — COMPLETED: Fixed position bottom-right, 64px toggle button, expandable panel, click/hover/escape interactions
-- [ ] **Task 2: Widget styling** — FAB design, shadow, hover lift, accent border, dark mode
+- [x] **Task 2: Widget styling** — COMPLETED: FAB design, pulsing glow animation, keyboard SVG icon, dark mode shadows, hover lift effects
 - [ ] **Task 3: Expand/collapse logic** — Hover to expand (300ms delay), click to pin, click outside to close
 
 ### Phase 2: Wizard Steps
