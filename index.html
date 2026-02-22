@@ -561,14 +561,40 @@
             color: var(--ink); 
         }
         
+        .wizard-back {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--faded);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin-right: 0.5rem;
+        }
+        
+        .wizard-back:hover {
+            background: var(--border);
+            color: var(--ink);
+        }
+        
             background: var(--border);
             color: var(--paper);
         }
         
         .wizard-panel-content {
-            padding: 1.25rem;
+            padding: 1.5rem;
             max-height: 400px;
             overflow-y: auto;
+        }
+        
+        /* Ensure wizard content has breathing room */
+        .wizard-step {
+            padding-bottom: 1rem;
         }
         
         /* Wizard Steps */
@@ -1165,6 +1191,7 @@
         
         <div class="wizard-panel" id="wizardPanel">
             <div class="wizard-panel-header">
+                <button class="wizard-back" id="wizardBack" onclick="goBackWizardStep()" aria-label="Go back" style="display: none;">←</button>
                 <span class="wizard-panel-title">Find My Board</span>
                 <button class="wizard-close" id="wizardClose" aria-label="Close wizard">×</button>
             </div>
@@ -1877,10 +1904,22 @@
             if (target) target.style.display = 'block';
             currentStep = step;
             
+            // Show/hide back button (don't show on step 1)
+            const backBtn = document.getElementById('wizardBack');
+            if (backBtn) {
+                backBtn.style.display = step > 1 ? 'flex' : 'none';
+            }
+            
             // Scroll panel content to top so the new question is visible
             const panelContent = document.getElementById('wizardPanelContent');
             if (panelContent) {
                 panelContent.scrollTop = 0;
+            }
+        }
+        
+        function goBackWizardStep() {
+            if (currentStep > 1) {
+                showWizardStep(currentStep - 1);
             }
         }
 

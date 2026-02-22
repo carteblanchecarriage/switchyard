@@ -15,12 +15,7 @@
             --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8;
         }
         
-        [data-theme="dark"] {
-            --paper: #1a1a1a;
-            --paper-dark: #252525;
             --ink: #fdfcf8;
-            --accent: #d4b56a;
-            --faded: #a0a0a0;
             --border: #444444;
         }
         
@@ -50,7 +45,6 @@
         
         .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
         .guide-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-        [data-theme="dark"] .guide-card { background: #252525; }
         .guide-card:hover { border-color: var(--accent); }
         .guide-icon { font-size: 2rem; margin-bottom: 0.5rem; }
         .guide-title { font-weight: 600; margin-bottom: 0.5rem; }
@@ -61,16 +55,12 @@
     </style>    
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('keebshelf-theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.documentElement.setAttribute('data-theme', 'dark');
             }
         })();
     </script>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <span id="themeIcon"></span>
         <span id="themeText">Dark</span>
     </button>
@@ -208,26 +198,16 @@
     </main>
     
     <script>
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
         
         function updateThemeUI() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             themeIcon.textContent = isDark ? '' : '';
             themeText.textContent = isDark ? 'Light' : 'Dark';
-            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }
         
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                if (isDark) {
-                    document.documentElement.removeAttribute('data-theme');
                     localStorage.setItem('keebshelf-theme', 'light');
                 } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
                     localStorage.setItem('keebshelf-theme', 'dark');
                 }
                 updateThemeUI();
