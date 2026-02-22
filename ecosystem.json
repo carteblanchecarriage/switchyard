@@ -1,0 +1,58 @@
+{
+  "apps": [
+    {
+      "name": "keebshelf-api",
+      "script": "./api/index.js",
+      "cwd": "/home/klondike/Desktop/keyboard-tracker",
+      "instances": 1,
+      "exec_mode": "fork",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3003
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "error_file": "./logs/keebshelf-error.log",
+      "out_file": "./logs/keebshelf-out.log",
+      "log_file": "./logs/keebshelf-combined.log",
+      "merge_logs": true,
+      "max_memory_restart": "512M",
+      "restart_delay": 3000,
+      "max_restarts": 10,
+      "min_uptime": "10s",
+      "kill_timeout": 5000,
+      "listen_timeout": 10000,
+      "watch": false,
+      "autorestart": true,
+      "vizion": false,
+      "instance_var": "INSTANCE_ID",
+      "health_check_grace_period": 10000,
+      "health_check_fatal_exceptions": true
+    },
+    {
+      "name": "keebshelf-scraper",
+      "script": "./tools/scrape-cron.sh",
+      "cwd": "/home/klondike/Desktop/keyboard-tracker",
+      "exec_interpreter": "bash",
+      "autorestart": false,
+      "cron_restart": "0 */2 * * *",
+      "watch": false,
+      "vizion": false,
+      "out_file": "./logs/scraper-cron.log",
+      "error_file": "./logs/scraper-error.log"
+    },
+    {
+      "name": "keebshelf-ab-test",
+      "script": "./tools/ab-test-runner.js",
+      "cwd": "/home/klondike/Desktop/keyboard-tracker",
+      "instances": 1,
+      "exec_mode": "fork",
+      "autorestart": false,
+      "cron_restart": "*/30 * * * *",
+      "watch": false,
+      "vizion": false,
+      "out_file": "./logs/ab-test-out.log",
+      "error_file": "./logs/ab-test-error.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z"
+    }
+  ]
+}

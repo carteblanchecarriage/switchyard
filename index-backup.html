@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchyard | Mechanical Keyboard Group Buys & In-Stock Drops [2025]</title>
+    <meta name="description" content="Track 12+ mechanical keyboards from Keychron, Drop, KBDfans, NovelKeys, and Epomaker. Live price tracking and in-stock notifications.">
+    <meta name="keywords" content="mechanical keyboard, group buy, keychron, drop, kbdfans, custom keyboard, mechanical switches">
+
+    <!-- Canonical URL -->
+    <link rel="icon" type="image/svg+xml" href="/switchyard/favicon.svg">
+    <link rel="alternate icon" href="/switchyard/favicon.ico">
+    <link rel="apple-touch-icon" href="/switchyard/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Switchyard | Mechanical Keyboard Group Buys & In-Stock Drops">
+    <meta property="og:description" content="Track 12+ keyboards from Keychron, Drop, KBDfans, NovelKeys, and Epomaker. Live prices and availability.">
+    <meta property="og:image" content="https://carteblanchecarriage.github.io/switchyard/images/og-home.svg">
+    <meta property="og:url" content="https://carteblanchecarriage.github.io/switchyard/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Switchyard | Mechanical Keyboard Group Buys">
+    <meta name="twitter:description" content="Track 12+ keyboards from Keychron, Drop, KBDfans, NovelKeys, and Epomaker. Live prices and deals.">
+    <meta name="twitter:image" content="https://carteblanchecarriage.github.io/switchyard/images/og-home.svg">
+
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Switchyard",
+        "url": "https://carteblanchecarriage.github.io/switchyard/",
+        "description": "Mechanical keyboard group buy tracker and in-stock drops aggregator",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://carteblanchecarriage.github.io/switchyard/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "What is Switchyard?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Switchyard is a mechanical keyboard group buy tracker that aggregates in-stock keyboards, switches, and keycaps from Keychron, Drop, KBDfans, NovelKeys, and more. It updates every 2 hours with live inventory and price data."
+            }
+        },{
+            "@type": "Question",
+            "name": "How often does Switchyard update?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Switchyard scrapes vendor websites every 2 hours to ensure data is current. Group buy deadlines and in-stock items are updated automatically."
+            }
+        }]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f7f6f2;
+            --ink: #1a1a1a;
+            --accent: #c4a35a;
+            --faded: #6b6b6b;
+            --border: #e8e8e8;
+        }
+
+        /* Dark mode variables */
+            --ink: #fdfcf8;
+            --border: #444444;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Newsreader', Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 12px 16px;
+            text-decoration: none;
+            z-index: 100;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            border-radius: 0 0 4px 0;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Focus indicators */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        /* Dark mode toggle - Modern sliding switch */
+        .theme-toggle {
+            background: var(--paper-dark);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            padding: 3px;
+            cursor: pointer;
+            width: 56px;
+            height: 28px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--ink);
+            border-radius: 50%;
+            left: 3px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+        .theme-toggle[aria-pressed="true"]::before {
+            transform: translateX(28px);
+            background: var(--paper);
+        }
+        .theme-toggle[aria-pressed="true"] {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .theme-toggle-text {
+            position: absolute;
+            right: 8px;
+            font-size: 0.65rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ink);
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            user-select: none;
+        }
+        .theme-toggle[aria-pressed="true"] .theme-toggle-text {
+            right: auto;
+            left: 8px;
+            color: var(--paper);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+            margin-right: 1.5rem;
+        }
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-link:hover,
+        .nav-link:focus {
+            color: white;
+        }
+        .nav-link.active {
+            color: var(--accent);
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Visually hidden for screen readers */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Announcer for screen readers */
+        .sr-announcer {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* Enhanced chip styles for button */
+        .chip {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            background: var(--paper);
+            color: var(--ink);
+        }
+        .chip:hover, .chip:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .chip.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        /* Mobile navigation */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .masthead-inner {
+                justify-content: space-between;
+            }
+        }
+        .loading-screen.hidden { opacity: 0; visibility: hidden; transition: opacity 0.5s; }
+        .loading-text { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
+        
+        /* Loading Spinner */
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spinner 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+            border-color: var(--border);
+            border-top-color: var(--accent);
+        }
+
+        /* Wizard Styles */
+        .wizard-step {
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .wizard-option-card {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            background: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+        .wizard-option-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 163, 90, 0.15);
+        }
+        .wizard-option-card.selected {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(196, 163, 90, 0.05) 0%, transparent 100%);
+        }
+        .wizard-option-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .wizard-option-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 0;
+        }
+        .wizard-option-desc {
+            font-size: 0.875rem;
+            color: var(--faded);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .wizard-question {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .wizard-subtitle {
+            font-size: 0.95rem;
+            color: var(--faded);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .wizard-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .wizard-icon {
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--paper-dark);
+            border-radius: 8px;
+            margin-bottom: 0.25rem;
+        }
+        .wizard-step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--faded);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Floating Widget Animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 12px rgba(196, 163, 90, 0.4); }
+            50% { box-shadow: 0 6px 20px rgba(196, 163, 90, 0.6), 0 0 0 4px rgba(196, 163, 90, 0.2); }
+        }
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Floating Widget Styles */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 12px rgba(196, 163, 90, 0.4); }
+            50% { box-shadow: 0 6px 20px rgba(196, 163, 90, 0.6), 0 0 0 4px rgba(196, 163, 90, 0.2); }
+        }
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .wizard-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .wizard-toggle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(196, 163, 90, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        .wizard-toggle:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(196, 163, 90, 0.5);
+            animation: none;
+        }
+        .wizard-toggle:focus-visible {
+            outline: 3px solid var(--paper);
+            outline-offset: 3px;
+        }
+        .wizard-toggle svg {
+            width: 28px;
+            height: 28px;
+        }
+        .match-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 24px;
+            height: 24px;
+            background: var(--ink);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            border: 2px solid var(--accent);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+        .wizard-panel {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            max-height: 500px;
+            background: var(--paper);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+            pointer-events: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .wizard-widget:not(.collapsed) .wizard-panel {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+        .wizard-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--paper-dark);
+        }
+        .wizard-panel-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .wizard-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--faded);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .wizard-close:hover {
+            background: var(--border);
+            color: var(--ink);
+        }
+        .wizard-panel-content {
+            padding: 1.25rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .wizard-widget .wizard-panel {
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15), 0 4px 20px rgba(0,0,0,0.1);
+        }
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .masthead { background: var(--ink); color: var(--paper); padding: 2rem; }
+        .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 0.75rem; }
+        .brand-lockup h1 { font-size: 2rem; font-weight: 700; }
+        .brand-lockup span { font-style: italic; color: var(--accent); }
+        .search-wrap { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); position: relative; }
+        .search-input { 
+            width: 100%; 
+            padding: 1rem 1rem 1rem 3rem; 
+            font-family: inherit; 
+            font-size: 1rem; 
+            border: 2px solid var(--border); 
+            border-radius: 12px; 
+            background: var(--paper);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.3-4.3'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 1rem center;
+            background-size: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .search-input:hover {
+            border-color: var(--faded);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(196, 163, 90, 0.15), 0 4px 12px rgba(0,0,0,0.08);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23c4a35a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.3-4.3'%3E%3C/path%3E%3C/svg%3E");
+        }
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.3-4.3'%3E%3C/path%3E%3C/svg%3E");
+        }
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23d4b56a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.3-4.3'%3E%3C/path%3E%3C/svg%3E");
+            box-shadow: 0 0 0 4px rgba(212, 181, 106, 0.2), 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .acquisition-count { font-size: 0.875rem; color: var(--faded); }
+        .shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .item { background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease; display: flex; flex-direction: column; }
+        .item:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04); border-color: var(--accent); }
+        .item-image-wrap { height: 200px; position: relative; overflow: hidden; background: var(--paper-dark); }
+        .item-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .item:hover .item-image-wrap img { transform: scale(1.05); }
+        .item-no-image { height: 100%; display: flex; align-items: center; justify-content: center; background: var(--paper-dark); color: var(--faded); font-size: 0.875rem; }
+        .item-meta { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+        .item-category { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--faded); margin-bottom: 0.5rem; }
+        .item-name { font-size: 1rem; margin-bottom: 0.5rem; }
+        .item-origin { font-size: 0.875rem; color: var(--faded); margin-bottom: 0.5rem; }
+        .item-desc { font-size: 0.875rem; color: var(--faded); margin-bottom: 0.75rem; line-height: 1.4; max-height: 3.5em; overflow: hidden; }
+        .item-footer { display: flex; justify-content: space-between; align-items: center; }
+        .item-price { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent); }
+        .item-status { font-size: 0.75rem; color: var(--faded); }
+        .item-action { display: block; padding: 0.75rem; text-align: center; background: var(--paper-dark); border-top: 1px solid var(--border); text-decoration: none; color: var(--ink); margin-top: auto; }
+        .item-action:hover { background: var(--accent); color: var(--ink); }
+        .load-more-btn { grid-column: 1 / -1; padding: 1.5rem; text-align: center; cursor: pointer; border: 2px dashed var(--border); border-radius: 8px; }
+        .load-more-btn:hover { border-color: var(--accent); }
+        .chip { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1rem 0.6rem 0.75rem; 
+            margin: 0.25rem; 
+            border: 1.5px solid var(--border); 
+            border-radius: 24px; 
+            cursor: pointer; 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .chip-icon { 
+            font-size: 1rem; 
+            line-height: 1;
+            filter: grayscale(0.2);
+            transition: filter 0.2s;
+        }
+        .chip-count {
+            background: var(--paper-dark);
+            color: var(--faded);
+            padding: 0.15rem 0.4rem;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            min-width: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .chip:hover { 
+            border-color: var(--accent); 
+            color: var(--accent);
+            box-shadow: 0 2px 8px rgba(196, 163, 90, 0.15);
+            transform: translateY(-1px);
+        }
+        .chip:hover .chip-icon {
+            filter: grayscale(0);
+        }
+        .chip:hover .chip-count {
+            background: rgba(196, 163, 90, 0.1);
+            color: var(--accent);
+        }
+        .chip.active { 
+            background: var(--accent); 
+            color: white; 
+            border-color: var(--accent);
+            box-shadow: 0 2px 8px rgba(196, 163, 90, 0.25);
+        }
+        .chip.active .chip-icon {
+            filter: grayscale(0);
+        }
+        .chip.active .chip-count {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        /* Vendor Checkbox Styles */
+        .vendor-checkbox:hover {
+            background: var(--paper-dark);
+        }
+        .vendor-checkbox input[type="checkbox"] {
+            accent-color: var(--accent);
+            width: 16px;
+            height: 16px;
+        }
+            background: var(--ink);
+        }
+        .filter-wrap { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+
+        /* Skeleton Loading Styles */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, var(--paper-dark) 25%, var(--border) 50%, var(--paper-dark) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+        }
+        .skeleton-card {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .skeleton-image {
+            height: 200px;
+            background: var(--paper-dark);
+        }
+        .skeleton-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .skeleton-text-sm { height: 0.7rem; width: 40%; }
+        .skeleton-text-md { height: 1rem; width: 80%; }
+        .skeleton-text-lg { height: 1rem; width: 60%; }
+        .skeleton-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.75rem;
+        }
+        .skeleton-price { height: 1.2rem; width: 30%; }
+        .skeleton-status { height: 0.875rem; width: 25%; }
+
+        /* Fade-in animation for items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .item {
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        /* Stagger animation delays for grid items */
+        .item:nth-child(1) { animation-delay: 0.05s; }
+        .item:nth-child(2) { animation-delay: 0.1s; }
+        .item:nth-child(3) { animation-delay: 0.15s; }
+        .item:nth-child(4) { animation-delay: 0.2s; }
+        .item:nth-child(5) { animation-delay: 0.25s; }
+        .item:nth-child(6) { animation-delay: 0.3s; }
+        .item:nth-child(7) { animation-delay: 0.35s; }
+        .item:nth-child(8) { animation-delay: 0.4s; }
+        .item:nth-child(9) { animation-delay: 0.45s; }
+        .item:nth-child(10) { animation-delay: 0.5s; }
+        .item:nth-child(11) { animation-delay: 0.55s; }
+        .item:nth-child(12) { animation-delay: 0.6s; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+        .back-to-top:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 2px;
+        }
+            outline-color: var(--paper);
+        }
+    </style>   <script>
+        (function() {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            }
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite" aria-label="Loading keyboard collection">
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="loading-text" aria-live="polite">Loading keyboard collection...</div>
+    </div>
+
+    <div id="sr-announcer" class="sr-announcer" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1>Switchyard</h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="/switchyard/" class="nav-link active">Home</a>
+                <a href="/switchyard/best/" class="nav-link">Keyboards</a>
+                <a href="/switchyard/beginner/" class="nav-link">Guides</a>
+                <a href="/switchyard/blog.html" class="nav-link">Blog</a>
+            </nav>
+                <span class="theme-toggle-text" id="themeText">Dark</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="search-wrap">
+        <label for="searchInput" class="visually-hidden">Search products</label>
+        <input type="search"
+               class="search-input"
+               id="searchInput"
+               placeholder="> Keyboard Search (press /)"
+               aria-describedby="search-help">
+        <div id="search-help" class="visually-hidden">Type to filter products in real-time</div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div style="background: var(--paper-dark); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--faded);">
+                <span><strong id="totalItems" style="color: var(--ink);">12</strong> items tracked</span>
+                <span><strong>6</strong> vendors</span>
+            </div>
+            <button onclick="openSubscribeModal()" 
+                    id="subscribeTrigger"
+                    aria-haspopup="dialog"
+                    aria-expanded="false"
+                    aria-controls="subscribeModal"
+                    style="background: var(--accent); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; font-family: inherit; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                Get Daily Alerts
+            </button>
+        </div>
+    </div>
+
+    <div class="filter-wrap">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <div role="group" aria-label="Filter by category" class="category-pills">
+                <button class="chip active" data-filter="all" aria-pressed="true">
+                    <span class="chip-label">All</span>
+                    <span class="chip-count" data-count="all">12</span>
+                </button>
+                <button class="chip" data-filter="keyboard" aria-pressed="false">
+                    <span class="chip-label">Keyboards</span>
+                    <span class="chip-count" data-count="keyboard">9</span>
+                </button>
+                <button class="chip" data-filter="case" aria-pressed="false">
+                    <span class="chip-label">Cases</span>
+                    <span class="chip-count" data-count="case">0</span>
+                </button>
+                <button class="chip" data-filter="switches" aria-pressed="false">
+                    <span class="chip-label">Switches</span>
+                    <span class="chip-count" data-count="switches">2</span>
+                </button>
+                <button class="chip" data-filter="keycaps" aria-pressed="false">
+                    <span class="chip-label">Keycaps</span>
+                    <span class="chip-count" data-count="keycaps">1</span>
+                </button>
+            </div>
+            <!-- Vendor Filter Checkboxes -->
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; margin-left: 1rem; padding-left: 1rem; border-left: 1px solid var(--border);" role="group" aria-label="Filter by vendor">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--faded); text-transform: uppercase;">Vendors:</span>
+                <label class="vendor-checkbox" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.2s;">
+                    <input type="checkbox" value="keychron" checked style="cursor: pointer;"> Keychron
+                </label>
+                <label class="vendor-checkbox" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.2s;">
+                    <input type="checkbox" value="drop" checked style="cursor: pointer;"> Drop
+                </label>
+                <label class="vendor-checkbox" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.2s;">
+                    <input type="checkbox" value="kbdfans" checked style="cursor: pointer;"> KBDfans
+                </label>
+                <label class="vendor-checkbox" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.2s;">
+                    <input type="checkbox" value="novelkeys" checked style="cursor: pointer;"> NovelKeys
+                </label>
+                <label class="vendor-checkbox" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.2s;">
+                    <input type="checkbox" value="epomaker" checked style="cursor: pointer;"> Epomaker
+                </label>
+            </div>
+
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+                <label for="sortSelect" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded);">Sort by:</label>
+                <select id="sortSelect" style="padding: 0.5rem 1rem; font-family: inherit; border: 1px solid var(--border); border-radius: 4px; background: var(--paper); color: var(--ink); cursor: pointer;">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-az">Name: A-Z</option>
+                    <option value="name-za">Name: Z-A</option>
+                    <option value="vendor-az">Vendor: A-Z</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Finder Wizard Modal -->
+    <div id="wizardModal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="wizard-title"
+         style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 3000; align-items: center; justify-content: center;"
+         onclick="closeWizardModal(event)">
+        <div role="document"
+             style="background: var(--paper); border-radius: 12px; max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);"
+             onclick="event.stopPropagation()">
+            
+            <!-- Wizard Header -->
+            <div style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--paper-dark);">
+                <h2 id="wizard-title" style="font-size: 1.25rem; margin: 0;">Find Your Perfect Keyboard</h2>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span id="wizard-progress-text" style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--faded);">Step 1 of 5</span>
+                    <button onclick="closeWizardModal()"
+                            aria-label="Close wizard"
+                            style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--faded); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: all 0.2s;">×</button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div style="height: 3px; background: var(--border);">
+                <div id="wizard-progress-bar" style="height: 100%; background: var(--accent); width: 20%; transition: width 0.3s ease;"></div>
+            </div>
+
+            <!-- Wizard Content -->
+            <div id="wizard-content" style="padding: 2rem;">
+                <!-- Step containers (populated by JavaScript) -->
+                <div id="wizard-step-1" class="wizard-step" data-step="1">
+                    <div class="wizard-step-number">Step 1 of 5</div>
+                    <h3 class="wizard-question">What will you use this keyboard for?</h3>
+                    <p class="wizard-subtitle">This helps us find the right features for your needs</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="gaming" onclick="selectWizardOption(1, 'gaming')">
+                            <div class="wizard-icon" style="color: #e74c3c;">[G]</div>
+                            <h4 class="wizard-option-title">Gaming</h4>
+                            <p class="wizard-option-desc">Fast response, anti-ghosting, RGB lighting</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="office" onclick="selectWizardOption(1, 'office')">
+                            <div class="wizard-icon" style="color: #3498db;">[O]</div>
+                            <h4 class="wizard-option-title">Office / Programming</h4>
+                            <p class="wizard-option-desc">Comfortable for long sessions, ergonomic, quiet</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="creative" onclick="selectWizardOption(1, 'creative')">
+                            <div class="wizard-icon" style="color: #9b59b6;">[C]</div>
+                            <h4 class="wizard-option-title">Creative Work</h4>
+                            <p class="wizard-option-desc">Macros, media controls, precision and consistency</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="general" onclick="selectWizardOption(1, 'general')">
+                            <div class="wizard-icon" style="color: #27ae60;">[X]</div>
+                            <h4 class="wizard-option-title">General Use</h4>
+                            <p class="wizard-option-desc">Versatile, entry-level, all-around performer</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="wizard-step-2" class="wizard-step" data-step="2" style="display: none;">
+                    <div class="wizard-step-number">Step 2 of 5</div>
+                    <h3 class="wizard-question">What's your workspace environment?</h3>
+                    <p class="wizard-subtitle">Different switches make different sounds. Pick what works for your space.</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="quiet" onclick="selectWizardOption(2, 'quiet')">
+                            <div class="wizard-icon" style="color: #27ae60;">[Q]</div>
+                            <h4 class="wizard-option-title">Shared / Office</h4>
+                            <p class="wizard-option-desc">Need quiet switches. Linear reds or silent variants recommended.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="medium" onclick="selectWizardOption(2, 'medium')">
+                            <div class="wizard-icon" style="color: #f39c12;">[M]</div>
+                            <h4 class="wizard-option-title">Home Office</h4>
+                            <p class="wizard-option-desc">Some noise OK. Tactile browns are a good middle ground.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="loud" onclick="selectWizardOption(2, 'loud')">
+                            <div class="wizard-icon" style="color: #e74c3c;">[L]</div>
+                            <h4 class="wizard-option-title">Private Space</h4>
+                            <p class="wizard-option-desc">Clicky blue switches. Satisfying tactile bump and audible click.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(2, 'unsure')">
+                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
+                            <h4 class="wizard-option-title">Not Sure</h4>
+                            <p class="wizard-option-desc">We'll show you all options. Check out our Switch Guide to learn more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="wizard-step-3" class="wizard-step" data-step="3" style="display: none;">
+                    <div class="wizard-step-number">Step 3 of 5</div>
+                    <h3 class="wizard-question">What size works for your desk?</h3>
+                    <p class="wizard-subtitle">Compact saves space, full-size has a numpad. Pick what fits your setup.</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="compact" onclick="selectWizardOption(3, 'compact')">
+                            <div class="wizard-icon" style="color: #3498db; font-size: 0.9rem;">[60%]</div>
+                            <h4 class="wizard-option-title">Compact</h4>
+                            <p class="wizard-option-desc">60-65% layout. Minimal, portable, perfect for small desks.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="balanced" onclick="selectWizardOption(3, 'balanced')">
+                            <div class="wizard-icon" style="color: #9b59b6; font-size: 0.9rem;">[75%]</div>
+                            <h4 class="wizard-option-title">Balanced</h4>
+                            <p class="wizard-option-desc">75-80% layout. Function keys, arrows. Most popular choice.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="fullsize" onclick="selectWizardOption(3, 'fullsize')">
+                            <div class="wizard-icon" style="color: #27ae60; font-size: 0.9rem;">[100%]</div>
+                            <h4 class="wizard-option-title">Full Size</h4>
+                            <p class="wizard-option-desc">100% layout with numpad. Desktop use, data entry, accounting.</p>
+                        </div>
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(3, 'unsure')">
+                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
+                            <h4 class="wizard-option-title">Not Sure</h4>
+                            <p class="wizard-option-desc">Show me popular options across all sizes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="wizard-step-4" class="wizard-step" data-step="4" style="display: none;">
+                    <div class="wizard-step-number">Step 4 of 5</div>
+                    <h3 class="wizard-question">Want to customize switches later?</h3>
+                    <p class="wizard-subtitle">Hot-swap lets you change switches without soldering. Great for experimenting.</p>
+                    
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="yes" onclick="selectWizardOption(4, 'yes')">
+                            <div class="wizard-icon" style="color: #27ae60;">[Y]</div>
+                            <h4 class="wizard-option-title">Yes, definitely</h4>
+                            <p class="wizard-option-desc">I want to try different switches without soldering.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="maybe" onclick="selectWizardOption(4, 'maybe')">
+                            <div class="wizard-icon" style="color: #f39c12;">[M]</div>
+                            <h4 class="wizard-option-title">Maybe later</h4>
+                            <p class="wizard-option-desc">Not now, but I'd like the option in the future.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="no" onclick="selectWizardOption(4, 'no')">
+                            <div class="wizard-icon" style="color: #3498db;">[N]</div>
+                            <h4 class="wizard-option-title">No thanks</h4>
+                            <p class="wizard-option-desc">Soldered is fine. I'm happy with my choice.</p>
+                        </div>
+                        
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(4, 'unsure')">
+                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
+                            <h4 class="wizard-option-title">What's that?</h4>
+                            <p class="wizard-option-desc">Hot-swap = pop switches in/out. No soldering needed.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="wizard-step-5" class="wizard-step" data-step="5" style="display: none;"></div>
+                <div id="wizard-results" style="display: none;"></div>
+            </div>
+
+            <!-- Wizard Footer Navigation -->
+            <div style="padding: 1.5rem 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--paper-dark);">
+                <button id="wizard-back" onclick="wizardPrevStep()" style="padding: 0.75rem 1.5rem; background: none; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink); opacity: 0.5; pointer-events: none; transition: all 0.2s;">Back</button>
+                
+                <div style="display: flex; gap: 0.5rem;">
+                    <button id="wizard-skip" onclick="closeWizardModal()" style="padding: 0.75rem 1.5rem; background: none; border: none; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--faded); text-decoration: underline;">Skip wizard</button>
+                    <button id="wizard-next" onclick="wizardNextStep()" style="padding: 0.75rem 2rem; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; font-weight: 500; transition: all 0.2s;">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribeModal" 
+         role="dialog" 
+         aria-modal="true"
+         aria-labelledby="modal-title"
+         aria-describedby="modal-desc"
+         style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center;" 
+         onclick="closeSubscribeModal(event)">
+        <div role="document" 
+             style="background: var(--paper); border-radius: 8px; max-width: 400px; width: 90%; padding: 2rem; position: relative; border: 1px solid var(--border);" 
+             onclick="event.stopPropagation()">
+            <button onclick="closeSubscribeModal()" 
+                    aria-label="Close subscription dialog"
+                    style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--faded);">×</button>
+            
+            <h3 id="modal-title" style="margin-bottom: 1rem;">Get Daily Alerts</h3>
+            <p id="modal-desc" style="color: var(--faded); margin-bottom: 1.5rem; font-size: 0.9rem;">Never miss a drop. Get daily emails with new products and price drops.</p>
+            
+            <form onsubmit="handleSubscribe(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label for="subEmail" style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Email <span aria-label="required">*</span></label>
+                    <input type="email" id="subEmail" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; background: var(--paper); color: var(--ink);" placeholder="you@example.com">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="subPref" style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Preferences</label>
+                    <select id="subPref" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; background: var(--paper); color: var(--ink);">
+                        <option value="digest">Daily digest</option>
+                        <option value="alerts">Price alerts only</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <button type="submit" id="subBtn" style="width: 100%; padding: 0.75rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">Subscribe</button>
+                <div id="subMsg" style="margin-top: 1rem; text-align: center;" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <main class="main" id="main-content">
+        <section>
+            <div class="section-header">
+                <span class="section-label">Current Collection</span>
+                <span class="acquisition-count" id="acquisitionCount" aria-live="polite">Loading...</span>
+            </div>
+            <div class="shelf" id="currentShelf"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 1rem;">
+            <div>
+                <h4 style="margin-top: 0;">About</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="blog.html" style="color: var(--faded);">The Story Behind Switchyard</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-top: 0;">Guides</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="beginner/" style="color: var(--faded);">Start Here (Beginners)</a></li>
+                    <li><a href="glossary/" style="color: var(--faded);">Glossary</a></li>
+                    <li><a href="switches/" style="color: var(--faded);">Switch Guide</a></li>
+                    <li><a href="build/" style="color: var(--faded);">Build Guide</a></li>
+                    <li><a href="guide/" style="color: var(--faded);">What is a Mechanical Keyboard?</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-top: 0;">Best Of</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="best/" style="color: var(--faded);">Best Keyboards 2025</a></li>
+                    <li><a href="best-budget/" style="color: var(--faded);">Under $100</a></li>
+                    <li><a href="best-programming/" style="color: var(--faded);">For Programming</a></li>
+                    <li><a href="best-60-percent/" style="color: var(--faded);">60% Keyboards</a></li>
+                    <li><a href="gaming/" style="color: var(--faded);">Gaming Keyboards</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-top: 0;">Vendors</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="https://keychron.com" style="color: var(--faded);">Keychron</a></li>
+                    <li><a href="https://drop.com" style="color: var(--faded);">Drop</a></li>
+                    <li><a href="https://kbdfans.com" style="color: var(--faded);">KBDfans</a></li>
+                    <li><a href="https://novelkeys.com" style="color: var(--faded);">NovelKeys</a></li>
+                    <li><a href="https://epomaker.com" style="color: var(--faded);">Epomaker</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="max-width: 1400px; margin: 1rem auto; border: none; border-top: 1px solid var(--border);">
+
+        <p style="text-align: center; padding-bottom: 2rem; margin: 0;">Curated mechanical keyboard group buys and interest checks. Updated every 2 hours.</p>
+    </footer>
+
+    <script>
+        let collection = { items: [] };
+        let displayedItems = [];
+        let currentBatch = 0;
+        let currentFilter = 'all';
+        let currentSort = 'featured';
+        let selectedVendors = ['keychron', 'drop', 'kbdfans', 'novelkeys', 'epomaker', 'kono.store'];
+        const ITEMS_PER_BATCH = 50;
+
+        const CACHE_KEY = 'switchyard_data';
+        const CACHE_TTL = 24 * 60 * 60 * 1000;
+
+        function getCachedData() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                const timestamp = localStorage.getItem(CACHE_KEY + '_ts');
+                if (cached && timestamp) {
+                    const age = Date.now() - parseInt(timestamp, 10);
+                    if (age < CACHE_TTL) return JSON.parse(cached);
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        function setCachedData(data) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(CACHE_KEY + '_ts', Date.now().toString());
+            } catch (e) {}
+        }
+
+        function processData(data) {
+            collection.items = (data.allProducts || []).map((item, idx) => ({
+                id: idx + 1,
+                name: item.name,
+                origin: item.vendor,
+                category: item.category || 'keyboard',
+                price: item.price,
+                status: item.status || 'active',
+                image: item.image,
+                url: item.affiliateUrl || item.url,
+                description: item.description || ''
+            })).filter(item => parsePrice(item.price) > 0);
+
+            applyFilterAndSort();
+        }
+
+        function displayData() {
+            const start = currentBatch * ITEMS_PER_BATCH;
+            const end = Math.min(start + ITEMS_PER_BATCH, displayedItems.length);
+            const batch = displayedItems.slice(start, end);
+
+            const html = batch.map(item => `
+                <div class="item">
+                    <div class="item-image-wrap">
+                        ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
+                        ${!item.image ? `<div class="item-no-image">No Image</div>` : ''}
+                    </div>
+                    <div class="item-meta">
+                        <div class="item-category">${item.category}</div>
+                        <h3 class="item-name">${item.name}</h3>
+                        <div class="item-origin">${item.origin}</div>
+                        <p class="item-desc">${item.description.substring(0, 100)}...</p>
+                        <div class="item-footer">
+                            <span class="item-price">${item.price}</span>
+                            <span class="item-status">${item.status}</span>
+                        </div>
+                    </div>
+                    <a href="${item.url}" class="item-action" target="_blank" rel="noopener">
+                        View details <span class="visually-hidden">(opens in new tab)</span>
+                    </a>
+                </div>
+            `).join('');
+
+            const container = document.getElementById('currentShelf');
+            const existingBtn = container.querySelector('.load-more-btn');
+            if (existingBtn) existingBtn.remove();
+
+            if (currentBatch === 0) {
+                container.innerHTML = html;
+            } else {
+                container.insertAdjacentHTML('beforeend', html);
+            }
+
+            if (end < displayedItems.length) {
+                container.insertAdjacentHTML('beforeend', `
+                    <div class="load-more-btn" onclick="loadMore()">
+                        Load ${Math.min(ITEMS_PER_BATCH, displayedItems.length - end)} more
+                    </div>
+                `);
+            }
+
+            document.getElementById('acquisitionCount').textContent = `${displayedItems.length} items`;
+
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 300);
+        }
+
+        function loadMore() {
+            currentBatch++;
+            displayData();
+        }
+
+        // Render skeleton loading cards
+        function renderSkeletons(count = 12) {
+            const shelf = document.getElementById('currentShelf');
+            shelf.innerHTML = Array(count).fill(0).map(() => `
+                <div class="skeleton-card item">
+                    <div class="skeleton-image skeleton"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-text-sm skeleton"></div>
+                        <div class="skeleton-text-md skeleton"></div>
+                        <div class="skeleton-text-lg skeleton"></div>
+                        <div class="skeleton-footer">
+                            <div class="skeleton-price skeleton"></div>
+                            <div class="skeleton-status skeleton"></div>
+                        </div>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--paper-dark); border-top: 1px solid var(--border);">
+                        <div class="skeleton" style="height: 1.25rem; width: 40%; margin: 0 auto;"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadData() {
+            console.log('Loading...');
+
+            // Show skeleton loading state
+            renderSkeletons(12);
+
+            const cached = getCachedData();
+            if (cached) {
+                processData(cached);
+                return;
+            }
+
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
+                setCachedData(data);
+                processData(data);
+            } catch (err) {
+                console.error('Failed:', err);
+                document.querySelector('.loading-text').textContent = 'Error loading. Check console (F12).';
+            }
+        }
+
+        // Apply filter, sort, and update display
+        function applyFilterAndSort() {
+            // Filter
+            let filtered = collection.items;
+
+            // Category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(item => item.category === currentFilter);
+            }
+
+            // Vendor filter
+            filtered = filtered.filter(item => {
+                const origin = item.origin?.toLowerCase() || '';
+                return selectedVendors.some(vendor => {
+                    const vendorLower = vendor.toLowerCase();
+                    return origin.includes(vendorLower) || 
+                           (vendorLower === 'kbdfans' && origin.includes('kbd')) ||
+                           (vendorLower === 'novelkeys' && origin.includes('novel')) ||
+                           (vendorLower === 'epomaker' && origin.includes('epomaker'));
+                });
+            });
+
+            // Sort
+            displayedItems = sortItemList(filtered, currentSort);
+            currentBatch = 0;
+            displayData();
+        }
+
+        // Parse price string (e.g., "$199", "$11/pack", "$10.00", "$50+") to number
+        function parsePrice(priceStr) {
+            if (!priceStr || priceStr === 'N/A' || priceStr === 'TBA') return 0;
+            // Extract first number from string
+            const match = priceStr.match(/[\d,]+\.?\d*/);
+            if (!match) return 0;
+            return parseFloat(match[0].replace(/,/g, ''));
+        }
+
+        // Sort a list of items
+        function sortItemList(items, sortValue) {
+            let sorted = [...items];
+
+            switch(sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+                    break;
+                case 'name-az':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'name-za':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'vendor-az':
+                    sorted.sort((a, b) => a.origin.localeCompare(b.origin, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'newest':
+                    // Keep original order (assumed newest first in data)
+                    break;
+                case 'featured':
+                default:
+                    // Shuffle slightly for variety
+                    sorted.sort(() => Math.random() - 0.5);
+                    break;
+            }
+
+            return sorted;
+        }
+
+        // Search handler with accessibility
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (!query) {
+                applyFilterAndSort();
+                announceToScreenReader('Search cleared. Showing all items.');
+            } else {
+                const searchResults = collection.items.filter(item =>
+                    item.name.toLowerCase().includes(query) ||
+                    item.origin.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                displayedItems = sortItemList(searchResults, currentSort);
+                currentBatch = 0;
+                displayData();
+                
+                // Announce results to screen readers
+                announceToScreenReader(`Found ${searchResults.length} items matching "${query}"`);
+            }
+        });
+
+        // Filter chips with accessibility
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                currentFilter = chip.dataset.filter;
+                document.querySelectorAll('.chip').forEach(c => {
+                    const isActive = c === chip;
+                    c.classList.toggle('active', isActive);
+                    c.setAttribute('aria-pressed', isActive);
+                });
+                applyFilterAndSort();
+                
+                // Announce to screen readers
+                const count = displayedItems.length;
+                const label = chip.textContent.trim();
+                announceToScreenReader(`Showing ${count} ${label === 'All' ? 'items' : label.toLowerCase()}`);
+            });
+        });
+
+        // Vendor filter checkboxes
+        document.querySelectorAll('.vendor-checkbox input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const value = checkbox.value;
+                if (checkbox.checked) {
+                    if (!selectedVendors.includes(value)) {
+                        selectedVendors.push(value);
+                    }
+                } else {
+                    selectedVendors = selectedVendors.filter(v => v !== value);
+                }
+                applyFilterAndSort();
+                announceToScreenReader(`${value} ${checkbox.checked ? 'added to' : 'removed from'} vendor filter`);
+            });
+        });
+
+        // Sort dropdown
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            applyFilterAndSort();
+            announceToScreenReader(`Sorted by ${e.target.options[e.target.selectedIndex].text}`);
+        });
+
+        function updateActiveChip(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.chip').forEach(c => {
+                const isActive = c.dataset.filter === filter;
+                c.classList.toggle('active', isActive);
+                c.setAttribute('aria-pressed', isActive);
+            });
+        }
+
+        // Screen reader announcer
+        function announceToScreenReader(message) {
+            const announcer = document.getElementById('sr-announcer');
+            if (announcer) {
+                announcer.textContent = message;
+                // Clear after announcement to prevent repeats
+                setTimeout(() => {
+                    announcer.textContent = '';
+                }, 1000);
+            }
+        }
+
+        const themeText = document.getElementById('themeText');
+        
+        function updateThemeUI() {
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+        
+                    localStorage.setItem('switchyard-theme', 'light');
+                } else {
+                    localStorage.setItem('switchyard-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+
+        // Wizard Navigation
+        let currentWizardStep = 1;
+        const totalWizardSteps = 5;
+        const wizardData = {}; // Store user selections
+
+        function openWizardModal() {
+            document.getElementById('wizardModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.getElementById('wizardModal').setAttribute('aria-hidden', 'false');
+            // Focus management for accessibility
+            document.getElementById('wizard-title').focus();
+        }
+
+        function closeWizardModal(e) {
+            if (!e || e.target.id === 'wizardModal' || !e.target) {
+                document.getElementById('wizardModal').style.display = 'none';
+                document.body.style.overflow = '';
+                document.getElementById('wizardModal').setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        function updateWizardProgress() {
+            const percentage = (currentWizardStep / totalWizardSteps) * 100;
+            document.getElementById('wizard-progress-bar').style.width = percentage + '%';
+            document.getElementById('wizard-progress-text').textContent = `Step ${currentWizardStep} of ${totalWizardSteps}`;
+            
+            // Update back button visibility
+            const backBtn = document.getElementById('wizard-back');
+            if (currentWizardStep === 1) {
+                backBtn.style.opacity = '0.5';
+                backBtn.style.pointerEvents = 'none';
+            } else {
+                backBtn.style.opacity = '1';
+                backBtn.style.pointerEvents = 'auto';
+            }
+
+            // Update next button text
+            const nextBtn = document.getElementById('wizard-next');
+            if (currentWizardStep === totalWizardSteps) {
+                nextBtn.textContent = 'See Results';
+            } else {
+                nextBtn.textContent = 'Next';
+            }
+        }
+
+        // Wizard option selection
+        function selectWizardOption(step, value) {
+            // Store selection
+            wizardData[`step${step}`] = value;
+            
+            // Update UI - remove selected from all cards in this step, add to clicked
+            const stepContainer = document.querySelector(`[data-step="${step}"]`);
+            stepContainer.querySelectorAll('.wizard-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            stepContainer.querySelector(`[data-value="${value}"]`).classList.add('selected');
+            
+            // Optional: Auto-advance to next step after delay
+            setTimeout(() => {
+                wizardNextStep();
+            }, 400);
+        }
+
+        function showWizardStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.wizard-step').forEach(step => {
+                step.style.display = 'none';
+            });
+            // Show current step
+            document.querySelector(`[data-step="${stepNumber}"]`).style.display = 'block';
+            currentWizardStep = stepNumber;
+            updateWizardProgress();
+        }
+
+        function wizardNextStep() {
+            if (currentWizardStep < totalWizardSteps) {
+                showWizardStep(currentWizardStep + 1);
+            } else {
+                // Show results
+                showWizardResults();
+            }
+        }
+
+        function wizardPrevStep() {
+            if (currentWizardStep > 1) {
+                showWizardStep(currentWizardStep - 1);
+            }
+        }
+
+        function showWizardResults() {
+            document.querySelectorAll('.wizard-step').forEach(step => {
+                step.style.display = 'none';
+            });
+            document.getElementById('wizard-results').style.display = 'block';
+            document.getElementById('wizard-next').style.display = 'none';
+            document.getElementById('wizard-progress-text').textContent = 'Your Matches';
+            document.getElementById('wizard-progress-bar').style.width = '100%';
+            // Results will be populated later
+        }
+
+        // Floating Widget Expand/Collapse Logic
+        (function initFloatingWizard() {
+            const widget = document.getElementById('keyboard-wizard');
+            const toggle = document.getElementById('wizardToggle');
+            const closeBtn = document.getElementById('wizardClose');
+            
+            if (!widget || !toggle) return;
+            
+            // Toggle on click
+            toggle.addEventListener('click', () => {
+                widget.classList.toggle('collapsed');
+            });
+            
+            // Close on close button
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    widget.classList.add('collapsed');
+                });
+            }
+            
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !widget.classList.contains('collapsed')) {
+                    widget.classList.add('collapsed');
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!widget.classList.contains('collapsed') && 
+                    !widget.contains(e.target)) {
+                    widget.classList.add('collapsed');
+                }
+            });
+            
+            // Hover delay (300ms)
+            let hoverTimeout;
+            toggle.addEventListener('mouseenter', () => {
+                hoverTimeout = setTimeout(() => {
+                    widget.classList.remove('collapsed');
+                }, 300);
+            });
+            
+            toggle.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+            });
+            
+            // Prevent closing when hovering panel
+            const panel = document.getElementById('wizardPanel');
+            if (panel) {
+                panel.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimeout);
+                });
+            }
+        })();
+
+        // Initialize wizard progress on load
+        updateWizardProgress();
+
+        // Keyboard shortcut: Press "/" to focus search input
+        document.addEventListener('keydown', (e) => {
+            // Don't trigger if user is typing in an input, textarea, or modal is open
+            if (e.target.tagName === 'INPUT' || 
+                e.target.tagName === 'TEXTAREA' || 
+                e.target.isContentEditable ||
+                document.getElementById('subscribeModal')?.style.display === 'flex' ||
+                document.getElementById('wizardModal')?.style.display === 'flex') {
+                return;
+            }
+            
+            if (e.key === '/') {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.focus();
+                    // Scroll search into view if needed
+                    searchInput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        });
+
+        // Subscribe Modal Functions with accessibility
+        let lastFocusedElement;
+        let focusTrapHandler;
+
+        function openSubscribeModal() {
+            lastFocusedElement = document.activeElement;
+            const modal = document.getElementById('subscribeModal');
+            modal.style.display = 'flex';
+            document.getElementById('subscribeTrigger')?.setAttribute('aria-expanded', 'true');
+            
+            // Focus first input
+            setTimeout(() => {
+                document.getElementById('subEmail')?.focus();
+            }, 50);
+            
+            // Setup focus trap
+            setupFocusTrap(modal);
+        }
+
+        function closeSubscribeModal(e) {
+            if (!e || e.target.id === 'subscribeModal') {
+                const modal = document.getElementById('subscribeModal');
+                modal.style.display = 'none';
+                document.getElementById('subscribeTrigger')?.setAttribute('aria-expanded', 'false');
+                
+                // Remove focus trap
+                if (focusTrapHandler) {
+                    modal.removeEventListener('keydown', focusTrapHandler);
+                    focusTrapHandler = null;
+                }
+                
+                // Return focus
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
+            }
+        }
+
+        function setupFocusTrap(element) {
+            const focusable = element.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            
+            focusTrapHandler = (e) => {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+                if (e.key === 'Escape') {
+                    closeSubscribeModal();
+                }
+            };
+            
+            element.addEventListener('keydown', focusTrapHandler);
+        }
+
+        async function handleSubscribe(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('subEmail').value;
+            const preference = document.getElementById('subPref').value;
+            const btn = document.getElementById('subBtn');
+            const msg = document.getElementById('subMsg');
+
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            msg.innerHTML = '';
+
+            try {
+                // Note: This is a placeholder. In production, this would call your API
+                // await fetch('/api/subscribe', {...})
+
+                // Simulate API call
+                await new Promise(r => setTimeout(r, 1000));
+
+                msg.innerHTML = '<span style="color: #16a34a;">[OK] Subscribed! Check your email.</span>';
+                announceToScreenReader('Successfully subscribed to daily alerts');
+                setTimeout(() => {
+                    document.getElementById('subscribeForm')?.reset();
+                    closeSubscribeModal();
+                }, 2000);
+
+            } catch (err) {
+                msg.innerHTML = '<span style="color: #dc2626;">❌ Failed to subscribe. Please try again.</span>';
+                announceToScreenReader('Failed to subscribe. Please try again.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            }
+
+            return false;
+        }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        loadData();
+    </script>
+
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"></path></svg>
+    <div id="keyboard-wizard" class="wizard-widget collapsed" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+        <!-- Toggle Button -->
+        <div class="wizard-toggle" id="wizardToggle" role="button" tabindex="0" aria-label="Find my keyboard">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"></path>
+            </svg>
+            <span class="match-count" id="wizardMatchCount" style="display: none;">280</span>
+        </div>
+        
+        <!-- Wizard Panel (Hidden by default) -->
+        <div class="wizard-panel" id="wizardPanel">
+            <div class="wizard-panel-header">
+                <span class="wizard-panel-title">Find My Board</span>
+                <button class="wizard-close" id="wizardClose" aria-label="Close wizard">×</button>
+            </div>
+            
+            <div class="wizard-panel-content" id="wizardPanelContent">
+                <!-- Step content will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+        ↑
+    </button>
+</body>
+</html>

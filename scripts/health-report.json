@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-02-20T04:02:22.697Z",
+  "total": 16,
+  "healthy": 10,
+  "broken": 6,
+  "results": [
+    {
+      "name": "Drop CTRL Keyboard",
+      "url": "https://drop.com/mechanical-keyboards/drop-ctrl",
+      "type": "product",
+      "status": 302,
+      "statusText": "↪️ REDIRECT (302)",
+      "healthy": true
+    },
+    {
+      "name": "Drop Holy Panda X",
+      "url": "https://drop.com/switches/drop-holy-panda-x-mechanical-switches",
+      "type": "product",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "Kono Kira Keyboard",
+      "url": "https://kono.store/products/kono-kira",
+      "type": "product",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "Keychron Q1 Pro",
+      "url": "https://keychron.com/products/keychron-q1-pro",
+      "type": "product",
+      "status": 301,
+      "statusText": "↪️ REDIRECT (301)",
+      "healthy": true
+    },
+    {
+      "name": "Kono x Gateron Yellow",
+      "url": "https://kono.store/collections/switches",
+      "type": "product",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "NovelKeys NK65",
+      "url": "https://novelkeys.com/products/nk65-entry-edition",
+      "type": "product",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    },
+    {
+      "name": "KBDfans Tofu60",
+      "url": "https://kbdfans.com/collections/60-layout/products/tofu60",
+      "type": "product",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "KBDfans MOMOKA Frosty",
+      "url": "https://kbdfans.com/collections/keycaps/products/momoka-frosty",
+      "type": "product",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "Phantom TKL IC",
+      "url": "https://geekhack.org/index.php?topic=122456.0",
+      "type": "proposal",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    },
+    {
+      "name": "Vintage Beige IC",
+      "url": "https://geekhack.org/index.php?topic=122345.0",
+      "type": "proposal",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    },
+    {
+      "name": "Magnetic Switches IC",
+      "url": "https://geekhack.org/index.php?topic=122789.0",
+      "type": "proposal",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    },
+    {
+      "name": "Drop Store",
+      "url": "https://drop.com",
+      "type": "curator",
+      "status": 302,
+      "statusText": "↪️ REDIRECT (302)",
+      "healthy": true
+    },
+    {
+      "name": "Kono.store",
+      "url": "https://kono.store",
+      "type": "curator",
+      "status": 404,
+      "statusText": "❌ BROKEN (4xx)",
+      "healthy": false
+    },
+    {
+      "name": "NovelKeys",
+      "url": "https://novelkeys.com",
+      "type": "curator",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    },
+    {
+      "name": "Keychron",
+      "url": "https://keychron.com",
+      "type": "curator",
+      "status": 301,
+      "statusText": "↪️ REDIRECT (301)",
+      "healthy": true
+    },
+    {
+      "name": "KBDfans",
+      "url": "https://kbdfans.com",
+      "type": "curator",
+      "status": 200,
+      "statusText": "✅ OK",
+      "healthy": true
+    }
+  ]
+}

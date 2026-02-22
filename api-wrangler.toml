@@ -1,0 +1,13 @@
+name = "switchyard-api"
+main = "api/worker.js"
+compatibility_date = "2026-02-22"
+
+# Rate limiting via CF
+[[routes]]
+pattern = "api.switchyard-site.pages.dev/*"
+custom_domain = true
+
+# KV Namespace for caching (optional)
+[[kv_namespaces]]
+binding = "KEYBOARD_DATA"
+id = "keyboard_data_cache"

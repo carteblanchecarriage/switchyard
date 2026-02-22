@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keebshelf - Mechanical Keyboard News</title>
+    <link>https://carteblanchecarriage.github.io/keebshelf/</link>
+    <description>Latest mechanical keyboard group buys, in-stock drops, and guides from Keebshelf.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Feb 2026 04:30:00 GMT</lastBuildDate>
+    <atom:link href="https://carteblanchecarriage.github.io/keebshelf/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>New Content: Complete Switch Buying Guide 2025</title>
+      <link>https://carteblanchecarriage.github.io/keebshelf/guides/switches/</link>
+      <pubDate>Fri, 21 Feb 2026 04:00:00 GMT</pubDate>
+      <guid>https://carteblanchecarriage.github.io/keebshelf/guides/switches/</guid>
+      <description>Learn the differences between linear, tactile, and clicky switches. Find the perfect switch for gaming, typing, or work with detailed comparisons and recommendations.</description>
+    </item>
+
+    <item>
+      <title>New Content: Best Mechanical Keyboards for Programming 2025</title>
+      <link>https://carteblanchecarriage.github.io/keebshelf/guides/programming/</link>
+      <pubDate>Fri, 21 Feb 2026 04:00:00 GMT</pubDate>
+      <guid>https://carteblanchecarriage.github.io/keebshelf/guides/programming/</guid>
+      <description>Top 5 mechanical keyboards for programmers and developers. From budget picks to premium options for Vim users.</description>
+    </item>
+
+    <item>
+      <title>New Content: How to Lube Mechanical Switches - Complete Guide</title>
+      <link>https://carteblanchecarriage.github.io/keebshelf/guides/lubing/</link>
+      <pubDate>Fri, 21 Feb 2026 04:00:00 GMT</pubDate>
+      <guid>https://carteblanchecarriage.github.io/keebshelf/guides/lubing/</guid>
+      <description>Step-by-step tutorial for lubing mechanical keyboard switches. Tools needed, lube types, process, and common mistakes to avoid.</description>
+    </item>
+
+    <item>
+      <title>Guide: The Real Cost of Building Your First Custom Mechanical Keyboard</title>
+      <link>https://carteblanchecarriage.github.io/keebshelf/blog.html</link>
+      <pubDate>Sun, 16 Feb 2026 08:00:00 GMT</pubDate>
+      <guid>https://carteblanchecarriage.github.io/keebshelf/blog.html</guid>
+      <description>Realistic budget breakdown for first-time builders. The hidden costs, tools, and what you actually need to spend.</description>
+    </item>
+
+    <item>
+      <title>Beginner Guide: What is a Mechanical Keyboard?</title>
+      <link>https://carteblanchecarriage.github.io/keebshelf/beginner/</link>
+      <pubDate>Sun, 16 Feb 2026 08:00:00 GMT</pubDate>
+      <guid>https://carteblanchecarriage.github.io/keebshelf/beginner/</guid>
+      <description>No jargon, no gatekeeping. Just answers about what makes mechanical keyboards different and how to choose your first one.</description>
+    </item>
+  </channel>
+</rss>

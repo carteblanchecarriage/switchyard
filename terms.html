@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Switchyard</title>
+    <meta name="description" content="Terms of Service for Switchyard mechanical keyboard tracker. Read our terms before using the service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f5f4f0;
+            --ink: #1a1a1a;
+            --faded: #6b6b6b;
+            --accent: #c4a35a;
+            --border: #e0ddd5;
+        }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+        
+        .masthead { background: var(--ink); color: var(--paper); padding: 1.5rem 2rem; }
+        .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 1rem; }
+        .brand-lockup h1 { font-family: 'Newsreader', Georgia, serif; font-size: 1.75rem; font-weight: 400; }
+        .brand-lockup h1 a { color: var(--paper); text-decoration: none; }
+        .brand-lockup span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; }
+        
+        .main-nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: white; }
+        
+        .theme-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 0.5rem 1rem; cursor: pointer; color: var(--paper); font-family: 'JetBrains Mono', monospace; }
+        
+        .page-header { background: var(--paper-dark); padding: 3rem 2rem; border-bottom: 1px solid var(--border); }
+        .page-header-inner { max-width: 800px; margin: 0 auto; }
+        .page-header h1 { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .page-header p { color: var(--faded); }
+        
+        .content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .content h2 { font-family: 'Newsreader', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--ink); }
+        .content h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+        .content p { margin-bottom: 1rem; color: var(--ink); }
+        .content ul, .content ol { margin: 1rem 0 1rem 1.5rem; }
+        .content li { margin-bottom: 0.5rem; }
+        .content strong { color: var(--ink); }
+        
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .warning-box strong { display: block; margin-bottom: 0.5rem; color: #92400e; }
+        
+        /* Footer Styles */
+        footer { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2rem; margin-top: 4rem; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-section h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: rgba(255,255,255,0.6); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1400px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+        .footer-bottom-links { display: flex; gap: 1.5rem; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.875rem; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .page-header h1 { font-size: 1.75rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="/">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <nav class="main-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/" class="nav-link">Keyboards</a>
+                <a href="/beginner/" class="nav-link">Guides</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <h1>Terms of Service</h1>
+            <p>Last Updated: February 19, 2026</p>
+        </div>
+    </div>
+
+    <main class="content">
+        <div class="warning-box">
+            <strong>⚠️ Important Notice</strong>
+            By using Switchyard, you agree to these Terms of Service. Please read them carefully before using the service.
+        </div>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By using Switchyard, you agree to these Terms of Service. If you don't agree, please don't use the service.</p>
+
+        <h2>2. Service Description</h2>
+        <p>Switchyard aggregates publicly available information about mechanical keyboard group buys, interest checks, and vendor listings. We provide:</p>
+        <ul>
+            <li>Search and discovery of group buys</li>
+            <li>Links to vendor websites</li>
+            <li>Interest check tracking</li>
+            <li>API access (for paid tiers)</li>
+        </ul>
+
+        <h2>3. Affiliate Disclosure</h2>
+        <p><strong>Important:</strong> Switchyard participates in affiliate programs with keyboard vendors. When you click on links and make purchases, we may earn a commission at <strong>no additional cost to you</strong>.</p>
+        <p>This is how we fund the service. Affiliate relationships are disclosed on relevant pages.</p>
+
+        <h2>4. Data Sources &amp; Attribution</h2>
+        
+        <h3>Scraped Data</h3>
+        <p>We aggregate data from publicly available sources:</p>
+        <ul>
+            <li><strong>Reddit:</strong> r/MechanicalKeyboards, r/mechmarket</li>
+            <li><strong>Geekhack.org:</strong> Public forum posts</li>
+            <li><strong>Vendor websites:</strong> Public product listings</li>
+        </ul>
+        <p>All data scraped is already publicly visible to any visitor of these sites.</p>
+
+        <h3>Attribution</h3>
+        <ul>
+            <li>Reddit data includes links back to original posts</li>
+            <li>Geekhack data includes links to original threads</li>
+            <li>Vendor data links directly to product pages</li>
+        </ul>
+
+        <h2>5. Acceptable Use</h2>
+        <p>You agree NOT to:</p>
+        <ul>
+            <li>Scrape our API at excessive rates (respect rate limits)</li>
+            <li>Use the service for spam or harassment</li>
+            <li>Attempt to access non-public data</li>
+            <li>Resell our aggregated data without permission</li>
+            <li>Circumvent access controls or subscription limits</li>
+        </ul>
+
+        <h2>6. API Rate Limits</h2>
+        <ul>
+            <li><strong>Free tier:</strong> 100 requests/day</li>
+            <li><strong>Hobbyist:</strong> 1,000 requests/day</li>
+            <li><strong>Builder:</strong> 10,000 requests/day</li>
+            <li><strong>Business:</strong> Unlimited (fair use)</li>
+        </ul>
+        <p>Excessive automated requests may result in temporary blocking.</p>
+
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>This service is provided "as is". We don't guarantee:</p>
+        <ul>
+            <li>Accuracy of vendor pricing or availability</li>
+            <li>Group buy legitimacy (verify before purchasing)</li>
+            <li>Uninterrupted service availability</li>
+            <li>Timeliness of data updates</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ Always Verify</strong>
+            Always verify group buy details directly with vendors before purchasing. We are not responsible for vendor disputes or delivery issues.
+        </div>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>We're not responsible for:</p>
+        <ul>
+            <li>Financial losses from group buy purchases</li>
+            <li>Vendor disputes or delivery issues</li>
+            <li>Data inaccuracies or omissions</li>
+            <li>Service downtime</li>
+        </ul>
+
+        <h2>9. Intellectual Property</h2>
+        <ul>
+            <li><strong>Our content:</strong> Switchyard branding, UI design, and original content</li>
+            <li><strong>Third-party content:</strong> Product names, images, descriptions belong to vendors/creators</li>
+            <li><strong>Data:</strong> Aggregated public data remains attributable to original sources</li>
+        </ul>
+
+        <h2>10. Changes to Terms</h2>
+        <p>We may update these terms. Continued use after changes constitutes acceptance.</p>
+
+        <h2>11. Governing Law</h2>
+        <p>These terms are governed by the laws of the United States.</p>
+
+        <h2>12. Contact</h2>
+        <p>For questions about these terms, please reach out through our <a href="/contact.html">contact page</a>.</p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="/">All Products</a></li>
+                    <li><a href="/">Best Overall</a></li>
+                    <li><a href="/">Budget Picks</a></li>
+                    <li><a href="/">60% Keyboards</a></li>
+                    <li><a href="/">Gaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="/beginner/">Beginner's Guide</a></li>
+                    <li><a href="/switches/">Switch Guide</a></li>
+                    <li><a href="/">Glossary</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="/">Price Alerts</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/">API Access</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Switchyard. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/affiliate-disclosure.html">Affiliates</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            } else {
+            }
+        });
+    </script>
+</body>
+</html>

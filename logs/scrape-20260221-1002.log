@@ -1,0 +1,203 @@
+🚀 Keyboard Tracker - Enhanced Product Scraper
+
+🎯 Fetching real product URLs from vendor sites...
+
+🔍 Scraping Drop.com...
+  ✅ Found 5 Drop products with verified URLs
+🔍 Scraping Kono.store (Shopify)...
+  ⚠️ Kono.store: Request failed with status code 404
+    ⚠️ Collection switches: Request failed with status code 404
+    ⚠️ Collection keyboards: Request failed with status code 404
+    ⚠️ Collection keycaps: Request failed with status code 404
+🔍 Scraping NovelKeys (Shopify)...
+    ⚠️ Skipping sold out: KBDFans Roller Switches V2
+    ⚠️ Skipping sold out: Smurve80
+    ⚠️ Skipping sold out: Matrix Solder PCB Packs
+    ⚠️ Skipping sold out: Matrix Carnival
+    ⚠️ Skipping sold out: NESON NoryTek70
+    ⚠️ Skipping sold out: Keycult No. 2/TKL
+    ⚠️ Skipping sold out: NK87 - Olive Edition
+    ⚠️ Skipping sold out: NK65 - Oblivion Edition
+    ⚠️ Skipping sold out: Cherry PBoW
+    ⚠️ Skipping sold out: NK65 - Entry Edition
+    ⚠️ Skipping sold out: CLASSIC-TKL Mictlan Edition
+    ⚠️ Skipping sold out: [Extra Case] Cloudnine 2
+    ⚠️ Skipping sold out: Cloudnine 2
+    ⚠️ Skipping sold out: Beetle 60
+    ⚠️ Skipping sold out: Keyboard Bundle
+    ⚠️ Skipping sold out: CLASSIC-TKL Hatsune Miku Edition
+    ⚠️ Skipping sold out: Matrix NOSTATION
+    ⚠️ Skipping sold out: Matrix NOOS WING
+    ⚠️ Skipping sold out: Lily R2 Extra Components
+    ⚠️ Skipping sold out: Lily R2 MX Keyboard Kit
+    ⚠️ Skipping sold out: Lily R2 EC Keyboard Kit
+    ⚠️ Skipping sold out: Keycult No. 1 / 1800
+    ⚠️ Skipping sold out: Matrix NOOS Components
+    ⚠️ Skipping sold out: Matrix NOOS
+    ⚠️ Skipping sold out: Keycult No. 1 / 60
+    ⚠️ Skipping sold out: Keycult No. 1 / 60 Top
+    ⚠️ Skipping sold out: Keycult No. 1 / 60 Plate
+    ⚠️ Skipping sold out: FFXIV Eorzean Keycaps
+    ⚠️ Skipping sold out: CLASSIC-TKL FFXIV Edition
+    ⚠️ Skipping sold out: Keycult Zero Accent Layout Bars
+    ⚠️ Skipping sold out: Keycult Zero Accent Bars
+    ⚠️ Skipping sold out: Keycult Zero Base
+    ⚠️ Skipping sold out: Keycult No.1 / 1800 Darling Edition
+    ⚠️ Skipping sold out: Random Warehouse Keyboards
+    ⚠️ Skipping sold out: Cherry Charcoal
+    ⚠️ Skipping sold out: NK65 - Mictlan Edition
+    ⚠️ Skipping sold out: NK87 - Entry Edition
+    ⚠️ Skipping sold out: NK65 - Aluminum Edition
+    ⚠️ Skipping sold out: HMX Switch Sample Pack
+    ⚠️ Skipping sold out: CLASSIC-TKL
+    ⚠️ Skipping sold out: NK65 - Olivia Edition
+    ⚠️ Skipping sold out: Cherry Stone
+    ⚠️ Skipping sold out: KAT Milkshake
+    ⚠️ Skipping sold out: Cherry Copper
+    ⚠️ Skipping sold out: Cherry MX2A Switches
+    ⚠️ Skipping sold out: XOX70 FRL TKL Addons
+    ⚠️ Skipping sold out: XOX70 FRL TKL Plate
+    ⚠️ Skipping sold out: Switch Opener
+    ⚠️ Skipping sold out: Gateron Switches
+    ⚠️ Skipping sold out: Key Kobo Darling
+    ⚠️ Skipping sold out: CYL Hangul
+  ✅ Found 47 products from NovelKeys
+🔍 Scraping Keychron (Shopify)...
+    ⚠️ Skipping sold out: Keychron C4 HE 8K Magnetic Switch Keyboard
+    ⚠️ Skipping sold out: Keychron R6 QMK Wireless Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron V1 8K QMK Wired Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - All-Wood Special Edition
+    ⚠️ Skipping sold out: Lemokey P2 HE Wireless Magnetic Switch Custom Gaming Keyboard
+    ⚠️ Skipping sold out: Keychron B36 Keyboard and BM25 Mouse Wireless Combo
+    ⚠️ Skipping sold out: Keychron K9 Max QMK Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K10 QMK Wireless Mechanical Keyboard (ISO Layout) - Version 2
+    ⚠️ Skipping sold out: Keychron Milk POM Low Profile Switch
+    ⚠️ Skipping sold out: Keychron Q6 HE QMK Wireless Custom Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K8 Max QMK Wireless Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K10 Max QMK Wireless Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron Q3 HE QMK Wireless Custom Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K2 HE Wireless Magnetic Switch Custom Keyboard (Japan JIS Layout)
+    ⚠️ Skipping sold out: Keychron K10 Pro QMK/VIA Wireless Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K17 Max QMK Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K2 QMK Wireless Mechanical Keyboard (Version 3)
+    ⚠️ Skipping sold out: Lemokey L5 HE Magnetic Switch Custom Gaming Keyboard
+    ⚠️ Skipping sold out: Keychron Custom Keyboard Industry Design Open Source Project - K HE Series
+    ⚠️ Skipping sold out: Keychron K4 QMK Wireless Mechanical Keyboard (Version 3)
+    ⚠️ Skipping sold out: Keychron Q6 HE QMK Wireless Custom Keyboard
+    ⚠️ Skipping sold out: Keychron K5 QMK Wireless Mechanical Keyboard (ISO Layout) - Version 2
+    ⚠️ Skipping sold out: Keychron K5 QMK Wireless Mechanical Keyboard (Version 2)
+    ⚠️ Skipping sold out: Keychron Folio Case for Slim Keyboard
+    ⚠️ Skipping sold out: Keychron K10 QMK Wireless Mechanical Keyboard (Version 2)
+    ⚠️ Skipping sold out: Keychron B6 Pro Ultra-Slim Wireless Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron B1 Pro Ultra-Slim Wireless Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K8 QMK Wireless Mechanical Keyboard (Version 2)
+    ⚠️ Skipping sold out: Keychron Q0 Plus QMK Custom Number Pad - PCB
+    ⚠️ Skipping sold out: Keychron Keyboard Wood Siding
+    ⚠️ Skipping sold out: Keychron K3 QMK Wireless Mechanical Keyboard (Version 3)
+    ⚠️ Skipping sold out: Keychron K1 QMK Wireless Mechanical Keyboard (Version 6)
+    ⚠️ Skipping sold out: Gateron Switch and Keycap Puller
+    ⚠️ Skipping sold out: Pixel Sunset - Cherry Profile Dye-Sub PBT Full Keycap Set
+    ⚠️ Skipping sold out: Lemokey P1 QMK Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K8 Max QMK Wireless Mechanical Keyboard
+    ⚠️ Skipping sold out: Cosmic Galaxy - Cherry Profile Dye-Sub PBT Full Keycap Set
+    ⚠️ Skipping sold out: Neon Night - Cherry Profile Dye-Sub PBT Full Keycap Set
+    ⚠️ Skipping sold out: Lemokey X5 QMK Wired Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K2 Max QMK Wireless Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K13 Max QMK Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: OEM Dye-Sub PBT Full Set Keycap Set - Mahjong
+    ⚠️ Skipping sold out: Lemokey X0 QMK Wired Mechanical Gaming Keypad
+    ⚠️ Skipping sold out: Keychron V6 Max QMK Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Double Shot OSA PBT Side-Printed Full Keycap Set
+    ⚠️ Skipping sold out: Keychron K1 Max QMK Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Double Shot PBT OSA Full Set Keycap Set
+    ⚠️ Skipping sold out: Keychron B6 Pro Ultra-Slim Wireless Keyboard
+    ⚠️ Skipping sold out: Keychron Q6 Max QMK/VIA Wireless Custom Mechanical Keyboard (Japan JIS Layout)
+    ⚠️ Skipping sold out: Lemokey X4 QMK Wired Mechanical Keyboard
+    ⚠️ Skipping sold out: Elegant Goldfish Resin Artisan Keycap
+    ⚠️ Skipping sold out: Yellow Duck Resin Artisan Keycap
+    ⚠️ Skipping sold out: Keychron Q6 Max QMK/VIA Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Galaxy Resin Artisan Keycap
+    ⚠️ Skipping sold out: Keychron Q3 Max QMK/VIA Wireless Custom Mechanical Keyboard ISO Layout Collection
+    ⚠️ Skipping sold out: Keychron K11 Max (Alice Layout) QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron Q12 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Lemokey L1 QMK/VIA Wireless Custom Gaming Keyboard
+    ⚠️ Skipping sold out: Keychron V3 QMK Custom Mechanical Keyboard - Custom order
+    ⚠️ Skipping sold out: Keychron V3 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K13 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron Q10 Max (Alice Layout) QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron Switch Tester 100 Max Edition
+    ⚠️ Skipping sold out: Keychron V2 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron K7 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: Keychron Sword Aluminum Alloy Artisan Keycap
+    ⚠️ Skipping sold out: Gateron Double-Rail Magnetic Switch
+    ⚠️ Skipping sold out: Keychron Q2 Max QMK/VIA Wireless Custom Mechanical Keyboard
+    ⚠️ Skipping sold out: OEM Dye-Sub PBT Keycap Set - Ruby
+  ✅ Found 149 products from Keychron
+🔍 Scraping KBDfans (Shopify)...
+    ⚠️ Skipping sold out: M9N
+    ⚠️ Skipping sold out: [In stock] NONO N67
+    ⚠️ Skipping sold out: [In stock] NONO N65
+    ⚠️ Skipping sold out: Tofu60 3.0 | Custom Color Edition Top Case
+    ⚠️ Skipping sold out: Ready to Use KBD8X MKIII Keyboard With PBTfans Touching Grass
+    ⚠️ Skipping sold out: TOFU TKL Year of the Horse Limited Edition
+    ⚠️ Skipping sold out: TOFU60 3.0
+    ⚠️ Skipping sold out: Tofu60 3.0 | Custom Color Edition
+    ⚠️ Skipping sold out: Tofu60 3.0 | Custom Color Edition Bottom Case
+    ⚠️ Skipping sold out: Class 100
+    ⚠️ Skipping sold out: Class 100 Accessories
+    ⚠️ Skipping sold out: Enso-E
+    ⚠️ Skipping sold out: HX-40
+    ⚠️ Skipping sold out: Helios 88
+    ⚠️ Skipping sold out: DZ60RGB-ANSI v2 Hot Swap Mechanical keyboard PCB
+    ⚠️ Skipping sold out: KBDfans x MM HE Gaming Keyboard Kit
+    ⚠️ Skipping sold out: +84 Classic TKL
+    ⚠️ Skipping sold out: Tofu TKL | Custom Color Edition Top Case
+    ⚠️ Skipping sold out: Tofu TKL | Custom Color Edition Bottom Case
+    ⚠️ Skipping sold out: Tofu TKL | Custom Color Edition
+    ⚠️ Skipping sold out: Keycapsule Prism
+    ⚠️ Skipping sold out: TOFU TKL
+    ⚠️ Skipping sold out: 21XX
+    ⚠️ Skipping sold out: Styx
+    ⚠️ Skipping sold out: Odin V2 keyboard accessories
+    ⚠️ Skipping sold out: Class-65 V3
+    ⚠️ Skipping sold out: Boomerang
+    ⚠️ Skipping sold out: S9000 Cherry profile Keycaps
+    ⚠️ Skipping sold out: Gehirn by Baionlenja
+    ⚠️ Skipping sold out: Sebas Keyboard kit with hotswap PCB
+    ⚠️ Skipping sold out: GT-60 Kit with Redux60 rgb ansi PCB
+    ⚠️ Skipping sold out: GT-60 Case
+    ⚠️ Skipping sold out: Onibi
+    ⚠️ Skipping sold out: Keycult No. 1/1800 Darling Edition
+  ✅ Found 80 products from KBDfans
+🔍 Scraping Reddit for Group Buys...
+   ⏱️  Respecting rate limits: 1 request per second
+  ✅ Found 2 [GB]/[IC] posts
+🔍 Checking Geekhack Interest Checks...
+  ✅ Found 48 active interest checks
+
+📊 SCRAPING COMPLETE:
+   Duration: 22.33s
+   Products Scraped: 281
+   Products After Filter: 281
+   Interest Checks: 48
+   Reddit Posts: 2
+
+💰 REVENUE PROJECTION:
+   Potential Monthly: $1400.00
+
+💾 Data saved to 3 locations:
+   - /home/klondike/Desktop/keyboard-tracker/data/keyboard-data.json
+   - /home/klondike/Desktop/keyboard-tracker/data.json
+   - /home/klondike/Desktop/keyboard-tracker/dashboard/data.json
+
+🔗 SAMPLE REAL PRODUCT URLS:
+   Drop CTRL Mechanical Keyboard
+     → https://drop.com/buy/drop-ctrl-mechanical-keyboard?referer=keyboardtracker
+   Drop ALT Mechanical Keyboard
+     → https://drop.com/buy/drop-alt-mechanical-keyboard?referer=keyboardtracker
+   Drop Holy Panda X Mechanical Switches
+     → https://drop.com/buy/drop-holy-panda-x-mechanical-switches?referer=keyboardtracker
+   Drop SHIFT Mechanical Keyboard
+     → https://drop.com/buy/drop-shift-mechanical-keyboard?referer=keyboardtracker
+   Drop SENSE75 Mechanical Keyboard
+     → https://drop.com/buy/drop-sense75-mechanical-keyboard?referer=keyboardtracker

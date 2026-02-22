@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[96790,["/_next/static/chunks/0a31ae2f7c0f3909.js","/_next/static/chunks/70f29553f19e43ab.js"],"ViewportBoundary"]
+3:I[96790,["/_next/static/chunks/0a31ae2f7c0f3909.js","/_next/static/chunks/70f29553f19e43ab.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"0kv-e_O3ABUtl2UHXr4AL","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Switchyard - Mechanical Keyboard Tracker"}],["$","meta","1",{"name":"description","content":"Find your perfect mechanical keyboard. Browse 400+ keyboards, switches, keycaps, and accessories from top vendors."}]]}]}]}],null]}],"loading":null,"isPartial":false}

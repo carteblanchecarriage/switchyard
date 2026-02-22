@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is a Mechanical Keyboard? The Complete Guide (2025)</title>
+    <meta name="description" content="Everything you need to know about mechanical keyboards: how they work, switch types, layouts, keycaps, and whether you should buy or build. The most comprehensive beginner's guide.">
+    <meta name="keywords" content="mechanical keyboard, what is a mechanical keyboard, mechanical keyboard switches, keyboard layouts, custom keyboard">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/guide/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What is a Mechanical Keyboard? The Complete Guide">
+    <meta property="og:description" content="Everything you need to know about mechanical keyboards: switches, layouts, keycaps, and build vs buy.">
+    <meta property="og:url" content="https://carteblanchecarriage.github.io/switchyard/guide/">
+    <meta property="og:type" content="article">
+    
+    <!-- Schema.org Article markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is a Mechanical Keyboard? The Complete Guide",
+        "description": "Everything you need to know about mechanical keyboards: how they work, switch types, layouts, keycaps, and whether you should buy or build.",
+        "url": "https://carteblanchecarriage.github.io/switchyard/guide/",
+        "datePublished": "2025-02-20",
+        "dateModified": "2025-02-20",
+        "author": {
+            "@type": "Organization",
+            "name": "Switchyard"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Switchyard",
+            "url": "https://carteblanchecarriage.github.io/switchyard/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://carteblanchecarriage.github.io/switchyard/guide/"
+        }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://carteblanchecarriage.github.io/switchyard/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Guide",
+            "item": "https://carteblanchecarriage.github.io/switchyard/guide/"
+        }]
+    }
+    </script>
+
+    <style>
+        /* Base styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --paper: #fdfcf8; 
+            --paper-dark: #f7f6f2; 
+            --ink: #1a1a1a; 
+            --accent: #c4a35a; 
+            --faded: #6b6b6b; 
+            --border: #e8e8e8;
+            --link: #2563eb;
+            --text: #333;
+        }
+        
+        body { 
+            font-family: Georgia, 'Times New Roman', serif; 
+            background: var(--paper); 
+            color: var(--text); 
+            line-height: 1.75;
+            font-size: 18px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--ink);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav a {
+            color: var(--paper);
+            text-decoration: none;
+        }
+        .nav h1 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        .nav .subtitle {
+            font-style: italic;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--paper-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .toc h2 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin: 0.5rem 0;
+        }
+        .toc a {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Article layout */
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        
+        /* Header */
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--ink);
+        }
+        
+        .breadcrumbs {
+            font-size: 0.875rem;
+            color: var(--faded);
+            margin-bottom: 1rem;
+        }
+        .breadcrumbs a {
+            color: var(--faded);
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            font-weight: 400;
+        }
+        
+        .article-meta {
+            color: var(--faded);
+            font-size: 0.95rem;
+        }
+        
+        /* Typography */
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            color: var(--ink);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Quotes */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--faded);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 2px solid var(--ink);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+        
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        
+        tr:hover {
+            background: var(--paper-dark);
+        }
+        
+        /* Info boxes */
+        .info-box {
+            background: var(--paper-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Product cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            background: white;
+        }
+        
+        .product-card h4 {
+            margin-top: 0;
+            font-size: 1rem;
+        }
+        
+        .product-card .price {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--faded);
+        }
+        
+        /* CTA Box */
+        .cta-box {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            color: var(--paper);
+            margin-top: 0;
+        }
+        .cta-box .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .cta-box .btn:hover {
+            background: #b08d35;
+            text-decoration: none;
+        }
+        
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: var(--faded);
+            font-size: 0.9rem;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* FAQ Schema */
+        .faq-item {
+            margin: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .article-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--faded);
+            font-size: 0.9rem;
+        }
+        
+        /* Related links */
+        .related-links {
+            background: var(--paper-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        .related-links h4 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .related-links ul {
+            margin: 0;
+        }
+        
+        /* Mobile */
+        @media (max-width: 600px) {
+            body { font-size: 16px; }
+            .article-wrap { padding: 2rem 1.5rem; }
+            .article-header h1 { font-size: 1.9rem; }
+            h2 { font-size: 1.4rem; }
+            h3 { font-size: 1.15rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../">
+                <h1>Switchyard<span class="subtitle">Mechanical Keyboard Collection</span></h1>
+            </a>
+        </div>
+    </nav>
+
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+        
+        <header class="article-header">
+            <nav class="breadcrumbs" aria-label="breadcrumb">
+                <a href="../">Home</a> → <span>Guide</span>
+            </nav>
+            
+            <h1 itemprop="headline">What is a Mechanical Keyboard? The Complete Guide</h1>
+            
+            <div class="article-meta">
+                <time itemprop="datePublished" content="2025-02-20">February 20, 2025</time> · 15 min read · <span itemprop="author">Switchyard</span>
+            </div>
+        </header>
+
+        <div itemprop="articleBody">
+            
+            <p>A mechanical keyboard is a keyboard where each key has its own physical switch underneath, rather than a rubber dome or membrane. When you press a key, a stem inside the switch physically completes an electrical circuit, sending the signal to your computer.</p>
+
+            <p>Compared to the membrane keyboards found on most laptops and cheap peripherals, mechanical keyboards offer:</p>
+
+            <ul>
+                <li><strong>Better tactile feedback:</strong> You feel exactly when the key actuates</li>
+                <li><strong>Longer lifespan:</strong> 50-100 million keystrokes vs. 5 million for membrane</li>
+                <li><strong>Customization:</strong> Swap switches, keycaps, cases, and more</li>
+                <li><strong>Distinct sound:</strong> From silent to thunderous</li>
+            </ul>
+
+            <p>Modern mechanical keyboards range from $50 mass-market boards to $500+ custom builds. This guide breaks down what's worth paying for and how to choose your first board.</p>
+
+            <!-- Table of Contents -->
+            <nav class="toc" aria-label="Table of contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#how-they-work">How Mechanical Keyboards Work</a></li>
+                    <li><a href="#switches">Switch Types Explained</a></li>
+                    <li><a href="#layouts">Keyboard Layouts: Sizes & Shapes</a></li>
+                    <li><a href="#keycaps">Keycaps: The Visible Difference</a></li>
+                    <li><a href="#build-vs-buy">Build vs. Buy: Which Should You Do?</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="how-they-work">How Mechanical Keyboards Work</h2>
+
+            <p>Inside every mechanical keyboard switch is a simple mechanism:</p>
+
+            <ol>
+                <li>You press the keycap, which pushes down the stem</li>
+                <li>The stem compresses a spring</li>
+                <li>At a specific point (the actuation point), metal contacts connect</li>
+                <li>This completes a circuit, sending the keypress signal</li>
+                <li>When you release, the spring pushes the stem back up</li>
+            </ol>
+
+            <p>This single-switch-per-key design is exactly what makes mechanical keyboards reliable and repairable. If a switch dies, you replace that one switch (about $0.50-2.00), not the entire keyboard.</p>
+
+            <div class="info-box">
+                <h4>Key Terms to Know</h4>
+                <ul>
+                    <li><strong>Actuation:</strong> The point where the key registers (typically 2mm into a 4mm total travel)</li>
+                    <li><strong>Key travel:</strong> How far the key moves down (typically 3-4mm)</li>
+                    <li><strong>Hot-swap:</strong> A socket that lets you change switches without soldering</li>
+                    <li><strong>PCB:</strong> The circuit board that connects switches to your computer</li>
+                </ul>
+            </div>
+
+            <h2 id="switches">Switch Types Explained</h2>
+
+            <p>The switch determines feel and sound. Here's how the three main types differ:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Feel</th>
+                        <th>Sound</th>
+                        <th>Best For</th>
+                        <th>Popular Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Linear</strong></td>
+                        <td>Smooth, no bump</td>
+                        <td>Quiet to moderate</td>
+                        <td>Gaming, fast typing</td>
+                        <td>Cherry MX Red, Gateron Yellow, Kailh Speed Silver</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tactile</strong></td>
+                        <td>Bump at actuation</td>
+                        <td>Moderate</td>
+                        <td>Typing, all-purpose</td>
+                        <td>Cherry MX Brown, Gateron Brown, Holy Panda</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clicky</strong></td>
+                        <td>Bump + audible click</td>
+                        <td>Loud</td>
+                        <td>Those who love the noise</td>
+                        <td>Cherry MX Blue, Kailh BOX White, Nintendo-switch style</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Our Pick: Gateron Yellow (Linear)</h3>
+
+            <p>For first-time buyers, we recommend <strong>Gateron Yellow switches</strong>. They're smooth (linear), affordable, and have a perfect weight—heavier than Cherry MX Red (so you don't accidentally press keys) but lighter than Cherry MX Black (so you don't fatigue).</p>
+
+            <p>A 70-pack costs <a href="../">around $25</a>, significantly less than Cherry's $50-70.</p>
+
+            <h2 id="layouts">Keyboard Layouts: Sizes & Shapes</h2>
+
+            <p>Layout is about what keys you keep and which you sacrifice. Smaller boards free up desk space. Larger boards have dedicated function keys and number pads.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Layout</th>
+                        <th>Keys</th>
+                        <th>What You Lose</th>
+                        <th>Best For</th>
+                        <th>Price Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Full-size</td>
+                        <td>104-108</td>
+                        <td>Nothing</td>
+                        <td>Data entry, office work</td>
+                        <td>$60-200</td>
+                    </tr>
+                    <tr>
+                        <td>TKL (Tenkeyless)</td>
+                        <td>87-88</td>
+                        <td>Number pad</td>
+                        <td>Gaming, general use</td>
+                        <td>$60-180</td>
+                    </tr>
+                    <tr>
+                        <td>75%</td>
+                        <td>81</td>
+                        <td>Number pad + some nav</td>
+                        <td>Compact but functional</td>
+                        <td>$100-250</td>
+                    </tr>
+                    <tr>
+                        <td>65%</td>
+                        <td>67</td>
+                        <td>Function row</td>
+                        <td>Minimal but practical</td>
+                        <td>$150-300</td>
+                    </tr>
+                    <tr>
+                        <td>60%</td>
+                        <td>61</td>
+                        <td>Nav cluster + arrows</td>
+                        <td>Portable, coding</td>
+                        <td>$100-250</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Our Pick for Beginners: 75% or TKL</h3>
+
+            <p>Start with a <strong>75%</strong> or <strong>TKL</strong> layout. You keep arrow keys and most functions, but save desk space. The <a href="../">Keychron Q1 (75%)</a> is a popular entry point at around $180.</p>
+
+            <h2 id="keycaps">Keycaps: The Visible Difference</h2>
+
+            <p>Keycaps are the first thing you see and the first thing you replace. Three things matter:</p>
+
+            <h4>1. Material</h4>
+            <ul>
+                <li><strong>ABS plastic:</strong> Cheaper, shines over time, can feel "mushy"</li>
+                <li><strong>PBT plastic:</strong> More durable, textured/stiff feel, doesn't shine</li>
+            </ul>
+
+            <h4>2. Profile</h4>
+
+            <p>How tall and what shape:</p>
+
+            <ul>
+                <li><strong>Cherry profile:</strong> Standard, sculpted rows, great for typing</li>
+                <li><strong>OEM profile:</strong> Taller but common</li>
+            </ul>
+
+            <h4>3. Legends (The Letters)</h4>
+
+            <ul>
+                <li><strong>Dye-sub:</strong> Dye embedded into plastic, won't wear off</li>
+            </ul>
+
+            <p>For a first set, get <strong>PBT dye-sub keycaps in Cherry profile</strong>. Around <a href="../">$30-50</a>.</p>
+
+            <h2 id="build-vs-buy">Build vs. Buy: Which Should You Do?</h2>
+
+            <p>Your first mechanical keyboard decision: buy a pre-built, or build your own?</p>
+
+            <h3>Buy Pre-Built If:</h3>
+
+            <ul>
+                <li>You need a working keyboard tomorrow</li>
+                <li>You don't want to research individual parts</li>
+                <li>You want a warranty</li>
+                <li>Budget is $50-150</li>
+            </ul>
+
+            <h3>Build Your Own If:</h3>
+
+            <ul>
+                <li>You want a specific switch/sound/feel</li>
+                <li>You enjoy the assembly process</li>
+                <li>You want a unique keyboard nobody else has</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>The Honest Cost of Building</h4>
+                <p>A "$150 custom build" actually costs $250-350 once you include switches ($40), keycaps ($50), stabilizers ($15), and the tools you'll need. <a href="../blog.html">See our full cost breakdown</a>.</p>
+            </div>
+
+            <div class="cta-box">
+                <h3>Find Your First Mechanical Keyboard</h3>
+                <p>Browse 276 keyboards, switches, and keycaps currently in stock from Keychron, Drop, KBDfans, and NovelKeys.</p>
+                <a href="../" class="btn">Browse In-Stock Keyboards →</a>
+            </div>
+
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">Are mechanical keyboards actually better for typing?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>For most people, yes—but not for everyone. The tactile feedback helps some typists be more accurate, and the customization lets you optimize for your specific hands.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">How long do mechanical keyboards last?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>With quality switches rated for 50 million+ presses, a mechanical keyboard can last decades. The keycaps may shine or fade after 5-10 years, but they're replaceable for $30-50.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">Are mechanical keyboards loud?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>They can be, but don't have to be. Linear switches with proper dampening are quieter than most laptop keyboards. Clicky switches (Cherry MX Blue) are genuinely loud—fine at home, obnoxious in an open office.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">What's the best mechanical keyboard for gaming?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Gaming keyboards prioritize fast actuation and N-key rollover. Look for linear switches (Cherry MX Red/Speed Silver, Gateron Yellow), 1000Hz polling rate, and TKL or 75% layout for mouse space.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">Can I use a mechanical keyboard with my laptop?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Yes. All modern mechanical keyboards connect via USB-C or USB-A. Some support Bluetooth for wireless use. Your laptop will recognize it as a standard keyboard immediately—no drivers needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" itemprop="name">Wireless vs. wired: why would I choose one over the other?</div>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>The choice depends on your priorities and setup:</p>
+                        
+                        <p><strong>Choose wireless (Bluetooth/2.4GHz) if:</strong></p>
+                        <ul>
+                            <li>You want a clean, cable-free desk aesthetic</li>
+                            <li>You switch between multiple devices (laptop → desktop → tablet)</li>
+                            <li>You work from a couch or different positions away from your device</li>
+                            <li>You travel frequently and want minimal cables</li>
+                        </ul>
+                        
+                        <p><strong>Choose wired if:</strong></p>
+                        <ul>
+                            <li>You want zero input lag for competitive gaming</li>
+                            <li>You hate charging and never want to think about batteries</li>
+                            <li>You work in an environment with potential wireless interference</li>
+                            <li>You want the lowest possible cost (wired boards are cheaper)</li>
+                            <li>You need USB passthrough for a mouse or USB devices</li>
+                        </ul>
+                        
+                        <p><strong>The reality:</strong> Modern wireless keyboards have negligible latency (under 5ms). Battery life ranges from 2-6 months depending on RGB usage. Many boards offer both modes—wired for gaming, wireless for everything else. Unless you're a CS2 pro with frame-perfect requirements, wireless is probably fine for you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-links">
+                <h4>Related Articles</h4>
+                <ul>
+                    <li><a href="../blog.html">The Real Cost of Building Your First Custom Mechanical Keyboard</a></li>
+                    <li><a href="../">Browse Current Mechanical Keyboard Deals</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="article-footer">
+            <p>Last updated: <time itemprop="dateModified" datetime="2025-02-20">February 20, 2025</time>. Prices and availability current as of publication date.</p>
+            <p><a href="../blog.html">Read the story behind Switchyard →</a></p>
+        </footer>
+
+    </article>
+
+</body>
+</html>

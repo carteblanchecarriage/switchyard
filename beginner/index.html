@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Keyboards for Beginners: Start Here | Switchyard</title>
+    <meta name="description" content="New to mechanical keyboards? Learn the basics: what makes them different, switch types explained simply, and how to choose your first board. No jargon, just the essentials.">
+    
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/beginner/">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; 
+            --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8;
+        }
+        
+            --ink: #fdfcf8;
+            --border: #444444;
+        }
+        
+        body { font-family: Georgia, serif; background: var(--paper); color: #333; line-height: 1.7; transition: background-color 0.3s, color 0.3s; }
+        .nav { background: var(--ink); padding: 1rem 2rem; }
+        .nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav a { color: var(--paper); text-decoration: none; }
+        .nav h1 { font-size: 1.25rem; margin: 0; }
+        
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--faded); border-radius: 20px; padding: 6px 12px; cursor: pointer; font-size: 0.875rem; color: var(--paper); display: flex; align-items: center; gap: 6px; z-index: 50; }
+        .theme-toggle:hover { border-color: var(--accent); }
+        
+        .hero { background: var(--ink); color: var(--paper); padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #ccc; font-style: italic; }
+        .content { max-width: 700px; margin: 0 auto; padding: 3rem 2rem; }
+        .card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin: 2rem 0; }
+        .card h3 { margin-bottom: 1rem; color: var(--ink); }
+        .difficulty { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-family: monospace; text-transform: uppercase; background: #dcfce7; color: #166534; margin-bottom: 1rem; }
+        .cta { background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; margin: 1rem 0; }
+        ul { margin: 1rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .rec { background: var(--paper-dark); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; }
+        .rec h4 { margin-bottom: 0.5rem; }
+        .price { color: var(--accent); font-weight: 600; font-family: monospace; }
+        
+        .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .guide-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+        .guide-card:hover { border-color: var(--accent); }
+        .guide-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .guide-title { font-weight: 600; margin-bottom: 0.5rem; }
+        .guide-desc { font-size: 0.95rem; color: var(--faded); }
+        .guide-link { color: var(--accent); margin-top: auto; padding-top: 1rem; font-size: 0.9rem; }
+        
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+    </style>    
+    <script>
+        (function() {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            }
+        })();
+    </script>
+</head>
+<body>
+        <span id="themeIcon"></span>
+        <span id="themeText">Dark</span>
+    </button>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../"><h1>Switchyard</h1></a>
+            <a href="../" style="color: white;">< Back</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>So... What's the Deal With Mechanical Keyboards?</h1>
+        <p>No jargon. No gatekeeping. Just answers.</p>
+    </header>
+
+    <main class="content">
+        <div class="card" style="background: var(--paper-dark); border-color: var(--accent);">
+            <h2>The Short Version</h2>
+            <p>Mechanical keyboards have <strong>individual switches</strong> under each key instead of a rubber sheet. You can feel exactly when you press the key, they last forever (literally decades), and you can customize everything.</p>
+            <p>Think of it like the difference between a cheap disposable pen and a nice fountain pen. Both write. One is just... way more satisfying.</p>
+        </div>
+
+        <h2>The Parts (Explained Simply)</h2>
+
+        <div class="card">
+            <span class="difficulty">Easy</span>
+            <h3>🔘 Switches</h3>
+            <p><strong>The thing under each key that decides how it feels.</strong> Different switches = different feels. Some are smooth like butter. Some have a little "bump" you feel. Some click like a typewriter.</p>
+            <ul>
+                <li><strong>Linear</strong> – Smooth all the way down. Good for gaming.</li>
+                <li><strong>Tactile</strong> – Little bump when the key activates. Good for typing.</li>
+                <li><strong>Clicky</strong> – Bump PLUS click sound. Satisfying but loud.</li>
+            </ul>
+            <p class="price">Price: $25-90 for a full set</p>
+        </div>
+
+        <div class="card">
+            <span class="difficulty">Easy</span>
+            <h3>🔤 Keycaps</h3>
+            <p><strong>The plastic things you actually touch.</strong> Change them and your keyboard looks completely different. PBT plastic (textured, durable) is better than ABS (smooth, gets shiny).</p>
+            <p class="price">Price: $30-150 for a full set</p>
+        </div>
+
+        <div class="card">
+            <span class="difficulty" style="background: #ffedd5; color: #9a3412;">Medium</span>
+            <h3>Case</h3>
+            <p><strong>The box everything goes in.</strong> Plastic cases feel hollow and light. Metal (aluminum) cases feel premium and make a deeper "thock" sound.</p>
+            <p class="price">Price: Usually part of a kit ($100-400)</p>
+        </div>
+
+        <div class="card">
+            <span class="difficulty">Easy</span>
+            <h3>📏 Size / Layout</h3>
+            <p><strong>How many keys and where they are.</strong></p>
+            <ul>
+                <li><strong>Full-size:</strong> Has number pad. Big.</li>
+                <li><strong>TKL (80%):</strong> No number pad. Most popular.</li>
+                <li><strong>75%:</strong> Compact but keeps everything. Good balance.</li>
+                <li><strong>60%:</strong> Tiny. Arrow keys are on a layer.</li>
+            </ul>
+            <p><strong>Beginner rec:</strong> TKL or 75%. You'll get used to it fast.</p>
+        </div>
+
+        <div class="card">
+            <span class="difficulty" style="background: #fee2e2; color: #991b1b;">Advanced</span>
+            <h3>🧠 PCB + Plate</h3>
+            <p><strong>The brain and skeleton.</strong> You buy these as a "kit." Look for "hot-swap" (switches pop in/out, no tools needed). Avoid "soldered" for your first board.</p>
+            <p class="price">Price: $100-250 for hot-swap kit</p>
+        </div>
+
+        <div class="card">
+            <span class="difficulty" style="background: #ffedd5; color: #9a3412;">Medium</span>
+            <h3>⚖️ Stabilizers</h3>
+            <p><strong>The things under big keys (spacebar, enter, shift).</strong> So they don't wobble. Cheap ones rattle. You can upgrade these later.</p>
+            <p class="price">Price: $10-25 for a set</p>
+        </div>
+
+        <h2>Learn More</h2>
+        
+        <div class="guides-grid">
+            <a href="../guides/switches/" class="guide-card">
+                <div class="guide-icon">🔘</div>
+                <div class="guide-title">Complete Switch Buying Guide</div>
+                <div class="guide-desc">Deep dive into linear, tactile, and clicky switches. Find the perfect feel for gaming, typing, or coding.</div>
+                <div class="guide-link">Read Guide →</div>
+            </a>
+            
+            <a href="../guides/programming/" class="guide-card">
+                <div class="guide-icon">💻</div>
+                <div class="guide-title">Best Keyboards for Programming</div>
+                <div class="guide-desc">Top picks for developers from budget to premium. Find the perfect board for 8+ hour coding sessions.</div>
+                <div class="guide-link">Read Guide →</div>
+            </a>
+            
+            <a href="../guides/lubing/" class="guide-card">
+                <div class="guide-icon">🧴</div>
+                <div class="guide-title">How to Lube Switches</div>
+                <div class="guide-desc">Step-by-step tutorial on making your switches smoother and quieter. Tools, techniques, and common mistakes.</div>
+                <div class="guide-link">Read Guide →</div>
+            </a>
+            
+            <a href="../blog.html" class="guide-card">
+                <div class="guide-icon">💰</div>
+                <div class="guide-title">Real Cost of Building</div>
+                <div class="guide-desc">The actual budget for your first custom keyboard including hidden costs, tools, and what you can skip.</div>
+                <div class="guide-link">Read Article →</div>
+            </a>
+        </div>
+
+        <h2>Just Tell Me What to Buy</h2>
+        
+        <div class="rec-grid">
+            <div class="rec">
+                <h4>Budget: Keychron K8</h4>
+                <div class="price">~$75-90</div>
+                <p>Wireless, hot-swap, TKL. Great value. Works out of the box.</p>
+            </div>
+            <div class="rec">
+                <h4>Sweet Spot: Keychron Q1</h4>
+                <div class="price">~$180</div>
+                <p>Aluminum, premium feel, hot-swap. Where custom boards start.</p>
+            </div>
+            <div class="rec">
+                <h4>Custom: KBDfans Tofu60</h4>
+                <div class="price">~$130-160</div>
+                <p>60% kit. Buy switches/keycaps separate. More work, exact choice.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="../" class="cta">Browse Current Deals →</a>
+            <p style="margin-top: 1rem;"><a href="../guide/">Read the full technical guide →</a></p>
+        </div>
+    </main>
+    
+    <script>
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        function updateThemeUI() {
+            themeIcon.textContent = isDark ? '' : '';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+        
+                    localStorage.setItem('switchyard-theme', 'light');
+                } else {
+                    localStorage.setItem('switchyard-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+    </script>
+</body>
+</html>
