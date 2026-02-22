@@ -1,0 +1,42 @@
+# Logs
+logs/
+*.log
+
+# Runtime data
+*.pid
+*.seed
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Environment
+.env
+
+# Temp files
+*.tmp
+*~
+.~lock*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*-backup.html
+index-backup.html
+
+# A/B test logs
+ab-test-logs/
+
+# Data (keep structure but not content)
+data/*.json
+!data/.gitkeep
