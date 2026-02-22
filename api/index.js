@@ -627,6 +627,13 @@ app.get('/api/pricing', (req, res) => {
   ], { currency: 'USD' }));
 });
 
+// ===================== STATIC FILES =====================
+// Serve frontend static files from parent directory
+app.use(express.static(path.join(__dirname, '..'), {
+  index: 'index.html',
+  maxAge: '1h'
+}));
+
 // ===================== ERROR HANDLING =====================
 
 // 404 handler

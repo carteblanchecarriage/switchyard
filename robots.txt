@@ -1,10 +1,65 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carteblanchecarriage.github.io/keebshelf/sitemap.xml
+# Sitemap location
+Sitemap: https://keebshelf.com/sitemap.xml
 
-# Crawl rate
-Crawl-delay: 1
+# Disallow API endpoints and private areas
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /price-alerts/
+Disallow: /admin/
+Disallow: /private/
 
-# Disallow admin/private areas (if any added later)
-# Disallow: /admin/
+# Disallow scripts and internal tooling
+Disallow: /scripts/
+Disallow: /tools/
+Disallow: /scraper/
+Disallow: /backups/
+Disallow: /logs/
+Disallow: /node_modules/
+
+# Disallow specific file patterns
+Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /*.log$
+Disallow: /*.md$
+Disallow: /.git/
+
+# Allow important content
+Allow: /best/
+Allow: /best-budget/
+Allow: /best-60-percent/
+Allow: /best-programming/
+Allow: /gaming/
+Allow: /beginner/
+Allow: /switches/
+Allow: /glossary/
+Allow: /guides/
+Allow: /blog.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /affiliate-disclosure.html
+Allow: /contact.html
+
+# Special instructions for bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /

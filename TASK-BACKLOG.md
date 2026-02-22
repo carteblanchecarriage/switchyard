@@ -14,7 +14,7 @@
 ### Phase 1: Widget Structure
 - [x] **Task 1: Create floating widget HTML** — COMPLETED: Fixed position bottom-right, 64px toggle button, expandable panel, click/hover/escape interactions
 - [x] **Task 2: Widget styling** — COMPLETED: FAB design, pulsing glow animation, keyboard SVG icon, dark mode shadows, hover lift effects
-- [ ] **Task 3: Expand/collapse logic** — Hover to expand (300ms delay), click to pin, click outside to close
+- [x] **Task 3: Expand/collapse logic** — COMPLETED: Hover expand (300ms delay), click to pin/unpin, click outside to close, Escape key support, isPinned state management
 
 ### Phase 2: Wizard Steps
 - [ ] **Task 4: Step 1 (Use Case)** — "What will you use this for?" Gaming/Office/Creative/General
