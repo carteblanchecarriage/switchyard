@@ -43,7 +43,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             
             <div className="modal-actions">
               <a 
-                href={product.url} 
+                href={product.affiliateUrl || product.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="modal-buy-button"
