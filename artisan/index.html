@@ -105,8 +105,51 @@
         
         /* Products Grid */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-        .product-card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+        
+        /* Masonry Layout Variation */
+        .products-grid.masonry {
+            display: block;
+            columns: 4 280px;
+            column-gap: 1.5rem;
+        }
+        .products-grid.masonry .product-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 1200px) { .products-grid.masonry { columns: 3 280px; } }
+        @media (max-width: 900px) { .products-grid.masonry { columns: 2 280px; } }
+        @media (max-width: 600px) { .products-grid.masonry { columns: 1; } }
+        
+        .product-card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
         .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-card.featured { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+        .product-card.featured::before {
+            content: 'FEATURED';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 2.5rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 10;
+        }
+        .product-card.new::after {
+            content: 'NEW';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #16a34a;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            z-index: 10;
+        }
         .product-image { aspect-ratio: 1; background: var(--paper-dark); display: flex; align-items: center; justify-content: center; position: relative; }
         .product-image .placeholder { font-size: 4rem; }
         .product-badge { position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
