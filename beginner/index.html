@@ -28,9 +28,15 @@
         .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--faded); border-radius: 20px; padding: 6px 12px; cursor: pointer; font-size: 0.875rem; color: var(--paper); display: flex; align-items: center; gap: 6px; z-index: 50; }
         .theme-toggle:hover { border-color: var(--accent); }
         
-        .hero { background: var(--ink); color: var(--paper); padding: 4rem 2rem; text-align: center; }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: #ccc; font-style: italic; }
+        .hero { 
+            background: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(45,45,45,0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1591824438708-ce405f36ba3d?w=1600&q=85') center/cover no-repeat;
+            color: var(--paper); 
+            padding: 5rem 2rem; 
+            text-align: center; 
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); font-style: italic; }
         .content { max-width: 700px; margin: 0 auto; padding: 3rem 2rem; }
         .card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin: 2rem 0; }
         .card h3 { margin-bottom: 1rem; color: var(--ink); }
