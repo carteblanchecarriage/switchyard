@@ -11,6 +11,11 @@ import ArtisanGuide from './pages/learn/ArtisanGuide';
 import FAQ from './pages/learn/FAQ';
 import SwitchGuide from './pages/SwitchGuide';
 import Glossary from './pages/Glossary';
+import BestBudgetGuide from './pages/learn/BestBudgetGuide';
+import BestGamingGuide from './pages/learn/BestGamingGuide';
+import Best60PercentGuide from './pages/learn/Best60PercentGuide';
+import BestProgrammingGuide from './pages/learn/BestProgrammingGuide';
+import GroupBuysGuide from './pages/learn/GroupBuysGuide';
 
 interface Product {
   id: string;
@@ -123,8 +128,26 @@ export default function App() {
   if (currentPath === '/artisan') {
     return <ArtisanGuide />;
   }
+  if (currentPath === '/learn/artisan-guide') {
+    return <ArtisanGuide />;
+  }
   if (currentPath === '/faq') {
     return <FAQ />;
+  }
+  if (currentPath === '/learn/best-budget' || currentPath === '/best-budget') {
+    return <BestBudgetGuide />;
+  }
+  if (currentPath === '/learn/best-gaming' || currentPath === '/gaming') {
+    return <BestGamingGuide />;
+  }
+  if (currentPath === ('/learn/best-60-percent' || currentPath === '/best-60-percent')) {
+    return <Best60PercentGuide />;
+  }
+  if (currentPath === '/learn/group-buys') {
+    return <GroupBuysGuide />;
+  }
+  if (currentPath === '/learn/best-programming' || currentPath === '/best-programming') {
+    return <BestProgrammingGuide />;
   }
 
   // Main app render
