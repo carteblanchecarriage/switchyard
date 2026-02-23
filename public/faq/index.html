@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Frequently Asked Questions | Switchyard</title>
+    <meta name="description" content="Common questions about mechanical keyboards answered: prices, differences from regular keyboards, repairability, noise levels, and how to upgrade.">
+    
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/faq/">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; 
+            --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8;
+        }
+        
+        body { font-family: Georgia, serif; background: var(--paper); color: #333; line-height: 1.7; }
+        
+        /* Navigation */
+        .nav { background: var(--ink); padding: 1rem 2rem; }
+        .nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav a { color: var(--paper); text-decoration: none; }
+        .nav h1 { font-size: 1.25rem; margin: 0; }
+        
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { font-size: 0.875rem; opacity: 0.8; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 1; }
+        
+        /* Hero */
+        .hero { 
+            background: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(45,45,45,0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=1600&q=85') center/cover no-repeat;
+            color: var(--paper); 
+            padding: 5rem 2rem; 
+            text-align: center; 
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+        
+        /* Content */
+        .content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        
+        /* Quick Links */
+        .quick-nav { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 3rem; }
+        .quick-nav a { 
+            padding: 0.5rem 1rem; 
+            background: var(--paper-dark); 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            text-decoration: none; 
+            color: var(--ink);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .quick-nav a:hover { border-color: var(--accent); color: var(--accent); }
+        
+        /* FAQ Section */
+        .faq-section { margin-bottom: 4rem; }
+        .faq-section h2 { 
+            font-size: 1.5rem; 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 0.5rem; 
+            border-bottom: 2px solid var(--accent);
+            color: var(--ink);
+        }
+        
+        /* FAQ Item */
+        .faq-item { 
+            background: var(--paper-dark); 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            margin-bottom: 1rem; 
+            overflow: hidden;
+        }
+        
+        .faq-question { 
+            padding: 1.25rem; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: rgba(196, 163, 90, 0.05); }
+        .faq-question.active { background: var(--accent); color: white; }
+        
+        .faq-icon { 
+            width: 24px; 
+            height: 24px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        
+        .faq-answer { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.open .faq-answer { max-height: 500px; }
+        
+        .faq-answer-inner { 
+            padding: 0 1.25rem 1.25rem; 
+            color: var(--faded);
+        }
+        .faq-answer-inner p { margin-bottom: 0.75rem; }
+        .faq-answer-inner p:last-child { margin-bottom: 0; }
+        
+        /* Related Link */
+        .related-link { 
+            display: inline-block; 
+            margin-top: 1rem; 
+            color: var(--accent); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+        }
+        .related-link:hover { text-decoration: underline; }
+        
+        /* CTA */
+        .cta-section { 
+            background: linear-gradient(135deg, var(--ink) 0%, #2d2d2d 100%); 
+            color: var(--paper); 
+            padding: 3rem 2rem; 
+            text-align: center; 
+            margin-top: 3rem;
+            border-radius: 12px;
+        }
+        .cta-section h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 1.5rem; opacity: 0.9; }
+        .cta-button { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: white; 
+            padding: 1rem 2rem; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .cta-button:hover { background: #b3944f; }
+        
+        /* Footer */
+        footer { 
+            border-top: 1px solid var(--border); 
+            padding: 2rem; 
+            text-align: center; 
+            color: var(--faded); 
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 640px) {
+            .hero { padding: 3rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../"><h1>Switchyard</h1></a>
+            <div class="nav-links">
+                <a href="../beginner/">Guide</a>
+                <a href="../switches/">Switches</a>
+                <a href="../glossary/">Glossary</a>
+                <a href="../">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Quick answers to common mechanical keyboard questions</p>
+    </header>
+
+    <main class="content">
+        <div class="quick-nav">
+            <a href="#basics">Basics</a>
+            <a href="#buying">Buying</a>
+            <a href="#maintenance">Maintenance</a>
+            <a href="#technical">Technical</a>
+        </div>
+
+        <!-- Basics -->
+        <section class="faq-section" id="basics">
+            <h2>The Basics</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What makes a mechanical keyboard different from a regular keyboard?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Mechanical keyboards use individual mechanical switches under each key instead of rubber dome membranes found in regular keyboards. This provides tactile feedback, longer lifespan (50-100 million keystrokes vs 5-10 million), and the ability to repair or customize individual keys.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Why are mechanical keyboards so expensive?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>The cost comes from individual mechanical switches, higher quality materials, programmability, and enthusiast demand. Entry-level mechanical keyboards start around $60-80, while premium custom builds can exceed $500.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Are mechanical keyboards worth it?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>If you type or game for hours daily, yes. The tactile feedback reduces typing mistakes, the durability means replacement every 10+ years instead of 2-3, and repairability saves money long-term.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buying -->
+        <section class="faq-section" id="buying">
+            <h2>Buying Guide</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How much should I spend on my first mechanical keyboard?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>$80-150 is the sweet spot for first-time buyers. This gets you a quality board with hotswap sockets, good switches, and a decent case. Below $60 you sacrifice quality; above $150 you are paying for enthusiast features you may not need yet.</p>
+                        <a href="../beginner/" class="related-link">See beginner recommendations</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What size keyboard should I get?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Full-size (100%) includes numpad. TKL (80%) removes it but keeps function row. 75% compacts further. 65% and 60% remove function row with layers. Most people do fine with TKL or 75% for general use.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I test switches before buying?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Yes. Buy a switch tester (sampler kit with 4-12 different switches) for $10-20. Many online retailers sell them. This is the best way to know which feel you prefer before committing to a full keyboard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance -->
+        <section class="faq-section" id="maintenance">
+            <h2>Maintenance</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I clean my mechanical keyboard?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Unplug, remove keycaps, use compressed air, brush out debris, wipe plate with damp cloth. For deep clean: soak keycaps in warm soapy water, dry completely before reassembly. Clean every 3-6 months with regular use.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I replace individual keys or switches?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Keycaps: Yes, if they use standard Cherry MX stems. Switches: Only if your keyboard has "hotswap" sockets. Otherwise switches are soldered and require desoldering to replace.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical -->
+        <section class="faq-section" id="technical">
+            <h2>Technical Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How loud are mechanical keyboards?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>It depends on the switch. Linear switches like Cherry MX Red are quiet (40-50dB). Tactile switches like Brown are moderate (45-55dB). Clicky switches like Blue are loud (55-65dB). Silent switches with dampening exist for open offices.</p>
+                        <a href="../switches/" class="related-link">Learn about switch types</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is key rollover and N-key rollover?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Key rollover is how many keys can be pressed simultaneously. 6KRO handles 6 keys plus modifiers. N-key rollover (NKRO) handles any number. Essential for gaming; 6KRO is fine for typing.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do I need software to customize my keyboard?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Depends on the keyboard. Many work plug-and-play. RGB lighting and macros usually require manufacturer software. Some enthusiast boards use open-source QMK/VIA firmware for deep customization without proprietary software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Still have questions?</h3>
+            <p>Check out the beginner guide or switches guide for deeper explanations.</p>
+            <a href="../beginner/" class="cta-button">Read Beginner Guide</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Part of the Switchyard collection</p>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isOpen = item.classList.contains('open');
+            
+            // Close all others (optional - remove if you want multiple open)
+            document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-question').classList.remove('active');
+                }
+            });
+            
+            // Toggle current
+            item.classList.toggle('open');
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

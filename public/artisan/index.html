@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Keycaps | Handcrafted Mechanical Keyboard Art | Switchyard</title>
+    <meta name="description" content="Discover artisan keycaps - handcrafted mechanical keyboard art from top makers like KeyForge, Rama Works, Jelly Key, and more. Unique resin and metal sculptures for your keyboard.">
+    <link rel="canonical" href="https://switchyard.com/artisan/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Artisan Keycaps | Handcrafted Keyboard Art">
+    <meta property="og:description" content="Discover unique artisan keycaps from top makers">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f5f4f0;
+            --ink: #1a1a1a;
+            --faded: #6b6b6b;
+            --accent: #c4a35a;
+            --accent-light: #e8dfc8;
+            --border: #e0ddd5;
+        }
+            --accent-light: #3a3520;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+        
+        /* Navigation */
+        .masthead { background: var(--ink); color: var(--paper); padding: 1.5rem 2rem; }
+        .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 1rem; }
+        .brand-lockup h1 { font-family: 'Newsreader', Georgia, serif; font-size: 1.75rem; font-weight: 400; }
+        .brand-lockup h1 a { color: var(--paper); text-decoration: none; }
+        .brand-lockup span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; }
+        .main-nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; transition: color 0.2s; }
+        .nav-link:hover { color: white; }
+        .nav-link.active { color: var(--accent); }
+        .theme-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 0.5rem 1rem; cursor: pointer; color: var(--paper); font-family: 'JetBrains Mono', monospace; }
+        
+        /* Hero Section */
+        .hero-artisan { 
+            background: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(45,45,45,0.88) 100%), 
+                          url('https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=1600&q=85') center/cover no-repeat;
+            color: var(--paper); 
+            padding: 6rem 2rem; 
+            text-align: center; 
+        }
+        .hero-inner { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-family: 'Newsreader', Georgia, serif; font-size: 3rem; font-weight: 600; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(196, 163, 90, 0.2); border: 1px solid var(--accent); color: var(--accent); padding: 0.5rem 1rem; border-radius: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; }
+        
+        /* Content */
+        .content { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        
+        /* What Are Artisan Keys */
+        .intro-section { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; }
+        .intro-section h2 { font-family: 'Newsreader', Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
+        .intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .intro-card { padding: 1.5rem; background: var(--paper); border-radius: 12px; border: 1px solid var(--border); }
+        .intro-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .intro-card p { font-size: 0.95rem; color: var(--faded); }
+        
+        /* Makers Grid */
+        .makers-section { margin-bottom: 3rem; }
+        .makers-section h2 { font-family: 'Newsreader', Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
+        .makers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .maker-card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+        .maker-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .maker-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .maker-avatar { width: 50px; height: 50px; background: var(--accent-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .maker-avatar i { font-style: normal; color: var(--ink); }
+        
+        /* Icon styles */
+        [class^="icon-"] { font-style: normal; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; }
+        .icon-palette { color: #c4a35a; }
+        .icon-sparkle { color: #c4a35a; }
+        .icon-target { color: #c4a35a; }
+        .icon-search { color: #c4a35a; }
+        
+        /* Stock photos */
+        .hero-artisan { background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(45,45,45,0.8) 100%), url('https://images.unsplash.com/photo-1595225476474-87563907a212?w=1200&q=80') center/cover no-repeat; }
+        .intro-card i { color: var(--accent); margin-right: 0.5rem; font-weight: bold; }
+        .maker-info h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .maker-info span { font-size: 0.8rem; color: var(--faded); font-family: 'JetBrains Mono', monospace; }
+        .maker-stats { display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .maker-stat { text-align: center; }
+        .maker-stat strong { display: block; font-size: 1.25rem; color: var(--accent); }
+        .maker-stat span { font-size: 0.75rem; color: var(--faded); text-transform: uppercase; }
+        
+        /* Filters */
+        .filter-section { margin-bottom: 2rem; }
+        .filter-bar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+        .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--paper); border-radius: 20px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; transition: all 0.2s; }
+        .filter-btn:hover { border-color: var(--accent); }
+        .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+        
+        /* Products Grid */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        
+        /* Masonry Layout Variation */
+        .products-grid.masonry {
+            display: block;
+            columns: 4 280px;
+            column-gap: 1.5rem;
+        }
+        .products-grid.masonry .product-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 1200px) { .products-grid.masonry { columns: 3 280px; } }
+        @media (max-width: 900px) { .products-grid.masonry { columns: 2 280px; } }
+        @media (max-width: 600px) { .products-grid.masonry { columns: 1; } }
+        
+        .product-card { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-card.featured { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+        .product-card.featured::before {
+            content: 'FEATURED';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 2.5rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 10;
+        }
+        .product-card.new::after {
+            content: 'NEW';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #16a34a;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        .product-image { aspect-ratio: 1; background: var(--paper-dark); display: flex; align-items: center; justify-content: center; position: relative; }
+        .product-image .placeholder { font-size: 4rem; }
+        .product-badge { position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .product-info { padding: 1.5rem; }
+        .product-vendor { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .product-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.3; }
+        .product-desc { font-size: 0.9rem; color: var(--faded); margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .product-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .product-price { font-weight: 600; font-size: 1.1rem; }
+        .product-profile { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); background: var(--paper-dark); padding: 0.25rem 0.5rem; border-radius: 4px; }
+        .product-link { display: block; text-align: center; padding: 0.75rem; background: var(--ink); color: white; text-decoration: none; font-weight: 500; transition: background 0.2s; }
+        .product-link:hover { background: var(--accent); }
+        
+        /* Guide Section */
+        .guide-section { background: linear-gradient(135deg, var(--paper-dark) 0%, var(--paper) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; }
+        .guide-section h2 { font-family: 'Newsreader', Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .guide-card { padding: 1.5rem; }
+        .guide-card h3 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .guide-card h3 span { font-size: 1.5rem; }
+        .guide-card ul { list-style: none; }
+        .guide-card li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--faded); }
+        .guide-card li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+        
+        /* Footer */
+        footer { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2rem; margin-top: 4rem; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-section h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: rgba(255,255,255,0.6); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1400px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+        .footer-bottom-links { display: flex; gap: 1.5rem; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.875rem; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .hero, .hero-artisan h1 { font-size: 2rem; }
+            .intro-section, .guide-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="/">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <nav class="main-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/artisan/" class="nav-link active">Artisan</a>
+                <a href="/" class="nav-link">Keyboards</a>
+                <a href="/beginner/" class="nav-link">Guides</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero-artisan">
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="icon-palette"></i> Handcrafted Art</div>
+            <h1>Artisan Keycaps</h1>
+            <p>Tiny sculptures for your keyboard. Handcrafted by skilled artisans using resin, metal, and passion.</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <!-- What are artisan keys -->
+        <section class="intro-section">
+            <h2>What are Artisan Keycaps?</h2>
+            <p>Artisan keycaps are handmade, often one-of-a-kind keycaps created by individual makers or small studios. Unlike mass-produced keycaps, each artisan piece is crafted with meticulous attention to detail, featuring intricate sculpts, unique colorways, and premium materials.</p>
+            
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <h3>[ICON: Palette] Unique Design</h3>
+                    <p>No two artisan keycaps are exactly alike. Makers often create limited runs of just dozens or hundreds of pieces.</p>
+                </div>
+                <div class="intro-card">
+                    <h3>[ICON: Sparkle] Premium Materials</h3>
+                    <p>Cast in resin, machined from aluminum or brass, featuring embedded elements like glow-in-the-dark pigments.</p>
+                </div>
+                <div class="intro-card">
+                    <h3>[ICON: Target] Collector's Items</h3>
+                    <p>Rares can command hundreds of dollars on the secondary market. True mechanical keyboard bling.</p>
+                </div>
+                <div class="intro-card">
+                    <h3>[ICON: Magnifier] Attention to Detail</h3>
+                    <p>Every tiny element carefully sculpted, painted, and finished by hand. Microscopic works of art.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Makers -->
+        <section class="makers-section">
+            <h2>Top Artisan Makers</h2>
+            <div class="makers-grid">
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-fox">[F]</i></div>
+                        <div class="maker-info">
+                            <h3>KeyForge</h3>
+                            <span>keyforge.com</span>
+                        </div>
+                    </div>
+                    <p>Known for the iconic Mulder and Ori sculpts. Multi-shot resin casting masters with incredible depth and detail.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>2</strong>
+                            <span>Sculpts</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$65+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-palette">•</i></strong>
+                            <span>Resin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-mountain">[M]</i></div>
+                        <div class="maker-info">
+                            <h3>Jelly Key</h3>
+                            <span>jellykey.com</span>
+                        </div>
+                    </div>
+                    <p>The Zen Pond series defined the artisan scene. 3D resin scenes with koi fish swimming inside clear resin blocks.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>5+</strong>
+                            <span>Collections</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$85+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-fish">∞</i></strong>
+                            <span>Resin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-gear">[G]</i></div>
+                        <div class="maker-info">
+                            <h3>Rama Works</h3>
+                            <span>rama.works</span>
+                        </div>
+                    </div>
+                    <p>CNC machined aluminum and brass artisans. Clean, minimalist designs with premium anodized finishes.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>10+</strong>
+                            <span>Designs</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$45+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-nut">@</i></strong>
+                            <span>Metal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-dog">[D]</i></div>
+                        <div class="maker-info">
+                            <h3>Alpha Keycaps</h3>
+                            <span>alphakeycaps.com</span>
+                        </div>
+                    </div>
+                    <p>Cute character sculpts like Salvador (dog) and Matapora. Hand-painted with incredible attention to facial expressions.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>5+</strong>
+                            <span>Sculpts</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$85+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-palette">•</i></strong>
+                            <span>Resin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-wizard">[W]</i></div>
+                        <div class="maker-info">
+                            <h3>Dwarf Factory</h3>
+                            <span>dwarf-factory.com</span>
+                        </div>
+                    </div>
+                    <p>Fantasy and nature themed sculpts. The Kraken, Ducky, and Moon collections are community favorites.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>8+</strong>
+                            <span>Series</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$55+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-moon">C</i></strong>
+                            <span>Resin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maker-card">
+                    <div class="maker-header">
+                        <div class="maker-avatar"><i class="icon-bat">[B]</i></div>
+                        <div class="maker-info">
+                            <h3>Gothcaps</h3>
+                            <span>gothcaps.com</span>
+                        </div>
+                    </div>
+                    <p>Dark, demonic themes with UV-reactive elements. Perfect for gothic builds. Hellfire and Hex collections are standout.</p>
+                    <div class="maker-stats">
+                        <div class="maker-stat">
+                            <strong>4</strong>
+                            <span>Sculpts</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong>$75+</strong>
+                            <span>Entry Price</span>
+                        </div>
+                        <div class="maker-stat">
+                            <strong><i class="icon-fire">!</i></strong>
+                            <span>UV Resin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beginner's Guide -->
+        <section class="guide-section">
+            <h2>Artisan Keycap Guide</h2>
+            
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h3><i class="icon-coins"></i> Entry Level ($30-60)</h3>
+                    <ul>
+                        <li>Hot Keys Project - Superhero themes</li>
+                        <li>Rama Works - Simple metal designs</li>
+                        <li>Dwarf Factory - Standard colorways</li>
+                        <li>Fraktal Kaps - Organic shapes</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h3><i class="icon-star"></i> Mid Tier ($60-100)</h3>
+                    <ul>
+                        <li>KeyForge - Mulder, Ori sculpts</li>
+                        <li>Alpha Keycaps - Salvador, Matapora</li>
+                        <li>Gothcaps - UV reactive dark themes</li>
+                        <li>The Key Company - Premium collabs</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h3><i class="icon-crown"></i> High End ($100+)</h3>
+                    <ul>
+                        <li>Jelly Key - Zen Pond III scenes</li>
+                        <li>Oblotzky - GMK collab artisans</li>
+                        <li>Brocaps - Brobot, BBv2 series</li>
+                        <li>GAF - Grimey as Fu$k (rare grails)</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h3><i class="icon-gem"></i> Grail Tier ($500+)</h3>
+                    <ul>
+                        <li>OG Clack Factory - Skulls</li>
+                        <li>Vintage Brocaps - 1-off customs</li>
+                        <li>GAF TypeBeasts - Rare drops</li>
+                        <li>Maker 1-offs - Auction customs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section>
+            <h2>Featured Artisan Keycaps</h2>
+            <div class="products-grid" id="artisanProducts">
+                <!-- Products loaded dynamically -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/?filter=artisan" class="filter-btn active" style="text-decoration: none; display: inline-block;">View All Artisan Keys →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="/">All Products</a></li>
+                    <li><a href="/artisan/">Artisan Keys <i class="icon-palette">•</i></a></li>
+                    <li><a href="/">Best Overall</a></li>
+                    <li><a href="/">Budget Picks</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="/beginner/">Beginner's Guide</a></li>
+                    <li><a href="/switches/">Switch Guide</a></li>
+                    <li><a href="/">Glossary</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="/">Price Alerts</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Switchyard. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/affiliate-disclosure.html">Affiliates</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            } else {
+            }
+        });
+
+        // Load artisan products
+        async function loadArtisanProducts() {
+            try {
+                const response = await fetch('/data.json');
+                const data = await response.json();
+                const products = data.allProducts || data.groupBuys || [];
+                
+                // Filter artisan products - check category or name
+                const artisanProducts = products
+                    .filter(p => p.category === 'artisan' || 
+                                 (p.category === 'keycaps' && 
+                                  /artisan|resin|sculpted|handmade|jelly|rama|keyforge|alpha|mulder|zen pond/i.test(p.name)))
+                    .slice(0, 6);
+                
+                const grid = document.getElementById('artisanProducts');
+                
+                grid.innerHTML = artisanProducts.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="placeholder"><i class="icon-palette">•</i></span>
+                            <span class="product-badge">${product.material || 'Resin'}</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-vendor">${product.vendor}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-desc">${product.description}</div>
+                            <div class="product-meta">
+                                <span class="product-price">${product.price}</span>
+                                <span class="product-profile">${product.profile || 'Cherry'}</span>
+                            </div>
+                        </div>
+                        <a href="${product.url}" class="product-link" target="_blank" rel="noopener">View Product →</a>
+                    </div>
+                `).join('');
+                
+            } catch (error) {
+                console.error('Error loading artisan products:', error);
+            }
+        }
+
+        loadArtisanProducts();
+    </script>
+</body>
+</html>
