@@ -85,7 +85,7 @@ export default function BestProgrammingGuide() {
                   <div className="rec-why">
                     <strong>Why devs love it:</strong> {pick.why}
                   </div>
-                  <a href={pick.link} className="cta-button" target="_blank" rel="noopener">
+                  <a href={pick.link} className="cta-button" target="_blank" rel="noopener noreferrer">
                     Check Price
                   </a>
                 </div>
