@@ -3,8 +3,11 @@ import './App.css';
 import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
 import Wizard from './components/Wizard';
+
+// Learn Pages
+import Learn from './pages/learn';
+import LearnBeginnersGuide from './pages/learn/BeginnersGuide';
 import SwitchGuide from './pages/SwitchGuide';
-import BeginnersGuide from './pages/BeginnersGuide';
 import Glossary from './pages/Glossary';
 
 interface Product {
@@ -36,7 +39,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (currentPath === '/switch-guide' || currentPath === '/beginners-guide' || currentPath === '/glossary') {
+    // Skip data loading for learn pages
+    if (currentPath.startsWith('/learn') || 
+        currentPath === '/switch-guide' || 
+        currentPath === '/glossary') {
+      setLoading(false);
       return;
     }
     
@@ -83,18 +90,31 @@ export default function App() {
   const hasMore = filteredProducts.length > displayLimit;
 
   // Route to page components
+  if (currentPath === '/learn') {
+    return <Learn />;
+  }
+  if (currentPath === '/learn/beginners-guide') {
+    return <LearnBeginnersGuide />;
+  }
+  if (currentPath === '/learn/switch-guide') {
+    return <SwitchGuide />;
+  }
+  if (currentPath === '/learn/glossary') {
+    return <Glossary />;
+  }
+  // Support legacy routes
   if (currentPath === '/switch-guide') {
     return <SwitchGuide />;
   }
   if (currentPath === '/beginners-guide') {
-    return <BeginnersGuide />;
+    return <LearnBeginnersGuide />;
   }
   if (currentPath === '/glossary') {
     return <Glossary />;
   }
 
   // Main app render
-  if (loading) {
+  if (loading && !currentPath.startsWith('/learn')) {
     return (
       <Layout>
         <div className="loading">Loading products...</div>
@@ -102,7 +122,7 @@ export default function App() {
     );
   }
 
-  if (error) {
+  if (error && !currentPath.startsWith('/learn')) {
     return (
       <Layout>
         <div className="error">{error}</div>

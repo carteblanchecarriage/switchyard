@@ -1,0 +1,139 @@
+.learn-page {
+  min-height: 100vh;
+  background: var(--paper, #fdfcf8);
+}
+
+.learn-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.learn-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.learn-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.learn-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.guide-category {
+  margin-bottom: 4rem;
+}
+
+.guide-category h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink, #1a1a1a);
+}
+
+.category-icon {
+  font-size: 1.5rem;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.guide-card {
+  background: white;
+  border: 1px solid var(--border, #e8e8e8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.guide-card:hover {
+  border-color: var(--accent, #c4a35a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.guide-header {
+  margin-bottom: 1rem;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.difficulty-easy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.difficulty-medium {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.difficulty-hard {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.guide-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink, #1a1a1a);
+}
+
+.guide-card p {
+  color: var(--faded, #6b6b6b);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.guide-link {
+  color: var(--accent, #c4a35a);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .learn-hero {
+    padding: 3rem 1.5rem;
+  }
+  
+  .learn-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .learn-content {
+    padding: 2rem 1rem;
+  }
+  
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}

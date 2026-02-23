@@ -52,6 +52,15 @@
   color: #c4a35a;
 }
 
+.nav-link {
+  padding: 0.5rem 0;
+}
+
+.nav-highlight {
+  color: #c4a35a;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
