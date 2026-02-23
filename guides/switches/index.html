@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Switch Buying Guide 2025: Tactile vs Linear vs Clicky | Switchyard</title>
+    <meta name="description" content="Complete guide to mechanical keyboard switches. Learn the differences between linear, tactile, and clicky switches. Find the perfect switch for gaming, typing, or work.">
+    
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/guides/switches/">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; --link: #2563eb; }
+        
+            --ink: #fdfcf8;
+            --border: #444444;
+            --link: #60a5fa;
+        }
+        
+        body { font-family: Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 1.1rem; transition: background-color 0.3s, color 0.3s; }
+        .article-wrap { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+        
+        /* Skip link and theme toggle */
+        .skip-link { position: absolute; top: -50px; left: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; text-decoration: none; z-index: 100; font-family: monospace; border-radius: 0 0 4px 0; transition: top 0.2s; }
+        .skip-link:focus { top: 0; }
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--border); border-radius: 20px; padding: 6px 12px; cursor: pointer; font-size: 0.875rem; color: var(--ink); display: flex; align-items: center; gap: 6px; z-index: 50; transition: border-color 0.2s; }
+        .theme-toggle:hover { border-color: var(--accent); }
+        
+        .article-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .article-meta { font-family: monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        h1 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 1.5rem; font-weight: 400; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+        h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 600; }
+        p { margin-bottom: 1.25rem; }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul, ol { margin: 1.25rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+        blockquote { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; color: var(--faded); font-style: italic; }
+        hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+        
+        .hero-image { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+        .switch-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+        .switch-label { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-family: monospace; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .label-linears { background: #dbeafe; color: #1e40af; }
+        .label-tactiles { background: #fed7aa; color: #9a3412; }
+        .label-clicky { background: #fecaca; color: #991b1b; }
+        
+        .switch-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .switch-desc { color: var(--faded); margin-bottom: 1rem; }
+        .switch-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
+        .stat-value { font-family: monospace; font-weight: 600; color: var(--accent); font-size: 1.1rem; }
+        .stat-label { font-size: 0.75rem; color: var(--faded); text-transform: uppercase; }
+        
+        .recommendation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .rec-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .rec-title { font-weight: 600; margin-bottom: 0.5rem; }
+        .rec-switches { font-size: 0.9rem; color: var(--faded); }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .comparison-table th { text-align: left; padding: 0.75rem; border-bottom: 2px solid var(--ink); font-weight: 600; background: var(--paper-dark); }
+        .comparison-table td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+        
+        .cta-box { background: var(--accent); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0; }
+        .cta-box a { color: white; text-decoration: underline; font-weight: 600; }
+        .cta-box a:hover { text-decoration: none; }
+        
+        .sound-indicator { display: inline-flex; align-items: center; gap: 0.5rem; font-family: monospace; font-size: 0.875rem; }
+        .sound-bar { display: flex; gap: 2px; }
+        .sound-bar span { width: 4px; background: var(--faded); border-radius: 2px; }
+        .sound-bar.level-1 span:nth-child(1) { background: var(--accent); height: 8px; }
+        .sound-bar.level-2 span:nth-child(-n+2) { background: var(--accent); height: 12px; }
+        .sound-bar.level-3 span:nth-child(-n+3) { background: var(--accent); height: 16px; }
+        .sound-bar.level-4 span { background: var(--accent); height: 20px; }
+        
+        .image-caption { text-align: center; font-size: 0.875rem; color: var(--faded); margin-top: 0.5rem; font-style: italic; }
+        
+        .nav-back { margin-bottom: 2rem; }
+        .nav-back a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--faded); }
+        
+        .source-list { font-size: 0.9rem; color: var(--faded); margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .site-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--faded); }
+        
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        @media (max-width: 600px) { body { font-size: 1rem; } .article-wrap { padding: 2rem 1.5rem; } h1 { font-size: 1.7rem; } .switch-stats { grid-template-columns: 1fr; } }
+    </style>
+    <script>
+        (function() {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            }
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <span id="themeIcon"></span>
+        <span id="themeText">Dark</span>
+    </button>
+    
+    <article class="article-wrap" id="main-content">
+        <nav class="nav-back">
+            <a href="../index.html">< Back to Switchyard</a>
+        </nav>
+        
+        <header class="article-header">
+            <div class="article-meta">Guide · February 2026</div>
+            <h1>Mechanical Switch Buying Guide 2025: Find Your Perfect Switch</h1>
+            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">The switches under your keycaps define everything—how your keyboard feels, sounds, and responds. Here's how to choose.</p>
+        </header>
+
+        <img src="https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=1200&q=80" 
+             alt="Close-up of colorful mechanical keyboard switches" 
+             class="hero-image"
+             loading="eager">
+
+        <p>Every mechanical key press registers through a <strong>switch</strong>—the mechanism beneath each keycap that determines:</p>
+        
+        <ul>
+            <li>How much force you need to press (<strong>actuation force</strong>)</li>
+            <li>How far you press before it registers (<strong>actuation point</strong>)</li>
+            <li>Whether you feel feedback (<strong>tactility</strong>)</li>
+            <li>How loud it is (<strong>noise level</strong>)</li>
+            <li>How smooth the press feels (<strong>linearity</strong>)</li>
+        </ul>
+
+        <p>There are three main switch types, and within each, dozens of variations. This guide will help you understand what matters and recommend specific switches for your needs.</p>
+
+        <hr>
+
+        <h2>The Three Types: Linear vs Tactile vs Clicky</h2>
+
+        <div class="switch-card">
+            <span class="switch-label label-linears">Linear</span>
+            <div class="switch-name">🛹 Smooth as Butter</div>
+            <div class="switch-desc">Linear switches travel smoothly from top to bottom with no bumps or clicks. Press down, and they go straight to the bottom with consistent resistance. Popular with gamers for rapid double-tapping and with people who prefer silent, smooth typing.</div>
+            
+            <div class="sound-indicator">
+                <span>Sound:</span>
+                <span class="sound-bar level-2">
+                    <span></span><span></span><span></span><span></span>
+                </span>
+                <span>Quiet</span>
+            </div>
+            
+            <div class="switch-stats" style="margin-top: 1rem;">
+                <div>
+                    <div class="stat-value">45-60g</div>
+                    <div class="stat-label">Actuation Force</div>
+                </div>
+                <div>
+                    <div class="stat-value">2.0mm</div>
+                    <div class="stat-label">Actuation Point</div>
+                </div>
+                <div>
+                    <div class="stat-value">4.0mm</div>
+                    <div class="stat-label">Total Travel</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="switch-card">
+            <span class="switch-label label-tactiles">Tactile</span>
+            <div class="switch-name">👆 The Bump</div>
+            <div class="switch-desc">Tactile switches have a noticeable "bump" you feel when the key registers. This feedback tells your fingers exactly when the keystroke happened—before you bottom out. Preferred by typists and programmers who want clear confirmation without the noise of clicky switches.</div>
+            
+            <div class="sound-indicator">
+                <span>Sound:</span>
+                <span class="sound-bar level-3">
+                    <span></span><span></span><span></span><span></span>
+                </span>
+                <span>Moderate</span>
+            </div>
+            
+            <div class="switch-stats" style="margin-top: 1rem;">
+                <div>
+                    <div class="stat-value">55-70g</div>
+                    <div class="stat-label">Actuation Force</div>
+                </div>
+                <div>
+                    <div class="stat-value">2.0mm</div>
+                    <div class="stat-label">Actuation Point</div>
+                </div>
+                <div>
+                    <div class="stat-value">4.0mm</div>
+                    <div class="stat-label">Total Travel</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="switch-card">
+            <span class="switch-label label-clicky">Clicky</span>
+            <div class="switch-name">Typewriter Vibes</div>
+            <div class="switch-desc">Clicky switches combine the tactile bump with an audible "click" sound. They're the loudest, most tactile switches—love them or hate them. The distinct sound provides both tactile and auditory feedback. Best for people who type alone and enjoy the classic mechanical sound.</div>
+            
+            <div class="sound-indicator">
+                <span>Sound:</span>
+                <span class="sound-bar level-4">
+                    <span></span><span></span><span></span><span></span>
+                </span>
+                <span>Loud</span>
+            </div>
+            
+            <div class="switch-stats" style="margin-top: 1rem;">
+                <div>
+                    <div class="stat-value">50-60g</div>
+                    <div class="stat-label">Actuation Force</div>
+                </div>
+                <div>
+                    <div class="stat-value">2.2mm</div>
+                    <div class="stat-label">Actuation Point</div>
+                </div>
+                <div>
+                    <div class="stat-value">4.0mm</div>
+                    <div class="stat-label">Total Travel</div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Quick Recommendations by Use Case</h2>
+
+        <div class="recommendation-grid">
+            <div class="rec-card">
+                <div class="rec-title">🎮 Gaming</div>
+                <div class="rec-switches">
+                    <strong>Best:</strong> Gateron Yellow (Linear)<br>
+                    <strong>Premium:</strong> Cherry MX Speed Silver<br>
+                    <strong>Budget:</strong> Redragon Red
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-title">💻 Programming</div>
+                <div class="rec-switches">
+                    <strong>Best:</strong> Holy Pandas (Tactile)<br>
+                    <strong>Premium:</strong> Zealios V2<br>
+                    <strong>Budget:</strong> Gateron Brown
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-title">🏢 Office</div>
+                <div class="rec-switches">
+                    <strong>Best:</strong> Cherry MX Silent Red<br>
+                    <strong>Quiet:</strong> Gateron Silent Brown<br>
+                    <strong>Mechanical:</strong> Outemu Silent Peach
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-title">✍️ Writing</div>
+                <div class="rec-switches">
+                    <strong>Best:</strong> Boba U4T (Tactile)<br>
+                    <strong>Clicky:</strong> Cherry MX Blue<br>
+                    <strong>Smooth:</strong> Gateron Blacks
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-title">🎯 First Board</div>
+                <div class="rec-switches">
+                    <strong>Safe:</strong> Gateron Brown<br>
+                    <strong>Smooth:</strong> Gateron Yellow<br>
+                    <strong>Feel:</strong> Akko CS Lavender
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-title">💰 Budget Build</div>
+                <div class="rec-switches">
+                    <strong>Linear:</strong> Gateron Yellow ($25)<br>
+                    <strong>Tactile:</strong> Akko CS ($30)<br>
+                    <strong>Clicky:</strong> Outemu Blue ($20)
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Popular Switches Compared</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Switch</th>
+                    <th>Type</th>
+                    <th>Force</th>
+                    <th>Sound</th>
+                    <th>Price (90ct)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cherry MX Red</strong></td>
+                    <td>Linear</td>
+                    <td>45g</td>
+                    <td>Quiet</td>
+                    <td>$60-80</td>
+                </tr>
+                <tr>
+                    <td><strong>Gateron Yellow</strong></td>
+                    <td>Linear</td>
+                    <td>50g</td>
+                    <td>Quiet</td>
+                    <td>$25-30</td>
+                </tr>
+                <tr>
+                    <td><strong>Cherry MX Brown</strong></td>
+                    <td>Tactile</td>
+                    <td>55g</td>
+                    <td>Moderate</td>
+                    <td>$60-80</td>
+                </tr>
+                <tr>
+                    <td><strong>Gateron Brown</strong></td>
+                    <td>Tactile</td>
+                    <td>55g</td>
+                    <td>Moderate</td>
+                    <td>$25-30</td>
+                </tr>
+                <tr>
+                    <td><strong>Holy Panda</strong></td>
+                    <td>Tactile</td>
+                    <td>67g</td>
+                    <td>Thocky</td>
+                    <td>$90-110</td>
+                </tr>
+                <tr>
+                    <td><strong>Cherry MX Blue</strong></td>
+                    <td>Clicky</td>
+                    <td>60g</td>
+                    <td>Clicky</td>
+                    <td>$60-80</td>
+                </tr>
+                <tr>
+                    <td><strong>Kailh Box White</strong></td>
+                    <td>Clicky</td>
+                    <td>50g</td>
+                    <td>Sharp</td>
+                    <td>$35-45</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Understanding Force: The Numbers That Matter</h2>
+
+        <p>Switch force is measured in grams (g) of force required to actuate (register a keystroke) and bottom out (press all the way down). Here's what the numbers mean in practice:</p>
+
+        <ul>
+            <li><strong>40-45g (Light):</strong> Cherry MX Red, Speed Silver. Easy to press, good for rapid gaming or gentle typists.</li>
+            <li><strong>50-55g (Medium):</strong> Gateron Yellow, Cherry MX Brown. The sweet spot for most people—light enough for long sessions, resistant enough to prevent accidental presses.</li>
+            <li><strong>60-70g (Heavy):</strong> Holy Pandas, Cherry MX Clear. Satisfying thock, intentional typing. Some fatigue over long sessions.</li>
+            <li><strong>80g+ (Very Heavy):</strong> NovelKeys Creams, Cherry MX Greens. Specialist switches. Good for heavy-handed typers.</li>
+        </ul>
+
+        <blockquote>
+            <p><strong>Pro tip:</strong> If you bottom out hard when typing (hit the bottom of the keystroke), consider heavier springs or adding rubber o-rings to reduce impact.</p>
+        </blockquote>
+
+        <hr>
+
+        <h2>The Switch Tester Solution</h2>
+
+        <p>The honest truth: reading about switches only gets you so far. <strong>Feel is subjective.</strong> A $25 switch tester with 12 switches tells you more than any review.</p>
+
+        <p>Before committing to a full set of switches:</p>
+
+        <ol>
+            <li>Buy a <a href="https://kbdfans.com" target="_blank" rel="noopener">KBDfans switch tester</a> ($25-40)</li>
+            <li>Select switches from each category (linear, tactile, clicky)</li>
+            <li>Type on them for a full day at your desk</li>
+            <li>Consider keycap impact—PBT vs ABS changes sound</li>
+            <li>Remember: lubed vs stock is a different experience</li>
+        </ol>
+
+        <hr>
+
+        <div class="cta-box">
+            <p><strong>Ready to explore keyboards with these switches?</strong></p>
+            <p>Browse <a href="../../index.html">live listings from Keychron, Drop, KBDfans, and more →</a></p>
+        </div>
+
+        <ul class="source-list">
+            <li>Switch specifications from Cherry, Gateron, Kailh, and Akko official documentation</li>
+            <li>Community testing data from r/MechanicalKeyboards and r/MechanicalKeyboards</li>
+            <li>Pricing from KBDfans, NovelKeys, and Drop (February 2026)</li>
+        </ul>
+
+        <div class="site-link">
+            <em>Part of the <a href="../../index.html">Switchyard keyboard collection</a> — curated mechanical keyboard resources updated regularly.</em>
+        </div>
+    </article>
+    
+    <script>
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        function updateThemeUI() {
+            themeIcon.textContent = isDark ? '' : '';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+        
+                    localStorage.setItem('switchyard-theme', 'light');
+                } else {
+                    localStorage.setItem('switchyard-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+    </script>
+</body>
+</html>

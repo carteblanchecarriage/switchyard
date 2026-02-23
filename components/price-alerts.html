@@ -1,0 +1,184 @@
+<!-- Price Alert Subscription Component -->
+<!-- Add this to index.html -->
+
+<style>
+    .alert-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(2px);
+    }
+    .alert-modal.active { display: flex; }
+    .alert-modal-content {
+        background: var(--paper);
+        border-radius: 8px;
+        max-width: 400px;
+        width: 90%;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .alert-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    .alert-modal-header h3 { margin: 0; font-size: 1.2rem; }
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--faded);
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+        color: var(--faded);
+    }
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+    .alert-submit-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+    }
+    .alert-submit-btn:hover { background: #b08d35; }
+    .alert-submit-btn:disabled {
+        background: var(--faded);
+        cursor: not-allowed;
+    }
+    .alert-success { color: #16a34a; margin-top: 1rem; }
+    .alert-error { color: #dc2626; margin-top: 1rem; }
+    
+    .subscribe-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--paper-dark);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--ink);
+        margin-left: 1rem;
+    }
+    .subscribe-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+</style>
+
+<!-- Add this button next to the sort dropdown -->
+<button class="subscribe-btn" onclick="openSubscribeModal()">
+    🔔 Get Alert
+</button>
+
+<!-- Subscribe Modal -->
+<div class="alert-modal" id="subscribeModal">
+    <div class="alert-modal-content">
+        <div class="alert-modal-header">
+            <h3>Get Price Alerts</h3>
+            <button class="close-btn" onclick="closeSubscribeModal()">×</button>
+        </div>
+        
+        <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+            <div class="form-group">
+                <label for="subEmail">Email</label>
+                <input type="email" id="subEmail" required 
+                       placeholder="you@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="subPreference">I want:</label>
+                <select id="subPreference">
+                    <option value="both">Daily digest + price alerts</option>
+                    <option value="digest">Daily digest only</option>
+                    <option value="alerts">Price alerts only</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="alert-submit-btn" id="subSubmitBtn">
+                Subscribe
+            </button>
+        </form>
+        
+        <div id="subMessage"></div>
+    </div>
+</div>
+
+<script>
+function openSubscribeModal() {
+    document.getElementById('subscribeModal').classList.add('active');
+}
+
+function closeSubscribeModal() {
+    document.getElementById('subscribeModal').classList.remove('active');
+}
+
+// Close on backdrop click
+document.getElementById('subscribeModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeSubscribeModal();
+});
+
+async function handleSubscribe(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('subEmail').value;
+    const preference = document.getElementById('subPreference').value;
+    const btn = document.getElementById('subSubmitBtn');
+    const message = document.getElementById('subMessage');
+    
+    btn.disabled = true;
+    message.innerHTML = '';
+    
+    try {
+        const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email,
+                preferences: {
+                    daily_digest: preference === 'both' || preference === 'digest',
+                    price_alerts: preference === 'both' || preference === 'alerts'
+                }
+            })
+        });
+        
+        if (response.ok) {
+            message.innerHTML = '<div class="alert-success">🎉 Subscribed! Check your email for confirmation.</div>';
+            document.getElementById('subscribeForm').reset();
+            setTimeout(closeSubscribeModal, 2000);
+        } else {
+            const error = await response.json();
+            message.innerHTML = `<div class="alert-error">❌ ${error.message || 'Something went wrong'}</div>`;
+        }
+    } catch (err) {
+        message.innerHTML = '<div class="alert-error">❌ Network error. Please try again.</div>';
+    } finally {
+        btn.disabled = false;
+    }
+}
+</script>

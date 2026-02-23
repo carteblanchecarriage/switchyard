@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1a1a1a"/>
+  
+  <!-- Subtle texture dots -->
+  <g fill="#2a2a2a" opacity="0.5">
+    <circle cx="100" cy="100" r="2"/>
+    <circle cx="300" cy="200" r="2"/>
+    <circle cx="900" cy="150" r="2"/>
+    <circle cx="1100" cy="500" r="2"/>
+    <circle cx="50" cy="550" r="2"/>
+  </g>
+  
+  <!-- Large K logo -->
+  <text x="600" y="380" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="280" font-weight="700" fill="#FAF9F7" text-anchor="middle" style="letter-spacing: -8px;">K</text>
+  
+  <!-- Gold accent dot -->
+  <circle cx="780" cy="180" r="24" fill="#C9A227"/>
+  
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#8B8B8B" text-anchor="middle" letter-spacing="2">FIND YOUR PERFECT MECHANICAL KEYBOARD</text>
+  
+  <!-- Brand name small -->
+  <text x="600" y="560" font-family="system-ui, sans-serif" font-size="20" fill="#C9A227" text-anchor="middle" letter-spacing="4">KEEBSHELF</text>
+</svg>

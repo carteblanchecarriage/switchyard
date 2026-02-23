@@ -1,0 +1,237 @@
+{
+  "timestamp": "2026-02-21T03:21:06.564Z",
+  "mode": "all",
+  "tests": [
+    {
+      "agent": "Novice Tester",
+      "element": "home_hero_1",
+      "a": {
+        "variant": "A",
+        "expected": 0.35
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.35
+      },
+      "winner": "B",
+      "confidence": 0
+    },
+    {
+      "agent": "Novice Tester",
+      "element": "home_hero_2",
+      "a": {
+        "variant": "A",
+        "expected": 0.35
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.35
+      },
+      "winner": "B",
+      "confidence": 0
+    },
+    {
+      "agent": "Gamer Tester",
+      "element": "gaming_headline",
+      "a": {
+        "variant": "A",
+        "expected": 0.55
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.48
+      },
+      "winner": "A",
+      "confidence": 0.07000000000000006
+    },
+    {
+      "agent": "Gamer Tester",
+      "element": "60pct_section",
+      "a": {
+        "variant": "A",
+        "expected": 0.55
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.48
+      },
+      "winner": "A",
+      "confidence": 0.07000000000000006
+    },
+    {
+      "agent": "Enthusiast Tester",
+      "element": "filters",
+      "a": {
+        "variant": "A",
+        "expected": 0.62
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.71
+      },
+      "winner": "B",
+      "confidence": 0.08999999999999997
+    },
+    {
+      "agent": "Enthusiast Tester",
+      "element": "notification_cta",
+      "a": {
+        "variant": "A",
+        "expected": 0.62
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.71
+      },
+      "winner": "B",
+      "confidence": 0.08999999999999997
+    },
+    {
+      "agent": "Writer Tester",
+      "element": "hero",
+      "a": {
+        "variant": "A",
+        "expected": 0.38
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.45
+      },
+      "winner": "B",
+      "confidence": 0.07
+    },
+    {
+      "agent": "Writer Tester",
+      "element": "switch_recommendation",
+      "a": {
+        "variant": "A",
+        "expected": 0.38
+      },
+      "b": {
+        "variant": "B",
+        "expected": 0.45
+      },
+      "winner": "B",
+      "confidence": 0.07
+    }
+  ],
+  "winners": {
+    "home_hero_1": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    },
+    "home_hero_2": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    },
+    "gaming_headline": {
+      "variant": "A",
+      "confidence": 1,
+      "counts": {
+        "A": 1,
+        "B": 0,
+        "total": 1
+      }
+    },
+    "60pct_section": {
+      "variant": "A",
+      "confidence": 1,
+      "counts": {
+        "A": 1,
+        "B": 0,
+        "total": 1
+      }
+    },
+    "filters": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    },
+    "notification_cta": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    },
+    "hero": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    },
+    "switch_recommendation": {
+      "variant": "B",
+      "confidence": 1,
+      "counts": {
+        "A": 0,
+        "B": 1,
+        "total": 1
+      }
+    }
+  },
+  "insights": [
+    {
+      "persona": "Novice Tester",
+      "traits": [
+        "new_to_mechanical",
+        "budget_conscious",
+        "overwhelmed_by_options"
+      ],
+      "hypothesis": "B",
+      "rationale": "Better conversion - accessible"
+    },
+    {
+      "persona": "Gamer Tester",
+      "traits": [
+        "competitive",
+        "latency_sensitive",
+        "rgb_optimized",
+        "tournament_ready"
+      ],
+      "hypothesis": "A",
+      "rationale": "Gamer resonatates with technical specs"
+    },
+    {
+      "persona": "Enthusiast Tester",
+      "traits": [
+        "owns_multiple",
+        "into_customizing",
+        "wait_for_gb",
+        "quality_over_price"
+      ],
+      "hypothesis": "B",
+      "rationale": "Enthusiasts want filtering, noise reduction"
+    },
+    {
+      "persona": "Writer Tester",
+      "traits": [
+        "heavy_daily_use",
+        "comfort_priority",
+        "quiet_env",
+        "aesthetic_matters"
+      ],
+      "hypothesis": "B",
+      "rationale": "Writers want keyboards that look good in photos"
+    }
+  ]
+}

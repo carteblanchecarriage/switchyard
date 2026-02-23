@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchyard | Mechanical Keyboard Group Buys & In-Stock Drops [2025]</title>
+    <meta name="description" content="Track 276+ mechanical keyboards, switches, and keycaps from Keychron, Drop, KBDfans, NovelKeys. Live group buy tracker, price alerts, and in-stock notifications.">
+    <meta name="keywords" content="mechanical keyboard, group buy, keychron, drop, kbdfans, custom keyboard, mechanical switches">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Switchyard | Mechanical Keyboard Group Buys & In-Stock Drops">
+    <meta property="og:description" content="Track 276+ keyboards from Keychron, Drop, KBDfans, NovelKeys. Live group buys, price alerts, in-stock notifications.">
+    <meta property="og:url" content="https://carteblanchecarriage.github.io/switchyard/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Switchyard | Mechanical Keyboard Group Buys">
+    <meta name="twitter:description" content="Track 276+ keyboards from Keychron, Drop, KBDfans, NovelKeys. Live group buys, price alerts.">
+    
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Switchyard",
+        "url": "https://carteblanchecarriage.github.io/switchyard/",
+        "description": "Mechanical keyboard group buy tracker and in-stock drops aggregator",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://carteblanchecarriage.github.io/switchyard/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "What is Switchyard?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Switchyard is a mechanical keyboard group buy tracker that aggregates in-stock keyboards, switches, and keycaps from Keychron, Drop, KBDfans, NovelKeys, and more. It updates every 2 hours with live inventory and price data."
+            }
+        },{
+            "@type": "Question",
+            "name": "How often does Switchyard update?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Switchyard scrapes vendor websites every 2 hours to ensure data is current. Group buy deadlines and in-stock items are updated automatically."
+            }
+        }]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Newsreader', Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.6; }
+        .loading-screen { position: fixed; inset: 0; background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; }
+        .loading-screen.hidden { opacity: 0; visibility: hidden; transition: opacity 0.5s; }
+        .loading-text { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
+        .masthead { background: var(--ink); color: var(--paper); padding: 2rem; }
+        .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 0.75rem; }
+        .brand-lockup h1 { font-size: 2rem; font-weight: 700; }
+        .brand-lockup span { font-style: italic; color: var(--accent); }
+        .search-wrap { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+        .search-input { width: 100%; padding: 0.75rem 1rem; font-family: inherit; font-size: 1rem; border: 1px solid var(--border); border-radius: 4px; }
+        .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .acquisition-count { font-size: 0.875rem; color: var(--faded); }
+        .shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .item { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+        .item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .item-image-wrap { height: 200px; position: relative; overflow: hidden; background: var(--paper-dark); }
+        .item-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .item-no-image { height: 100%; display: flex; align-items: center; justify-content: center; background: var(--paper-dark); color: var(--faded); font-size: 0.875rem; }
+        .item-meta { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+        .item-category { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--faded); margin-bottom: 0.5rem; }
+        .item-name { font-size: 1rem; margin-bottom: 0.5rem; }
+        .item-origin { font-size: 0.875rem; color: var(--faded); margin-bottom: 0.5rem; }
+        .item-desc { font-size: 0.875rem; color: var(--faded); margin-bottom: 0.75rem; line-height: 1.4; max-height: 3.5em; overflow: hidden; }
+        .item-footer { display: flex; justify-content: space-between; align-items: center; }
+        .item-price { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent); }
+        .item-status { font-size: 0.75rem; color: var(--faded); }
+        .item-action { display: block; padding: 0.75rem; text-align: center; background: var(--paper-dark); border-top: 1px solid var(--border); text-decoration: none; color: var(--ink); margin-top: auto; }
+        .item-action:hover { background: var(--accent); color: white; }
+        .load-more-btn { grid-column: 1 / -1; padding: 1.5rem; text-align: center; cursor: pointer; border: 2px dashed var(--border); border-radius: 8px; }
+        .load-more-btn:hover { border-color: var(--accent); }
+        .chip { display: inline-block; padding: 0.5rem 1rem; margin: 0.25rem; border: 1px solid var(--border); border-radius: 20px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; transition: all 0.2s; }
+        .chip:hover { border-color: var(--accent); color: var(--accent); }
+        .chip.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .filter-wrap { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">Loading collection...</div>
+    </div>
+
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1>Switchyard</h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-wrap">
+        <input type="search" class="search-input" id="searchInput" placeholder="Search keyboards, keycaps, switches...">
+    </div>
+
+    <!-- Stats Bar -->
+    <div style="background: var(--paper-dark); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--faded);">
+                <span>🔍 <strong id="totalItems" style="color: var(--ink);">276</strong> items tracked</span>
+                <span>🏪 <strong>5</strong> vendors</span>
+            </div>
+            <button onclick="openSubscribeModal()" style="background: var(--accent); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; font-family: inherit; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                🔔 Get Daily Alerts
+            </button>
+        </div>
+    </div>
+
+    <div class="filter-wrap">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <div>
+                <span class="chip active" data-filter="all">All</span>
+                <span class="chip" data-filter="keyboard">Keyboards</span>
+                <span class="chip" data-filter="case">Cases</span>
+                <span class="chip" data-filter="switches">Switches</span>
+                <span class="chip" data-filter="keycaps">Keycaps</span>
+            </div>
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+                <label for="sortSelect" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded);">Sort by:</label>
+                <select id="sortSelect" style="padding: 0.5rem 1rem; font-family: inherit; border: 1px solid var(--border); border-radius: 4px; background: white; cursor: pointer;">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-az">Name: A-Z</option>
+                    <option value="name-za">Name: Z-A</option>
+                    <option value="vendor-az">Vendor: A-Z</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribeModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center;" onclick="closeSubscribeModal(event)">
+        <div style="background: white; border-radius: 8px; max-width: 400px; width: 90%; padding: 2rem; position: relative;" onclick="event.stopPropagation()">
+            <button onclick="closeSubscribeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--faded);">×</button>
+            <h3 style="margin-bottom: 1rem;">Get Daily Alerts</h3>
+            <p style="color: var(--faded); margin-bottom: 1.5rem; font-size: 0.9rem;">Never miss a drop. Get daily emails with new products and price drops.</p>
+            
+            <form onsubmit="handleSubscribe(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Email</label>
+                    <input type="email" id="subEmail" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px;" placeholder="you@example.com">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.8rem; margin-bottom: 0.25rem; color: var(--faded);">Preferences</label>
+                    <select id="subPref" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px;">
+                        <option value="digest">Daily digest</option>
+                        <option value="alerts">Price alerts only</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <button type="submit" id="subBtn" style="width: 100%; padding: 0.75rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">Subscribe</button>
+                <div id="subMsg" style="margin-top: 1rem; text-align: center;"></div>
+            </form>
+        </div>
+    </div>
+
+    <main class="main">
+        <section>
+            <div class="section-header">
+                <span class="section-label">Current Collection</span>
+                <span class="acquisition-count" id="acquisitionCount">Loading...</span>
+            </div>
+            <div class="shelf" id="currentShelf"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 1rem;">
+            <div>
+                <h4 style="margin-top: 0;">About</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="blog.html" style="color: var(--faded);">The Story Behind Switchyard</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="margin-top: 0;">Guides</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="beginner/" style="color: var(--faded);">Start Here (Beginners)</a></li>
+                    <li><a href="glossary/" style="color: var(--faded);">Glossary</a></li>
+                    <li><a href="switches/" style="color: var(--faded);">Switch Guide</a></li>
+                    <li><a href="build/" style="color: var(--faded);">Build Guide</a></li>
+                    <li><a href="guide/" style="color: var(--faded);">What is a Mechanical Keyboard?</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="margin-top: 0;">Best Of</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="best/" style="color: var(--faded);">Best Keyboards 2025</a></li>
+                    <li><a href="best-budget/" style="color: var(--faded);">Under $100</a></li>
+                    <li><a href="best-programming/" style="color: var(--faded);">For Programming</a></li>
+                    <li><a href="best-60-percent/" style="color: var(--faded);">60% Keyboards</a></li>
+                    <li><a href="gaming/" style="color: var(--faded);">Gaming Keyboards</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="margin-top: 0;">Vendors</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="https://keychron.com" style="color: var(--faded);">Keychron</a></li>
+                    <li><a href="https://drop.com" style="color: var(--faded);">Drop</a></li>
+                    <li><a href="https://kbdfans.com" style="color: var(--faded);">KBDfans</a></li>
+                    <li><a href="https://novelkeys.com" style="color: var(--faded);">NovelKeys</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr style="max-width: 1400px; margin: 1rem auto; border: none; border-top: 1px solid var(--border);">
+        
+        <p style="text-align: center; padding-bottom: 2rem; margin: 0;">Curated mechanical keyboard group buys and interest checks. Updated every 2 hours.</p>
+    </footer>
+
+    <script>
+        let collection = { items: [] };
+        let displayedItems = [];
+        let currentBatch = 0;
+        let currentFilter = 'all';
+        let currentSort = 'featured';
+        const ITEMS_PER_BATCH = 50;
+        
+        const CACHE_KEY = 'switchyard_data';
+        const CACHE_TTL = 24 * 60 * 60 * 1000;
+        
+        function getCachedData() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                const timestamp = localStorage.getItem(CACHE_KEY + '_ts');
+                if (cached && timestamp) {
+                    const age = Date.now() - parseInt(timestamp, 10);
+                    if (age < CACHE_TTL) return JSON.parse(cached);
+                }
+            } catch (e) {}
+            return null;
+        }
+        
+        function setCachedData(data) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(CACHE_KEY + '_ts', Date.now().toString());
+            } catch (e) {}
+        }
+        
+        function processData(data) {
+            collection.items = (data.allProducts || []).map((item, idx) => ({
+                id: idx + 1,
+                name: item.name,
+                origin: item.vendor,
+                category: item.category || 'keyboard',
+                price: item.price,
+                status: item.status || 'active',
+                image: item.image,
+                url: item.affiliateUrl || item.url,
+                description: item.description || ''
+            })).filter(item => parsePrice(item.price) > 0);
+            
+            applyFilterAndSort();
+        }
+        
+        function displayData() {
+            const start = currentBatch * ITEMS_PER_BATCH;
+            const end = Math.min(start + ITEMS_PER_BATCH, displayedItems.length);
+            const batch = displayedItems.slice(start, end);
+            
+            const html = batch.map(item => `
+                <div class="item">
+                    <div class="item-image-wrap">
+                        ${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">` : ''}
+                        ${!item.image ? `<div class="item-no-image">No Image</div>` : ''}
+                    </div>
+                    <div class="item-meta">
+                        <div class="item-category">${item.category}</div>
+                        <h3 class="item-name">${item.name}</h3>
+                        <div class="item-origin">${item.origin}</div>
+                        <p class="item-desc">${item.description.substring(0, 100)}...</p>
+                        <div class="item-footer">
+                            <span class="item-price">${item.price}</span>
+                            <span class="item-status">${item.status}</span>
+                        </div>
+                    </div>
+                    <a href="${item.url}" class="item-action" target="_blank">View details</a>
+                </div>
+            `).join('');
+            
+            const container = document.getElementById('currentShelf');
+            const existingBtn = container.querySelector('.load-more-btn');
+            if (existingBtn) existingBtn.remove();
+            
+            if (currentBatch === 0) {
+                container.innerHTML = html;
+            } else {
+                container.insertAdjacentHTML('beforeend', html);
+            }
+            
+            if (end < displayedItems.length) {
+                container.insertAdjacentHTML('beforeend', `
+                    <div class="load-more-btn" onclick="loadMore()">
+                        Load ${Math.min(ITEMS_PER_BATCH, displayedItems.length - end)} more
+                    </div>
+                `);
+            }
+            
+            document.getElementById('acquisitionCount').textContent = `${displayedItems.length} items`;
+            
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 300);
+        }
+        
+        function loadMore() {
+            currentBatch++;
+            displayData();
+        }
+        
+        async function loadData() {
+            console.log('Loading...');
+            
+            const cached = getCachedData();
+            if (cached) {
+                processData(cached);
+                return;
+            }
+            
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
+                setCachedData(data);
+                processData(data);
+            } catch (err) {
+                console.error('Failed:', err);
+                document.querySelector('.loading-text').textContent = 'Error loading. Check console (F12).';
+            }
+        }
+        
+        // Apply filter, sort, and update display
+        function applyFilterAndSort() {
+            // Filter
+            let filtered = collection.items;
+            
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(item => item.category === currentFilter);
+            }
+            
+            // Sort
+            displayedItems = sortItemList(filtered, currentSort);
+            currentBatch = 0;
+            displayData();
+        }
+        
+        // Parse price string (e.g., "$199", "$11/pack", "$10.00", "$50+") to number
+        function parsePrice(priceStr) {
+            if (!priceStr || priceStr === 'N/A' || priceStr === 'TBA') return 0;
+            // Extract first number from string
+            const match = priceStr.match(/[\d,]+\.?\d*/);
+            if (!match) return 0;
+            return parseFloat(match[0].replace(/,/g, ''));
+        }
+        
+        // Sort a list of items
+        function sortItemList(items, sortValue) {
+            let sorted = [...items];
+            
+            switch(sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+                    break;
+                case 'name-az':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'name-za':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'vendor-az':
+                    sorted.sort((a, b) => a.origin.localeCompare(b.origin, undefined, {sensitivity: 'base'}));
+                    break;
+                case 'newest':
+                    // Keep original order (assumed newest first in data)
+                    break;
+                case 'featured':
+                default:
+                    // Shuffle slightly for variety
+                    sorted.sort(() => Math.random() - 0.5);
+                    break;
+            }
+            
+            return sorted;
+        }
+        
+        // Search handler
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (!query) {
+                applyFilterAndSort();
+            } else {
+                const searchResults = collection.items.filter(item =>
+                    item.name.toLowerCase().includes(query) ||
+                    item.origin.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                displayedItems = sortItemList(searchResults, currentSort);
+                currentBatch = 0;
+                displayData();
+            }
+        });
+        
+        // Filter chips
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                currentFilter = chip.dataset.filter;
+                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                applyFilterAndSort();
+            });
+        });
+        
+        // Sort dropdown
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            applyFilterAndSort();
+        });
+        
+        function updateActiveChip(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            const activeChip = document.querySelector(`.chip[data-filter="${filter}"]`);
+            if (activeChip) activeChip.classList.add('active');
+        }
+        
+        // Subscribe Modal Functions
+        function openSubscribeModal() {
+            document.getElementById('subscribeModal').style.display = 'flex';
+        }
+        
+        function closeSubscribeModal(e) {
+            if (!e || e.target.id === 'subscribeModal') {
+                document.getElementById('subscribeModal').style.display = 'none';
+            }
+        }
+        
+        async function handleSubscribe(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('subEmail').value;
+            const preference = document.getElementById('subPref').value;
+            const btn = document.getElementById('subBtn');
+            const msg = document.getElementById('subMsg');
+            
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            msg.innerHTML = '';
+            
+            try {
+                // Note: This is a placeholder. In production, this would call your API
+                // await fetch('/api/subscribe', {...})
+                
+                // Simulate API call
+                await new Promise(r => setTimeout(r, 1000));
+                
+                msg.innerHTML = '<span style="color: #16a34a;">✓ Subscribed! Check your email.</span>';
+                setTimeout(() => {
+                    document.getElementById('subscribeForm').reset();
+                    closeSubscribeModal();
+                }, 2000);
+                
+            } catch (err) {
+                msg.innerHTML = '<span style="color: #dc2626;">❌ Failed to subscribe. Please try again.</span>';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            }
+            
+            return false;
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

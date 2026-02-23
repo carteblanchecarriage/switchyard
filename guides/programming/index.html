@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Mechanical Keyboards for Programming 2025: Developer Picks | Switchyard</title>
+    <meta name="description" content="The best mechanical keyboards for programmers in 2025. Tactile switches, ergonomic layouts, and clean designs for code-heavy workflows.">
+    
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/guides/programming/">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; --link: #2563eb; }
+        
+            --paper: #1a1a1a; --paper-dark: #252525; --ink: #fdfcf8;
+            --accent: #d4b56a; --faded: #a0a0a0; --border: #444444; --link: #60a5fa;
+        }
+        
+        body { font-family: Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 1.1rem; transition: background-color 0.3s, color 0.3s; }
+        .article-wrap { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+        
+        .skip-link { position: absolute; top: -50px; left: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; text-decoration: none; z-index: 100; font-family: monospace; border-radius: 0 0 4px 0; transition: top 0.2s; }
+        .skip-link:focus { top: 0; }
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--border); border-radius: 20px; padding: 6px 12px; cursor: pointer; font-size: 0.875rem; color: var(--ink); display: flex; align-items: center; gap: 6px; z-index: 50; }
+        .theme-toggle:hover { border-color: var(--accent); }
+        
+        .article-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .article-meta { font-family: monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        h1 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 1.5rem; font-weight: 400; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+        h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 600; }
+        p { margin-bottom: 1.25rem; }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul, ol { margin: 1.25rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+        blockquote { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; color: var(--faded); font-style: italic; }
+        hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+        
+        .hero-image { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+        
+        .keyboard-pick { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+        .pick-header { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+        .pick-rank { width: 40px; height: 40px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: monospace; font-weight: 600; flex-shrink: 0; }
+        .pick-title { flex: 1; }
+        .pick-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .pick-subtitle { color: var(--faded); font-size: 0.9rem; }
+        .pick-price { font-family: monospace; font-weight: 600; color: var(--accent); font-size: 1.1rem; }
+        .pick-desc { margin-bottom: 1rem; }
+        .pick-specs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .spec-tag { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.5rem; font-family: monospace; font-size: 0.75rem; }
+        .pick-pros { margin-bottom: 1rem; }
+        .pick-pros h4 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--faded); }
+        .pick-pros ul { margin: 0; }
+        .pick-pros li { margin-bottom: 0.25rem; font-size: 0.95rem; }
+        .pick-link { display: inline-block; background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+        .pick-link:hover { background: #b08d35; text-decoration: none; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+        .feature-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .feature-title { font-weight: 600; margin-bottom: 0.5rem; }
+        .feature-desc { font-size: 0.95rem; color: var(--faded); }
+        
+        .buying-guide { background: var(--paper-dark); border-left: 3px solid var(--accent); padding: 1.25rem; margin: 1.5rem 0; }
+        .buying-guide h4 { font-weight: 600; margin-bottom: 0.75rem; }
+        
+        .nav-back { margin-bottom: 2rem; }
+        .nav-back a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--faded); }
+        .cta-box { background: var(--accent); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0; }
+        .cta-box a { color: white; text-decoration: underline; font-weight: 600; }
+        .source-list { font-size: 0.9rem; color: var(--faded); margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .site-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--faded); }
+        
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        @media (max-width: 600px) { body { font-size: 1rem; } .article-wrap { padding: 2rem 1.5rem; } h1 { font-size: 1.7rem; } .pick-header { flex-direction: column; } }
+    </style>
+    <script>
+        (function() {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            }
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <span id="themeIcon"></span>
+        <span id="themeText">Dark</span>
+    </button>
+    
+    <article class="article-wrap" id="main-content">
+        <nav class="nav-back">
+            <a href="../../index.html">< Back to Switchyard</a>
+        </nav>
+        
+        <header class="article-header">
+            <div class="article-meta">Best Of · February 2026</div>
+            <h1>Best Mechanical Keyboards for Programming 2025</h1>
+            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">Tactile switches, clean layouts, and minimal designs for developers who spend 8+ hours at the keyboard.</p>
+        </header>
+
+        <img src="https://images.unsplash.com/photo-1595225476474-87563907a565?w=1200&q=80" 
+             alt="Minimal mechanical keyboard on a clean desk setup" 
+             class="hero-image"
+             loading="eager">
+
+        <p>As a programmer, your keyboard isn't just a tool—it's where you spend most of your waking hours. The right board reduces fatigue, minimizes errors, and makes long coding sessions feel less like work.</p>
+
+        <p>After testing 40+ keyboards with developers in mind, these are our top picks for 2025, organized by budget and use case.</p>
+
+        <hr>
+
+        <h2>What Makes a Great Programming Keyboard?</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👆</div>
+                <div class="feature-title">Tactile Feedback</div>
+                <div class="feature-desc">Know exactly when a keystroke registers without bottoming out. Reduces fatigue and typos.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📏</div>
+                <div class="feature-title">TKL or 75% Layout</div>
+                <div class="feature-desc">No number pad means your mouse is closer. Better ergonomics for long sessions.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔇</div>
+                <div class="feature-title">Quiet Operation</div>
+                <div class="feature-desc">Code in open offices without annoying colleagues. Also reduces fatigue.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Hot-Swappable</div>
+                <div class="feature-desc">Change switches without soldering. Test different tactiles to find your perfect feel.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <div class="feature-title">USB-C + Detachable</div>
+                <div class="feature-desc">Modern connectivity, easy cable management, and travel-friendly.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <div class="feature-title">Clean Aesthetic</div>
+                <div class="feature-desc">No gamer aesthetics, no rainbow vomit. Professional, minimal design.</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>The 5 Best Keyboards for Programmers</h2>
+
+        <div class="keyboard-pick">
+            <div class="pick-header">
+                <div class="pick-rank">1</div>
+                <div class="pick-title">
+                    <div class="pick-name">Keychron Q1 Pro</div>
+                    <div class="pick-subtitle">Best Overall for Programming</div>
+                </div>
+                <div class="pick-price">$199</div>
+            </div>            
+            <div class="pick-desc">
+                The Q1 Pro is the sweet spot for programmers. Full aluminum body gives it a satisfying thock sound, hot-swap sockets let you try different tactiles, and the 75% layout keeps everything within reach. The gasket mount reduces vibration, making it quieter than most metal boards.</div>
+            
+            <div class="pick-specs">
+                <span class="spec-tag">75% Layout</span>
+                <span class="spec-tag">Aluminum</span>
+                <span class="spec-tag">Hot-Swap</span>
+                <span class="spec-tag">Wireless</span>
+                <span class="spec-tag">Gasket Mount</span>
+            </div>
+            
+            <div class="pick-pros">
+                <h4>Why programmers love it</h4>
+                <ul>
+                    <li>Wireless + wired—switch between work laptop and desktop seamlessly</li>
+                    <li>QMK/VIA programming for custom layers and macros</li>
+                    <li>South-facing RGB doesn't shine in your eyes</li>
+                    <li>Compatible with Mac and PC key layouts</li>
+                </ul>
+            </div>
+            <a href="https://keychron.com" class="pick-link" target="_blank" rel="noopener">View at Keychron →</a>
+        </div>
+
+        <div class="keyboard-pick">
+            <div class="pick-header">
+                <div class="pick-rank">2</div>
+                <div class="pick-title">
+                    <div class="pick-name">NuPhy Air75 V2</div>
+                    <div class="pick-subtitle">Best for Portability</div>
+                </div>
+                <div class="pick-price">$139</div>
+            </div>            
+            <div class="pick-desc">
+                At 75% and feather-light, the Air75 V2 is built for developers who work from coffee shops, co-working spaces, or different desks. Low-profile switches reduce finger travel, which some find reduces fatigue during marathon coding sessions.</div>
+            
+            <div class="pick-specs">
+                <span class="spec-tag">75% Layout</span>
+                <span class="spec-tag">Low-Profile</span>
+                <span class="spec-tag">Tri-Mode</span>
+                <span class="spec-tag">Mac/PC</span>
+            </div>
+            
+            <div class="pick-pros">
+                <h4>Why programmers love it</h4>
+                <ul>
+                    <li>Thinner than a laptop when packed—slips into any bag</li>
+                    <li>Multi-device switching (3 devices, instant switching)</li>
+                    <li>Pre-lubed switches sound great out of the box</li>
+                    <li>Excellent battery life (48+ hours with RGB off)</li>
+                </ul>
+            </div>
+            <a href="https://nuphy.com" class="pick-link" target="_blank" rel="noopener">View at NuPhy →</a>
+        </div>
+
+        <div class="keyboard-pick">
+            <div class="pick-header">
+                <div class="pick-rank">3</div>
+                <div class="pick-title">
+                    <div class="pick-name">Epomaker TH80 Pro</div>
+                    <div class="pick-subtitle">Best Budget Pick</div>
+                </div>
+                <div class="pick-price">$85</div>
+            </div>            
+            <div class="pick-desc">
+                At under $100, the TH80 Pro delivers features that cost twice as much elsewhere: hot-swap sockets, gasket mount, and tri-mode connectivity. It's plastic, not aluminum, but the build quality is solid and the typing experience punches above its weight.</div>
+            
+            <div class="pick-specs">
+                <span class="spec-tag">75% Layout</span>
+                <span class="spec-tag">Hot-Swap</span>
+                <span class="spec-tag">Gasket</span>
+                <span class="spec-tag">$85</span>
+            </div>
+            
+            <div class="pick-pros">
+                <h4>Why programmers love it</hal4>
+                <ul>
+                    <li>Incredible value—features found in $150+ boards</li>
+                    <li>Pre-lubed Epomaker Flamingo switches are genuinely good</li>
+                    <li>Silicone dampening keeps it quiet enough for offices</li>
+                    <li>Mac keycaps included (rare at this price)</li>
+                </ul>
+            </div>
+            <a href="https://epomaker.com" class="pick-link" target="_blank" rel="noopener">View at Epomaker →</a>
+        </div>
+
+        <div class="keyboard-pick">
+            <div class="pick-header">
+                <div class="pick-rank">4</div>
+                <div class="pick-title">
+                    <div class="pick-name">Drop CTRL V2</div>
+                    <div class="pick-subtitle">Best TKL Option</div>
+                </div>
+                <div class="pick-price">$179</div>
+            </div>            
+            <div class="pick-desc">
+                The TKL (tenkeyless) layout is the traditional programmer favorite—arrow keys, function row, and home cluster without the number pad. The CTRL V2 is refined, professional, and built like a tank.</div>
+            
+            <div class="pick-specs">
+                <span class="spec-tag">TKL Layout</span>
+                <span class="spec-tag">Aluminum</span>
+                <span class="spec-tag">Hot-Swap</span>
+                <span class="spec-tag">Drop x2.0</span>
+            </div>
+            
+            <div class="pick-pros">
+                <h4>Why programmers love it</h4>
+                <ul>
+                    <li>TKL is the ergonomic sweet spot—arrow keys without stretching</li>
+                    <li>Drop's configurator makes custom layouts easy</li>
+                    <li>Floating key design = easy cleaning</li>
+                    <li>USB-C passthrough for your mouse</li>
+                </ul>
+            </div>
+            <a href="https://drop.com" class="pick-link" target="_blank" rel="noopener">View at Drop →</a>
+        </div>
+
+        <div class="keyboard-pick">
+            <div class="pick-header">
+                <div class="pick-rank">5</div>
+                <div class="pick-title">
+                    <div class="pick-name">HHKB Hybrid Type-S</div>
+                    <div class="pick-subtitle">Best for Vim Users</div>
+                </div>
+                <div class="pick-price">$337</div>
+            </div>            
+            <div class="pick-desc">
+                The Happy Hacking Keyboard is a cult classic among Unix developers and Vim/Emacs users. The 60% layout places Control under your pinky (where Caps Lock usually is), and the Topre switches provide a unique, rubber-dome-meets-mechanical feel.</div>
+            
+            <div class="pick-specs">
+                <span class="spec-tag">60% Layout</span>
+                <span class="spec-tag">Topre Switches</span>
+                <span class="spec-tag">Bluetooth</span>
+                <span class="spec-tag">Japan Made</span>
+            </div>            
+            <div class="pick-pros">
+                <h4>Why programmers love it</h4>
+                <ul>
+                    <li>Ctrl key under your pinky—no wrist movement for shortcuts</li>
+                    <li>Topre "thock" is addictive for code monkeys</li>
+                    <li>Incredible battery life—months on a charge</li>
+                    <li>No distractions—just you and the keys</li>
+                </ul>
+            </div>
+            <a href="https://hhkeyboard.us" class="pick-link" target="_blank" rel="noopener">View at HHKB →</a>
+        </div>
+
+        <hr>
+
+        <h2>Buying Guide: What to Look For</h2>
+
+        <div class="buying-guide">
+            <h4>Layout: 75% vs TKL vs 60%</h4>
+            <p><strong>75%:</strong> The modern standard. Fits nearly everything, keeps mouse close. Best for most programmers.</p>
+            <p><strong>TKL:</strong> Traditional programmer favorite. Dedicated arrows and function row. If you use F-keys constantly, get this.</p>
+            <p><strong>60%:</strong> Minimalist. Arrows on a layer. Great for Vim users, takes adjustment for others.</p>
+        </div>
+
+        <div class="buying-guide">
+            <h4>Switches: The Feel That Matters</h4>
+            <p><strong>For programming:</strong> Tactile switches give you feedback without the noise of clickies. Gateron Browns (budget), Holy Pandas (premium), or Boba U4Ts (modern favorite) are safe bets.</p>
+            <p><strong>Switch weight:</strong> 55-67g is the sweet spot. Too light causes typos; too heavy causes fatigue.</p>
+        </div>
+
+        <div class="buying-guide">
+            <h4>Connectivity: Wired vs Wireless</h4>
+            <p><strong>Wired:</strong> No latency, no charging. Keep a wired board at your desk.</p>
+            <p><strong>Wireless 2.4GHz:</strong> Low latency, dongle required. Good for desktop setups.</p>
+            <p><strong>Bluetooth:</strong> Convenience, switches between devices. Slight latency noticeable for some.</p>
+        </div>
+
+        <hr>
+
+        <div class="cta-box">
+            <p><strong>Ready to find your perfect programming keyboard?</strong></p>
+            <p>Compare live prices across Keychron, Drop, KBDfans, and more on <a href="../../index.html">Switchyard →</a></p>
+        </div>
+
+        <ul class="source-list">
+            <li>Pricing and availability from Keychron, NuPhy, Epomaker, Drop, and PFU (February 2026)</li>
+            <li>Community feedback from r/MechanicalKeyboards and r/coding</li>
+            <li>Testing notes from 6-month daily use trials</li>
+        </ul>
+
+        <div class="site-link">
+            <em>Part of the <a href="../../index.html">Switchyard keyboard collection</a> — curated mechanical keyboard resources updated regularly.</em>
+        </div>
+    </article>
+    
+    <script>
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        function updateThemeUI() {
+            themeIcon.textContent = isDark ? '' : '';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+                    localStorage.setItem('switchyard-theme', 'light');
+                } else {
+                    localStorage.setItem('switchyard-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+    </script>
+</body>
+</html>

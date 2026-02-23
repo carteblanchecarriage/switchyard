@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAF9F7"/>
+  
+  <!-- Subtle gradient overlay -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Accent corner -->
+  <path d="M1200 0L1200 200L1000 0H1200Z" fill="#C9A227" fill-opacity="0.1"/>
+  
+  <!-- Keyboard Icon -->
+  <g transform="translate(100, 165)" fill="#2D2D2D">
+    <!-- Keycap shapes -->
+    <rect x="0" y="0" width="80" height="80" rx="8" fill="#2D2D2D"/>
+    <rect x="100" y="0" width="80" height="80" rx="8" fill="#2D2D2D"/>
+    <rect x="200" y="0" width="80" height="80" rx="8" fill="#C9A227"/>
+    <rect x="0" y="100" width="150" height="80" rx="8" fill="#2D2D2D"/>
+    <rect x="170" y="100" width="110" height="80" rx="8" fill="#2D2D2D"/>
+    <rect x="80" y="200" width="200" height="80" rx="8" fill="#2D2D2D"/>
+  </g>
+  
+  <!-- Logo Text -->
+  <text x="550" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#2D2D2D">Keebshelf</text>
+  
+  <!-- Tagline -->
+  <text x="550" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#6B6B6B">Find Your Perfect Mechanical Keyboard</text>
+  
+  <!-- Subtitle -->
+  <text x="550" y="390" font-family="system-ui, -apple-sstem, sans-serif" font-size="20" fill="#8B7355">✦ 280+ Products  ✦  Live Prices  ✦  Keychron · Drop · KBDfans</text>
+  
+  <!-- Brand mark -->
+  <text x="550" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#C9A227">⌨️   cartblanchecarriage.github.io/keebshelf</text>
+  
+  <!-- Background Gradient Definition -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF9F7"/>
+      <stop offset="100%" stop-color="#F5F0EB"/>
+    </linearGradient>
+  </defs>
+</svg>

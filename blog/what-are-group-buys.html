@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Are Group Buys? A Complete Guide to Mechanical Keyboard Group Buys | Switchyard</title>
+    <meta name="description" content="Learn everything about mechanical keyboard group buys: how they work, the timeline from interest check to fulfillment, risks, and tips for a successful purchase.">
+    <meta name="keywords" content="group buy, mechanical keyboard, gb, interest check, keyboard kit, artisan keycaps, custom keyboards">
+    <link rel="canonical" href="https://switchyard.com/blog/what-are-group-buys">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Are Group Buys? Complete Guide">
+    <meta property="og:description" content="Everything you need to know about mechanical keyboard group buys">
+    <meta property="og:type" content="article">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f5f4f0;
+            --ink: #1a1a1a;
+            --faded: #6b6b6b;
+            --accent: #c4a35a;
+            --accent-light: #e8dfc8;
+            --border: #e0ddd5;
+        }
+            --paper: #1a1a1a;
+            --paper-dark: #252525;
+            --ink: #f5f4f0;
+            --faded: #a0a0a0;
+            --accent: #d4b56a;
+            --accent-light: #3a3520;
+            --border: #333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.8; }
+        
+        /* Masthead */
+        .masthead { background: var(--ink); color: var(--paper); padding: 1.5rem 2rem; }
+        .masthead-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 1rem; }
+        .brand-lockup h1 { font-family: 'Newsreader', Georgia, serif; font-size: 1.75rem; font-weight: 400; }
+        .brand-lockup h1 a { color: var(--paper); text-decoration: none; }
+        .brand-lockup span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; }
+        .main-nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; transition: color 0.2s; }
+        .nav-link:hover { color: white; }
+        
+        /* Article Header */
+        .article-header { background: var(--paper-dark); border-bottom: 1px solid var(--border); padding: 4rem 2rem; }
+        .article-header-inner { max-width: 800px; margin: 0 auto; }
+        .breadcrumbs { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--faded); margin-bottom: 1rem; }
+        .breadcrumbs a { color: var(--accent); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .article-title { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+        .article-meta { display: flex; gap: 1.5rem; color: var(--faded); font-size: 0.9rem; flex-wrap: wrap; }
+        .article-meta span { display: flex; align-items: center; gap: 0.5rem; }
+        
+        /* Article Content */
+        .article-content { max-width: 720px; margin: 0 auto; padding: 3rem 2rem; }
+        .article-content h2 { font-family: 'Newsreader', Georgia, serif; font-size: 1.75rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--ink); }
+        .article-content h3 { font-size: 1.25rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--ink); }
+        .article-content p { margin-bottom: 1.5rem; color: var(--ink); }
+        .article-content strong { color: var(--ink); font-weight: 600; }
+        
+        /* Info Boxes */
+        .info-box { background: var(--paper-dark); border-left: 4px solid var(--accent); padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+        .info-box h4 { margin-bottom: 0.75rem; color: var(--accent); }
+        .info-box p:last-child { margin-bottom: 0; }
+        
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; }
+        
+        .tip-box { background: #eff6ff; border-left: 4px solid #3b82f6; }
+        
+        /* Timeline */
+        .timeline { margin: 2rem 0; padding-left: 2rem; border-left: 3px solid var(--border); }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--paper);
+        }
+        .timeline-item h4 { font-family: 'Newsreader', Georgia, serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .timeline-item p { margin: 0; color: var(--faded); }
+        
+        /* Lists */
+        .article-content ul, .article-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .article-content li { margin-bottom: 0.75rem; }
+        
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        .comparison-table th {
+            background: var(--paper-dark);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border);
+        }
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table tr:hover { background: var(--paper-dark); }
+        
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--paper-dark) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-bottom: 1rem; }
+        .cta-box p { margin-bottom: 1.5rem; }
+        .cta-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--ink);
+            color: var(--paper);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover { background: var(--accent); }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--paper-dark);
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .author-info h4 { margin-bottom: 0.25rem; }
+        .author-info p { font-size: 0.9rem; color: var(--faded); margin: 0; }
+        
+        /* Footer */
+        footer { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2rem; margin-top: 4rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-section h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: rgba(255,255,255,0.6); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.75rem; }
+            .main-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="/">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <nav class="main-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/artisan/" class="nav-link">Artisan</a>
+                <a href="/" class="nav-link">Keyboards</a>
+                <a href="/beginner/" class="nav-link">Guides</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="article-header">
+        <div class="article-header-inner">
+            <div class="breadcrumbs">
+                <a href="/">Home</a> → <a href="/blog.html">Blog</a> → Guide
+            </div>
+            <h1 class="article-title">What Are Group Buys? A Complete Guide to Mechanical Keyboard Group Buys</h1>
+            
+            <div class="article-meta">
+                <span>📝 Switchyard Team</span>
+                <span>📅 February 22, 2026</span>
+                <span>⏱️ 8 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <p>If you're new to the mechanical keyboard hobby, you've probably encountered the term "group buy" thrown around in forums and Discord servers. Group buys are the secret sauce that makes custom keyboards possible—but they're also the source of confusion for newcomers.</p>
+        
+        <p>This guide will explain exactly what group buys are, how they work, and what you need to know before joining one.</p>
+
+        <h2>What is a Group Buy?</h2>
+        
+        <p>A <strong>group buy</strong> (often abbreviated as "GB") is essentially a pre-order for a product that doesn't exist yet. Instead of buying a keyboard that's already manufactured and sitting in a warehouse, you're helping to fund its production.</p>
+        
+        <div class="info-box">
+            <h4>💡 Key Concept</h4>
+            <p>Group buys are crowdfunding campaigns for keyboard products. You pay upfront, the designer/vendor collects orders from hundreds or thousands of people, then manufactures the products in bulk. This reduces costs and enables unique designs that couldn't exist as mass-market products.</p>
+        </div>
+
+        <h2>The Group Buy Lifecycle</h2>
+        
+        <p>A typical group buy goes through several stages. Here's what to expect:</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>1. Interest Check (IC)</h4>
+                <p>Designers gauge community interest in a potential product. They share renders, specifications, and pricing estimates. Feedback shapes the final design. Usually lasts 1-4 weeks.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>2. Group Buy Opening</h4>
+                <p>The buy goes live on a vendor website. You select options (layout, color, accessories) and pay upfront. Popular group buys can sell out in minutes. Typically runs 1-2 weeks.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>3. Production</h4>
+                <p>After the buy closes, the vendor places orders with manufacturers (CNC machine shops, keycap factories, etc.). This is the longest phase—typically 3-12 months depending on complexity.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>4. Quality Control &amp; Shipping</h4>
+                <p>Finished products arrive at the vendor, are inspected, and then shipped to customers. Expect 2-4 weeks after production completion.</p>
+            </div>
+        </div>
+
+        <h2>What Products Use Group Buys?</h2>
+
+        <p>Almost everything in the custom keyboard world uses group buy fulfillment:</p>
+
+        <ul>
+            <li><strong>Keyboard Kits:</strong> Aluminum cases, PCBs, plates, and all internals</li>
+            <li><strong>Keycap Sets:</strong> GMK, ePBT, KAT, and other premium keycaps</li>
+            <li><strong>Artisan Keycaps:</strong> Handcrafted resin sculpts from small makers</li>
+            <li><strong>Accessories:</strong> Wrist rests, cables, deskmats</li>
+            <li><strong>Switches:</strong> Custom colorways and limited collaborations</li>
+        </ul>
+
+        <h3>Popular Group Buy Platforms</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Vendor</th>
+                    <th>Specialization</th>
+                    <th>Typical Timeline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Drop.com</td>
+                    <td>Mass-market customs</td>
+                    <td>6-8 months</td>
+                </tr>
+                <tr>
+                    <td>KBDfans</td>
+                    <td>Entry to mid-range kits</td>
+                    <td>4-6 months</td>
+                </tr>
+                <tr>
+                    <td>GMK</td>
+                    <td>Premium keycap sets</td>
+                    <td>12-18 months</td>
+                </tr>
+                <tr>
+                    <td>CannonKeys</td>
+                    <td>High-end keyboards</td>
+                    <td>8-12 months</td>
+                </tr>
+                <tr>
+                    <td>Artisan Makers</td>
+                    <td>Custom sculptures</td>
+                    <td>2-6 months</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>The Pros and Cons of Group Buys</h2>
+
+        <h3>✅ Advantages</h3>
+        
+        <ul>
+            <li><strong>Lower Costs:</strong> Mass production means lower per-unit prices</li>
+            <li><strong>Unique Designs:</strong> Access to products that wouldn't exist at retail</li>
+            <li><strong>Community Input:</strong> Designs improve through feedback before production</li>
+            <li><strong>Excitement:>/strong> Being part of something exclusive and anticipated</li>
+        </ul>
+
+        <h3>❌ Disadvantages (The Risks)</h3>
+        
+        <ul>
+            <li><strong>Long Waits:</strong> 6-12+ months from payment to delivery is normal</li>
+            <li><strong>Upfront Payment:</strong> You pay months (or years) before receiving anything</li>
+            <li><strong>No Cancellations:</strong> Once the buy closes, your order is locked in</li>
+            <li><strong>Defect Risk:</strong> Manufacturing errors happen; returns are difficult</li>
+            <li><strong>Vendor Collapse:</strong> Rare but possible—you could lose your money</li>
+        </ul>
+
+        <div class="info-box warning-box">
+            <h4>⚠️ Important Warning</h4>
+            <p>Never spend money on a group buy that you can't afford to lose. While failures are rare, they do happen. Treat group buy purchases as "locked away" funds until delivery.</p>
+        </div>
+
+        <h2>Tips for a Successful Group Buy Experience</h2>
+
+        <div class="info-box tip-box">
+            <h4>🎯 Before You Buy</h4>
+            <ul>
+                <li>Research the designer/vendor's history and reputation</li>
+                <li>Read previous group buy feedback</li>
+                <li>Join the GB's Discord for updates</li>
+                <li>Double-check your order before the buy closes</li>
+            </ul>
+        </div>
+
+        <div class="info-box tip-box">
+            <h4>⏳ During Production</4>
+            <ul>
+                <li>Be patient—delays are common and frustrating but normal</li>
+                <li>Join the vendor's Discord server for real-time updates</li>
+                <li>Don't sell your spot unless the GB explicitly allows it</li>
+                <li>Keep your order confirmation email safe</li>
+            </ul>
+        </div>
+
+        <div class="info-box tip-box">
+            <h4>📦 After Delivery</h4>
+            <ul>
+                <li>Inspect carefully upon receipt—report defects immediately</li>
+                <li>Compare to GB specs to ensure you got what you ordered</li>
+                <li>Leave reviews to help future buyers</li>
+                <li>Take photos for r/MechanicalKeyboards karma 😉</li>
+            </ul>
+        </div>
+
+        <h2>Common Questions</h2>
+
+        <h3>How do I find out about upcoming group buys?</h3>
+        <p>Follow these resources:</p>
+        <ul>
+            <li><a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank">r/MechanicalKeyboards</a> on Reddit — the main hub</li>
+            <li><em>Geekhack.org</em> forums — Interest checks and GB listings</li>
+            <li><strong>Switchyard</strong> — We track active and upcoming GBs (check our dashboard!)</li>
+            <li>Vendor Discord servers — Often announce GBs first</li>
+        </ul>
+
+        <h3>Can I cancel my group buy order?</h3>
+        <p>Generally, <strong>no.</strong> Once the group buy closes, vendors place orders with manufacturers based on exact quantities. Your order is locked in. Some allow cancellations during the open phase—check the specific GB terms.</p>
+
+        <h3>What if the group buy delays?</h3>
+        <p>Delays are <em>extremely</em> common. Manufacturing issues, shipping problems, quality control failures—anything can push back timelines. Vendors typically communicate delays, but patience is essential in this hobby.</p>
+
+        <h3>Are group buys worth it?</h3>
+        <p>For most enthusiasts, <strong>yes.</strong> The products you can access through group buys simply don't exist at retail. The wait is frustrating but the result is often exceptional. Just remember: never spend money you can't afford to have tied up for a year.</p>
+
+        <div class="cta-box">
+            <h3>Track Group Buys on Switchyard</h3>
+            <p>Stay on top of active group buys, discover new releases, and never miss a drop. We aggregate group buys from across the mechanical keyboard community.</p>
+            <a href="/" class="cta-btn">Browse Group Buys →</a>
+        </div>
+
+        <div class="author-box">
+            <div class="author-avatar">⚒️</div>
+            <div class="author-info">
+                <h4>Switchyard Team</h4>
+                <p>Mechanical keyboard enthusiasts building tools for the community. Got questions? Reach out on our Discord or contact page.</p>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="/">All Products</a></li>
+                    <li><a href="/artisan/">Artisan Keys</a></li>
+                    <li><a href="/">Best Keyboards</a></li>
+                    <li><a href="/switches/">Switch Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="/beginner/">Beginner's Guide</a></li>
+                    <li><a href="/blog/what-are-group-buys">What are Group Buys?</a></li>
+                    <li><a href="/">Glossary</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Switchyard. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+name = "switchyard-api"
+main = "worker-api.js"
+compatibility_date = "2026-02-22"
+
+[env.production]
+name = "switchyard-api"
+
+[env.production.vars]
+ENVIRONMENT = "production"
+
+[[env.production.kv_namespaces]]
+binding = "PRODUCTS_KV"
+id = "products_cache"
+
+[site]
+bucket = "./"

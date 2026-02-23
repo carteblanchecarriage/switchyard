@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Switchyard</title>
+    <meta name="description" content="Privacy policy for Switchyard mechanical keyboard tracker. Learn what data we collect and how we use it.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #fdfcf8;
+            --paper-dark: #f5f4f0;
+            --ink: #1a1a1a;
+            --faded: #6b6b6b;
+            --accent: #c4a35a;
+            --border: #e0ddd5;
+        }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+        
+        .masthead { background: var(--ink); color: var(--paper); padding: 1.5rem 2rem; }
+        .masthead-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .brand-lockup { display: flex; align-items: baseline; gap: 1rem; }
+        .brand-lockup h1 { font-family: 'Newsreader', Georgia, serif; font-size: 1.75rem; font-weight: 400; }
+        .brand-lockup h1 a { color: var(--paper); text-decoration: none; }
+        .brand-lockup span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; }
+        
+        .main-nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: white; }
+        
+        .theme-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 0.5rem 1rem; cursor: pointer; color: var(--paper); font-family: 'JetBrains Mono', monospace; }
+        
+        .page-header { background: var(--paper-dark); padding: 3rem 2rem; border-bottom: 1px solid var(--border); }
+        .page-header-inner { max-width: 800px; margin: 0 auto; }
+        .page-header h1 { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .page-header p { color: var(--faded); }
+        
+        .content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .content h2 { font-family: 'Newsreader', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--ink); }
+        .content h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+        .content p { margin-bottom: 1rem; color: var(--ink); }
+        .content ul { margin: 1rem 0 1rem 1.5rem; }
+        .content li { margin-bottom: 0.5rem; }
+        .content strong { color: var(--ink); }
+        
+        .affiliate-notice { background: var(--paper-dark); border-left: 4px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .affiliate-notice strong { display: block; margin-bottom: 0.5rem; }
+        
+        /* Footer Styles */
+        footer { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2rem; margin-top: 4rem; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-section h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: rgba(255,255,255,0.6); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1400px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+        .footer-bottom-links { display: flex; gap: 1.5rem; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.875rem; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .page-header h1 { font-size: 1.75rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="/">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <nav class="main-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/" class="nav-link">Keyboards</a>
+                <a href="/beginner/" class="nav-link">Guides</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <h1>Privacy Policy</h1>
+            <p>Last Updated: February 19, 2026</p>
+        </div>
+    </div>
+
+    <main class="content">
+        <div class="affiliate-notice">
+            <strong>📊 Data Collection Notice</strong>
+            Switchyard aggregates publicly available data about mechanical keyboard group buys and interest checks. We collect minimal personal data and prioritize your privacy.
+        </div>
+
+        <h2>Overview</h2>
+        <p>Switchyard aggregates publicly available data about mechanical keyboard group buys and interest checks. This privacy policy explains what data we collect and how we use it.</p>
+
+        <h2>Data We Collect</h2>
+        
+        <h3>Automatically Collected</h3>
+        <ul>
+            <li><strong>Usage Data:</strong> Page views, search queries, API calls (anonymized)</li>
+            <li><strong>Analytics:</strong> Aggregate visitor statistics (no personal identification)</li>
+        </ul>
+
+        <h3>User-Provided (Optional - Future Feature)</h3>
+        <ul>
+            <li>Email addresses (only if you sign up for alerts)</li>
+            <li>Saved tracked items (associated with your account)</li>
+        </ul>
+
+        <h2>Data We Do NOT Collect</h2>
+        <ul>
+            <li>❌ Personal identifiers (name, address, phone)</li>
+            <li>❌ Payment information (we don't process payments)</li>
+            <li>❌ Reddit/Geekhack login credentials</li>
+            <li>❌ Private messages or non-public forum data</li>
+        </ul>
+
+        <h2>Data Sources</h2>
+        <p>We only aggregate <strong>publicly available</strong> data from:</p>
+        <ul>
+            <li>Reddit (r/MechanicalKeyboards, r/mechmarket)</li>
+            <li>Geekhack.org public forums</li>
+            <li>Vendor public product listings</li>
+        </ul>
+        <p>All scraped data is already publicly visible to anyone visiting these sites.</p>
+
+        <h2>How We Use Data</h2>
+        <ol>
+            <li><strong>Display:</strong> Show group buys, interest checks, and vendor listings</li>
+            <li><strong>Search:</strong> Enable filtering and searching of aggregated data</li>
+            <li><strong>Improvement:</strong> Analyze usage patterns to improve the service</li>
+            <li><strong>Revenue Tracking:</strong> Track affiliate link clicks (anonymous)</li>
+        </ol>
+
+        <h2>Affiliate Links</h2>
+        <p>Some links are affiliate links. We earn commission when you purchase through these links at <strong>no extra cost to you</strong>. This is clearly disclosed on all pages containing affiliate links.</p>
+
+        <h2>Third-Party Services</h2>
+        <ul>
+            <li><strong>Analytics:</strong> Privacy-focused analytics (Plausible/Fathom)</li>
+            <li><strong>Hosting:</strong> Self-hosted on our infrastructure</li>
+        </ul>
+
+        <h2>Your Rights</h2>
+        <p>You can:</p>
+        <ul>
+            <li>Use the site without providing any personal information</li>
+            <li>Opt out of future email alerts (when feature is added)</li>
+            <li>Request data deletion by contacting us</li>
+        </ul>
+
+        <h2>Changes</h2>
+        <p>We may update this policy. Changes will be posted here with a new date.</p>
+
+        <h2>Contact</h2>
+        <p>For privacy questions, please reach out through our <a href="/contact.html">contact page</a>.</p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="/">All Products</a></li>
+                    <li><a href="/">Best Overall</a></li>
+                    <li><a href="/">Budget Picks</a></li>
+                    <li><a href="/">60% Keyboards</a></li>
+                    <li><a href="/">Gaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="/beginner/">Beginner's Guide</a></li>
+                    <li><a href="/switches/">Switch Guide</a></li>
+                    <li><a href="/">Glossary</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="/">Price Alerts</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/">API Access</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Switchyard. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/affiliate-disclosure.html">Affiliates</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            } else {
+            }
+        });
+    </script>
+</body>
+</html>

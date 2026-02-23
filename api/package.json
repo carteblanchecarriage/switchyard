@@ -1,0 +1,29 @@
+{
+  "name": "keyboard-tracker-api",
+  "version": "2.0.0",
+  "description": "Production-ready API for tracking mechanical keyboard group buys",
+  "main": "index-v2.js",
+  "scripts": {
+    "start": "node index-v2.js",
+    "start:legacy": "node index.js",
+    "dev": "NODE_ENV=development PORT=3003 node index-v2.js",
+    "test": "node tests/api-test.js",
+    "test:watch": "npm test",
+    "lint": "echo 'Run: npx eslint .'",
+    "load-test": "node tests/load-test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mechanical-keyboard",
+    "group-buy",
+    "api",
+    "keyboard-tracker"
+  ]
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Lube Mechanical Switches: Complete 2025 Guide | Switchyard</title>
+    <meta name="description" content="Step-by-step guide to lubing mechanical keyboard switches. Learn which lube to use, how to apply it, and common mistakes to avoid. Improve your keyboard's sound and feel.">
+    
+    <link rel="canonical" href="https://carteblanchecarriage.github.io/switchyard/guides/lubing/">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --paper: #fdfcf8; --paper-dark: #f7f6f2; --ink: #1a1a1a; --accent: #c4a35a; --faded: #6b6b6b; --border: #e8e8e8; --link: #2563eb; }
+        
+            --paper: #1a1a1a; --paper-dark: #252525; --ink: #fdfcf8;
+            --accent: #d4b56a; --faded: #a0a0a0; --border: #444444; --link: #60a5fa;
+        }
+        
+        body { font-family: Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 1.1rem; transition: background-color 0.3s, color 0.3s; }
+        .article-wrap { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+        
+        .skip-link { position: absolute; top: -50px; left: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; text-decoration: none; z-index: 100; font-family: monospace; border-radius: 0 0 4px 0; transition: top 0.2s; }
+        .skip-link:focus { top: 0; }
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--border); border-radius: 20px; padding: 6px 12px; cursor: pointer; font-size: 0.875rem; color: var(--ink); display: flex; align-items: center; gap: 6px; z-index: 50; }
+        .theme-toggle:hover { border-color: var(--accent); }
+        
+        .article-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .article-meta { font-family: monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        h1 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 1.5rem; font-weight: 400; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+        h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 600; }
+        p { margin-bottom: 1.25rem; }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul, ol { margin: 1.25rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+        blockquote { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; color: var(--faded); font-style: italic; }
+        hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+        
+        .hero-image { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+        
+        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: var(--paper-dark); border-radius: 8px; margin: 1.5rem 0; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .tool-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .tool-name { font-weight: 600; margin-bottom: 0.25rem; }
+        .tool-price { font-family: monospace; font-size: 0.875rem; color: var(--accent); }
+        
+        .lube-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .lube-card { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+        .lube-name { font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .lube-use { font-size: 0.9rem; color: var(--faded); margin-bottom: 0.75rem; }
+        .lube-desc { font-size: 0.95rem; }
+        
+        .step { background: var(--paper-dark); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+        .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .step-number { width: 36px; height: 36px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: monospace; font-weight: 600; flex-shrink: 0; }
+        .step-title { font-weight: 600; font-size: 1.1rem; }
+        .step-content { color: var(--faded); }
+        .step-content p:last-child { margin-bottom: 0; }
+        
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .warning-box strong { color: #92400e; }
+        
+        .tip-box { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .tip-box strong { color: #1e40af; }
+        
+        .time-estimate { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--paper-dark); padding: 0.5rem 1rem; border-radius: 20px; font-family: monospace; font-size: 0.875rem; margin-bottom: 1.5rem; }
+        
+        .difficulty-bar { display: flex; gap: 4px; margin-top: 0.5rem; }
+        .difficulty-bar span { width: 24px; height: 8px; background: var(--border); border-radius: 4px; }
+        .difficulty-bar.filled-3 span:nth-child(-n+3) { background: var(--accent); }
+        
+        .nav-back { margin-bottom: 2rem; }
+        .nav-back a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--faded); }
+        .cta-box { background: var(--accent); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0; }
+        .cta-box a { color: white; text-decoration: underline; font-weight: 600; }
+        .source-list { font-size: 0.9rem; color: var(--faded); margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .site-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--faded); }
+        
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        @media (max-width: 600px) { body { font-size: 1rem; } .article-wrap { padding: 2rem 1.5rem; } h1 { font-size: 1.7rem; } }
+    </style>
+    <script>
+        (function() {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            }
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <span id="themeIcon"></span>
+        <span id="themeText">Dark</span>
+    </button>
+    
+    <article class="article-wrap" id="main-content">
+        <nav class="nav-back">
+            <a href="../../index.html">< Back to Switchyard</a>
+        </nav>
+        
+        <header class="article-header">
+            <div class="article-meta">Tutorial · February 2026 · Intermediate</div>
+            <h1>How to Lube Mechanical Switches</h1>
+            <p style="color: var(--faded); font-size: 1.1rem; font-style: italic;">Transform clicks into thocks. Reduce scratchiness. Make your keyboard feel premium.</p>
+        </header>
+
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=1200&q=80" 
+             alt="Mechanical keyboard switch disassembly and lubrication" 
+             class="hero-image"
+             loading="eager">
+
+        <div class="time-estimate">
+            ⏱️ <strong>Time:</strong> 3-4 hours for 90 switches · <strong>Cost:</strong> $35-50 in supplies
+        </div>
+
+        <p>Lubing switches is the single best upgrade you can make to a mechanical keyboard. It's tedious work—plan on spending an afternoon—but the results are dramatic:</p>
+
+        <ul>
+            <li><strong>Smoother feel</strong>—eliminates scratchy plastic-on-plastic sound</li>
+            <li>🔇 <strong>Quieter operation</strong>—reduces spring ping and housing rattle</li>
+            <li>🎵 <strong>Better sound</strong>—transforms cheap-sounding switches into premium thocks</li>
+            <li>💰 <strong>Value add</strong>—makes budget switches feel like expensive ones</li>
+        </ul>
+
+        <hr>
+
+        <h2>What You'll Need</h2>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🧴</div>
+                <div class="tool-name">Switch Lube</div>
+                <div class="tool-price">$8-15</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"></div>
+                <div class="tool-name">Switch Opener</div>
+                <div class="tool-price">$10-15</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🖌️</div>
+                <div class="tool-name">Small Brushes</div>
+                <div class="tool-price">$5-10</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🧽</div>
+                <div class="tool-name">Tweezers</div>
+                <div class="tool-price">$5-8</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">>/div>
+                <div class="tool-name">Switch Containers</div>
+                <div class="tool-price">$5</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🧻</div>
+                <div class="tool-name">Paper Towels</div>
+                <div class="tool-price">Free</div>
+            </div>
+        </div>
+
+        <h3>Choosing the Right Lube</h3>
+
+        <div class="lube-types">
+            <div class="lube-card">
+                <div class="lube-name">🛹 Krytox 205g0</div>
+                <div class="lube-use">Best for: Linear switches</div>
+                <div class="lube-desc">The gold standard. Thick, buttery consistency. Apply sparingly to linear switch stems and housings. Don't use on tactiles—it'll kill the bump.</div>
+            </div>
+            <div class="lube-card">
+                <div class="lube-name">👆 Tribosys 3203/3204</div>
+                <div class="lube-use">Best for: Tactile switches</div>
+                <div class="lube-desc">Thinner than 205g0. Preserves tactile bump while reducing scratch. 3203 is thinner (more tactile), 3204 is thicker (smoother).</div>
+            </div>
+            <div class="lube-card">
+                <div class="lube-name">🌀 Krytox GPL 105</div>
+                <div class="lube-use">Best for: Springs</div>
+                <div class="lube-desc">Thin oil for bag-lubing springs. Eliminates spring ping entirely. Can also use for switch springs if you prefer oil over grease.</div>
+            </div>
+            <div class="lube-card">
+                <div class="lube-name">Dielectric Grease</div>
+                <div class="lube-use">Best for: Stabilizers</div>
+                <div class="lube-desc">Cheap and effective for stab wires. Apply to the wire ends where they clip into housings. Don't use on switch internals.</div>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ Warning:</strong> Never use WD-40, cooking oil, or Vaseline. These will destroy your switches over time, attracting dust and becoming gummy.
+        </div>
+
+        <hr>
+
+        <h2>The Process: Step by Step</h2>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Remove Switches from Keyboard</div>
+            </div>
+            <div class="step-content">
+                <p>If your board is hot-swap: use a switch puller to remove all switches. If soldered: you'll need a desoldering pump or station. Hot-swap is <strong>much</strong> easier for beginners.</p>
+                <p>Place switches in a container—don't lose springs or stems!</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Open the Switches</div>
+            </div>
+            <div class="step-content">
+                <p>Place the switch in the opener (or use a flathead screwdriver carefully). Push down on the four clips to release the top housing. Be gentle—breaking clips means the switch won't close properly.</p>
+                
+                <div class="tip-box">
+                    <strong>Tip:</strong> Open 5-10 switches at a time. If you open all 90 at once, springs will roll away and you'll have a bad time.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Lube the Springs</div>
+            </div>
+            <div class="step-content">
+                <p><strong>Method A (Bag Lubing):</strong> Drop all springs in a bag, add 3-4 drops of GPL 105, shake vigorously for 30 seconds. Fast and effective.</p>                
+                <p><strong>Method B (Brush):</strong> Use a small brush to coat each spring lightly. Takes longer but uses less lube.</p>
+                
+                <p>Set springs aside on paper towel to drain excess.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Lube the Stems</div>
+            </div>
+            <div class="step-content">
+                <p>Apply a <strong>very thin</strong> layer of lube to:</p>
+                
+                <ul>
+                    <li>The rails (the sliding surfaces on the sides)</li>
+                    <li>The stem legs (bottom part that hits the leaf)</li>
+                    <li>The stem pole (center column that hits bottom)</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <strong>⚠️ For Tactile Switches:</strong> Don't lube the legs! That's where the bump happens. Lube the rails and pole only, or you'll lose the tactile feel.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Lube the Bottom Housing</div>
+            </div>
+            <div class="step-content">
+                <p>Apply lube to:</p>
+                
+                <ul>
+                    <li>The rails where the stem slides</li>
+                    <li>The center post (where stem pole hits)</li>
+                    <li>The leaf contacts (lightly!)</li>
+                </ul>
+                
+                <p>Less is more here. Excess lube will make switches feel mushy.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Reassemble and Test</div>
+            </div>
+            <div class="step-content">
+                <p>Place the stem in the housing, set the spring on top, align the top housing clips, and press down until it clicks. Test each switch on a spare PCB or with a multimeter.</p>
+                
+                <div class="tip-box">
+                    <strong>Time Saver:</strong> Lube 10 switches, install 10, test 10. Don't lube all 90 before testing—you might hate the feel and have to clean them all.
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Common Mistakes to Avoid</h2>
+
+        <ul>
+            <li><strong>Too much lube:</strong> The #1 mistake. Switches feel mushy and may not register. Wipe excess with a cotton swab.</li>
+            <li><strong>Lubing tactile legs:</strong> Kills the bump. Remember: linear = everything, tactile = avoid legs.</li>
+            <li><strong>Skipping spring lube:</strong> Spring ping ruins an otherwise great job. Don't skip it.</li>
+            <li><strong>Rushing:</strong> This takes time. Budget 3-4 hours and take breaks.</li>
+            <li><strong>Wrong lube:</strong> 205g0 on tactiles = mush. Tribosys on linears = not smooth enough.</li>
+        </ul>
+
+        <hr>
+
+        <div class="cta-box">
+            <p><strong>Ready to try different switches?</strong></p>
+            <p>Browse live listings with hot-swap boards on <a href="../../index.html">Switchyard →</a></p>
+        </div>
+
+        <ul class="source-list">
+            <li>Tutorial based on community guides from r/MechanicalKeyboards</li>
+            <li>Product recommendations from KBDfans, Divinikey, and NovelKeys</li>
+            <li>Lube specifications from Miller-Stephenson (Krytox manufacturer)</li>
+        </ul>
+
+        <div class="site-link">
+            <em>Part of the <a href="../../index.html">Switchyard keyboard collection</a> — curated mechanical keyboard resources updated regularly.</em>
+        </div>
+    </article>
+    
+    <script>
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        function updateThemeUI() {
+            themeIcon.textContent = isDark ? '' : '';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+                    localStorage.setItem('switchyard-theme', 'light');
+                } else {
+                    localStorage.setItem('switchyard-theme', 'dark');
+                }
+                updateThemeUI();
+            });
+            updateThemeUI();
+        }
+    </script>
+</body>
+</html>
