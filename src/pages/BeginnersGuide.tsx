@@ -1,18 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import './Guide.css';
 
 export default function BeginnersGuide() {
   return (
-    <div className="guide-page">
-      <Header />
-      <main className="guide-content">
+    <Layout>
+      <div className="guide-content">
         <h1>Beginner's Guide to Mechanical Keyboards</h1>
-        
+
         <section className="intro">
           <p>
-            Welcome to the world of mechanical keyboards! This guide will help you understand 
+            Welcome to the world of mechanical keyboards! This guide will help you understand
             the basics and find your first mechanical keyboard.
           </p>
         </section>
@@ -30,7 +28,7 @@ export default function BeginnersGuide() {
 
         <section>
           <h2>Keyboard Sizes (Layouts)</h2>
-          
+
           <div className="size-grid">
             <div className="size-card">
               <h3>Full Size (100%)</h3>
@@ -86,7 +84,7 @@ export default function BeginnersGuide() {
 
         <section>
           <h2>Budget Recommendations</h2>
-          
+
           <h3>Entry Level ($50–100)</h3>
           <ul>
             <li>Great starting point for first mechanical keyboard</li>
@@ -126,7 +124,7 @@ export default function BeginnersGuide() {
 
         <section>
           <h2>Common Beginner Mistakes</h2>
-          
+
           <div className="mistakes">
             <div className="mistake">
               <h4>❌ Buying solely based on reviews</h4>
@@ -149,8 +147,7 @@ export default function BeginnersGuide() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import './Guide.css';
 
 const terms = [
@@ -116,25 +115,23 @@ const terms = [
 
 export default function Glossary() {
   return (
-    <div className="guide-page">
-      <Header />
-      <main className="guide-content">
+    <Layout>
+      <div className="guide-content">
         <h1>Keyboard Glossary</h1>
-        
+
         <p className="intro">
           Your guide to mechanical keyboard terminology. Click on terms to learn more.
         </p>
 
         <div className="glossary-list">
           {terms.map((item) => (
-            <div key={item.term} className="glossary-item" id={item.term.toLowerCase().replace(/\s+/g, '-')}>
+            <div key={item.term} className="glossary-item" id={item.term.toLowerCase().replace(/\s+/g, '-')} >
               <h3>{item.term}</h3>
               <p>{item.definition}</p>
             </div>
           ))}
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
 import Wizard from './components/Wizard';
 import SwitchGuide from './pages/SwitchGuide';
@@ -97,78 +96,69 @@ export default function App() {
   // Main app render
   if (loading) {
     return (
-      <div className="App">
-        <Header />
+      <Layout>
         <div className="loading">Loading products...</div>
-        <Footer />
-      </div>
+      </Layout>
     );
   }
 
   if (error) {
     return (
-      <div className="App">
-        <Header />
+      <Layout>
         <div className="error">{error}</div>
-        <Footer />
-      </div>
+      </Layout>
     );
   }
 
   return (
-    <div className="App">
-      <Header />
-      <main className="main">
-        <div className="stats">
-          {filteredProducts.length} products
-        </div>
+    <Layout>
+      <div className="stats">
+        {filteredProducts.length} products
+      </div>
 
-        <div className="filter-chips">
-          {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'case'].map(cat => (
-            <button
-              key={cat}
-              className={`filter-chip ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => handleCategoryChange(cat)}
-            >
-              {cat === 'all' ? 'All Products' : cat.charAt(0).toUpperCase() + cat.slice(1)}
-            </button>
-          ))}
-        </div>
+      <div className="filter-chips">
+        {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'case'].map(cat => (
+          <button
+            key={cat}
+            className={`filter-chip ${activeCategory === cat ? 'active' : ''}`}
+            onClick={() => handleCategoryChange(cat)}
+          >
+            {cat === 'all' ? 'All Products' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </button>
+        ))}
+      </div>
 
-        <div className="product-grid">
-          {displayedProducts.map(product => (
-            <div
-              key={product.id}
-              className="product-card"
-              onClick={() => setSelectedProduct(product)}
-            >
-              <div className="product-image">
-                {product.image ? (
-                  <img src={product.image} alt={product.name} />
-                ) : (
-                  <div className="no-image">No Image</div>
-                )}
-              </div>
-              <div className="product-info">
-                <span className="vendor">{product.vendor}</span>
-                <h3 className="name">{product.name}</h3>
-                <span className="price">{product.price || 'Check Price'}</span>
-                <span className="category">{product.category}</span>
-              </div>
+      <div className="product-grid">
+        {displayedProducts.map(product => (
+          <div
+            key={product.id}
+            className="product-card"
+            onClick={() => setSelectedProduct(product)}
+          >
+            <div className="product-image">
+              {product.image ? (
+                <img src={product.image} alt={product.name} />
+              ) : (
+                <div className="no-image">No Image</div>
+              )}
             </div>
-          ))}
-        </div>
-
-        {hasMore && (
-          <div className="load-more">
-            <button onClick={loadMore}>
-              Load More ({filteredProducts.length - displayLimit} remaining)
-            </button>
+            <div className="product-info">
+              <span className="vendor">{product.vendor}</span>
+              <h3 className="name">{product.name}</h3>
+              <span className="price">{product.price || 'Check Price'}</span>
+              <span className="category">{product.category}</span>
+            </div>
           </div>
-        )}
-      </main>
+        ))}
+      </div>
 
-      <Footer />
+      {hasMore && (
+        <div className="load-more">
+          <button onClick={loadMore}>
+            Load More ({filteredProducts.length - displayLimit} remaining)
+          </button>
+        </div>
+      )}
 
       <ProductModal
         product={selectedProduct}
@@ -179,6 +169,6 @@ export default function App() {
         products={products}
         onFilterChange={handleWizardFilter}
       />
-    </div>
+    </Layout>
   );
 }

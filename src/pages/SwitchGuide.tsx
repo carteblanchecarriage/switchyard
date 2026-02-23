@@ -1,27 +1,25 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import './Guide.css';
 
 export default function SwitchGuide() {
   return (
-    <div className="guide-page">
-      <Header />
-      <main className="guide-content">
+    <Layout>
+      <div className="guide-content">
         <h1>Switch Guide</h1>
-        
+
         <section>
           <h2>What Are Mechanical Switches?</h2>
           <p>
-            Mechanical switches are the heart of mechanical keyboards. Unlike membrane keyboards, 
-            each key has its own individual switch mechanism that provides tactile feedback and 
+            Mechanical switches are the heart of mechanical keyboards. Unlike membrane keyboards,
+            each key has its own individual switch mechanism that provides tactile feedback and
             a satisfying click or bump when pressed.
           </p>
         </section>
 
         <section>
           <h2>Switch Types</h2>
-          
+
           <h3>Linear Switches</h3>
           <p>Smooth keystrokes from top to bottom. No tactile bump or click. Great for gaming and fast typing.</p>
           <ul>
@@ -29,7 +27,7 @@ export default function SwitchGuide() {
             <li><strong>Cherry MX Black:</strong> Heavier, smooth, 60g actuation</li>
             <li><strong>Gateron Yellow:</strong> Budget-friendly linear</li>
           </ul>
-          
+
           <h3>Tactile Switches</h3>
           <p>Bump feeling when actuated. Good balance of feedback and speed.</p>
           <ul>
@@ -37,7 +35,7 @@ export default function SwitchGuide() {
             <li><strong>Cherry MX Clear:</strong> Heavier tactile, 65g</li>
             <li><strong>Holy Panda:</strong> Premium tactile</li>
           </ul>
-          
+
           <h3>Clicky Switches</h3>
           <p>Audible click with tactile bump. Satisfying feedback but louder.</p>
           <ul>
@@ -48,27 +46,39 @@ export default function SwitchGuide() {
         </section>
 
         <section>
-          <h2>Actuation Force</h2>
-          <p>The amount of pressure needed to register a keystroke:</p>
-          <ul>
-            <li><strong>Light (&lt;50g):</strong> Easy to press, prone to accidental presses</li>
-            <li><strong>Medium (50-60g):</strong> Balanced feel, most popular</li>
-            <li><strong>Heavy (&gt;60g):</strong> Purposeful presses, less finger fatigue for some</li>
-          </ul>
+          <h2>Switch Comparison</h2>
+          <table className="switch-table">
+            <thead>
+              <tr>
+                <th>Switch</th>
+                <th>Type</th>
+                <th>Actuation</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cherry MX Red</td>
+                <td>Linear</td>
+                <td>45g</td>
+                <td>Gaming</td>
+              </tr>
+              <tr>
+                <td>Cherry MX Brown</td>
+                <td>Tactile</td>
+                <td>55g</td>
+                <td>General Use</td>
+              </tr>
+              <tr>
+                <td>Cherry MX Blue</td>
+                <td>Clicky</td>
+                <td>50g</td>
+                <td>Typing</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
-
-        <section>
-          <h2>Sound Comparison</h2>
-          <p>Different switches produce different sound profiles:</p>
-          <ul>
-            <li><strong>Silent:</strong> Linear or tactile with dampening. Office-friendly.</li>
-            <li><strong>Thocky:</strong> Deep, muted sound. Popular in custom keyboards.</li>
-            <li><strong>Clicky:</strong> Sharp, crisp click. Satisfying but loud.</li>
-            <li><strong>Clacky:</strong> Higher pitched plastic sound.</li>
-          </ul>
-        </section>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }
