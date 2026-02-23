@@ -199,3 +199,253 @@
     padding: 2rem 1.5rem;
   }
 }
+
+/* Feature Grid (for Artisan) */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.feature-card {
+  background: var(--paper-dark, #f7f6f2);
+  border: 1px solid var(--border, #e8e8e8);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.feature-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent, #c4a35a);
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--faded, #6b6b6b);
+  margin: 0;
+}
+
+/* Makers Grid (for Artisan) */
+.makers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.maker-card {
+  background: white;
+  border: 1px solid var(--border, #e8e8e8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.maker-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.maker-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.maker-avatar {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-light, #e8dfc8);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--ink, #1a1a1a);
+  font-weight: 600;
+}
+
+.maker-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.maker-info span {
+  font-size: 0.8rem;
+  color: var(--faded, #6b6b6b);
+  font-family: monospace;
+}
+
+.maker-card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.maker-stats {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #e8e8e8);
+}
+
+.maker-stats div {
+  text-align: center;
+}
+
+.maker-stats strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--accent, #c4a35a);
+}
+
+.maker-stats span {
+  font-size: 0.75rem;
+  color: var(--faded, #6b6b6b);
+}
+
+/* Tier Tabs (for Artisan) */
+.tier-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.tier-tab {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border, #e8e8e8);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tier-tab:hover {
+  border-color: var(--accent, #c4a35a);
+}
+
+.tier-tab.active {
+  background: var(--accent, #c4a35a);
+  color: white;
+  border-color: var(--accent, #c4a35a);
+}
+
+.tier-price {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.tier-content {
+  background: var(--paper-dark, #f7f6f2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tier-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.tier-content li {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+/* FAQ Styles */
+.faq-list {
+  margin: 1.5rem 0;
+}
+
+.faq-item {
+  background: white;
+  border: 1px solid var(--border, #e8e8e8);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.25rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink, #1a1a1a);
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.faq-question:hover {
+  background: rgba(196, 163, 90, 0.05);
+}
+
+.faq-question span:first-child {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer-inner {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.faq-answer-inner p {
+  color: var(--faded, #6b6b6b);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .feature-grid,
+  .makers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .maker-stats {
+    gap: 1rem;
+  }
+  
+  .tier-tabs {
+    justify-content: center;
+  }
+  
+  .tier-tab {
+    flex: 1;
+    min-width: 140px;
+  }
+}

@@ -7,6 +7,8 @@ import Wizard from './components/Wizard';
 // Learn Pages
 import Learn from './pages/learn';
 import LearnBeginnersGuide from './pages/learn/BeginnersGuide';
+import ArtisanGuide from './pages/learn/ArtisanGuide';
+import FAQ from './pages/learn/FAQ';
 import SwitchGuide from './pages/SwitchGuide';
 import Glossary from './pages/Glossary';
 
@@ -102,6 +104,12 @@ export default function App() {
   if (currentPath === '/learn/glossary') {
     return <Glossary />;
   }
+  if (currentPath === '/learn/artisan') {
+    return <ArtisanGuide />;
+  }
+  if (currentPath === '/learn/faq') {
+    return <FAQ />;
+  }
   // Support legacy routes
   if (currentPath === '/switch-guide') {
     return <SwitchGuide />;
@@ -111,6 +119,12 @@ export default function App() {
   }
   if (currentPath === '/glossary') {
     return <Glossary />;
+  }
+  if (currentPath === '/artisan') {
+    return <ArtisanGuide />;
+  }
+  if (currentPath === '/faq') {
+    return <FAQ />;
   }
 
   // Main app render
