@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Install dependencies
+      - name: Install root dependencies
         run: npm ci
+        
+      - name: Install scraper dependencies
+        run: cd scraper && npm ci
         
       - name: Run scraper
         run: node scraper/index.js
@@ -29,5 +32,5 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add data.json
+          git add public/data.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M')" && git push)
