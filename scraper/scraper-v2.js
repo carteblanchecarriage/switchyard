@@ -24,7 +24,8 @@ function getBackoffTime(failureCount) {
 const DATA_FILES = [
   DATA_FILE,  // data/keyboard-data.json
   path.join(__dirname, '..', 'data.json'),  // root for GitHub Pages
-  path.join(__dirname, '..', 'dashboard', 'data.json')  // dashboard folder
+  path.join(__dirname, '..', 'dashboard', 'data.json'),  // dashboard folder
+  path.join(__dirname, '..', 'public', 'data.json')  // React app public folder
 ];
 
 // Ensure directories exist
