@@ -648,6 +648,10 @@
         .item-image-wrap { height: 200px; position: relative; overflow: hidden; background: var(--paper-dark); }
         .item-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .item:hover .item-image-wrap img { transform: scale(1.05); }
+        .match-pill { position: absolute; top: 8px; right: 8px; padding: 4px 10px; border-radius: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; z-index: 10; }
+        .match-pill.high-match { background: var(--accent); color: white; }
+        .match-pill.medium-match { background: #e8d5b7; color: var(--ink); }
+        .match-pill.low-match { background: #f0f0f0; color: var(--faded); }
         .item-no-image { height: 100%; display: flex; align-items: center; justify-content: center; background: var(--paper-dark); color: var(--faded); font-size: 0.875rem; }
         .item-meta { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
         .item-category { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--faded); margin-bottom: 0.5rem; }
@@ -1299,15 +1303,20 @@
                     <div class="item-image-wrap">
                         ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
                         ${!item.image ? `<div class="item-no-image">No Image</div>` : ''}
+                        ${item.matchPercentage ? `<div class="match-pill" style="background: ${item.matchPercentage >= 80 ? 'var(--accent)' : item.matchPercentage >= 50 ? '#e8d5b7' : '#eee'}">
+                            <span class="match-percentage">${item.matchPercentage}%</span>
+                        </div>` : ''}
                     </div>
-                    <div class="item-meta">
-                        <div class="item-category">${item.category}</div>
-                        <h3 class="item-name">${item.name}</h3>
-                        <div class="item-origin">${item.origin}</div>
-                        <p class="item-desc">${item.description.substring(0, 100)}...</p>
-                        <div class="item-footer">
+                    <div class="item-body">
+                        <div class="item-meta">
+                            <span class="item-category">${item.category}</span>
                             <span class="item-price">${item.price}</span>
-                            <span class="item-status">${item.status}</span>
+                        </div>
+                        <h3 class="item-name">${item.name}</h3>
+                        <p class="item-desc">${truncate(item.description, 120)}</p>
+                        <div class="item-footer">
+                            <span class="item-vendor">${item.vendor || 'Unknown'}</span>
+                            <span class="item-status ${item.status === 'Available' ? 'available' : ''}">${item.status}</span>
                         </div>
                     </div>
                     <a href="${item.url}" class="item-action" target="_blank" rel="noopener">
@@ -1652,35 +1661,132 @@
             }
         }
         
-        // Filter grid based on wizard selections
+        // Filter and score products based on wizard selections
         function filterGridByWizardSelections() {
-            let filtered = [...collection.items];
-            
-            // Apply each filter
-            if (wizardData.step1) {
-                filtered = filtered.filter(item => {
+            let scored = collection.items.map(item => {
+                let score = 0;
+                let matches = 0;
+                let totalCriteria = 0;
+                
+                // Step 1: Use Case (25 points)
+                if (wizardData.step1) {
+                    totalCriteria++;
                     const name = item.name.toLowerCase();
                     const desc = (item.description || '').toLowerCase();
                     switch(wizardData.step1) {
-                        case 'gaming': return name.includes('gaming') || desc.includes('gaming');
-                        case 'office': return name.includes('office') || desc.includes('office');
-                        case 'creative': return name.includes('creative') || desc.includes('creative');
-                        default: return true;
+                        case 'gaming':
+                            if (name.includes('gaming') || desc.includes('gaming')) {
+                                score += 25; matches++;
+                            }
+                            break;
+                        case 'office':
+                            if (name.includes('office') || desc.includes('office') || name.includes('work')) {
+                                score += 25; matches++;
+                            }
+                            break;
+                        case 'creative':
+                            if (name.includes('creative') || desc.includes('creative') || name.includes('media')) {
+                                score += 25; matches++;
+                            }
+                            break;
+                        case 'general':
+                            score += 25; matches++;
+                            break;
                     }
-                });
-            }
-            
-            if (wizardData.step5) {
-                filtered = filtered.filter(item => {
+                }
+                
+                // Step 2: Noise (20 points)
+                if (wizardData.step2) {
+                    totalCriteria++;
+                    const name = item.name.toLowerCase();
+                    const desc = (item.description || '').toLowerCase();
+                    
+                    // Check for switch type indicators
+                    if (wizardData.step2 === 'quiet' && 
+                        (name.includes('silent') || name.includes('red') || desc.includes('quiet') || desc.includes('silent'))) {
+                        score += 20; matches++;
+                    } else if (wizardData.step2 === 'medium' && 
+                        (name.includes('brown') || name.includes('tactile') || desc.includes('tactile'))) {
+                        score += 20; matches++;
+                    } else if (wizardData.step2 === 'loud' && 
+                        (name.includes('blue') || name.includes('clicky') || desc.includes('clicky') || desc.includes('loud'))) {
+                        score += 20; matches++;
+                    }
+                }
+                
+                // Step 3: Size (20 points)
+                if (wizardData.step3) {
+                    totalCriteria++;
+                    const name = item.name.toLowerCase();
+                    switch(wizardData.step3) {
+                        case 'compact':
+                            if (name.includes('60%') || name.includes('65%') || name.includes('60') || name.includes('65')) {
+                                score += 20; matches++;
+                            }
+                            break;
+                        case 'balanced':
+                            if (name.includes('75%') || name.includes('80%') || name.includes('tkl') || name.includes('tenkeyless')) {
+                                score += 20; matches++;
+                            }
+                            break;
+                        case 'fullsize':
+                            if (name.includes('100%') || name.includes('full') || name.includes('numpad')) {
+                                score += 20; matches++;
+                            }
+                            break;
+                    }
+                }
+                
+                // Step 4: Hot-swap (15 points)
+                if (wizardData.step4) {
+                    totalCriteria++;
+                    const name = item.name.toLowerCase();
+                    const desc = (item.description || '').toLowerCase();
+                    
+                    if (wizardData.step4 === 'yes' || wizardData.step4 === 'hotswap') {
+                        if (name.includes('hotswap') || name.includes('hot-swap') || name.includes('hot swap') || 
+                            desc.includes('hotswap') || desc.includes('hot-swap')) {
+                            score += 15; matches++;
+                        }
+                    } else if (wizardData.step4 === 'no' || wizardData.step4 === 'soldered') {
+                        // Soldered boards - no hotswap keywords
+                        if (!name.includes('hotswap') && !name.includes('hot-swap') && !desc.includes('hotswap')) {
+                            score += 15; matches++;
+                        }
+                    }
+                }
+                
+                // Step 5: Budget (20 points)
+                if (wizardData.step5) {
+                    totalCriteria++;
                     const price = parsePrice(item.price);
                     switch(wizardData.step5) {
-                        case 'budget': return price <= 99;
-                        case 'mid': return price >= 100 && price <= 200;
-                        case 'premium': return price >= 201;
-                        default: return true;
+                        case 'budget':
+                            if (price <= 99) { score += 20; matches++; }
+                            break;
+                        case 'mid':
+                            if (price >= 100 && price <= 200) { score += 20; matches++; }
+                            break;
+                        case 'premium':
+                            if (price >= 201) { score += 20; matches++; }
+                            break;
                     }
-                });
-            }
+                }
+                
+                // Calculate match percentage (0-100)
+                const matchPercentage = totalCriteria > 0 ? Math.round((matches / totalCriteria) * 100) : 100;
+                
+                return { ...item, score, matchPercentage, matches, totalCriteria };
+            });
+            
+            // Sort by score (highest first), then by match percentage
+            scored.sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return b.matchPercentage - a.matchPercentage;
+            });
+            
+            // Filter to only show items that match at least one criterion
+            const filtered = scored.filter(item => item.matches > 0 || Object.keys(wizardData).length === 0);
             
             // Update displayed items
             displayedItems = filtered;

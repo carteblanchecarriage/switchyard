@@ -627,6 +627,16 @@ app.get('/api/pricing', (req, res) => {
   ], { currency: 'USD' }));
 });
 
+// ===================== WISHLIST ROUTES =====================
+// Load wishlist routes if available
+try {
+  const wishlistRoutes = require('./wishlist-routes');
+  app.use('/api/wishlist', wishlistRoutes);
+  console.log('✅ Wishlist routes loaded');
+} catch (err) {
+  console.log('⚠️  Wishlist routes not available:', err.message);
+}
+
 // ===================== STATIC FILES =====================
 // Serve frontend static files from parent directory
 app.use(express.static(path.join(__dirname, '..'), {
@@ -649,7 +659,10 @@ app.use((req, res) => {
         'GET /api/interest-checks',
         'GET /api/search?q=query',
         'GET /api/vendors',
-        'GET /api/pricing'
+        'GET /api/pricing',
+        'GET /api/wishlist',
+        'POST /api/wishlist/add',
+        'POST /api/wishlist/remove'
       ]
     }
   ));

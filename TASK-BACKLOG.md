@@ -24,7 +24,7 @@
 - [x] **Task 8: Step 5 (Budget)** — Price tiers with live count "X keyboards match" COMPLETED: Budget step shows live counts for under $100, $100-200, $200+ tiers
 
 ### Phase 3: Real-Time Filtering
-- [ ] **Task 9: Filter logic** — Score products 0-100, sort by relevance
+- [x] **Task 9: Filter logic** — Score products 0-100, sort by relevance — COMPLETED: Relevance scoring across 5 criteria with match percentage pill on cards
 - [x] **Task 10: Grid updates** — Product grid filters instantly as selections made — COMPLETED: `filterGridByWizardSelections()` now called immediately on every option selection
 - [x] **Task 11: Match count badge** — Show "12 boards match" on toggle button
 - [x] **Task 12: Filter chips** — Show active filters as removable chips
