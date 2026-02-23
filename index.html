@@ -69,6 +69,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/wizard-widget.css">
+    <link rel="stylesheet" href="styles/carousel.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -2583,6 +2584,212 @@
         }
 
         loadData();
+        
+        // Image Carousel Functions
+        window.initCarousels = function() {
+            document.querySelectorAll('.product-image-carousel').forEach(carousel => {
+                const container = carousel.querySelector('.carousel-container');
+                const images = carousel.dataset.images ? JSON.parse(carousel.dataset.images) : [];
+                const prevBtn = carousel.querySelector('.carousel-btn.prev');
+                const nextBtn = carousel.querySelector('.carousel-btn.next');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                
+                if (images.length <= 1) return;
+                
+                let currentIndex = 0;
+                
+                // Create dots
+                if (dotsContainer) {
+                    images.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                        dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+                        dot.addEventListener('click', () => goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+                
+                function goToSlide(index) {
+                    currentIndex = index;
+                    container.style.transform = `translateX(-${index * 100}%)`;
+                    
+                    // Update dots
+                    if (dotsContainer) {
+                        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                        });
+                    }
+                    
+                    // Update counter
+                    const counter = carousel.querySelector('.carousel-counter');
+                    if (counter) {
+                        counter.textContent = `${index + 1} / ${images.length}`;
+                    }
+                }
+                
+                function nextSlide() {
+                    const next = (currentIndex + 1) % images.length;
+                    goToSlide(next);
+                }
+                
+                function prevSlide() {
+                    const prev = (currentIndex - 1 + images.length) % images.length;
+                    goToSlide(prev);
+                }
+                
+                // Event listeners
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                
+                // Touch/swipe support
+                let touchStartX = 0;
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                }, { passive: true });
+                
+                carousel.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const diff = touchStartX - touchEndX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) nextSlide();
+                        else prevSlide();
+                    }
+                }, { passive: true });
+                
+                // Lightbox
+                const lightboxTrigger = carousel.querySelector('.lightbox-trigger');
+                if (lightboxTrigger) {
+                    lightboxTrigger.addEventListener('click', () => {
+                        openLightbox(images, currentIndex);
+                    });
+                }
+            });
+        };
+        
+        // Lightbox
+        window.openLightbox = function(images, startIndex = 0) {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.setAttribute('role', 'dialog');
+            lightbox.setAttribute('aria-modal', 'true');
+            lightbox.setAttribute('aria-label', 'Image gallery');
+            
+            let currentIndex = startIndex;
+            
+            function renderImage() {
+                const img = lightbox.querySelector('.lightbox-image');
+                if (img) {
+                    img.src = images[currentIndex];
+                    img.alt = `Image ${currentIndex + 1} of ${images.length}`;
+                }
+                const counter = lightbox.querySelector('.lightbox-counter');
+                if (counter) {
+                    counter.textContent = `${currentIndex + 1} / ${images.length}`;
+                }
+            }
+            
+            lightbox.innerHTML = `
+                <button class="lightbox-close" aria-label="Close gallery">&times;</button>
+                <button class="lightbox-prev" aria-label="Previous image">&#8249;</button>
+                <button class="lightbox-next" aria-label="Next image">&#8250;</button>
+                <div class="lightbox-content">
+                    <img class="lightbox-image" src="${images[currentIndex]}" alt="Image ${currentIndex + 1}">
+                    <span class="lightbox-counter">${currentIndex + 1} / ${images.length}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(lightbox);
+            document.body.style.overflow = 'hidden';
+            
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                renderImage();
+            }
+            
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                renderImage();
+            }
+            
+            function closeLightbox() {
+                lightbox.remove();
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', handleKeydown);
+            }
+            
+            function handleKeydown(e) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+            
+            // Event listeners
+            lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+            lightbox.querySelector('.lightbox-next').addEventListener('click', nextImage);
+            lightbox.querySelector('.lightbox-prev').addEventListener('click', prevImage);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', handleKeydown);
+            
+            // Focus
+            lightbox.querySelector('.lightbox-close').focus();
+        };
+        
+        // Function to generate carousel HTML
+        window.generateCarouselHTML = function(images, name, matchPercentage, scrapedAt) {
+            if (!images || images.length === 0) {
+                return `<div class="item-no-image">No Image</div>`;
+            }
+            
+            const isRecentlyAdded = scrapedAt && ((new Date() - new Date(scrapedAt)) / (1000 * 60 * 60 * 24)) <= 7;
+            
+            const badges = [];
+            if (matchPercentage) {
+                badges.push(`<div class="match-pill" style="background: ${matchPercentage >= 80 ? 'var(--accent)' : matchPercentage >= 50 ? '#e8d5b7' : '#eee'}">
+                    <span class="match-percentage">${matchPercentage}%</span>
+                </div>`);
+            }
+            if (isRecentlyAdded) {
+                badges.push(`<div class="new-badge" style="position: absolute; top: 8px; left: 8px; background: #16a34a; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; z-index: 10;">NEW</div>`);
+            }
+            
+            if (images.length === 1) {
+                return `
+                    <img class="lightbox-trigger" src="${images[0]}" alt="${name}" loading="lazy" onerror="this.style.display='none'" style="cursor: pointer;">
+                    ${badges.join('')}
+                `;
+            }
+            
+            // Multiple images - carousel
+            return `
+                <div class="product-image-carousel" data-images='${JSON.stringify(images)}'>
+                    <div class="carousel-container" style="width: ${images.length * 100}%; transform: translateX(0);">
+                        ${images.map((img, i) => `<img src="${img}" alt="${name} - image ${i + 1}" loading="lazy" onerror="this.style.display='none'" class="lightbox-trigger">`).join('')}
+                    </div>
+                    <button class="carousel-btn prev" aria-label="Previous image">&#8249;</button>
+                    <button class="carousel-btn next" aria-label="Next image">&#8250;</button>
+                    <div class="carousel-dots"></div>
+                    <span class="carousel-counter">1 / ${images.length}</span>
+                    ${badges.join('')}
+                </div>
+            `;
+        };
+        
+        // Initialize carousels after data loads
+        const originalDisplayData = window.displayData;
+        window.displayData = function() {
+            originalDisplayData();
+            setTimeout(() => initCarousels(), 100);
+        };
+        
+        // Check if we need to add displayData function
+        if (typeof window.displayData === 'undefined') {
+            window.displayData = function() {
+                console.log('displayData not yet defined');
+            };
+        }
     </script>
 
     <!-- Keyboard Finder Wizard Widget -->
@@ -2697,25 +2904,25 @@
 
                     <div class="wizard-options-grid">
                         <div class="wizard-option-card" data-value="compact" onclick="selectWidgetOption(3, 'compact')">
-                            <div class="wizard-icon">[T]</div>
+                            <div class="wizard-icon">🎯</div>
                             <h4 class="wizard-option-title">Compact (60-65%)</h4>
                             <p class="wizard-option-desc">Small, portable. No function row</p>
                         </div>
 
                         <div class="wizard-option-card" data-value="tkl" onclick="selectWidgetOption(3, 'tkl')">
-                            <div class="wizard-icon">[B]</div>
+                            <div class="wizard-icon">⚖️</div>
                             <h4 class="wizard-option-title">TKL (80%)</h4>
                             <p class="wizard-option-desc">Tenkeyless. Function keys, no numpad</p>
                         </div>
 
                         <div class="wizard-option-card" data-value="fullsize" onclick="selectWidgetOption(3, 'fullsize')">
-                            <div class="wizard-icon">[F]</div>
+                            <div class="wizard-icon">🔢</div>
                             <h4 class="wizard-option-title">Full Size (100%)</h4>
                             <p class="wizard-option-desc">Everything including numpad</p>
                         </div>
 
                         <div class="wizard-option-card" data-value="unsure" onclick="selectWidgetOption(3, 'unsure')">
-                            <div class="wizard-icon">[?]</div>
+                            <div class="wizard-icon">❓</div>
                             <h4 class="wizard-option-title">Not Sure</h4>
                             <p class="wizard-option-desc">Show popular sizes</p>
                         </div>
@@ -2727,6 +2934,89 @@
                             <button class="wizard-btn-skip" onclick="skipWidgetStep(3)">Skip</button>
                             <button class="wizard-btn-next" id="widget-btn-next-3" onclick="widgetNextStep()" disabled>Next →</button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Hot-swap -->
+                <div id="widget-step-4" class="wizard-step" data-step="4" style="display: none;">
+                    <div class="wizard-step-header">
+                        <div class="wizard-step-number">Step 4 of 5</div>
+                        <h3 class="wizard-question">Want to swap switches later?</h3>
+                        <p class="wizard-subtitle">Hot-swap lets you change switches without soldering</p>
+                    </div>
+
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="yes" onclick="selectWidgetOption(4, 'yes')">
+                            <div class="wizard-icon">✅</div>
+                            <h4 class="wizard-option-title">Yes, hot-swap</h4>
+                            <p class="wizard-option-desc">Easy switch changes. Recommended</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="maybe" onclick="selectWidgetOption(4, 'maybe')">
+                            <div class="wizard-icon">🤷</div>
+                            <h4 class="wizard-option-title">Maybe later</h4>
+                            <p class="wizard-option-desc">Keep options open</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="no" onclick="selectWidgetOption(4, 'no')">
+                            <div class="wizard-icon">🔧</div>
+                            <h4 class="wizard-option-title">No, soldered</h4>
+                            <p class="wizard-option-desc">Traditional build. Often cheaper</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="unsure" onclick="selectWidgetOption(4, 'unsure')">
+                            <div class="wizard-icon">❓</div>
+                            <h4 class="wizard-option-title">Not Sure</h4>
+                            <p class="wizard-option-desc">Show all options</p>
+                        </div>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="wizard-btn-back" onclick="widgetPrevStep()">← Back</button>
+                        <div class="wizard-nav-right">
+                            <button class="wizard-btn-skip" onclick="skipWidgetStep(4)">Skip</button>
+                            <button class="wizard-btn-next" id="widget-btn-next-4" onclick="widgetNextStep()" disabled>Next →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Budget -->
+                <div id="widget-step-5" class="wizard-step" data-step="5" style="display: none;">
+                    <div class="wizard-step-header">
+                        <div class="wizard-step-number">Step 5 of 5</div>
+                        <h3 class="wizard-question">What's your budget?</h3>
+                        <p class="wizard-subtitle">We'll find the best value in your range</p>
+                    </div>
+
+                    <div class="wizard-options-grid">
+                        <div class="wizard-option-card" data-value="budget" onclick="selectWidgetOption(5, 'budget')">
+                            <div class="wizard-icon">💰</div>
+                            <h4 class="wizard-option-title">Under $100</h4>
+                            <p class="wizard-option-desc">Entry level, great for first time</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="mid" onclick="selectWidgetOption(5, 'mid')">
+                            <div class="wizard-icon">💵</div>
+                            <h4 class="wizard-option-title">$100–$200</h4>
+                            <p class="wizard-option-desc">Sweet spot. Quality & features</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="premium" onclick="selectWidgetOption(5, 'premium')">
+                            <div class="wizard-icon">💎</div>
+                            <h4 class="wizard-option-title">$200+</h4>
+                            <p class="wizard-option-desc">Premium. Endgame territory</p>
+                        </div>
+
+                        <div class="wizard-option-card" data-value="flexible" onclick="selectWidgetOption(5, 'flexible')">
+                            <div class="wizard-icon">🌟</div>
+                            <h4 class="wizard-option-title">Flexible</h4>
+                            <p class="wizard-option-desc">Show me the best regardless of price</p>
+                        </div>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="wizard-btn-back" onclick="widgetPrevStep()">← Back</button>
+                        <button class="wizard-btn-finish" id="widget-btn-finish" onclick="finishWidget()" disabled>✓ See Results</button>
                     </div>
                 </div>
             </div>

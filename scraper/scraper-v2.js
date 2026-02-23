@@ -173,8 +173,9 @@ async function scrapeShopify(vendorKey, vendorConfig) {
           else if (title.includes('keycap') || tags.includes('keycaps')) category = 'keycaps';
           else if (title.includes('switch') || tags.includes('switches')) category = 'switches';
           
-          // Get price
-          const price = product.variants?.[0]?.price || '0';
+          // Get all images (not just first)
+          const images = product.images?.map(img => img.src) || [];
+          const image = images[0] || null; // Keep first as primary for backward compat
           
           // Build affiliate URL with tracking
           const productUrl = `${vendorConfig.baseUrl}/products/${product.handle}`;
@@ -212,6 +213,7 @@ async function scrapeShopify(vendorKey, vendorConfig) {
             category: category,
             status: 'active',
             image: product.images?.[0]?.src || null,
+            images: product.images?.map(img => img.src) || [],
             description: cleanDescription,
             joins: Math.floor(Math.random() * 500) + 50, // Simulated for demo
             scrapedAt: new Date().toISOString(),
@@ -310,6 +312,7 @@ async function scrapeShopifyCollections(vendorConfig) {
             category: category,
             status: 'active',
             image: product.images?.[0]?.src || null,
+            images: product.images?.map(img => img.src) || [],
             description: cleanDescription,
             joins: Math.floor(Math.random() * 500) + 50,
             scrapedAt: new Date().toISOString()

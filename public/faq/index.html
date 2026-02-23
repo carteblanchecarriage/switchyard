@@ -350,7 +350,20 @@
     </main>
 
     <footer>
-        <p>Part of the Switchyard collection</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 1rem;">
+        <div>
+          <h4 style="margin-top: 0;">Guides</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="../beginner/" style="color: var(--faded);">Start Here (Beginners)</a></li>
+            <li><a href="../switches/" style="color: var(--faded);">Switch Guide</a></li>
+            <li><a href="../artisan/" style="color: var(--faded);">Artisan Keycaps</a></li>
+            <li><a href="../faq/" style="color: var(--faded);">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--faded); font-size: 0.9rem;">
+        <p>Part of the Switchyard collection. <a href="../">Back to Dashboard</a></p>
+      </div>
     </footer>
 
     <script>
@@ -371,5 +384,4 @@
             element.classList.toggle('active');
         }
     </script>
-</body>
-</html>
+    <script>

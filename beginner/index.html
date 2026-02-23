@@ -71,12 +71,29 @@
         <span id="themeText">Dark</span>
     </button>
 
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../"><h1>Switchyard</h1></a>
-            <a href="../" style="color: white;">< Back</a>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="../" style="text-decoration: none; color: inherit;">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../best/" class="nav-link">Keyboards</a>
+                <a href="../artisan/" class="nav-link">Artisan</a>
+                <a href="../faq/" class="nav-link">FAQ</a>
+                <a href="../beginner/" class="nav-link active">Guides</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <header class="hero">
         <h1>So... What's the Deal With Mechanical Keyboards?</h1>
@@ -221,5 +238,4 @@
             updateThemeUI();
         }
     </script>
-</body>
-</html>
+    <script>

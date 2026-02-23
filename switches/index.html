@@ -76,14 +76,29 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../"><strong>Switchyard</strong></a>
-            <a href="../">← Back to Dashboard</a>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand-lockup">
+                <h1><a href="../" style="text-decoration: none; color: inherit;">Switchyard</a></h1>
+                <span>Mechanical Keyboard Collection</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../best/" class="nav-link">Keyboards</a>
+                <a href="../artisan/" class="nav-link">Artisan</a>
+                <a href="../faq/" class="nav-link">FAQ</a>
+                <a href="../beginner/" class="nav-link active">Guides</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+            </nav>
         </div>
-    </nav>
-
-    <header class="hero">
+    </header>
         <h1>Mechanical Keyboard Switches</h1>
         <p>The complete guide to every major switch type. Linear, Tactile, Clicky — with force curves, sound profiles, and our top picks.</p>
     </header>
@@ -342,5 +357,4 @@
         </footer>
 
     </main>
-</body>
-</html>
+    <script>
