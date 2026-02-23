@@ -1098,29 +1098,6 @@
                             <p class="wizard-option-desc">I want to try different switches without soldering.</p>
                         </div>
                         
-                        <div class="wizard-option-card" data-value="maybe" onclick="selectWizardOption(4, 'maybe')">
-                            <div class="wizard-icon" style="color: #f39c12;">[M]</div>
-                            <h4 class="wizard-option-title">Maybe later</h4>
-                            <p class="wizard-option-desc">Not now, but I'd like the option in the future.</p>
-                        </div>
-                        
-                        <div class="wizard-option-card" data-value="no" onclick="selectWizardOption(4, 'no')">
-                            <div class="wizard-icon" style="color: #3498db;">[N]</div>
-                            <h4 class="wizard-option-title">No thanks</h4>
-                            <p class="wizard-option-desc">Soldered is fine. I'm happy with my choice.</p>
-                        </div>
-                        
-                        <div class="wizard-option-card" data-value="unsure" onclick="selectWizardOption(4, 'unsure')">
-                            <div class="wizard-icon" style="color: #7f8c8d;">[?]</div>
-                            <h4 class="wizard-option-title">What's that?</h4>
-                            <p class="wizard-option-desc">Hot-swap = pop switches in/out. No soldering needed.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="wizard-step-5" class="wizard-step" data-step="5" style="display: none;"></div>
-                <div id="wizard-results" style="display: none;"></div>
-            </div>
-
             <div id="active-filters-container" style="padding: 0.75rem 2rem; border-bottom: 1px solid var(--border); background: var(--paper-dark); display: none; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faded); text-transform: uppercase;">Active:</span>
                 <div id="active-filters-list" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
@@ -1259,79 +1236,6 @@
         }
 
         function setCachedData(data) {
-            try {
-                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-                localStorage.setItem(CACHE_KEY + '_ts', Date.now().toString());
-            } catch (e) {}
-        }
-
-        function processData(data) {
-            collection.items = (data.allProducts || []).map((item, idx) => ({
-                id: idx + 1,
-                name: item.name,
-                origin: item.vendor,
-                category: item.category || 'keyboard',
-                price: item.price,
-                status: item.status || 'active',
-                image: item.image,
-                url: item.affiliateUrl || item.url,
-                description: item.description || '',
-                scrapedAt: item.scrapedAt
-            })).filter(item => parsePrice(item.price) > 0);
-
-            applyFilterAndSort();
-        }
-        
-        // Check if item is recently added (within 7 days)
-        function isRecentlyAdded(scrapedAt) {
-            if (!scrapedAt) return false;
-            const scraped = new Date(scrapedAt);
-            const now = new Date();
-            const diffDays = (now - scraped) / (1000 * 60 * 60 * 24);
-            return diffDays <= 7;
-        }
-
-        function displayData() {
-            const container = document.getElementById('currentShelf');
-            
-            // Empty state - no matches
-            if (displayedItems.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;"></div>
-                        <h3 style="font-family: 'Newsreader', Georgia, serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--ink);">No keyboards match your criteria</h3>
-                        <p style="color: var(--faded); margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">Try adjusting your filters or clearing them to see all available keyboards.</p>
-                        <button onclick="clearAllWizardFilters()" style="padding: 0.75rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; transition: all 0.2s;">Clear all filters</button>
-                    </div>
-                `;
-                return;
-            }
-            
-            const start = currentBatch * ITEMS_PER_BATCH;
-            const end = Math.min(start + ITEMS_PER_BATCH, displayedItems.length);
-            const batch = displayedItems.slice(start, end);
-
-            const html = batch.map(item => `
-                <div class="item">
-                    <div class="item-image-wrap">
-                        ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
-                        ${!item.image ? `<div class="item-no-image">No Image</div>` : ''}
-                        ${item.matchPercentage ? `<div class="match-pill" style="background: ${item.matchPercentage >= 80 ? 'var(--accent)' : item.matchPercentage >= 50 ? '#e8d5b7' : '#eee'}">
-                            <span class="match-percentage">${item.matchPercentage}%</span>
-                        </div>` : ''}
-                        ${isRecentlyAdded(item.scrapedAt) ? `<div class="new-badge" style="position: absolute; top: 8px; left: 8px; background: #16a34a; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; z-index: 10;">NEW</div>` : ''}
-                    </div>
-                    <div class="item-body">
-                        <div class="item-meta">
-                            <span class="item-category">${item.category}</span>
-                            <span class="item-price">${item.price}</span>
-                        </div>
-                        <h3 class="item-name">${item.name}</h3>
-                        <p class="item-desc">${truncate(item.description, 120)}</p>
-                        <div class="item-footer">
-                            <span class="item-vendor">${item.vendor || 'Unknown'}</span>
-                            <span class="item-status ${item.status === 'Available' ? 'available' : ''}">${item.status}</span>
-                        </div>
                     </div>
                     <a href="${item.url}" class="item-action" target="_blank" rel="noopener">
                         View details <span class="visually-hidden">(opens in new tab)</span>
