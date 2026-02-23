@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductModal from './components/ProductModal';
+import Wizard from './components/Wizard';
 import SwitchGuide from './pages/SwitchGuide';
 import BeginnersGuide from './pages/BeginnersGuide';
 import Glossary from './pages/Glossary';
@@ -19,7 +20,6 @@ interface Product {
 }
 
 export default function App() {
-  // Simple routing based on path
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
@@ -28,7 +28,6 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Route to content pages
   if (currentPath === '/switch-guide') {
     return <SwitchGuide />;
   }
@@ -39,7 +38,6 @@ export default function App() {
     return <Glossary />;
   }
 
-  // Main page with product grid
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -69,11 +67,9 @@ export default function App() {
     if (category === 'all') {
       setFilteredProducts(products);
     } else {
-      // Handle both singular and plural categories
-      const normalizedCategory = category === 'keyboard' ? 'keyboard' : category;
       setFilteredProducts(products.filter(p => 
-        p.category === normalizedCategory ||
-        (normalizedCategory === 'keyboard' && (!p.category || p.category === 'keyboard'))
+        p.category === category ||
+        (category === 'keyboard' && (!p.category || p.category === 'keyboard'))
       ));
     }
     setDisplayLimit(12);
@@ -146,10 +142,17 @@ export default function App() {
           </div>
         )}
       </main>
+
       <Footer />
+
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
+      />
+
+      <Wizard
+        products={filteredProducts}
+        onFilterChange={setFilteredProducts}
       />
     </div>
   );
