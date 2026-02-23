@@ -520,9 +520,11 @@
                 const data = await response.json();
                 const products = data.allProducts || data.groupBuys || [];
                 
-                // Filter artisan products
+                // Filter artisan products - check category or name
                 const artisanProducts = products
-                    .filter(p => p.category === 'artisan')
+                    .filter(p => p.category === 'artisan' || 
+                                 (p.category === 'keycaps' && 
+                                  /artisan|resin|sculpted|handmade|jelly|rama|keyforge|alpha|mulder|zen pond/i.test(p.name)))
                     .slice(0, 6);
                 
                 const grid = document.getElementById('artisanProducts');
