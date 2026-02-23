@@ -21,23 +21,6 @@ interface Product {
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const handlePopState = () => setCurrentPath(window.location.pathname);
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  if (currentPath === '/switch-guide') {
-    return <SwitchGuide />;
-  }
-  if (currentPath === '/beginners-guide') {
-    return <BeginnersGuide />;
-  }
-  if (currentPath === '/glossary') {
-    return <Glossary />;
-  }
-
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -45,8 +28,19 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [displayLimit, setDisplayLimit] = useState(12);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [wizardFilters, setWizardFilters] = useState<Product[] | null>(null);
 
   useEffect(() => {
+    const handlePopState = () => setCurrentPath(window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
+    if (currentPath === '/switch-guide' || currentPath === '/beginners-guide' || currentPath === '/glossary') {
+      return;
+    }
+    
     fetch('/data.json')
       .then(res => res.json())
       .then(data => {
@@ -60,18 +54,25 @@ export default function App() {
         setError('Failed to load products');
         setLoading(false);
       });
-  }, []);
+  }, [currentPath]);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
+    const baseProducts = wizardFilters || products;
     if (category === 'all') {
-      setFilteredProducts(products);
+      setFilteredProducts(baseProducts);
     } else {
-      setFilteredProducts(products.filter(p => 
+      setFilteredProducts(baseProducts.filter(p => 
         p.category === category ||
         (category === 'keyboard' && (!p.category || p.category === 'keyboard'))
       ));
     }
+    setDisplayLimit(12);
+  };
+
+  const handleWizardFilter = (filtered: Product[]) => {
+    setWizardFilters(filtered);
+    setFilteredProducts(filtered);
     setDisplayLimit(12);
   };
 
@@ -82,12 +83,36 @@ export default function App() {
   const displayedProducts = filteredProducts.slice(0, displayLimit);
   const hasMore = filteredProducts.length > displayLimit;
 
+  // Route to page components
+  if (currentPath === '/switch-guide') {
+    return <SwitchGuide />;
+  }
+  if (currentPath === '/beginners-guide') {
+    return <BeginnersGuide />;
+  }
+  if (currentPath === '/glossary') {
+    return <Glossary />;
+  }
+
+  // Main app render
   if (loading) {
-    return <div className="loading">Loading products...</div>;
+    return (
+      <div className="App">
+        <Header />
+        <div className="loading">Loading products...</div>
+        <Footer />
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="error">{error}</div>;
+    return (
+      <div className="App">
+        <Header />
+        <div className="error">{error}</div>
+        <Footer />
+      </div>
+    );
   }
 
   return (
@@ -151,8 +176,8 @@ export default function App() {
       />
 
       <Wizard
-        products={filteredProducts}
-        onFilterChange={setFilteredProducts}
+        products={products}
+        onFilterChange={handleWizardFilter}
       />
     </div>
   );
