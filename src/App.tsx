@@ -78,13 +78,47 @@ export default function App() {
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
     const baseProducts = wizardFilters || products;
+    
     if (category === 'all') {
+      // Show all products
       setFilteredProducts(baseProducts);
-    } else {
+    } else if (category === 'keyboard') {
+      // Keyboards: category === 'keyboard' OR category === 'accessories' (those are keyboards mislabeled)
+      // Exclude carrying cases which are actual accessories
+      setFilteredProducts(baseProducts.filter(p => {
+        const cat = p.category || 'keyboard';
+        const isCarryingCase = p.name?.toLowerCase().includes('carrying case') || 
+                               p.name?.toLowerCase().includes('travel case');
+        return (cat === 'keyboard' || cat === 'accessories') && !isCarryingCase;
+      }));
+    } else if (category === 'artisan') {
+      // Artisan: keycaps with "artisan" in the name
       setFilteredProducts(baseProducts.filter(p => 
-        p.category === category ||
-        (category === 'keyboard' && (!p.category || p.category === 'keyboard'))
+        p.category === 'keycaps' && 
+        p.name?.toLowerCase().includes('artisan')
       ));
+    } else if (category === 'accessories') {
+      // Accessories: carrying cases, deskmats, cables, etc.
+      setFilteredProducts(baseProducts.filter(p => {
+        const name = p.name?.toLowerCase() || '';
+        const cat = p.category || '';
+        // Carrying cases
+        const isCarryingCase = name.includes('carrying case') || 
+                               name.includes('travel case') ||
+                               name.includes('keyboard bag');
+        // Other accessories (if they exist)
+        const isAccessory = name.includes('cable') || 
+                           name.includes('deskmat') || 
+                           name.includes('wrist rest') ||
+                           name.includes('keycap puller') ||
+                           name.includes('switch puller') ||
+                           name.includes('lube') ||
+                           name.includes('foam');
+        return isCarryingCase || isAccessory;
+      }));
+    } else {
+      // Other categories (switches, keycaps, case) - use exact match
+      setFilteredProducts(baseProducts.filter(p => p.category === category));
     }
     setDisplayLimit(12);
   };
@@ -220,7 +254,7 @@ export default function App() {
 
       <div className="controls-row">
         <div className="filter-chips">
-          {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'case'].map(cat => (
+          {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'case', 'accessories'].map(cat => (
             <button
               key={cat}
               className={`filter-chip ${activeCategory === cat ? 'active' : ''}`}
