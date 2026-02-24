@@ -4,12 +4,6 @@ on:
   schedule:
     - cron: '0 */2 * * *'  # Every 2 hours
   workflow_dispatch:  # Manual trigger
-  push:
-    branches:
-      - master
-    paths:
-      - 'data.json'
-      - 'public/data.json'
 
 permissions:
   contents: write  # For committing data updates
@@ -49,7 +43,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add data.json public/data.json data/keyboard-data.json dashboard/data.json
+          git add data.json public/data.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M')" && git push)
         continue-on-error: true
         
@@ -59,7 +53,7 @@ jobs:
       - name: Verify data.json in build
         run: |
           ls -la build/data.json
-          cat build/data.json | head -c 500
+          cat build/data.json | head -c 200
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
