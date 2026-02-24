@@ -5,6 +5,7 @@ interface Product {
   id: string;
   name: string;
   url: string;
+  affiliateUrl?: string;
   image?: string;
   price?: string;
   vendor?: string;
