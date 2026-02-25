@@ -97,7 +97,7 @@ export default function BestBudgetGuide() {
                   <span className="pick-price">{pick.price}</span>
                   <p className="pick-specs">{pick.specs}</p>
                   <p className="pick-why">{pick.why}</p>
-                  <a href={pick.link} className="pick-link" target="_blank" rel="noopener">Check Price →</a>
+                  <a href={pick.link} className="pick-link" target="_blank" rel="noopener noreferrer">Check Price →</a>
                 </div>
               ))}
             </div>
