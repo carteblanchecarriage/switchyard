@@ -821,19 +821,30 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-02-25T03:34:58.348Z",
+    "scrapedAt": "2026-02-25T03:37:03.737Z",
     "totalProducts": 382,
     "totalIgnored": 0,
     "totalInterestChecks": 48,
     "totalVendors": 6,
     "totalRedditPosts": 5,
-    "sources": [
-      "shopify",
-      "drop_api",
-      "reddit",
-      "geekhack"
-    ],
-    "updatedAt": "2026-02-25T03:34:58.348Z",
+    "sources": {
+      "reddit": {
+        "attempted": true,
+        "success": true,
+        "items": 1
+      },
+      "geekhack": {
+        "attempted": true,
+        "success": true,
+        "items": 0
+      },
+      "drop": {
+        "attempted": true,
+        "success": false,
+        "items": 0
+      }
+    },
+    "updatedAt": "2026-02-25T03:37:03.737Z",
     "lastRefresh": "2026-02-25T03:19:40.888Z",
     "lastScrape": "2026-02-25T03:34:15.870Z",
     "geekhackCount": 0,
@@ -843,7 +854,10 @@
     "redditAvailable": 5,
     "geekhackAvailable": 0,
     "previousGroupBuys": 21,
-    "previousProducts": 382
+    "previousProducts": 382,
+    "lastScrapeAttempt": "2026-02-25T03:37:02.666Z",
+    "duration": "1.07",
+    "newItemsAdded": 0
   },
   "allProducts": [
     {
@@ -6957,5 +6971,6 @@
     "affiliateRevenue": 400,
     "subscriptionRevenue": 1000,
     "totalMonthly": 1400
-  }
+  },
+  "sources": {}
 }

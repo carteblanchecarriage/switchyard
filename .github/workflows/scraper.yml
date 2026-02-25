@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Manual trigger
 
 permissions:
-  contents: write  # For committing data updates
+  contents: write
 
 jobs:
   scrape:
@@ -15,26 +15,36 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
+      - name: Install scraper deps
+        run: cd scraper && npm ci 2>&1 || npm install axios cheerio
+        
       - name: Run scraper
-        run: cd scraper && node scraper.js
+        id: scraper
+        run: |
+          cd scraper && node scraper.js
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
         
       - name: Commit and push if data changed
+        id: commit
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add data.json
+          
+          # Check if data actually changed
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No new data found"
+            echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "Data update: $(date '+%Y-%m-%d %H:%M UTC') [scraper]"
+            git commit -m "Data: $(date '+%Y-%m-%d %H:%M UTC') - new items from scraper"
             git push
-            echo "✅ Data updated and pushed"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ New data committed"
           fi
