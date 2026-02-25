@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import { usePageSEO } from '../../hooks/usePageSEO';
 import './GuidePages.css';
 
 const faqs = [
@@ -31,6 +32,12 @@ const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
+
+  usePageSEO({
+    title: "Mechanical Keyboard FAQ | Common Questions Answered | Switchyard",
+    description: "Quick answers to common mechanical keyboard questions: pricing, switch types, noise levels, wireless options, repairability, and where to buy. Get informed before you buy.",
+    keywords: "mechanical keyboard FAQ, keyboard questions, are mechanical keyboards loud, keyboard repair, wireless mechanical keyboard, first mechanical keyboard"
+  });
 
   const toggleQuestion = (key: string) => {
     setOpenIndex(openIndex === key ? null : key);

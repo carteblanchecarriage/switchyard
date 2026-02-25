@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import { usePageSEO } from '../../hooks/usePageSEO';
 import './GuidePages.css';
 
 const makers = [
@@ -44,6 +45,12 @@ const scamSigns = [
 
 export default function ArtisanGuide() {
   const [activeTab, setActiveTab] = useState(0);
+
+  usePageSEO({
+    title: "Artisan Keycaps Guide | Custom & Collectible | Switchyard",
+    description: "Everything about artisan keycaps: top makers like Jelly Key and KeyForge, price tiers, where to buy, avoiding scams, and how to start collecting. Tiny sculptures for your keyboard.",
+    keywords: "artisan keycaps, custom keycaps, Jelly Key, KeyForge, Rama Works, artisan guide, collectible keycaps, mechanical keyboard art"
+  });
 
   return (
     <Layout>

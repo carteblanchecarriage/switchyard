@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
+import { usePageSEO } from '../../hooks/usePageSEO';
 import './Learn.css';
 
 const guideCategories = [
@@ -37,6 +38,12 @@ const guideCategories = [
 ];
 
 export default function Learn() {
+  usePageSEO({
+    title: "Learn Mechanical Keyboards | Guides & Resources | Switchyard",
+    description: "Master mechanical keyboards with our guides: beginner's guide, switch types, layout sizes, keycap profiles, artisan keycaps, group buys, and buying recommendations.",
+    keywords: "mechanical keyboard guide, keyboard tutorial, learn mechanical keyboards, switch guide, keycap profiles, layout sizes, group buy guide"
+  });
+
   return (
     <Layout>
       <div className="learn-page">
