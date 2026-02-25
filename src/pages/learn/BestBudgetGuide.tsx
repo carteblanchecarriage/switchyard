@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
+import { usePageSEO } from '../../hooks/usePageSEO';
 import './GuidePages.css';
 
 const topPicks = [
@@ -48,49 +49,63 @@ const comparisonTable = [
   { name: 'GMMK Compact', price: '$65', layout: '60%', hotSwap: 'Yes', wireless: 'No', bestFor: 'Customization' },
   { name: 'Redragon K552', price: '$45', layout: 'TKL', hotSwap: 'No', wireless: 'No', bestFor: 'Cheapest decent' },
   { name: 'Epomaker TH80', price: '$89', layout: '75%', hotSwap: 'Yes', wireless: 'Yes', bestFor: 'Feature-rich' },
-  { name: 'Akko 3061B', price: '$79', layout: '60%', hotSwap: 'No', wireless: 'Yes', bestFor: 'Aesthetics' },
-  { name: 'Keychron C1', price: '$69', layout: 'TKL', hotSwap: 'No', wireless: 'No', bestFor: 'Wired office' }
+];
+
+const buyingTips = [
+  { title: 'Look for Hot-Swap', desc: 'Hot-swap sockets let you change switches without soldering. This extends the life of your board and lets you experiment.' },
+  { title: 'South-Facing LEDs', desc: 'Ensures compatibility with Cherry profile keycaps. North-facing can cause interference with Cherry caps.' },
+  { title: 'Wireless Adds Cost', desc: 'Good wireless (2.4GHz) adds $20-40 to the price. Bluetooth is cheaper but has latency. Skip wireless if you do not need it.' },
+  { title: 'Check Switch Options', desc: 'Budget boards usually offer Gateron, Outemu, or Red switches. All are fine for starting. You can upgrade later on hot-swap boards.' },
+];
+
+const redFlags = [
+  { flag: 'Non-Standard Layouts', desc: 'Some cheap boards have weird bottom rows that make replacing keycaps impossible. Check photos before buying.' },
+  { flag: 'Proprietary Software', desc: 'If the keyboard requires sketchy Windows-only software to work, skip it. Good boards are plug-and-play.' },
+  { flag: 'No Reviews', desc: 'If you cannot find a YouTube review, be cautious. The mech keyboard community reviews everything worth buying.' },
+  { flag: 'Ridiculous Claims', desc: '"50 million keystroke lifespan" is marketing fluff. Budget switches die faster. Budget for replacements.' },
 ];
 
 export default function BestBudgetGuide() {
+  usePageSEO({
+    title: "Best Budget Mechanical Keyboards Under $100 | Switchyard",
+    description: "Top affordable mechanical keyboards under $100. Compare Keychron V1, Royal Kludge RK61, and more. Expert picks for gaming, typing, and first-time buyers.",
+    keywords: "budget mechanical keyboard, best cheap mechanical keyboard, under $100, Keychron V1, RK61, gaming keyboard budget, affordable mechanical keyboard"
+  });
+
   return (
     <Layout>
       <article className="guide-article">
-        <header className="guide-header-section">
-          <span className="guide-tag">Recommendations</span>
-          <h1>Best Mechanical Keyboards Under $100</h1>
+        <header className="guide-header-section budget-hero">
+          <span className="guide-tag">Under $100</span>
+          <h1>Best Budget Mechanical Keyboards</h1>
           <p className="guide-intro">
-            Quality mechanical keyboards that won't break the bank. Tested for typing feel, build quality, and value.
+            Quality mechanical keyboards do not have to cost a fortune. These picks deliver the essential features 
+            without breaking the bank. Expect some compromises, but not on what matters: good switches, 
+            decent build quality, and reliable performance.
           </p>
         </header>
 
         <div className="guide-body">
-          <section className="quick-picks-section">
-            <h2>🏆 Our Top Picks</h2>
-            
-            {topPicks.map((pick) => (
-              <div key={pick.name} className="recommendation-card">
-                <div>
-                  <span className={`rec-badge ${pick.badgeClass}`}>{pick.badge}</span>
-                </div>
-                <div className="rec-content">
+
+          <section className="quick-picks">
+            <h2>Our Top Picks</h2>
+            <div className="picks-grid">
+              {topPicks.map((pick, idx) => (
+                <div key={idx} className={`pick-card ${pick.badgeClass}`}>
+                  <span className="pick-badge">{pick.badge}</span>
                   <h3>{pick.name}</h3>
-                  <div className="rec-price">{pick.price}</div>
-                  <div className="rec-specs">{pick.specs}</div>
-                  <div className="rec-why">
-                    <strong>Why we picked it:</strong> {pick.why}
-                  </div>
-                  <a href={pick.link} className="cta-button" target="_blank" rel="noopener noreferrer">
-                    Check Price →
-                  </a>
+                  <span className="pick-price">{pick.price}</span>
+                  <p className="pick-specs">{pick.specs}</p>
+                  <p className="pick-why">{pick.why}</p>
+                  <a href={pick.link} className="pick-link" target="_blank" rel="noopener">Check Price →</a>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </section>
 
           <section>
-            <h2>📊 Complete Comparison</h2>
-            <div className="comparison-table-wrapper">
+            <h2>Quick Comparison</h2>
+            <div className="table-wrap">
               <table className="comparison-table">
                 <thead>
                   <tr>
@@ -103,13 +118,13 @@ export default function BestBudgetGuide() {
                   </tr>
                 </thead>
                 <tbody>
-                  {comparisonTable.map((row) => (
-                    <tr key={row.name}>
+                  {comparisonTable.map((row, idx) => (
+                    <tr key={idx}>
                       <td><strong>{row.name}</strong></td>
                       <td>{row.price}</td>
                       <td>{row.layout}</td>
-                      <td>{row.hotSwap === 'Yes' ? '✅ Yes' : row.hotSwap === 'No' ? '❌ No' : '✅ Some'}</td>
-                      <td>{row.wireless === 'Yes' ? '✅ Yes' : '❌ No'}</td>
+                      <td>{row.hotSwap}</td>
+                      <td>{row.wireless}</td>
                       <td>{row.bestFor}</td>
                     </tr>
                   ))}
@@ -119,73 +134,41 @@ export default function BestBudgetGuide() {
           </section>
 
           <section>
-            <h2>🎯 How We Chose These</h2>
-            <p>We looked for keyboards that meet these criteria:</p>
-            <ul className="styled-list">
-              <li><strong>Actually mechanical:</strong> No "mechanical-feel" membrane keyboards</li>
-              <li><strong>Reliable quality:</strong> Consistent builds, no widespread QC issues</li>
-              <li><strong>Available switches:</strong> Multiple switch options or easy to modify</li>
-              <li><strong>Community tested:</strong> Hundreds of real user reviews</li>
-              <li><strong>Widely available:</strong> Actually in stock, not unicorn rare</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>🤔 Which One Should You Get?</h2>
-            
-            <div className="use-case-grid">
-              <div className="use-case-card">
-                <h4>First mechanical keyboard?</h4>
-                <p>→ Keychron V1 or K8. Can try different switches later thanks to hot-swap.</p>
-              </div>
-              <div className="use-case-card">
-                <h4>Strictly gaming?</h4>
-                <p>→ RK61 or any 60% for mouse space. Consider speed switches.</p>
-              </div>
-              <div className="use-case-card">
-                <h4>Office/work environment?</h4>
-                <p>→ Keychron K8 (TKL) for the familiar layout with wireless.</p>
-              </div>
-              <div className="use-case-card">
-                <h4>Want to customize later?</h4>
-                <p>→ GMMK Compact hot-swap barebones. Add switches/keycaps as you learn.</p>
-              </div>
-              <div className="use-case-card">
-                <h4>Tightest budget?</h4>
-                <p>→ Redragon K552 at ~$45. It's not fancy but it's real mechanical.</p>
-              </div>
+            <h2>What to Look For</h2>
+            <p className="section-intro">
+              At this price point, prioritize function over form. Here is what actually matters:
+            </p>
+            <div className="tips-list">
+              {buyingTips.map((tip, idx) => (
+                <div key={idx} className="tip-item">
+                  <h4>{tip.title}</h4>
+                  <p>{tip.desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
-          <section>
-            <h2>⚡ What You Sacrifice Under $100</h2>
-            <p>Realistic expectations:</p>
-            <ul className="styled-list">
-              <li>Build quality won't match $200+ customs (plastic cases, not aluminum)</li>
-              <li>Stock stabilizers often need lubrication or modding</li>
-              <li>Keycaps are usually ABS (will get shiny over time)</li>
-              <li>No advanced features like gasket mounting or flex cuts</li>
-              <li>Limited color/design options</li>
-            </ul>
-            <p style={{ marginTop: '1rem' }}>That said: <strong>These keyboards are 80% as good as $200+ boards for typing feel.</strong> The switches are the same.</p>
-          </section>
-
-          <section>
-            <h2>🔧 Easy Upgrades</h2>
-            <p>Want to improve any of these later?</p>
-            <ul className="styled-list">
-              <li><strong>Lube the switches:</strong> Biggest impact to sound/feel. Krytox 205g0.</li>
-              <li><strong>Swap keycaps:</strong> PBT sets from Amazon/ePBT for $30-60.</li>
-              <li><strong>Mod stabs:</strong> Dielectric grease on spacebar, band-aid mod.</li>
-              <li><strong>Add foam:</strong> Case foam reduces hollow sound.</li>
-            </ul>
+          <section className="warning-section">
+            <h2>⚠️ Red Flags</h2>
+            <p className="section-intro">
+              Avoid these common budget board traps:
+            </p>
+            <div className="warnings-list">
+              {redFlags.map((item, idx) => (
+                <div key={idx} className="warning-item">
+                  <h4>{item.flag}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </section>
 
           <section className="cta-section">
-            <h2>Ready to see all keyboards?</h2>
-            <p>Compare prices across vendors, filter by layout, and find your perfect board.</p>
-            <a href="/" className="cta-button">Browse Full Dashboard →</a>
+            <h2>Ready to Buy?</h2>
+            <p>These picks are consistently in stock on Amazon and vendor sites. Prices fluctuate, so check back if something is out of stock.</p>
+            <p><strong>Pro tip:</strong> Watch for sales around Black Friday and Prime Day. These boards often drop 15-25%.</p>
           </section>
+
         </div>
       </article>
     </Layout>
