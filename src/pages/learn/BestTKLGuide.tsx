@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import '../../App.css';
 
@@ -10,6 +11,7 @@ export default function BestTKLGuide() {
   });
 
   return (
+    <Layout>
     <div className="guide-page">
       <div className="guide-header">
         <h1>Best TKL Keyboards of 2026</h1>
@@ -216,5 +218,6 @@ export default function BestTKLGuide() {
         </section>
       </div>
     </div>
+    </Layout>
   );
 }
