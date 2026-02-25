@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Wizard.css';
 import { KeyboardProduct } from '../types/keyboard';
 
@@ -15,7 +15,110 @@ interface WizardState {
   budget: string | null;
 }
 
-const steps = [
+interface Option {
+  id: string;
+  label: string;
+  desc: string;
+}
+
+interface Step {
+  id: keyof WizardState;
+  question: string;
+  subtitle: string;
+  options: Option[];
+}
+
+// Filter logic - same for both counting and applying
+const applyFilter = (products: KeyboardProduct[], selections: WizardState, stepId?: keyof WizardState): KeyboardProduct[] => {
+  let filtered = [...products];
+  
+  // Use case filtering
+  if (selections.useCase && stepId !== 'useCase') {
+    const keywords: Record<string, string[]> = {
+      gaming: ['gaming', 'rgb', 'macro', 'fast', 'reaction', 'competitive'],
+      work: ['ergonomic', 'quiet', 'office', 'professional', 'productivity', 'typing'],
+      creative: ['media', 'macro', 'programmable', 'control', 'dial', 'knob', 'encoder'],
+      general: [],
+    };
+    const words = keywords[selections.useCase] || [];
+    if (words.length > 0) {
+      filtered = filtered.filter(p => 
+        words.some(w => 
+          p.name?.toLowerCase().includes(w) || 
+          p.description?.toLowerCase().includes(w)
+        )
+      );
+    }
+  }
+
+  // Workspace filtering (noise level)
+  if (selections.workspace && stepId !== 'workspace') {
+    if (selections.workspace === 'shared') {
+      // For shared spaces, exclude loud/clicky switches
+      filtered = filtered.filter(p => 
+        !p.name?.toLowerCase().includes('clicky') &&
+        !p.name?.toLowerCase().includes('blue') &&
+        !p.name?.toLowerCase().includes('jade') &&
+        !p.name?.toLowerCase().includes('navy')
+      );
+    }
+  }
+
+  // Size filtering
+  if (selections.size && stepId !== 'size') {
+    const sizeKeywords: Record<string, string[]> = {
+      fullsize: ['full', '100%', 'numpad', '104', '108', '96%', '1800'],
+      tkl: ['tkl', 'tenkeyless', '80%', '87', '88'],
+      compact: ['60%', '65%', 'compact', 'mini', '75%', '40%', '68', '69'],
+    };
+    const keywords = sizeKeywords[selections.size] || [];
+    filtered = filtered.filter(p => 
+      keywords.some(k => 
+        p.name?.toLowerCase().includes(k) ||
+        p.description?.toLowerCase().includes(k)
+      )
+    );
+  }
+
+  // Hotswap filtering
+  if (selections.hotswap && selections.hotswap !== 'any' && stepId !== 'hotswap') {
+    const hasHotswap = selections.hotswap === 'hotswap';
+    filtered = filtered.filter(p => {
+      const productHasHotswap = /hotswap|hot-swap|swappable|hot swap/i.test(p.name + ' ' + p.description);
+      return hasHotswap ? productHasHotswap : !productHasHotswap;
+    });
+  }
+
+  // Budget filtering
+  if (selections.budget && stepId !== 'budget') {
+    const priceRanges: Record<string, [number, number]> = {
+      budget: [0, 100],
+      mid: [100, 200],
+      premium: [200, 10000],
+    };
+    const [min, max] = priceRanges[selections.budget] || [0, 10000];
+    filtered = filtered.filter(p => {
+      const priceStr = p.price?.replace(/[^0-9.]/g, '');
+      const price = parseFloat(priceStr || '0');
+      return price >= min && price <= max;
+    });
+  }
+
+  return filtered;
+};
+
+// Calculate matches for a specific option
+const calculateOptionMatches = (
+  products: KeyboardProduct[],
+  selections: WizardState,
+  stepId: keyof WizardState,
+  optionId: string
+): number => {
+  const testSelections = { ...selections, [stepId]: optionId };
+  return applyFilter(products, testSelections).length;
+};
+
+const steps: Step[] = [
   {
     id: 'useCase',
     question: 'What will you use this for?',
@@ -80,150 +183,50 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
     budget: null,
   });
 
-  const calculateMatches = (): number => {
-    let filtered = [...products];
-    
-    if (selections.useCase) {
-      // Filter based on use case keywords in name/description
-      const keywords: Record<string, string[]> = {
-        gaming: ['gaming', 'rgb', 'macro', 'fast'],
-        work: ['ergonomic', 'quiet', 'office', 'professional'],
-        creative: ['media', 'macro', 'programmable'],
-        general: [],
-      };
-      const words = keywords[selections.useCase] || [];
-      if (words.length > 0) {
-        filtered = filtered.filter(p => 
-          words.some(w => 
-            p.name?.toLowerCase().includes(w) || 
-            p.description?.toLowerCase().includes(w)
-          )
-        );
-      }
-    }
+  // Calculate current possible matches after all selections so far
+  const currentMatches = useMemo(() => {
+    return applyFilter(products, selections).length;
+  }, [products, selections]);
 
-    if (selections.workspace === 'shared') {
-      // Prefer quieter keyboards
-      filtered = filtered.filter(p => 
-        !p.name?.toLowerCase().includes('clicky') &&
-        !p.name?.toLowerCase().includes('blue')
-      );
-    }
+  // Calculate matches for each option in current step
+  const optionsWithCounts = useMemo(() => {
+    const step = steps[currentStep];
+    return step.options.map(option => {
+      const count = calculateOptionMatches(products, selections, step.id, option.id);
+      return { ...option, count };
+    });
+  }, [products, selections, currentStep]);
 
-    if (selections.size) {
-      const sizeKeywords: Record<string, string[]> = {
-        fullsize: ['full', '100%', 'numpad'],
-        tkl: ['tkl', 'tenkeyless', '80%'],
-        compact: ['60%', '65%', 'compact', 'mini'],
-      };
-      const keywords = sizeKeywords[selections.size] || [];
-      filtered = filtered.filter(p => 
-        keywords.some(k => p.name?.toLowerCase().includes(k))
-      );
-    }
-
-    if (selections.hotswap && selections.hotswap !== 'any') {
-      const hasHotswap = selections.hotswap === 'hotswap';
-      filtered = filtered.filter(p => {
-        const productHasHotswap = /hotswap|hot-swap|swappable/i.test(p.name || '');
-        return hasHotswap ? productHasHotswap : !productHasHotswap;
-      });
-    }
-
-    if (selections.budget) {
-      const priceRanges: Record<string, [number, number]> = {
-        budget: [0, 100],
-        mid: [100, 200],
-        premium: [200, 10000],
-      };
-      const [min, max] = priceRanges[selections.budget] || [0, 10000];
-      filtered = filtered.filter(p => {
-        const price = parseFloat(p.price?.replace(/[^0-9.]/g, '') || '0');
-        return price >= min && price <= max;
-      });
-    }
-
-    return filtered.length;
-  };
-
-  const matches = calculateMatches();
+  // Check if we're about to have 0 results
+  const willHaveZeroResults = currentMatches === 0;
 
   const handleSelect = (optionId: string) => {
-    const stepId = steps[currentStep].id as keyof WizardState;
-    setSelections(prev => ({ ...prev, [stepId]: optionId }));
+    const stepId = steps[currentStep].id;
+    const newSelections = { ...selections, [stepId]: optionId };
+    
+    // Check if this selection would result in 0 matches
+    const testCount = calculateOptionMatches(products, selections, stepId, optionId);
+    
+    if (testCount === 0) {
+      // Don't allow selection that leads to 0 results
+      return;
+    }
+    
+    setSelections(newSelections);
     
     if (currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {
       // Apply final filter
       setIsOpen(false);
-      applyFilters();
+      const filtered = applyFilter(products, newSelections);
+      onFilterChange(filtered);
     }
   };
 
   const applyFilters = () => {
-    let filtered = [...products];
-    
-    // Apply all active filters
-    if (selections.useCase) {
-      // Implementation same as calculateMatches
-      const keywords: Record<string, string[]> = {
-        gaming: ['gaming', 'rgb', 'macro', 'fast'],
-        work: ['ergonomic', 'quiet', 'office', 'professional'],
-        creative: ['media', 'macro', 'programmable'],
-        general: [],
-      };
-      const words = keywords[selections.useCase] || [];
-      if (words.length > 0) {
-        filtered = filtered.filter(p => 
-          words.some(w => 
-            p.name?.toLowerCase().includes(w) || 
-            p.description?.toLowerCase().includes(w)
-          )
-        );
-      }
-    }
-
-    if (selections.workspace === 'shared') {
-      filtered = filtered.filter(p => 
-        !p.name?.toLowerCase().includes('clicky') &&
-        !p.name?.toLowerCase().includes('blue')
-      );
-    }
-
-    if (selections.size) {
-      const sizeKeywords: Record<string, string[]> = {
-        fullsize: ['full', '100%', 'numpad'],
-        tkl: ['tkl', 'tenkeyless', '80%'],
-        compact: ['60%', '65%', 'compact', 'mini'],
-      };
-      const keywords = sizeKeywords[selections.size] || [];
-      filtered = filtered.filter(p => 
-        keywords.some(k => p.name?.toLowerCase().includes(k))
-      );
-    }
-
-    if (selections.hotswap && selections.hotswap !== 'any') {
-      const hasHotswap = selections.hotswap === 'hotswap';
-      filtered = filtered.filter(p => {
-        const productHasHotswap = /hotswap|hot-swap|swappable/i.test(p.name || '');
-        return hasHotswap ? productHasHotswap : !productHasHotswap;
-      });
-    }
-
-    if (selections.budget) {
-      const priceRanges: Record<string, [number, number]> = {
-        budget: [0, 100],
-        mid: [100, 200],
-        premium: [200, 10000],
-      };
-      const [min, max] = priceRanges[selections.budget] || [0, 10000];
-      filtered = filtered.filter(p => {
-        const price = parseFloat(p.price?.replace(/[^0-9.]/g, '') || '0');
-        return price >= min && price <= max;
-      });
-    }
-
+    const filtered = applyFilter(products, selections);
+    setIsOpen(false);
     onFilterChange(filtered);
   };
 
@@ -239,8 +242,21 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
     onFilterChange(products);
   };
 
+  // Go back one step
+  const goBack = () => {
+    if (currentStep > 0) {
+      // Clear the current step's selection when going back
+      const currentStepId = steps[currentStep].id;
+      setSelections(prev => ({ ...prev, [currentStepId]: null }));
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
   const currentStepData = steps[currentStep];
   const hasSelections = Object.values(selections).some(s => s !== null);
+
+  // Calculate total possible matches from current position
+  const totalPossibleMatches = products.length;
 
   return (
     <>
@@ -254,8 +270,8 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
           <rect x="2" y="4" width="20" height="16" rx="2" />
           <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M6 16h12" />
         </svg>
-        {hasSelections && (
-          <span className="match-count">{matches}</span>
+        {hasSelections && currentMatches > 0 && (
+          <span className="match-count">{currentMatches}</span>
         )}
       </button>
 
@@ -294,46 +310,68 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
               <p className="subtitle">{currentStepData.subtitle}</p>
             </div>
 
-            {/* Options */}
+            {/* Info banner showing current matches */}
+            <div className={`match-info-banner ${currentMatches === 0 ? 'warning' : currentMatches < 10 ? 'low' : 'good'}`}>
+              {currentMatches === 0 ? (
+                <span>⚠️ No keyboards match your current selections</span>
+              ) : currentMatches < 10 ? (
+                <span>⚡ {currentMatches} keyboards match so far</span>
+              ) : (
+                <span>✓ {currentMatches} keyboards match your criteria</span>
+              )}
+            </div>
+
+            {/* Options with counts */}
             <div className="wizard-options">
-              {currentStepData.options.map((option) => {
-                const stepId = steps[currentStep].id as keyof WizardState;
-                const isSelected = selections[stepId] === option.id;
+              {optionsWithCounts.map((option) => {
+                const isSelected = selections[currentStepData.id] === option.id;
+                const hasMatches = option.count > 0;
                 
                 return (
                   <button
                     key={option.id}
-                    className={`option-card ${isSelected ? 'selected' : ''}`}
-                    onClick={() => handleSelect(option.id)}
+                    className={`option-card ${isSelected ? 'selected' : ''} ${!hasMatches ? 'disabled' : ''}`}
+                    onClick={() => hasMatches && handleSelect(option.id)}
+                    disabled={!hasMatches}
                   >
-                    <div className="option-label">{option.label}</div>
+                    <div className="option-row">
+                      <div className="option-label">{option.label}</div>
+                      <div className={`option-count ${option.count === 0 ? 'zero' : option.count < 10 ? 'low' : ''}`}>
+                        {option.count > 0 ? `${option.count} options` : 'No matches'}
+                      </div>
+                    </div>
                     <div className="option-desc">{option.desc}</div>
                   </button>
                 );
               })}
             </div>
 
-            {/* Match Count */}
-            <div className="match-display">
-              {matches} keyboards match
-            </div>
+            {/* Warning if 0 results */}
+            {willHaveZeroResults && (
+              <div className="zero-results-warning">
+                <p>❌ Your current selections don't match any keyboards.</p>
+                <button onClick={goBack} className="back-to-adjust">
+                  ← Go back and adjust
+                </button>
+              </div>
+            )}
 
             {/* Navigation */}
             <div className="wizard-nav">
               {currentStep > 0 && (
                 <button 
                   className="nav-btn secondary"
-                  onClick={() => setCurrentStep(prev => prev - 1)}
+                  onClick={goBack}
                 >
                   ← Back
                 </button>
               )}
-              {currentStep === steps.length - 1 && (
+              {currentStep === steps.length - 1 && currentMatches > 0 && (
                 <button 
                   className="nav-btn primary"
                   onClick={applyFilters}
                 >
-                  Show Results
+                  Show {currentMatches} Results
                 </button>
               )}
             </div>
