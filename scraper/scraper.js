@@ -8,10 +8,10 @@ const PUBLIC_DATA_FILE = path.join(__dirname, '..', 'public', 'data.json');
 
 // Affiliate tracking codes
 const AFFILIATE_CODES = {
-  'Epomaker': { param: 'ref', value: 'keyboardtracker' },
+  'Epomaker': { param: 'sca_ref', value: '10691179.cOO0hJ6jvi' },
   'KBDfans': { param: 'ref', value: 'keyboardtracker' },
   'NovelKeys': { param: 'ref', value: 'keyboardtracker' },
-  'Keychron': { param: 'ref', value: 'keyboardtracker' },
+  'Keychron': { param: 'ref', value: 'switchyard' },
   'Drop': { param: 'referer', value: 'keyboardtracker' }
 };
 
