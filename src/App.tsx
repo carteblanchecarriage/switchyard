@@ -61,7 +61,8 @@ export default function App() {
       return;
     }
     
-    fetch('/data.json')
+    // Fetch from GitHub raw URL - decouples data updates from builds
+    fetch('https://raw.githubusercontent.com/carteblanchecarriage/switchyard/master/public/data.json')
       .then(res => res.json())
       .then(data => {
         const allProducts: Product[] = data.allProducts || data.groupBuys || [];
