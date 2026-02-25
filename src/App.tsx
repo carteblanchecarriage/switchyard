@@ -234,10 +234,18 @@ export default function App() {
       );
     } else if (category === 'accessories') {
       return baseProducts.filter(p => {
+        const cat = p.category?.toLowerCase() || '';
         const name = p.name?.toLowerCase() || '';
-        const isCarryingCase = name.includes('carrying case') || 
-                               name.includes('travel case') ||
-                               name.includes('keyboard bag');
+        
+        // Include anything categorized as accessories or case
+        if (cat === 'accessories' || cat === 'case') return true;
+        
+        // Include cases by keyword
+        const isCase = name.includes('case') || 
+                      name.includes('carrying case') || 
+                      name.includes('travel case') ||
+                      name.includes('keyboard bag');
+        
         const isAccessory = name.includes('cable') || 
                            name.includes('deskmat') || 
                            name.includes('wrist rest') ||
@@ -245,7 +253,7 @@ export default function App() {
                            name.includes('switch puller') ||
                            name.includes('lube') ||
                            name.includes('foam');
-        return isCarryingCase || isAccessory;
+        return isCase || isAccessory;
       });
     } else {
       return baseProducts.filter(p => p.category === category);
@@ -460,7 +468,7 @@ export default function App() {
 
       <div className="controls-row">
         <div className="filter-chips">
-          {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'case', 'accessories'].map(cat => (
+          {['all', 'keyboard', 'switches', 'keycaps', 'artisan', 'accessories'].map(cat => (
             <button
               key={cat}
               className={`filter-chip ${activeCategory === cat ? 'active' : ''}`}
