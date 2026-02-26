@@ -245,7 +245,7 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
         }
         
         // Determine category
-        // Check product name for keycap indicators (NovelKeys uses patterns like GMK, CYL, SA, etc.)
+        // Check product name for keycap indicators across all vendors
         const titleLower = p.title.toLowerCase();
         const tagsLower = tags.map(t => t.toLowerCase()).join(' ');
         const nameHasKeycaps = titleLower.includes('gmk') ||
@@ -254,6 +254,10 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
                               titleLower.includes('dsa ') ||
                               titleLower.includes('kat ') ||
                               titleLower.includes('mt3') ||
+                              titleLower.includes('mtnu') ||
+                              titleLower.includes('pbtfans') ||
+                              titleLower.includes('cherry profile') ||
+                              titleLower.includes('oem profile') ||
                               titleLower.includes('keycap') ||
                               titleLower.includes('keycaps') ||
                               titleLower.includes('keyset') ||
@@ -279,8 +283,23 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
                       type.includes('case') && !type.includes('keyboard') ? 'accessories' :
                       'keyboard';
         
-        // Check if it's a part (PCB, plate, etc.)
+        // Check description for additional categorization hints
         const description = p.body_html?.replace(/<[^>]*>/g, '').trim() || '';
+        const descLower = description.toLowerCase();
+        if (category === 'keyboard') {
+          if (descLower.includes('only keycaps included') || 
+              descLower.includes('profile: cherry') ||
+              descLower.includes('profile: oem') ||
+              (descLower.includes('material: pbt') && descLower.includes('keys') && !descLower.includes('keyboard'))) {
+            category = 'keycaps';
+          } else if (descLower.includes('switch type') || 
+                     (descLower.includes('linear') && descLower.includes('switch')) ||
+                     (descLower.includes('tactile') && descLower.includes('switch'))) {
+            category = 'switches';
+          }
+        }
+        
+        // Check if it's a part (PCB, plate, etc.) - description already defined above
         if (isPart(p.title, description, vendorName)) {
           category = 'parts';
           partCount++;
