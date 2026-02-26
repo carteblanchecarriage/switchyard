@@ -262,7 +262,13 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
                               titleLower.includes('keycaps') ||
                               titleLower.includes('keyset') ||
                               tagsLower.includes('keycap') ||
-                              tagsLower.includes('keycaps');
+                              tagsLower.includes('keycaps') ||
+                              tagsLower.includes('gmk keycaps');
+        
+        // Check tags for additional categorization hints
+        const hasKeyboardTag = tagsLower.includes('keyboard') || tagsLower.includes('diy kit');
+        const hasPCBTag = tagsLower.includes('pcb');
+        const hasSwitchTag = tagsLower.includes('switches') || tagsLower.includes('switch');
         
         // NovelKeys specific categorization
         const isNovelKeysKeycapSet = vendorName === 'NovelKeys' && 
@@ -277,10 +283,12 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
                                      (titleLower.includes('cyl') || titleLower.includes('mw '));
         
         let category = type.includes('keycap') || nameHasKeycaps || isMechsAndCoKeycaps || isNovelKeysKeycapSet ? 'keycaps' :
-                      type.includes('switch') || isNovelKeysSwitches ? 'switches' :
+                      type.includes('switch') || hasSwitchTag || isNovelKeysSwitches ? 'switches' :
                       type.includes('cable') ? 'accessories' :
                       type.includes('deskmat') ? 'accessories' :
                       type.includes('case') && !type.includes('keyboard') ? 'accessories' :
+                      hasPCBTag ? 'accessories' :
+                      hasKeyboardTag ? 'keyboard' :
                       'keyboard';
         
         // Check description for additional categorization hints
