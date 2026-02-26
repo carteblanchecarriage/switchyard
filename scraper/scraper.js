@@ -12,7 +12,8 @@ const AFFILIATE_CODES = {
   'KBDfans': { param: 'ref', value: 'switchyard' },
   'NovelKeys': { param: 'ref', value: 'switchyard' },
   'Keychron': { param: 'ref', value: 'switchyard' },
-  'Drop': { param: 'referer', value: 'switchyard' }
+  'Drop': { param: 'referer', value: 'switchyard' },
+  'Qwerkywriter': { param: 'ref', value: 'switchyard' }
 };
 
 // Keywords that indicate a product is a PART, not a complete keyboard
@@ -516,6 +517,83 @@ async function scrapeDrop() {
   return items;
 }
 
+async function scrapeQwerkywriter() {
+  console.log('🔍 Qwerkywriter...');
+  const allItems = [];
+  
+  try {
+    const url = 'https://www.qwerkywriter.com/products.json?limit=250';
+    const res = await axios.get(url, {
+      headers: { 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+    
+    const products = res.data?.products || [];
+    const seenIds = new Set();
+    
+    products.forEach(p => {
+      // Skip duplicates
+      if (seenIds.has(p.id)) return;
+      seenIds.add(p.id);
+      
+      // Skip sold out or unavailable
+      const variants = p.variants || [];
+      const hasAvailable = variants.some(v => v.available);
+      if (!hasAvailable) return;
+      
+      // Skip accessories that aren't keyboards
+      const type = (p.product_type || '').toLowerCase();
+      const titleLower = p.title.toLowerCase();
+      
+      // Skip warranties, cases, and replacement parts
+      if (titleLower.includes('warranty') || 
+          titleLower.includes('carrying case') ||
+          titleLower.includes('wrist pad') ||
+          titleLower.includes('desk mat') ||
+          titleLower.includes('replacement') ||
+          titleLower.includes('battery') ||
+          titleLower.includes('numpad') ||
+          titleLower.includes('numkey') ||
+          titleLower.includes('keycap') ||
+          titleLower.includes('accessories')) {
+        return;
+      }
+      
+      // Categorize - they're primarily keyboards
+      let category = 'keyboard';
+      
+      const productUrl = `https://www.qwerkywriter.com/products/${p.handle}`;
+      const price = p.variants?.[0]?.price || 'See site';
+      const img = p.images?.[0]?.src || '';
+      
+      allItems.push({
+        id: `qwerkywriter-${p.handle}-${p.id}`.slice(0, 80),
+        name: p.title,
+        type: 'product',
+        platform: 'Qwerkywriter',
+        vendor: 'Qwerkywriter',
+        category: category,
+        url: productUrl,
+        affiliateUrl: addAffiliateLink(productUrl, 'Qwerkywriter'),
+        price: `$${price}`,
+        image: img,
+        description: p.body_html?.replace(/<[^>]*>/g, '').slice(0, 200) || '',
+        scrapedAt: new Date().toISOString(),
+        status: 'in_stock'
+      });
+    });
+    
+  } catch (e) {
+    console.log(`   ⚠️ Qwerkywriter: ${e.message.slice(0, 50)}`);
+  }
+  
+  console.log(`   ✅ Qwerkywriter: ${allItems.length} keyboards`);
+  return allItems;
+}
+
 // Group Buy scrapers
 async function scrapeGeekhack() {
   console.log('\n🎯 Geekhack Group Buys...');
@@ -648,7 +726,7 @@ async function runScraper() {
   // Products
   console.log('📦 VENDOR PRODUCTS (In-Stock Only)');
   console.log('=====================================');
-  const productScrapers = [scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys, scrapeDrop];
+  const productScrapers = [scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys, scrapeDrop, scrapeQwerkywriter];
   
   for (const scraper of productScrapers) {
     try {
