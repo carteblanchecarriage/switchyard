@@ -1,9 +1,11 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 export default function BeginnersGuide() {
+  useScrollToTop();
   usePageSEO({
     title: "Beginner's Guide to Mechanical Keyboards | Switchyard",
     description: "New to mechanical keyboards? Learn the basics: switch types explained simply (linear, tactile, clicky), layout sizes, and how to choose your first board. No jargon, just the essentials.",

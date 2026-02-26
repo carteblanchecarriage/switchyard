@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 const topPicks = [
@@ -65,6 +66,7 @@ const useCases = [
 ];
 
 export default function Best75PercentGuide() {
+  useScrollToTop();
   usePageSEO({
     title: 'Best 75% Mechanical Keyboards 2026 | Switchyard',
     description: 'Top 75% keyboards: Keychron Q1 Pro, RK84, Feker IK75, NuPhy Halo75. The enthusiast sweet spot with F-row, arrows, and compact size.',

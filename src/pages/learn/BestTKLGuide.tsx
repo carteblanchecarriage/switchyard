@@ -1,9 +1,11 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import '../../App.css';
 
 export default function BestTKLGuide() {
+  useScrollToTop();
   usePageSEO({
     title: 'Best TKL Keyboards 2026 | Tenkeyless Mechanical | Switchyard',
     description: 'The best tenkeyless (TKL) mechanical keyboards for 2026. Top picks for gaming, productivity, and programming with detailed reviews and buying advice.',

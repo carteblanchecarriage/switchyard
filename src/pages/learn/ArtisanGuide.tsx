@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 const makers = [
@@ -44,6 +45,7 @@ const scamSigns = [
 ];
 
 export default function ArtisanGuide() {
+  useScrollToTop();
   const [activeTab, setActiveTab] = useState(0);
 
   usePageSEO({

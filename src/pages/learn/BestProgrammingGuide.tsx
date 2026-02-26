@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 const topPicks = [
@@ -55,6 +56,7 @@ const layoutComparison = [
 ];
 
 export default function BestProgrammingGuide() {
+  useScrollToTop();
   usePageSEO({
     title: 'Best Keyboards for Programming 2026 | Developer Picks | Switchyard',
     description: 'Top keyboards for coding: Keychron Q1 Pro, HHKB, Moonlander. QMK programmable, compact layouts, ergonomic splits for developers.',

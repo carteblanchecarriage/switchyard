@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 const topPicks = [
@@ -66,6 +67,7 @@ const redFlags = [
 ];
 
 export default function BestBudgetGuide() {
+  useScrollToTop();
   usePageSEO({
     title: "Best Budget Mechanical Keyboards Under $100 | Switchyard",
     description: "Top affordable mechanical keyboards under $100. Compare Keychron V1, Royal Kludge RK61, and more. Expert picks for gaming, typing, and first-time buyers.",

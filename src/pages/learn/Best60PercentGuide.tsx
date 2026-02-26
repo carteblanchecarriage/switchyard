@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import './GuidePages.css';
 
 const keyboardLayout = [
@@ -70,6 +71,7 @@ const skipIf = [
 ];
 
 export default function Best60PercentGuide() {
+  useScrollToTop();
   usePageSEO({
     title: "Best 60% Keyboards 2026 | Compact Gaming & Typing | Switchyard",
     description: "Top 60% mechanical keyboards: Akko 3068B Plus, RK61, Glorious GMMK Compact, Keychron Q4 Pro. Portable, minimalist layouts perfect for gaming and travel.",
