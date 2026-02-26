@@ -1,138 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Page -->
     <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/</loc>
+        <loc>https://carteblanchecarriage.github.io/switchyard/</loc>
         <priority>1.0</priority>
         <changefreq>hourly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/artisan/</loc>
-        <priority>0.9</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/blog.html</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/beginner/</loc>
-        <priority>0.9</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/guides/switches/</loc>
-        <priority>0.8</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/guides/programming/</loc>
-        <priority>0.8</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/guides/lubing/</loc>
-        <priority>0.8</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/best/</loc>
-        <priority>0.9</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/best-budget/</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/best-programming/</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/best-60-percent/</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/gaming/</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/switches/</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/build/</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/guide/</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/glossary/</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <!-- Blog Posts -->
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/blog/</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2026-02-22</lastmod>
-    </url>
-    <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/blog/what-are-group-buys.html</loc>
-        <priority>0.8</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
+        <lastmod>2026-02-26</lastmod>
     </url>
     
-    <!-- Legal Pages -->
+    <!-- Learn Hub -->
     <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/privacy.html</loc>
-        <priority>0.5</priority>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn</loc>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    
+    <!-- Getting Started Guides -->
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/beginners-guide</loc>
+        <priority>0.9</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
+        <lastmod>2026-02-26</lastmod>
     </url>
     <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/terms.html</loc>
-        <priority>0.5</priority>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/layout-sizes</loc>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
+        <lastmod>2026-02-26</lastmod>
     </url>
     <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/affiliate-disclosure.html</loc>
-        <priority>0.5</priority>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/glossary</loc>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
+        <lastmod>2026-02-26</lastmod>
     </url>
     <url>
-        <loc>https://carteblanchecarriage.github.io/keebshelf/contact.html</loc>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/faq</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    
+    <!-- Deep Dive Guides -->
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/switch-guide</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/keycap-profiles</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/artisan-guide</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/group-buys</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    
+    <!-- Best/Review Guides -->
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-budget</loc>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-gaming</loc>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-programming</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-60-percent</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-75-percent</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/learn/best-tkl</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    
+    <!-- Legacy Routes (for backward compatibility) -->
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/beginners-guide</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/switch-guide</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/glossary</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/faq</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/artisan</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/best-budget</loc>
+        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/best-gaming</loc>
+        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/gaming</loc>
         <priority>0.6</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/best-programming</loc>
+        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/best-tkl</loc>
+        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://carteblanchecarriage.github.io/switchyard/best-60-percent</loc>
+        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-26</lastmod>
     </url>
 </urlset>
