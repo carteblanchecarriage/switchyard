@@ -13,7 +13,11 @@ const AFFILIATE_CODES = {
   'NovelKeys': { param: 'ref', value: 'switchyard' },
   'Keychron': { param: 'ref', value: 'switchyard' },
   'Drop': { param: 'referer', value: 'switchyard' },
-  'Qwerkywriter': { param: 'ref', value: 'switchyard' }
+  'Qwerkywriter': { param: 'ref', value: 'switchyard' },
+  'CannonKeys': { param: 'ref', value: 'switchyard' },
+  'DiviniKey': { param: 'ref', value: 'switchyard' },
+  'Glorious': { param: 'ref', value: 'switchyard' },
+  'Boardsource': { param: 'ref', value: 'switchyard' }
 };
 
 // Keywords that indicate a product is a PART, not a complete keyboard
@@ -644,6 +648,333 @@ async function scrapeQwerkywriter() {
   return allItems;
 }
 
+// ====================
+// CANNONKEYS SCRAPER
+// ====================
+async function scrapeCannonKeys() {
+  console.log('🔍 CannonKeys...');
+  const allItems = [];
+
+  try {
+    const url = 'https://cannonkeys.com/products.json?limit=250';
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+
+    const products = res.data?.products || [];
+    const seenIds = new Set();
+
+    for (const p of products) {
+      if (seenIds.has(p.id)) continue;
+      seenIds.add(p.id);
+
+      // Skip if not available
+      const variants = p.variants || [];
+      const hasAvailable = variants.some(v => v.available);
+      if (!hasAvailable) continue;
+
+      // Check for redirect/unavailability
+      const description = (p.body_html || '').toLowerCase();
+      if (description.includes('redirect to') || description.includes('canceled')) continue;
+
+      // Check tags for archived indicators
+      const tags = p.tags || [];
+      const tagsLower = tags.map(t => t.toLowerCase());
+      if (tagsLower.includes('archived') || tagsLower.includes('discontinued') || tagsLower.includes('nonreturnable')) continue;
+
+      // Determine category
+      const titleLower = p.title.toLowerCase();
+      const type = (p.product_type || '').toLowerCase();
+
+      const nameHasKeycaps = titleLower.includes('gmk') ||
+                            titleLower.includes('pbt') ||
+                            titleLower.includes('keycap') ||
+                            titleLower.includes('sa ') ||
+                            tagsLower.includes('keycaps') ||
+                            tagsLower.includes('gmk keycaps');
+
+      const hasSwitchTag = tagsLower.includes('switches');
+      const hasPCBTag = tagsLower.includes('pcb');
+
+      let category = type.includes('keycap') || nameHasKeycaps ? 'keycaps' :
+                    type.includes('switch') || hasSwitchTag ? 'switches' :
+                    hasPCBTag ? 'accessories' :
+                    'keyboard';
+
+      // Check if part
+      if (isPart(p.title, description, 'CannonKeys')) {
+        category = 'accessories';
+      }
+
+      const productUrl = `https://cannonkeys.com/products/${p.handle}`;
+      const price = p.variants?.[0]?.price || 'See site';
+      const img = p.images?.[0]?.src || '';
+
+      allItems.push({
+        id: `cannonkeys-${p.handle}-${p.id}`.slice(0, 80),
+        name: p.title,
+        type: 'product',
+        platform: 'CannonKeys',
+        vendor: 'CannonKeys',
+        category: category,
+        url: productUrl,
+        affiliateUrl: addAffiliateLink(productUrl, 'CannonKeys'),
+        price: `$${price}`,
+        image: img,
+        description: description.replace(/<[^>]*>/g, '').slice(0, 200),
+        scrapedAt: new Date().toISOString(),
+        status: 'in_stock'
+      });
+    }
+
+  } catch (e) {
+    console.log(`   ⚠️ CannonKeys: ${e.message.slice(0, 50)}`);
+  }
+
+  console.log(`   ✅ CannonKeys: ${allItems.length} products`);
+  return allItems;
+}
+
+// ====================
+// DIVINIKEY SCRAPER
+// ====================
+async function scrapeDivinikey() {
+  console.log('🔍 DiviniKey...');
+  const allItems = [];
+
+  try {
+    const url = 'https://divinikey.com/products.json?limit=250';
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+
+    const products = res.data?.products || [];
+    const seenIds = new Set();
+
+    for (const p of products) {
+      if (seenIds.has(p.id)) continue;
+      seenIds.add(p.id);
+
+      const variants = p.variants || [];
+      const hasAvailable = variants.some(v => v.available);
+      if (!hasAvailable) continue;
+
+      const description = (p.body_html || '').toLowerCase();
+      if (description.includes('redirect to') || description.includes('canceled')) continue;
+
+      const tags = p.tags || [];
+      const tagsLower = tags.map(t => t.toLowerCase());
+      if (tagsLower.includes('archived') || tagsLower.includes('discontinued')) continue;
+
+      const titleLower = p.title.toLowerCase();
+      const type = (p.product_type || '').toLowerCase();
+
+      const nameHasKeycaps = titleLower.includes('gmk') ||
+                            titleLower.includes('pbt') ||
+                            titleLower.includes('keycap') ||
+                            titleLower.includes('epbt') ||
+                            tagsLower.includes('keycaps');
+
+      const hasSwitchTag = tagsLower.includes('switches');
+      const hasPCBTag = tagsLower.includes('pcb');
+
+      let category = type.includes('keycap') || nameHasKeycaps ? 'keycaps' :
+                    type.includes('switch') || hasSwitchTag ? 'switches' :
+                    hasPCBTag ? 'accessories' :
+                    'keyboard';
+
+      if (isPart(p.title, description, 'DiviniKey')) {
+        category = 'accessories';
+      }
+
+      const productUrl = `https://divinikey.com/products/${p.handle}`;
+      const price = p.variants?.[0]?.price || 'See site';
+      const img = p.images?.[0]?.src || '';
+
+      allItems.push({
+        id: `divinikey-${p.handle}-${p.id}`.slice(0, 80),
+        name: p.title,
+        type: 'product',
+        platform: 'DiviniKey',
+        vendor: 'DiviniKey',
+        category: category,
+        url: productUrl,
+        affiliateUrl: addAffiliateLink(productUrl, 'DiviniKey'),
+        price: `$${price}`,
+        image: img,
+        description: description.replace(/<[^>]*>/g, '').slice(0, 200),
+        scrapedAt: new Date().toISOString(),
+        status: 'in_stock'
+      });
+    }
+
+  } catch (e) {
+    console.log(`   ⚠️ DiviniKey: ${e.message.slice(0, 50)}`);
+  }
+
+  console.log(`   ✅ DiviniKey: ${allItems.length} products`);
+  return allItems;
+}
+
+// ====================
+// GLORIOUS SCRAPER
+// ====================
+async function scrapeGlorious() {
+  console.log('🔍 Glorious...');
+  const allItems = [];
+
+  try {
+    const url = 'https://www.gloriousgaming.com/products.json?limit=250';
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+
+    const products = res.data?.products || [];
+    const seenIds = new Set();
+
+    for (const p of products) {
+      if (seenIds.has(p.id)) continue;
+      seenIds.add(p.id);
+
+      const variants = p.variants || [];
+      const hasAvailable = variants.some(v => v.available);
+      if (!hasAvailable) continue;
+
+      const description = (p.body_html || '').toLowerCase();
+      if (description.includes('redirect to') || description.includes('canceled')) continue;
+
+      const tags = p.tags || [];
+      const tagsLower = tags.map(t => t.toLowerCase());
+      if (tagsLower.includes('archived') || tagsLower.includes('discontinued')) continue;
+
+      const titleLower = p.title.toLowerCase();
+      const type = (p.product_type || '').toLowerCase();
+
+      // Glorious focuses on keyboards, mice, and accessories
+      const isMouse = titleLower.includes('mouse') || titleLower.includes('model d') || titleLower.includes('model o');
+      const isKeyboard = titleLower.includes('keyboard') || titleLower.includes('gmmk') || titleLower.includes('keycap');
+      const isAccessory = titleLower.includes('wrist') || titleLower.includes('mat') || titleLower.includes('cable');
+
+      let category = isMouse ? 'mice' :
+                    isAccessory ? 'accessories' :
+                    'keyboard';
+
+      const productUrl = `https://www.gloriousgaming.com/products/${p.handle}`;
+      const price = p.variants?.[0]?.price || 'See site';
+      const img = p.images?.[0]?.src || '';
+
+      allItems.push({
+        id: `glorious-${p.handle}-${p.id}`.slice(0, 80),
+        name: p.title,
+        type: 'product',
+        platform: 'Glorious',
+        vendor: 'Glorious',
+        category: category,
+        url: productUrl,
+        affiliateUrl: addAffiliateLink(productUrl, 'Glorious'),
+        price: `$${price}`,
+        image: img,
+        description: description.replace(/<[^>]*>/g, '').slice(0, 200),
+        scrapedAt: new Date().toISOString(),
+        status: 'in_stock'
+      });
+    }
+
+  } catch (e) {
+    console.log(`   ⚠️ Glorious: ${e.message.slice(0, 50)}`);
+  }
+
+  console.log(`   ✅ Glorious: ${allItems.length} products`);
+  return allItems;
+}
+
+// ====================
+// BOARDSOURCE SCRAPER
+// ====================
+async function scrapeBoardsource() {
+  console.log('🔍 Boardsource...');
+  const allItems = [];
+
+  try {
+    const url = 'https://boardsource.xyz/products.json?limit=250';
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json'
+      },
+      timeout: 15000
+    });
+
+    const products = res.data?.products || [];
+    const seenIds = new Set();
+
+    for (const p of products) {
+      if (seenIds.has(p.id)) continue;
+      seenIds.add(p.id);
+
+      const variants = p.variants || [];
+      const hasAvailable = variants.some(v => v.available);
+      if (!hasAvailable) continue;
+
+      const description = (p.body_html || '').toLowerCase();
+      if (description.includes('redirect to') || description.includes('canceled')) continue;
+
+      const tags = p.tags || [];
+      const tagsLower = tags.map(t => t.toLowerCase());
+      if (tagsLower.includes('archived') || tagsLower.includes('discontinued')) continue;
+
+      const titleLower = p.title.toLowerCase();
+      const type = (p.product_type || '').toLowerCase();
+
+      // Boardsource focuses on split/ergonomic keyboards
+      const nameHasKeycaps = titleLower.includes('keycap') || tagsLower.includes('keycaps');
+      const isSplit = titleLower.includes('split') || titleLower.includes('corne') || titleLower.includes('lily58');
+
+      let category = nameHasKeycaps ? 'keycaps' :
+                    isSplit ? 'keyboard' :
+                    'accessories';
+
+      const productUrl = `https://boardsource.xyz/products/${p.handle}`;
+      const price = p.variants?.[0]?.price || 'See site';
+      const img = p.images?.[0]?.src || '';
+
+      allItems.push({
+        id: `boardsource-${p.handle}-${p.id}`.slice(0, 80),
+        name: p.title,
+        type: 'product',
+        platform: 'Boardsource',
+        vendor: 'Boardsource',
+        category: category,
+        url: productUrl,
+        affiliateUrl: addAffiliateLink(productUrl, 'Boardsource'),
+        price: `$${price}`,
+        image: img,
+        description: description.replace(/<[^>]*>/g, '').slice(0, 200),
+        scrapedAt: new Date().toISOString(),
+        status: 'in_stock'
+      });
+    }
+
+  } catch (e) {
+    console.log(`   ⚠️ Boardsource: ${e.message.slice(0, 50)}`);
+  }
+
+  console.log(`   ✅ Boardsource: ${allItems.length} products`);
+  return allItems;
+}
+
 // Group Buy scrapers
 async function scrapeGeekhack() {
   console.log('\n🎯 Geekhack Group Buys...');
@@ -776,7 +1107,7 @@ async function runScraper() {
   // Products
   console.log('📦 VENDOR PRODUCTS (In-Stock Only)');
   console.log('=====================================');
-  const productScrapers = [scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys, scrapeDrop, scrapeQwerkywriter];
+  const productScrapers = [scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys, scrapeDrop, scrapeQwerkywriter, scrapeCannonKeys, scrapeDivinikey, scrapeGlorious, scrapeBoardsource];
   
   for (const scraper of productScrapers) {
     try {
