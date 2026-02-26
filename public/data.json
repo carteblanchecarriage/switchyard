@@ -14747,51 +14747,6 @@
       "description": "International orders (outside the USA) may be subject to additional duties and taxes.\u00a0 \u00a0\nOnly available in UK, Spanish, French, Italian, Nordic, and German layout.\u00a0 Please see PIC for each language la",
       "scrapedAt": "2026-02-26T15:49:14.749Z",
       "status": "in_stock"
-    },
-    {
-      "id": "qwerkywriter-official-qwerkytoys-lined-journal-8669288661228",
-      "name": "Official QWERKYTOYS Lined Journal",
-      "type": "product",
-      "platform": "Qwerkywriter",
-      "vendor": "Qwerkywriter",
-      "category": "keyboard",
-      "url": "https://www.qwerkywriter.com/products/official-qwerkytoys-lined-journal",
-      "affiliateUrl": "https://www.qwerkywriter.com/products/official-qwerkytoys-lined-journal?ref=switchyard",
-      "price": "$12.99",
-      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/QT_Product_NotebookHero_98f7d7b8-9018-4224-93f6-332b70bf9f61.jpg?v=1726772578",
-      "description": "Official QWERKYTOYS lined journal in GOLD or SILVER.\u00a0 The perfect desktop companion to your QWERKYWRITER!\n5.75\" x 8.5\" x 0.6\" inches (146mm x 215.9mm x 15.24mm)\n13.9 oz (0.37 kg)",
-      "scrapedAt": "2026-02-26T15:49:14.749Z",
-      "status": "in_stock"
-    },
-    {
-      "id": "qwerkywriter-10-oz-yeti-stackable-lowball-qwerkytoys-edition-8577206649068",
-      "name": "10 oz YETI Stackable Lowball QWERKYTOYS Edition",
-      "type": "product",
-      "platform": "Qwerkywriter",
-      "vendor": "Qwerkywriter",
-      "category": "keyboard",
-      "url": "https://www.qwerkywriter.com/products/10-oz-yeti-stackable-lowball-qwerkytoys-edition",
-      "affiliateUrl": "https://www.qwerkywriter.com/products/10-oz-yeti-stackable-lowball-qwerkytoys-edition?ref=switchyard",
-      "price": "$34.99",
-      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/black_front_4852cc71-2473-4483-8766-c3c1ab9f9f17.jpg?v=1735339760",
-      "description": "Classic and versatile stackable lowball for your camp cocktail and neat bourbon.\n\nSplash resistant\nDishwasher safe\nStackable\n\nDimensions 3.5\"W x 4.1\"H (8.8W x 10.3H CM)\n",
-      "scrapedAt": "2026-02-26T15:49:14.749Z",
-      "status": "in_stock"
-    },
-    {
-      "id": "qwerkywriter-shipping-protection-8443234255084",
-      "name": "Shipping protection",
-      "type": "product",
-      "platform": "Qwerkywriter",
-      "vendor": "Qwerkywriter",
-      "category": "keyboard",
-      "url": "https://www.qwerkywriter.com/products/shipping-protection",
-      "affiliateUrl": "https://www.qwerkywriter.com/products/shipping-protection?ref=switchyard",
-      "price": "$5.00",
-      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/ShippingWarrantyBlue_WhiteResize_1__png.jpg?v=1715795245",
-      "description": "If your product is lost, stolen or damaged. Reach out to the team within 30 days and we will refund.",
-      "scrapedAt": "2026-02-26T15:49:14.749Z",
-      "status": "in_stock"
     }
   ],
   "revenueProjection": {
