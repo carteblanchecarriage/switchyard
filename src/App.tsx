@@ -201,19 +201,37 @@ export default function App() {
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error loading data:', err);
+        console.error('Error loading products:', err);
         setError('Failed to load products');
         setLoading(false);
       });
   }, [currentPath]);
 
-  // SEO for main product grid
+  // SEO for main product grid - dynamic based on category and search
+  const getPageTitle = () => {
+    if (searchQuery) {
+      return `"${searchQuery}" | Search Results - Switchyard`;
+    }
+    if (activeCategory === 'all') {
+      return 'Switchyard | Browse 300+ In-Stock Mechanical Keyboards & Keycaps';
+    }
+    return `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Keyboards & Keycaps | Switchyard`;
+  };
+
+  const getPageDescription = () => {
+    if (searchQuery) {
+      return `Search results for "${searchQuery}" - ${filteredProducts.length} products found`;
+    }
+    if (activeCategory === 'all') {
+      return 'Browse 300+ in-stock mechanical keyboards, keycaps, switches, and accessories. Live inventory tracking from Drop, Keychron, NovelKeys, and more.';
+    }
+    return `Shop ${filteredProducts.length}+ ${activeCategory} keyboards and accessories. Track availability and compare prices. Updated daily.`;
+  };
+
   usePageSEO({
-    title: activeCategory === 'all' 
-      ? 'Switchyard | Mechanical Keyboard Tracker'
-      : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} | Switchyard`,
-    description: `Browse ${filteredProducts.length}+ ${activeCategory === 'all' ? 'mechanical keyboards, keycaps, switches, and accessories' : activeCategory} from top vendors. Track group buys and find in-stock drops.`,
-    keywords: `mechanical keyboards, ${activeCategory}, keyboard tracker, group buys, keycaps, switches`
+    title: getPageTitle(),
+    description: getPageDescription(),
+    keywords: `mechanical keyboards, ${activeCategory}, keyboard tracker, group buys, keycaps, switches, Drop, Keychron, GMK, ${searchQuery || ''}`
   });
 
   // Filter products by category
@@ -355,7 +373,7 @@ export default function App() {
   const displayedProducts = sortProducts(filteredProducts).slice(0, displayLimit);
   const hasMore = filteredProducts.length > displayLimit;
 
-  // Route to page components
+  // Route to page components with proper SEO coverage
   if (currentPath === '/learn') {
     return <Learn />;
   }
@@ -399,7 +417,7 @@ export default function App() {
   if (currentPath === '/learn/best-gaming' || currentPath === '/gaming') {
     return <BestGamingGuide />;
   }
-  if (currentPath === ('/learn/best-60-percent' || currentPath === '/best-60-percent')) {
+  if (currentPath === '/learn/best-60-percent' || currentPath === '/best-60-percent') {
     return <Best60PercentGuide />;
   }
   if (currentPath === '/learn/group-buys') {
@@ -454,12 +472,13 @@ export default function App() {
           <input
             type="text"
             className="search-input"
-            placeholder="Search products, vendors, categories..."
+            placeholder="Search keyboards, keycaps, switches, vendors..."
             value={searchQuery}
             onChange={handleSearchChange}
+            aria-label="Search products"
           />
           {searchQuery && (
-            <button className="search-clear" onClick={clearSearch}>
+            <button className="search-clear" onClick={clearSearch} aria-label="Clear search">
               ✕
             </button>
           )}
@@ -473,6 +492,7 @@ export default function App() {
               key={cat}
               className={`filter-chip ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => handleCategoryChange(cat)}
+              aria-label={`Filter by ${cat}`}
             >
               {cat === 'all' ? 'All Products' : cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
@@ -486,6 +506,7 @@ export default function App() {
             value={sortBy} 
             onChange={(e) => setSortBy(e.target.value)}
             className="sort-select"
+            aria-label="Sort products"
           >
             <option value="newest">Newest First</option>
             <option value="price-low">Price: Low to High</option>
@@ -504,12 +525,19 @@ export default function App() {
             key={product.id}
             className="product-card"
             onClick={() => setSelectedProduct(product)}
+            role="button"
+            tabIndex={0}
+            aria-label={`View ${product.name} details`}
           >
             <div className="product-image">
               {product.image ? (
-                <img src={product.image} alt={product.name} />
+                <img 
+                  src={product.image} 
+                  alt={`${product.name} - ${product.vendor || product.category || 'Keyboard product'}`}
+                  loading="lazy"
+                />
               ) : (
-                <div className="no-image">No Image</div>
+                <div className="no-image">No Image Available</div>
               )}
             </div>
             <div className="product-info">
@@ -524,7 +552,7 @@ export default function App() {
 
       {hasMore && (
         <div className="load-more">
-          <button onClick={loadMore}>
+          <button onClick={loadMore} aria-label={`Load more products (${filteredProducts.length - displayLimit} remaining)`}>
             Load More ({filteredProducts.length - displayLimit} remaining)
           </button>
         </div>
