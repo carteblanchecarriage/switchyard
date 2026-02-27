@@ -64,37 +64,60 @@ Rapid content production system for capturing search traffic and driving affilia
 - Use affiliate links on EVERY product mention
 
 ### Step 4: Product Linking (Critical)
-**Every product recommendation MUST include:**
-```html
-<a href="/?keyboard=[product-name]" class="cta-button">Compare Prices</a>
+
+**Two types of links:**
+
+**1. Direct vendor purchase (external, new tab):**
+```tsx
+<a href="https://keychron.com/products/[product]?ref=switchyard" 
+   className="cta-button" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   Buy on Keychron →
+</a>
 ```
 
-**Or direct affiliate:**
-```html
-<a href="[affiliate-url]" class="cta-button">View on [Vendor]</a>
+**2. Internal search/browse (SPA navigation, same tab):**
+```tsx
+<a href="/?search=Cherry+MX2A" 
+   onClick={(e) => { 
+     e.preventDefault(); 
+     window.history.pushState({}, '', '/?search=Cherry+MX2A'); 
+     window.dispatchEvent(new PopStateEvent('popstate')); 
+   }} 
+   style={{cursor: "pointer", color: '#6366f1'}}>
+   Compare prices across all vendors in our database →
+</a>
 ```
 
 **Affiliate link format by vendor:**
-- **Keychron:** `https://keychron.com?ref=switchyard`
-- **Epomaker:** `https://epomaker.com?ref=switchyard`
-- **Qwerkywriter:** `https://qwerkywriter.com?sca_ref=10713146.AiDf5cQpby`
-- **KBDfans:** Use direct product links with tracking
+| Vendor | URL Pattern |
+|--------|-------------|
+| **Keychron** | `https://keychron.com/products/[product]?ref=switchyard` |
+| **Epomaker** | `https://epomaker.com/products/[product]?sca_ref=10691179.cOO0hJ6jvi` |
+| **Qwerkywriter** | `https://qwerkywriter.com?sca_ref=10713146.AiDf5cQpby` |
+| **KBDfans** | `https://kbdfans.com/products/[product]?ref=switchyard` |
+| **Dangkeebs** | Direct link (no affiliate currently) |
 
 **Product card template:**
-```html
-<div class="keyboard-card-inline">
-    <img src="https://assets.switchyard.club/keyboards/[product].jpg" alt="[Name]">
-    <div class="keyboard-card-info">
-        <h4>[Product Name]</h4>
-        <div class="price">$XXX</div>
-        <div class="features">
-            ✅ [Feature 1]<br>
-            ✅ [Feature 2]<br>
-            ❌ [Drawback]
-        </div>
-        <a href="/?keyboard=[product-slug]" class="cta-button">Compare Prices</a>
+```tsx
+<div className="product-card">
+  <div className="product-card-image" style={{background: '#ddd'}}></div>
+  <div className="product-card-info">
+    <h4>[Product Name]</h4>
+    <div className="price">$XXX</div>
+    <div className="features">
+      ✅ [Feature 1]<br />
+      ✅ [Feature 2]<br />
+      ⚠️ [Warn about issue]
     </div>
+    {/* Direct purchase with affiliate */}
+    <a href="[affiliate-url]" className="cta-button" target="_blank" rel="noopener noreferrer">
+      Buy on [Vendor] →
+    </a>
+  </div>
 </div>
+<p><em>Alternative:</em> <a href="/?search=[product-query]" onClick={...}>Compare prices in database →</a></p>
 ```
 
 ### Step 5: SEO Optimization
@@ -113,37 +136,72 @@ Rapid content production system for capturing search traffic and driving affilia
 - Secondary keywords in: Other H2s, body text
 - Long-tail: Natural questions in content
 
-### Step 6: File Structure (Critical)
-**Create post in BOTH locations:**
+### Step 6: Create React Component (NEW)
 
-1. **Source:** `/blog/[post-name].html`
-2. **Public:** `/public/blog/[post-name].html` ← This gets deployed!
+**We're using React components, not static HTML.** This ensures consistent header/footer/SEO.
 
-**Why two locations?**
-- `/blog/` = Git tracking and editing
-- `/public/blog/` = Actually served on the site
+**File location:** `/src/pages/blog/[PostName].tsx`
 
-**Update these files:**
-1. `/blog/index.html` - Add post card to blog grid
-2. `/public/blog/index.html` - Copy above
-3. `/src/pages/learn/index.tsx` - Add to "Latest from Blog" section
-4. (Optional) `sitemap.xml` - Add URL for SEO
+**Naming convention:** PascalCase (e.g., `HallEffectPost.tsx`, `CherryMX2APost.tsx`)
+
+**Component template:**
+```tsx
+import React from 'react';
+import BlogPostLayout from './BlogPostLayout';
+
+export default function [PostName]Post() {
+  return (
+    <BlogPostLayout
+      title="[Post Title]"
+      description="[150-160 char SEO description]"
+      keywords="[keyword1, keyword2, keyword3]"
+      date="[YYYY-MM-DD]"
+      readTime="[X min]"
+      category="[Guide|Review|Switches|Gaming]"
+    >
+      <div className="blog-content">
+        {/* Content here */}
+      </div>
+    </BlogPostLayout>
+  );
+}
+```
+
+**Then UPDATE in App.tsx:**
+```tsx
+// Import at top
+import [PostName]Post from './pages/blog/[PostName]Post';
+
+// Add route in App() function
+if (currentPath === '/blog/[slug]') {
+  return <[PostName]Post />;
+}
+```
+
+**Update Learn page:** `/src/pages/learn/index.tsx`
+```tsx
+{ path: '/blog/[slug]', title: '[Title]', desc: '[Desc]', difficulty: '[Easy|Medium]' }
+```
 
 **Directory structure:**
 ```
-/blog/                          # Git source
-├── index.html                  # Blog hub
-├── hall-effect-keyboards-2026.html
-├── are-keychron-keyboards-worth-it.html
-└── ...
-
-/public/blog/                   # Deployed (build copies these)
-├── index.html                  # Same as above
-├── hall-effect-keyboards-2026.html
-└── ...
+/src/pages/blog/
+├── BlogPostLayout.tsx    # Shared layout component
+├── BlogPost.css          # Blog styling
+├── HallEffectPost.tsx
+├── KeychronReviewPost.tsx
+├── CherryMX2APost.tsx
+└── GroupBuysPost.tsx
 ```
 
-### Step 7: Build & Test (5 min)
+**To convert existing HTML to React:**
+1. Copy content between body tags
+2. Replace `class=` with `className=`
+3. Add `/` to self-closing tags: `<br />`, `<img />`
+4. Change `"` in JSX to `{'"'}` if needed
+5. Wrap in BlogPostLayout component
+
+### Step 7: Build & Deploy
 **Commands:**
 ```bash
 cd ~/Desktop/keyboard-tracker
@@ -151,14 +209,16 @@ npm run build                    # Compile React app
 ```
 
 **Verify:**
-- Check `build/blog/` has all HTML files
-- Check `build/index.html` exists
-- No build errors
+- ✅ No TypeScript errors
+- ✅ Build completes successfully
+- ✅ `build/static/js/*.js` includes new blog component
+- Check `build/static/js/main.*.js` contains your content
 
 **If build fails:**
 - Check for missing imports in `App.tsx`
-- Check TypeScript errors
+- Check TypeScript errors: `npx tsc --noEmit`
 - Ensure all referenced components exist
+- Look for JSX syntax errors (br tags, etc.)
 
 ### Step 8: Commit & Push (2 min)
 **Commit message format:**
@@ -270,25 +330,117 @@ See: `/blog/TEMPLATE.html` (create this)
 <!-- Copy from hall-effect-keyboards-2026.html -->
 ```
 
-## Common Mistakes to Avoid
+## CRITICAL LEARNINGS (Feb 27, 2026)
 
-1. ❌ Forgetting `/public/blog/` copy
-   ✅ Always update BOTH `/blog/` and `/public/blog/`
+### 1. React SPA Navigation for Internal Links
+**Old way (breaks):** Regular `<a href="/?search=X">` causes full page reload
+**New way (works):** 
+```tsx
+<a href="/?search=X" onClick={(e) => {
+  e.preventDefault();
+  window.history.pushState({}, '', '/?search=X');
+  window.dispatchEvent(new PopStateEvent('popstate'));
+}} style={{cursor: "pointer", color: '#6366f1'}}>Link</a>
+```
 
-2. ❌ Generic product links without ref code
-   ✅ Every vendor link gets `?ref=switchyard`
+**Why:** React Router doesn't parse query strings. Need to:
+1. Import and use pushState for navigation
+2. Add URL parsing in App.tsx useEffect
+3. Filter products when URL changes
 
-3. ❌ Recommending everything as "great"
-   ✅ Be honest - say which to skip
+### 2. URL Parsing in App.tsx Required
+Add to App.tsx to make `?search=`, `?vendor=`, `?category=` work:
+```tsx
+useEffect(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchParam = urlParams.get('search');
+  if (searchParam) setSearchQuery(searchParam);
+}, []);
+```
 
-4. ❌ No clear CTA
-   ✅ Every product card has "Compare Prices" button
+### 3. useScrollToTop Required
+Every page must call `useScrollToTop()` to start at top:
+```tsx
+import { useScrollToTop } from '../../hooks/useScrollToTop';
+// ... in component:
+useScrollToTop();
+```
 
-5. ❌ Post not in Learn page
-   ✅ Add to `src/pages/learn/index.tsx` Latest from Blog section
+BlogPostLayout already has this - covers all blog posts.
 
-6. ❌ Forgetting to build
-   ✅ `npm run build` is required for React changes
+### 4. Favicon Consistency
+Added to usePageSEO hook to ensure favicon on ALL pages:
+```tsx
+useEffect(() => {
+  const faviconSvg = document.querySelector('link[rel="icon"]');
+  if (!faviconSvg) {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/svg+xml';
+    link.href = '/favicon.svg';
+    document.head.appendChild(link);
+  }
+}, []);
+```
+
+### 5. Build File Locations Changed
+- OLD: `/public/blog/*.html` for static HTML
+- NEW: `/src/pages/blog/*.tsx` for React components
+- Static HTML files moved to `/public/blog-static/` (backup only)
+
+### 6. Link Types by Use Case
+| Type | Example | Behavior |
+|------|---------|----------|
+| External vendor | `keychron.com?ref=switchyard` | `target="_blank"`, new tab |
+| Internal search | `/?search=Cherry+MX2A` | `onClick` with pushState, same page |
+| Direct nav | `/blog/post-name` | React Router handles it |
+
+### 7. Product Link Strategy
+Every product mention should have TWO options:
+1. Direct buy (vendor site with affiliate): `Buy on Keychron →`
+2. Browse/compare (your site search): `Compare prices in database →`
+
+This captures both ready-to-buy and comparison shopping traffic.
+
+### 8. Git Commit Message Format
+Include key details for tracking:
+```
+Add blog post: [Title]
+
+- [X] words on [topic]
+- Keywords: [key1], [key2]
+- [Y] affiliate product links
+- Internal search links: [search terms]
+- Direct vendor links: [vendors]
+- SEO: [title], [desc], [keywords]
+```
+
+### Common Build Errors Fixed
+- ❌ `<br>` → ✅ `<br />`
+- ❌ `class=` → ✅ `className=`
+- ❌ Missing `import React from 'react'`
+- ❌ Duplicate onClick handlers (sed error)
+- ❌ Missing trailing `}` in JSX expressions
+
+## Troubleshooting
+
+**Links not working (404 or reload)?**
+- Internal links must use onClick with pushState
+- Check App.tsx has query param parsing
+- Verify route exists in App.tsx
+
+**Page doesn't scroll to top?**
+- Ensure component calls `useScrollToTop()`
+- Check BlogPostLayout has it (covers blogs)
+
+**Favicon missing on guides/blogs?**
+- usePageSEO hook has favicon injection
+- All pages using usePageSEO will show favicon
+
+**Affiliate links not redirecting?**
+- Check ref codes are correct
+- Verify vendor URLs format
+- Ensure `target="_blank" rel="noopener noreferrer"` set
 
 ## Tools Used
 
