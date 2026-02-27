@@ -20,11 +20,11 @@ const AFFILIATE_CODES = {
   'Boardsource': { param: 'ref', value: 'switchyard' }
 };
 
-// Vendor priority order (affiliate vendors first)
+// Vendor priority order (affiliate vendors first - sorted by confirmed referral value)
 const VENDOR_PRIORITY = {
-  'Keychron': 1,
-  'Epomaker': 2,
-  'Qwerkywriter': 3,
+  'Keychron': 1,      // 8% commission, 405 products, confirmed working
+  'Qwerkywriter': 2,  // Unique products, 9 products, confirmed working
+  'Epomaker': 3,      // 6% commission, 88 products, confirmed working
   'KBDfans': 10,
   'NovelKeys': 11,
   'Drop': 12,
