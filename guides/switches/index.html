@@ -393,18 +393,34 @@
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
         
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('switchyard-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        
         function updateThemeUI() {
-            themeIcon.textContent = isDark ? '' : '';
-            themeText.textContent = isDark ? 'Light' : 'Dark';
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
         }
         
-                    localStorage.setItem('switchyard-theme', 'light');
-                } else {
-                    localStorage.setItem('switchyard-theme', 'dark');
-                }
+        // Initialize
+        updateThemeUI();
+        
+        // Toggle handler
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                isDark = !isDark;
+                localStorage.setItem('switchyard-theme', isDark ? 'dark' : 'light');
                 updateThemeUI();
             });
-            updateThemeUI();
         }
     </script>
 </body>

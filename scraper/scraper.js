@@ -1175,25 +1175,13 @@ async function runScraper() {
   
   console.log(`   Filtered ${allItems.length - freshItems.length} stale items (>30 days old)`);
   
-  // Sort products to prioritize affiliate vendors first
-  const sortByAffiliatePriority = (items) => {
-    return [...items].sort((a, b) => {
-      const aPriority = VENDOR_PRIORITY[a.vendor] ?? 999;
-      const bPriority = VENDOR_PRIORITY[b.vendor] ?? 999;
-      
-      if (aPriority !== bPriority) {
-        return aPriority - bPriority;
-      }
-      
-      // Secondary sort by name
-      return (a.name || '').localeCompare(b.name || '');
-    });
-  };
+  // NOTE: Sorting is now handled in the frontend (App.tsx) via sortByAffiliatePriority
+  // Data.json maintains raw order for flexibility
   
-  // Organize by type
+  // Organize by type (no sorting applied here - handled in UI)
   data.items = freshItems;
-  data.allProducts = sortByAffiliatePriority(freshItems.filter(i => i.type === 'product' && i.category !== 'parts'));
-  data.inStock = sortByAffiliatePriority(freshItems.filter(i => i.status === 'in_stock' || i.status === 'active'));
+  data.allProducts = freshItems.filter(i => i.type === 'product' && i.category !== 'parts');
+  data.inStock = freshItems.filter(i => i.status === 'in_stock' || i.status === 'active');
   data.groupBuys = freshItems.filter(i => i.type === 'group_buy' && i.status !== 'ended');
   data.interestChecks = freshItems.filter(i => i.type === 'interest_check');
   

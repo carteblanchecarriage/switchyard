@@ -144,6 +144,126 @@ export default function BestGamingGuide() {
             </div>
           </section>
 
+          <section>
+            <h2>Switches for Gaming: The Real Talk</h2>
+            
+            <p>
+              Forget the marketing. Here&apos;s what actually matters for gaming switches:
+            </p>
+            
+            <h3>Linear vs. Tactile for Gaming</h3>
+            
+            <p>
+              <strong>Linear switches</strong> (Cherry MX Red, Gateron Yellow, Silver) are the gaming standard. 
+              Why? No tactile bump means consistent, smooth presses. When every millisecond counts in competitive play, 
+              you want zero interference between your finger and the actuation point. Linear switches deliver that pure, 
+              uninterrupted force curve from top to bottom.
+            </p>
+            
+            <p>
+              <strong>Tactile switches</strong> (Cherry MX Brown, Holy Panda) have a &quot;bump&quot; you feel when the key activates. 
+              While excellent for typing, that bump requires slightly more force and adds a tiny amount of travel time. 
+              For casual gaming, you&apos;ll never notice. For competitive FPS at high levels, linear is preferred.
+            </p>
+            
+            <h3>Speed Switches: Worth the Hype?</h3>
+            
+            <p>
+              &quot;Speed&quot; switches like Cherry MX Silver and Gateron Yellow actuate at 1.2mm instead of the standard 2mm. 
+              Sound impressive? The math says it saves about 5-10ms per keystroke. In CS2 or Valorant, that could theoretically 
+              be the difference between you and your opponent firing first.
+            </p>
+            
+            <p><strong>Reality check:</strong> The biggest factor in your reaction time is still you. Faster switches help, 
+              but only at the margins of elite play. If you&apos;re already in the top 5% of players, speed switches might give you 
+              an edge. For everyone else, focus on your aim and game sense first.</p>
+            
+            <h3>Bottom Line</h3>
+            
+            <ul>
+              <li>Casual gaming: Any linear or light tactile works fine</li>
+              <li>Competitive FPS: Linear switches (Red, Silver, Yellow)</li>
+              <li>MMO/MOBA: Tactile is fine, macros matter more</li>
+              <li>RPG/Story games: Whatever feels comfortable</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Wireless vs. Wired for Gaming</h2>
+            
+            <p>
+              Old wisdom said &quot;never game wireless.&quot; Technology has changed. Modern 2.4GHz wireless dongles 
+              have identical latency to wired connections. The Keychron K8 Pro and Logitech G915 can keep up with any wired board.
+            </p>
+            
+            <h3>When to Go Wireless</h3>
+            
+            <ul>
+              <li>Clean desk setup matters to you</li>
+              <li>You switch between devices (PC ↔ console)</li>
+              <li>Battery anxiety doesn&apos;t trigger you</li>
+              <li>You have a wireless mouse already (might as well complete the look)</li>
+            </ul>
+            
+            <p><strong>One caveat:</strong> Bluetooth has ~20-50ms of additional latency over 2.4GHz wireless. 
+              For gaming, always use the 2.4GHz dongle, not Bluetooth. Most gaming keyboards include both.</p>
+          </section>
+
+          <section>
+            <h2>Quick Comparison Table</h2>
+            
+            <div className="comparison-table-container">
+              <table className="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Wooting 60HE</th>
+                    <th>Keychron K8 Pro</th>
+                    <th>Logitech G915</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Price</td>
+                    <td>$175</td>
+                    <td>$110</td>
+                    <td>$230</td>
+                  </tr>
+                  <tr>
+                    <td>Layout</td>
+                    <td>60%</td>
+                    <td>TKL</td>
+                    <td>TKL + G-keys</td>
+                  </tr>
+                  <tr>
+                    <td>Wireless</td>
+                    <td>Wired only</td>
+                    <td>2.4GHz + BT</td>
+                    <td>LIGHTSPEED</td>
+                  </tr>
+                  <tr>
+                    <td>Polling</td>
+                    <td>1000Hz</td>
+                    <td>1000Hz</td>
+                    <td>1000Hz</td>
+                  </tr>
+                  <tr>
+                    <td>Hot-Swap</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                  </tr>
+                  <tr>
+                    <td>Best For</td>
+                    <td>Comp FPS</td>
+                    <td>All-Rounder</td>
+                    <td>MMO/FPS</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           <section className="cta-section gaming-cta">
             <h2>Find Your Gaming Keyboard</h2>
             <p>Browse our live inventory filtered for gaming features and low latency specs.</p>
