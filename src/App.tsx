@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
 import Wizard from './components/Wizard';
 import { usePageSEO } from './hooks/usePageSEO';
+import { sortByAffiliatePriority } from './config';
 
 // Learn Pages
 import Learn from './pages/learn';
@@ -196,8 +197,9 @@ export default function App() {
       .then(res => res.json())
       .then(data => {
         const allProducts: Product[] = data.allProducts || data.items || [];
-        setProducts(allProducts);
-        setFilteredProducts(allProducts);
+        const sortedProducts = sortByAffiliatePriority(allProducts);
+        setProducts(sortedProducts);
+        setFilteredProducts(sortedProducts);
         setLoading(false);
       })
       .catch(err => {
