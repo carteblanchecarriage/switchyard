@@ -366,6 +366,8 @@ export default function App() {
       default:
         // Preserve affiliate priority order (already sorted by sortByAffiliatePriority)
         return sorted;
+    }
+  };
 
   const displayedProducts = sortProducts(filteredProducts).slice(0, displayLimit);
   const hasMore = filteredProducts.length > displayLimit;
