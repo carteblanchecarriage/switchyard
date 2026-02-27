@@ -8,7 +8,7 @@ export default function BestTKLGuide() {
   useScrollToTop();
   usePageSEO({
     title: 'Best TKL Keyboards 2026 | Tenkeyless Mechanical | Switchyard',
-    description: 'The best tenkeyless (TKL) mechanical keyboards for 2026. Top picks for gaming, productivity, and programming with detailed reviews and buying advice.',
+    description: 'The best tenkeyless (TKL) mechanical keyboards for 2026. Top picks for gaming, productivity, and programming with detailed reviews and buying advice. Compare Keychron Q3, C3 Pro, and Q3 HE.',
     keywords: 'TKL keyboard, tenkeyless, mechanical keyboard, gaming keyboard, best TKL 2026, Keychron Q3'
   });
 
