@@ -32,6 +32,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  useScrollToTop();
   const [openIndex, setOpenIndex] = useState<string | null>(null);
 
   usePageSEO({
