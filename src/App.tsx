@@ -180,8 +180,6 @@ export default function App() {
   const [wizardFilters, setWizardFilters] = useState<Product[] | null>(null);
   const [sortBy, setSortBy] = useState<string>('affiliate');
   const [searchQuery, setSearchQuery] = useState('');
-  const [initialVendor, setInitialVendor] = useState<string | null>(null);
-  const [initialCategory, setInitialCategory] = useState<string | null>(null);
 
   // Parse URL query parameters on mount
   useEffect(() => {
@@ -189,17 +187,11 @@ export default function App() {
     const searchParam = urlParams.get('search');
     const vendorParam = urlParams.get('vendor');
     const categoryParam = urlParams.get('category');
-    const statusParam = urlParams.get('status');
-    const priceMaxParam = urlParams.get('priceMax');
     
     if (searchParam) {
       setSearchQuery(searchParam);
     }
-    if (vendorParam) {
-      setInitialVendor(vendorParam);
-    }
     if (categoryParam) {
-      setInitialCategory(categoryParam);
       setActiveCategory(categoryParam);
     }
   }, []);
@@ -210,12 +202,9 @@ export default function App() {
       // Re-parse query params on navigation
       const urlParams = new URLSearchParams(window.location.search);
       const searchParam = urlParams.get('search');
-      const vendorParam = urlParams.get('vendor');
       const categoryParam = urlParams.get('category');
       if (searchParam !== null) setSearchQuery(searchParam);
-      if (vendorParam) setInitialVendor(vendorParam);
       if (categoryParam) {
-        setInitialCategory(categoryParam);
         setActiveCategory(categoryParam);
       }
     };
@@ -241,25 +230,7 @@ export default function App() {
         const allProducts: Product[] = data.allProducts || data.items || [];
         const sortedProducts = sortByAffiliatePriority(allProducts);
         setProducts(sortedProducts);
-        
-        // Apply initial URL filters (simplified filters to avoid dependency issues)
-        let filtered = [...sortedProducts];
-        if (initialVendor) {
-          const vendorLower = initialVendor.toLowerCase();
-          filtered = filtered.filter((p: Product) => 
-            p.vendor?.toLowerCase().includes(vendorLower)
-          );
-        }
-        if (searchQuery) {
-          const queryLower = searchQuery.toLowerCase();
-          filtered = filtered.filter((p: Product) => 
-            p.name?.toLowerCase().includes(queryLower) ||
-            p.vendor?.toLowerCase().includes(queryLower) ||
-            p.description?.toLowerCase().includes(queryLower)
-          );
-        }
-        
-        setFilteredProducts(filtered);
+        setFilteredProducts(sortedProducts);
         setLoading(false);
       })
       .catch(err => {
