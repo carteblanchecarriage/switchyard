@@ -236,7 +236,30 @@ export default function App() {
         const allProducts: Product[] = data.allProducts || data.items || [];
         const sortedProducts = sortByAffiliatePriority(allProducts);
         setProducts(sortedProducts);
-        setFilteredProducts(sortedProducts);
+        
+        // Get current URL params for initial filtering
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        const categoryParam = urlParams.get('category');
+        
+        let filtered = sortedProducts;
+        
+        // Apply category filter from URL inline (filterByCategory not yet defined)
+        if (categoryParam && categoryParam !== 'all') {
+          filtered = filtered.filter(p => p.category === categoryParam);
+        }
+        
+        // Apply search filter from URL  
+        if (searchParam) {
+          const queryLower = searchParam.toLowerCase();
+          filtered = filtered.filter((p: Product) =>
+            p.name?.toLowerCase().includes(queryLower) ||
+            p.vendor?.toLowerCase().includes(queryLower) ||
+            p.description?.toLowerCase().includes(queryLower)
+          );
+        }
+        
+        setFilteredProducts(filtered);
         setLoading(false);
       })
       .catch(err => {
@@ -246,26 +269,7 @@ export default function App() {
       });
   }, [currentPath]);
 
-  // Apply URL search params after products load
-  useEffect(() => {
-    if (products.length > 0 && searchQuery) {
-      const queryLower = searchQuery.toLowerCase();
-      const filtered = products.filter((p: Product) =>
-        p.name?.toLowerCase().includes(queryLower) ||
-        p.vendor?.toLowerCase().includes(queryLower) ||
-        p.description?.toLowerCase().includes(queryLower)
-      );
-      setFilteredProducts(filtered);
-    }
-  }, [products, searchQuery]);
-
-  // Apply URL category params after products load
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    if (products.length > 0 && activeCategory !== 'all') {
-      applyFilters(activeCategory, searchQuery);
-    }
-  }, [products, activeCategory]);
+  // URL params are now handled in the data loading useEffect above
 
   // SEO for main product grid - dynamic based on category and search
   const getPageTitle = () => {
