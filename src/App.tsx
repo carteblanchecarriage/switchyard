@@ -23,6 +23,12 @@ import BestTKLGuide from './pages/learn/BestTKLGuide';
 import Best75PercentGuide from './pages/learn/Best75PercentGuide';
 import KeycapProfilesGuide from './pages/learn/KeycapProfilesGuide';
 
+// Blog Posts
+import HallEffectPost from './pages/blog/HallEffectPost';
+import KeychronReviewPost from './pages/blog/KeychronReviewPost';
+import CherryMX2APost from './pages/blog/CherryMX2APost';
+import GroupBuysPost from './pages/blog/GroupBuysPost';
+
 interface Product {
   id: string;
   name: string;
@@ -436,6 +442,25 @@ export default function App() {
   }
   if (currentPath === '/learn/keycap-profiles') {
     return <KeycapProfilesGuide />;
+  }
+
+  // Blog Routes
+  if (currentPath === '/blog/hall-effect-keyboards-2026') {
+    return <HallEffectPost />;
+  }
+  if (currentPath === '/blog/are-keychron-keyboards-worth-it') {
+    return <KeychronReviewPost />;
+  }
+  if (currentPath === '/blog/cherry-mx2a-vs-original') {
+    return <CherryMX2APost />;
+  }
+  if (currentPath === '/blog/what-are-group-buys') {
+    return <GroupBuysPost />;
+  }
+  if (currentPath === '/blog') {
+    // Redirect to static blog index for now
+    window.location.href = '/blog/index.html';
+    return null;
   }
 
   // Main app render

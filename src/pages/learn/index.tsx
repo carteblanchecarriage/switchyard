@@ -18,10 +18,10 @@ const guideCategories = [
     title: 'Latest from the Blog',
     icon: '📰',
     guides: [
-      { path: '/blog/cherry-mx2a-vs-original.html', title: 'Cherry MX2A vs Original', desc: 'Is the new Cherry actually better? Side-by-side analysis.', difficulty: 'Medium' },
-      { path: '/blog/are-keychron-keyboards-worth-it.html', title: 'Are Keychron Worth It?', desc: 'Brutally honest review: which models to buy and skip.', difficulty: 'Easy' },
-      { path: '/blog/hall-effect-keyboards-2026.html', title: 'Hall Effect Keyboards', desc: 'Is rapid trigger cheating? The complete gaming breakdown.', difficulty: 'Medium' },
-      { path: '/blog/what-are-group-buys.html', title: 'What Are Group Buys?', desc: 'Understanding the GB ecosystem and how to participate.', difficulty: 'Medium' },
+      { path: '/blog/cherry-mx2a-vs-original', title: 'Cherry MX2A vs Original', desc: 'Is the new Cherry actually better? Side-by-side analysis.', difficulty: 'Medium' },
+      { path: '/blog/are-keychron-keyboards-worth-it', title: 'Are Keychron Worth It?', desc: 'Brutally honest review: which models to buy and skip.', difficulty: 'Easy' },
+      { path: '/blog/hall-effect-keyboards-2026', title: 'Hall Effect Keyboards', desc: 'Is rapid trigger cheating? The complete gaming breakdown.', difficulty: 'Medium' },
+      { path: '/blog/what-are-group-buys', title: 'What Are Group Buys?', desc: 'Understanding the GB ecosystem and how to participate.', difficulty: 'Medium' },
     ]
   },
   {
