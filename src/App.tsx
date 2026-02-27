@@ -178,6 +178,13 @@ export default function App() {
   const [displayLimit, setDisplayLimit] = useState(12);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [wizardFilters, setWizardFilters] = useState<Product[] | null>(null);
+  const [wizardSelections, setWizardSelections] = useState<{
+    useCase: string | null;
+    workspace: string | null;
+    size: string | null;
+    hotswap: string | null;
+    budget: string | null;
+  } | null>(null);
   const [sortBy, setSortBy] = useState<string>('affiliate');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -388,8 +395,9 @@ export default function App() {
     applyFilters(activeCategory, '');
   };
 
-  const handleWizardFilter = (filtered: Product[]) => {
+  const handleWizardFilter = (filtered: Product[], selections: any) => {
     setWizardFilters(filtered);
+    setWizardSelections(selections);
     applyFilters(activeCategory, searchQuery);
     setDisplayLimit(12);
   };
@@ -652,6 +660,7 @@ export default function App() {
       <Wizard
         products={products}
         onFilterChange={handleWizardFilter}
+        activeFilters={wizardSelections}
       />
     </Layout>
   );

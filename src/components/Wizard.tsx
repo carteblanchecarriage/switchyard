@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import './Wizard.css';
 import { KeyboardProduct } from '../types/keyboard';
 
 interface WizardProps {
   products: KeyboardProduct[];
-  onFilterChange: (filtered: KeyboardProduct[]) => void;
+  onFilterChange: (filtered: KeyboardProduct[], selections: WizardState) => void;
+  activeFilters?: WizardState | null;
 }
 
 interface WizardState {
@@ -172,7 +173,7 @@ const steps: Step[] = [
   },
 ];
 
-export default function Wizard({ products, onFilterChange }: WizardProps) {
+export default function Wizard({ products, onFilterChange, activeFilters }: WizardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [selections, setSelections] = useState<WizardState>({
@@ -182,6 +183,18 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
     hotswap: null,
     budget: null,
   });
+
+  // Sync selections with activeFilters when provided or changed
+  useEffect(() => {
+    if (activeFilters) {
+      setSelections(activeFilters);
+    }
+  }, [activeFilters]);
+
+  // Track if wizard filters are active
+  const isWizardActive = useMemo(() => {
+    return Object.values(selections).some(s => s !== null);
+  }, [selections]);
 
   // Calculate current possible matches after all selections so far
   const currentMatches = useMemo(() => {
@@ -220,14 +233,14 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
       // Apply final filter
       setIsOpen(false);
       const filtered = applyFilter(products, newSelections);
-      onFilterChange(filtered);
+      onFilterChange(filtered, newSelections);
     }
   };
 
   const applyFilters = () => {
     const filtered = applyFilter(products, selections);
     setIsOpen(false);
-    onFilterChange(filtered);
+    onFilterChange(filtered, selections);
   };
 
   const resetWizard = () => {
@@ -239,7 +252,14 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
       budget: null,
     });
     setCurrentStep(0);
-    onFilterChange(products);
+    const emptySelections = {
+      useCase: null,
+      workspace: null,
+      size: null,
+      hotswap: null,
+      budget: null,
+    };
+    onFilterChange(products, emptySelections);
   };
 
   // Go back one step
@@ -255,11 +275,42 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
   const currentStepData = steps[currentStep];
   const hasSelections = Object.values(selections).some(s => s !== null);
 
+  // Generate filter summary text
+  const getFilterSummary = () => {
+    const parts: string[] = [];
+    if (selections.useCase) {
+      const labels: Record<string, string> = {
+        gaming: 'Gaming',
+        work: 'Work',
+        creative: 'Creative',
+        general: 'General',
+      };
+      parts.push(labels[selections.useCase] || selections.useCase);
+    }
+    if (selections.size) {
+      const labels: Record<string, string> = {
+        fullsize: 'Full Size',
+        tkl: 'TKL',
+        compact: 'Compact',
+      };
+      parts.push(labels[selections.size] || selections.size);
+    }
+    if (selections.budget) {
+      const labels: Record<string, string> = {
+        budget: 'Under $100',
+        mid: '$100-200',
+        premium: '$200+',
+      };
+      parts.push(labels[selections.budget] || selections.budget);
+    }
+    return parts.join(' • ');
+  };
+
   return (
     <>
       {/* Floating Action Button */}
       <button 
-        className="wizard-fab"
+        className={`wizard-fab ${isWizardActive ? 'active' : ''}`}
         onClick={() => setIsOpen(true)}
         aria-label="Open keyboard finder"
       >
@@ -267,10 +318,31 @@ export default function Wizard({ products, onFilterChange }: WizardProps) {
           <rect x="2" y="4" width="20" height="16" rx="2" />
           <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M6 16h12" />
         </svg>
-        {hasSelections && currentMatches > 0 && (
+        {isWizardActive && currentMatches > 0 && (
           <span className="match-count">{currentMatches}</span>
         )}
       </button>
+
+      {/* Active Filters Summary */}
+      {isWizardActive && !isOpen && (
+        <div className="wizard-active-indicator" onClick={() => setIsOpen(true)}>
+          <div className="wizard-active-content">
+            <span className="wizard-active-icon">🎯</span>
+            <span className="wizard-active-text">{getFilterSummary()}</span>
+            <span className="wizard-active-count">{currentMatches} results</span>
+          </div>
+          <button 
+            className="wizard-clear-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              resetWizard();
+            }}
+            title="Clear wizard filters"
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       {/* Wizard Panel */}
       {isOpen && (
