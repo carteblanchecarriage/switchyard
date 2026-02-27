@@ -48,6 +48,9 @@
         .toc ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; }
         .keyboard-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin: 1.5rem 0; display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
         .keyboard-image { background: var(--paper-dark); height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--faded); }
+        .keyboard-image.placeholder { background: linear-gradient(135deg, #f7f6f2 0%, #ebe9e4 100%); border: 2px dashed var(--border); }
+        .keyboard-image .placeholder-text { text-align: center; font-size: 0.9rem; color: var(--faded); padding: 1rem; }
+        .keyboard-image .placeholder-icon { font-size: 3rem; margin-bottom: 0.5rem; }
         .badge { display: inline-block; background: var(--accent); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem; }
         .keyboard-title { font-size: 1.4rem; margin-bottom: 0.5rem; }
         .specs { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
@@ -120,7 +123,14 @@
         <h2 id="budget">Best Budget: Royal Kludge RK61 (<strong>~$60</strong>)</h2>
         
         <div class="keyboard-card">
-            <div class="keyboard-image">[Image Placeholder]</div>
+            <div class="keyboard-image placeholder">
+                <div class="placeholder-text">
+                    <div class="placeholder-icon">⌨️</div>
+                    Royal Kludge RK61
+                    <br>
+                    <small>$60 • 60% • Wireless</small>
+                </div>
+            </div>
             <div>
                 <span class="badge">🏆 Best Budget</span>
                 <p>Yes, it's $60. No, it's not junk. The RK61 proves that mechanical keyboards don't need to cost a fortune to feel good. Hot-swappable, wireless, and solid enough that reviewers keep it as a travel board even after owning $300 customs.</p>
@@ -150,7 +160,14 @@
         <h2 id="mid">Best Mid-Range: Keychron Q3 (<strong>~$170</strong>)</h2>
         
         <div class="keyboard-card">
-            <div class="keyboard-image">[Image Placeholder]</div>
+            <div class="keyboard-image placeholder">
+                <div class="placeholder-text">
+                    <div class="placeholder-icon">⌨️</div>
+                    Keychron Q3
+                    <br>
+                    <small>$170 • TKL • Aluminum</small>
+                </div>
+            </div>
             <div>
                 <span class="badge">🏆 Best Value</span>
                 <p>The Q3 is what happens when you take the Q1's formula (aluminum, gasket mount, hot-swap) and fix the only real complaint: the layout. Full-size TKL means you don't sacrifice anything. This is the "just buy this" recommendation for 90% of people.</p>
@@ -180,7 +197,14 @@
         <h2 id="custom">Best Entry Custom: Glorious GMMK Pro (<strong>~$170</strong>)</h2>
         
         <div class="keyboard-card">
-            <div class="keyboard-image">[Image Placeholder]</div>
+            <div class="keyboard-image placeholder">
+                <div class="placeholder-text">
+                    <div class="placeholder-icon">⌨️</div>
+                    Glorious GMMK Pro
+                    <br>
+                    <small>$170 • 75% • Knob</small>
+                </div>
+            </div>
             <div>
                 <span class="badge">🏆 Best First Custom</span>
                 <p>Barebones kits let you choose your own switches and keycaps. The GMMK Pro is the friendliest entry point: rotary knob, 75% layout, aluminum, and hot-swap. It's the board that launched a thousand YouTube channels.</p>
