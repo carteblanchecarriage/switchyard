@@ -5,6 +5,7 @@ import ProductModal from './components/ProductModal';
 import Wizard from './components/Wizard';
 import { usePageSEO } from './hooks/usePageSEO';
 import { sortByAffiliatePriority } from './config';
+import { KeyboardProduct } from './types/keyboard';
 
 // Learn Pages
 import Learn from './pages/learn';
@@ -29,20 +30,11 @@ import KeychronReviewPost from './pages/blog/KeychronReviewPost';
 import CherryMX2APost from './pages/blog/CherryMX2APost';
 import GroupBuysPost from './pages/blog/GroupBuysPost';
 
-interface Product {
-  id: string;
-  name: string;
-  url: string;
-  affiliateUrl?: string;
-  image?: string;
-  price?: string;
-  vendor?: string;
-  category?: string;
-  description?: string;
-  scrapedAt?: string;
+// Extend KeyboardProduct with App-specific fields
+type Product = KeyboardProduct & {
   type?: string;
   size?: string;
-}
+};
 
 // Size value mapping for sorting (smaller number = smaller keyboard)
 const SIZE_VALUES: Record<string, number> = {
