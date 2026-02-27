@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { usePageSEO } from '../hooks/usePageSEO';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import './Guide.css';
 
 const terms = [
@@ -115,6 +116,8 @@ const terms = [
 ];
 
 export default function Glossary() {
+  useScrollToTop();
+  
   usePageSEO({
     title: "Keyboard Glossary - Mechanical Keyboard Terms Defined | Switchyard",
     description: "Master mechanical keyboard terminology with our comprehensive glossary. Learn what actuation, lubing, hot-swappable, PCB, stabilizers, and more mean in the keyboard world.",
