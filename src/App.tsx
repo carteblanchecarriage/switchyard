@@ -29,6 +29,9 @@ import HallEffectPost from './pages/blog/HallEffectPost';
 import KeychronReviewPost from './pages/blog/KeychronReviewPost';
 import CherryMX2APost from './pages/blog/CherryMX2APost';
 import GroupBuysPost from './pages/blog/GroupBuysPost';
+import GasketMountPost from './pages/blog/GasketMountPost';
+import WirelessKeyboardsPost from './pages/blog/WirelessKeyboardsPost';
+import HotswapVsSolderedPost from './pages/blog/HotswapVsSolderedPost';
 
 // Extend KeyboardProduct with App-specific fields
 type Product = KeyboardProduct & {
@@ -533,6 +536,15 @@ export default function App() {
   }
   if (currentPath === '/blog/what-are-group-buys') {
     return <GroupBuysPost />;
+  }
+  if (currentPath === '/blog/gasket-mount-keyboards-explained') {
+    return <GasketMountPost />;
+  }
+  if (currentPath === '/blog/wireless-mechanical-keyboards-2026') {
+    return <WirelessKeyboardsPost />;
+  }
+  if (currentPath === '/blog/hot-swap-vs-soldered-keyboards') {
+    return <HotswapVsSolderedPost />;
   }
   if (currentPath === '/blog') {
     // Redirect to static blog index for now
