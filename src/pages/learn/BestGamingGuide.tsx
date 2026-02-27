@@ -264,10 +264,219 @@ export default function BestGamingGuide() {
             </div>
           </section>
 
+          <section>
+            <h2>RGB and Aesthetics: More Than Looks</h2>
+            
+            <p>
+              RGB lighting isn&apos;t just for show — it can actually improve your gaming experience. 
+              Here&apos;s how to use it effectively:
+            </p>
+            
+            <h3>Functional RGB Setups</h3>
+            
+            <p>
+              <strong>Game-specific profiles:</strong> Many gaming keyboards let you save lighting profiles. 
+              Set up red WASD keys for FPS games, green ability keys for MOBAs, or blue macro keys for MMOs. 
+              Your muscle memory will thank you when your most-used keys are always highlighted.
+            </p>
+            
+            <p>
+              <strong>Health benefits:</strong> Low blue-light warm tones (amber, orange) reduce eye strain during long sessions. 
+              Some keyboards have a "night mode" that dims everything except essential keys.
+            </p>
+            
+            <p>
+              <strong>Distraction reduction:</strong> Turn off RGB entirely for competitive play. Focus on the screen, not your keyboard. 
+              Many pro players run their keyboards completely dark.
+            </p>
+            
+            <h3>Per-Key vs. Zone RGB</h3>
+            
+            <p>
+              <strong>Per-key RGB</strong> lets you customize every single key. The Wooting 60HE and Logitech G915 have this. 
+              It&apos;s more expensive but offers total control.
+            </p>
+            
+            <p>
+              <strong>Zone RGB</strong> lights up groups of keys together. Common in budget gaming keyboards. 
+              Still functional, just less granular. Fine for most users.
+            </p>
+            
+            <p>
+              <strong>Verdict:</strong> Per-key is nice but not essential. Zone RGB saves $50-70 and still looks great.
+            </p>
+          </section>
+
+          <section>
+            <h2>Keycaps: The Overlooked Gaming Factor</h2>
+            
+            <p>
+              Stock keycaps are often the weakest link in gaming keyboards. Here&apos;s what to know:
+            </p>
+            
+            <h3>Material Matters</h3>
+            
+            <p>
+              <strong>PBT vs ABS:</strong> PBT keycaps resist shine and oil from your fingers. After 6 months of heavy gaming, 
+              ABS keycaps look greasy and worn. PBT stays fresh. Worth the upgrade if your keyboard comes with ABS.
+            </p>
+            
+            <p>
+              <strong>Thickness:</strong> Thick PBT (1.5mm+) feels more solid and reduces wobble. Cheap thin keycaps rattle 
+              and flex under pressure. The Keychron K8 Pro comes with decent thick PBT stock.
+            </p>
+            
+            <h3>Profile for Gaming</h3>
+            
+            <p>
+              Different keycap profiles affect your finger travel:
+            </p>
+            
+            <ul>
+              <li><strong>Cherry profile:</strong> Standard, angled. Great for gaming and typing.</li>
+              <li><strong>OEM profile:</strong> Taller, common on gaming keyboards. Good for tactile feedback.</li>
+              <li><strong>DSA/XDA:</strong> Flat, uniform. Popular with enthusiasts, takes adjustment.</li>
+              <li><strong>Low-profile:</strong> Shorter travel. The G915 uses these for speed.</li>
+            </ul>
+            
+            <p>
+              <strong>Best for gaming:</strong> Cherry or OEM profile. Familiar feel, no learning curve.
+            </p>
+            
+            <h3>Texture and Legends</h3>
+            
+            <p>
+              <strong>Textured keycaps:</strong> Some gaming keyboards include textured WASD keys. 
+              Helps you find home position without looking down. Small but meaningful upgrade.
+            </p>
+            
+            <p>
+              <strong>Doubleshot legends:</strong> The lettering is molded, not printed. Never wears off. 
+              Look for doubleshot PBT if you&apos;re investing in replacement keycaps.
+            </p>
+          </section>
+
+          <section>
+            <h2>Build Quality: What Separates Premium from Budget</h2>
+            
+            <h3>Case Materials</h3>
+            
+            <p>
+              <strong>Plastic cases</strong> are lighter and cheaper but can creak and flex. Fine for travel, 
+              less satisfying at home. The Keychron V1 uses quality plastic that doesn&apos;t feel cheap.
+            </p>
+            
+            <p>
+              <strong>Aluminum cases</strong> feel premium and add weight stability. Your keyboard stays put during intense sessions. 
+              The Wooting&apos;s solid aluminum case is part of why it feels so substantial.
+            </p>
+            
+            <p>
+              <strong>Hybrid designs</strong> use aluminum plates with plastic bases. Good compromise. 
+              The Keychron K8 Pro takes this approach.
+            </p>
+            
+            <h3>Plate Flex and "Bounce"</h3>
+            
+            <p>
+              A little flex in the mounting plate helps with comfort during long sessions. Too much flex feels mushy, 
+              too little feels harsh. Gasket mount designs (like Keychron&apos;s Q series) add subtle cushioning 
+              that reduces hand fatigue during 6-hour raids.
+            </p>
+            
+            <p>
+              For pure gaming performance, a stiff plate is actually better — more consistent actuation forces 
+              across all keys. But for comfort during long sessions, some flex is welcome.
+            </p>
+          </section>
+
+          <section>
+            <h2>Maintenance: Keep Your Gaming Keyboard Alive</h2>
+            
+            <h3>Weekly Cleaning</h3>
+            
+            <ul>
+              <li>Blow out dust with compressed air (keyboard unplugged)</li>
+              <li>Wipe keycaps with damp microfiber (water only, no harsh chemicals)</li>
+              <li>Check for stuck keys from snack crumbs (we&apos;ve all been there)</li>
+            </ul>
+            
+            <h3>Monthly Deep Clean</h3>
+            
+            <ul>
+              <li>Remove keycaps with a keycap puller</li>
+              <li>Soak keycaps in warm soapy water for 30 minutes</li>
+              <li>Blow out the case with compressed air</li>
+              <li>Reassemble once dry</li>
+            </ul>
+            
+            <div className="warning-box">
+              <strong>Warning:</strong> Don&apos;t remove switches unless your keyboard is hot-swap. 
+              Soldered switches require desoldering to remove. Clean around them instead.
+            </div>
+            
+            <h3>Switch Lubrication</h3>
+            
+            <p>
+              Higher-end keyboards come pre-lubed (like the K8 Pro). If yours doesn&apos;t, 
+              you can add switch lube to reduce scratchiness. Requires disassembling and lubing each switch individually. 
+              2-3 hours of work. Worth it if you enjoy the process; skip it if you just want to game.
+            </p>
+            
+            <h3>Cable Care</h3>
+            
+            <p>
+              If you own a wired or charging cable:
+            </p>
+            
+            <ul>
+              <li>Don&apos;t kink or sharply bend cables</li>
+              <li>Use a cable coil to prevent desk snags</li>
+              <li>For wireless: keep the USB-C port clean</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Future-Proofing: What to Consider</h2>
+            
+            <h3>USB Ports and Connectivity</h3>
+            
+            <p>
+              USB-C is standard now, but some keyboards still use USB-A passthrough. 
+              That&apos;s useful for plugging your mouse into your keyboard for cleaner cable management. 
+              The Logitech G915 includes a USB passthrough.
+            </p>
+            
+            <h3>Software and Updates</h3>
+            
+            <p>
+              Brands matter for support. Logitech&apos;s G Hub and Keychron&apos;s VIA get regular updates. 
+              Wooting updates firmware actively. Smaller brands might release a keyboard and move on. 
+              Check update history before buying.
+            </p>
+            
+            <h3>Switch Compatibility</h3>
+            
+            <p>
+              Hot-swap sockets let you try new switches as they release. In 2025 alone, 
+              Gateron released the Cloud and Box series, Akko had new switches, and Cherry updated the MX2A lineup. 
+              A hot-swap board evolves with the market. A soldered board is locked in.
+            </p>
+            
+            <p>
+              <strong>Investment advice:</strong> If you plan to keep a keyboard 3+ years, 
+              hot-swap pays for itself in switch experimentation alone.
+            </p>
+          </section>
+
           <section className="cta-section gaming-cta">
             <h2>Find Your Gaming Keyboard</h2>
             <p>Browse our live inventory filtered for gaming features and low latency specs.</p>
             <a href="/" className="cta-button">Browse Gaming Keyboards →</a>
+            <p className="related-links" style={{marginTop: '1.5rem', fontSize: '0.875rem'}}>
+              Also check: <a href="/learn/switch-guide">Switch Guide</a> • 
+              <a href="/blog/hall-effect-keyboards-2026">Hall Effect Breakdown</a>
+            </p>
           </section>
         </div>
       </article>
