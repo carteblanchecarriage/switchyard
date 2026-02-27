@@ -31,7 +31,8 @@ interface Step {
 
 // Filter logic - same for both counting and applying
 const applyFilter = (products: KeyboardProduct[], selections: WizardState, stepId?: keyof WizardState): KeyboardProduct[] => {
-  let filtered = [...products];
+  // Start with only keyboard products (exclude switches, keycaps, accessories)
+  let filtered = products.filter(p => p.category === 'keyboard');
   
   // Use case filtering
   if (selections.useCase && stepId !== 'useCase') {
