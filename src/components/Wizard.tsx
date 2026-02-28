@@ -300,7 +300,7 @@ export default function Wizard({ products, onFilterChange, activeFilters }: Wiza
       const filtered = applyFilter(products, selections);
       onFilterChange(filtered, selections);
     }
-  }, [products, selections, isOpen, isWizardActive]);
+  }, [products, selections, isOpen, isWizardActive, onFilterChange]);
 
   const handleSelect = (optionId: string) => {
     const stepId = steps[currentStep].id;
