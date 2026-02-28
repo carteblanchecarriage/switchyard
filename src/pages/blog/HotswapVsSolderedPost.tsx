@@ -11,7 +11,7 @@ export default function HotswapVsSolderedPost() {
       readTime="8 min"
       category="Buying Guide"
     >
-      <div className="blog-content">
+
         <p>
           You're buying your first (or fifth) mechanical keyboard and you've hit the decision: <strong>Hot-swap or soldered?</strong> The sales page shows two versions of the same keyboard — one $20 cheaper but requiring "some assembly." The hot-swap version costs more but promises "easy switch changes."
         </p>
@@ -215,7 +215,6 @@ export default function HotswapVsSolderedPost() {
           <h3>Find your perfect keyboard</h3>
           <p>Browse our <a href="/?search=hot+swap&category=keyboard">in-stock hot-swap keyboards</a> or use our <a href="/">keyboard finder</a> to narrow down your options.</p>
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

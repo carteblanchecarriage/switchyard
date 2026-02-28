@@ -11,7 +11,7 @@ export default function KeychronReviewPost() {
       readTime="10 min"
       category="Review"
     >
-      <div className="blog-content">
+
         <p>
           Here's the thing about Keychron: they're <em>everywhere</em>. Every "best mechanical keyboard" list. Every YouTube review. Every Reddit recommendation thread. They're the Toyota Corolla of mechanical keyboards — reliable, available, and recommended by people who haven't tried much else.
         </p>
@@ -171,7 +171,6 @@ export default function KeychronReviewPost() {
         <div className="tldr-box">
           <strong>My recommendation:</strong> Start with the <strong>Keychron C2</strong> ($69) if you want wired, or the <strong>K8</strong> ($89) if you need wireless. Skip the Q-series at current prices. Buy from Amazon or a retailer with easy returns. The Keychron lottery exists, and you might need to swap your unit.
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

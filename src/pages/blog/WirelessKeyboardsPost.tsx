@@ -11,7 +11,7 @@ export default function WirelessKeyboardsPost() {
       readTime="9 min"
       category="Buying Guide"
     >
-      <div className="blog-content">
+
         <p>
           For years, wireless mechanical keyboards were a compromise. Sure, you lost the cable clutter, but you gained lag, battery anxiety, and connection drops at the worst possible moment. Gamers wouldn't touch them. Enthusiasts scoffed. And office workers settled for mediocre membrane boards.
         </p>
@@ -197,7 +197,6 @@ export default function WirelessKeyboardsPost() {
           <h3>Go wireless today</h3>
           <p>Browse our <a href="/?search=wireless&category=keyboard">in-stock wireless keyboards</a> or read our <a href="/learn/beginners-guide">beginner's guide</a> to learn more about mechanical keyboards.</p>
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

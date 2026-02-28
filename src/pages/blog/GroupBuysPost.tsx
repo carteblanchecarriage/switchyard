@@ -11,7 +11,7 @@ export default function GroupBuysPost() {
       readTime="8 min"
       category="Guide"
     >
-      <div className="blog-content">
+
         <p>
           If you're new to the mechanical keyboard hobby, you've probably seen the term "group buy" or "GB" thrown around. Maybe you've seen mention of a "GMK keycap set" that's "in GB" and you wonder: what does that actually mean? Why can't I just buy it now? And why does everyone seem to be waiting 6-12 months for a keyboard?
         </p>
@@ -156,7 +156,6 @@ export default function GroupBuysPost() {
         <div className="tldr-box">
           <strong>Bottom line:</strong> Group buys are how enthusiasts get the best, most unique keyboard gear. They're also how enthusiasts learn patience (or frustration). For your first mechanical keyboard, skip the GB. For your tenth, when you know exactly what you want? GBs are where the magic happens.
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

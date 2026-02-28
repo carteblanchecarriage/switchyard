@@ -11,7 +11,7 @@ export default function HallEffectPost() {
       readTime="8 min"
       category="Gaming"
     >
-      <div className="blog-content">
+
         <p>
           Something strange happened in competitive gaming over the past year. Professional Valorant and Counter-Strike players started winning more. Not because they practiced more. Not because they changed teams or coaches. They switched keyboards.
         </p>
@@ -170,7 +170,6 @@ export default function HallEffectPost() {
         <div className="tldr-box">
           <strong>Bottom line for 2026:</strong> Hall effect keyboards are the new standard for competitive FPS. They're not mandatory, but they're quickly becoming the default choice for serious players. Competition breeds innovation — and hall effect is winning.
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

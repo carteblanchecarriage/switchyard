@@ -11,7 +11,7 @@ export default function GasketMountPost() {
       readTime="10 min"
       category="Buying Guide"
     >
-      <div className="blog-content">
+
         <p>
           If you've been in the mechanical keyboard community for any length of time, you've heard the term <strong>"gasket mount"</strong> thrown around like it's the holy grail of typing experiences. Enthusiasts swear by it. Builders charge premiums for it. And manufacturers are racing to add it to their spec sheets.
         </p>
@@ -159,7 +159,6 @@ export default function GasketMountPost() {
           <h3>Ready to try gasket mount?</h3>
           <p>Browse our <a href="/?search=gasket&category=keyboard">in-stock gasket mount keyboards</a> or check out our <a href="/learn/beginners-guide">beginner's guide</a> to learn more.</p>
         </div>
-      </div>
     </BlogPostLayout>
   );
 }

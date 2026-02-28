@@ -11,7 +11,7 @@ export default function CherryMX2APost() {
       readTime="12 min"
       category="Switches"
     >
-      <div className="blog-content">
+
         <p>
           Something happened in late 2023 that shook up the mechanical keyboard world. Cherry — yes, <em>the</em> Cherry, the company that invented the MX switch in 1983 and dominated the market for decades — <strong>retooled their entire switch lineup</strong>.
         </p>
@@ -265,7 +265,6 @@ export default function CherryMX2APost() {
         <div className="tldr-box">
           <strong>Bottom line:</strong> If you specifically want Cherry — for the brand, the warranty, or the character — MX2A is worth buying. It's finally the switch Cherry should have been making all along. But if you just want the smoothest, most buttery linear switch for the money? Buy Gateron Yellows, spend 30 minutes lubing them, and save $30. Your wallet will thank you, and your fingers won't know the difference.
         </div>
-      </div>
     </BlogPostLayout>
   );
 }
