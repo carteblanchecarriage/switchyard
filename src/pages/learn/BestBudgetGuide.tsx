@@ -69,9 +69,11 @@ const redFlags = [
 export default function BestBudgetGuide() {
   useScrollToTop();
   usePageSEO({
-    title: "Best Budget Mechanical Keyboards Under $100 | Switchyard",
-    description: "Top affordable mechanical keyboards under $100. Compare Keychron V1, Royal Kludge RK61, and more. Expert picks for gaming, typing, and first-time buyers.",
-    keywords: "budget mechanical keyboard, best cheap mechanical keyboard, under $100, Keychron V1, RK61, gaming keyboard budget, affordable mechanical keyboard"
+    title: "Best Budget Mechanical Keyboards Under $100 (2026) | Switchyard",
+    description: "Top affordable mechanical keyboards under $100 for 2026. Expert reviews of Keychron V1, Royal Kludge RK61, Glorious GMMK Compact. Gaming, typing, and first-time buyer picks with hot-swap and wireless options.",
+    keywords: "budget mechanical keyboard, best cheap mechanical keyboard 2026, under $100 keyboard, Keychron V1 review, RK61 review, affordable mechanical keyboard hot-swap, entry level gaming keyboard",
+    canonical: '/learn/best-budget',
+    ogImage: 'https://switchyard.club/og-budget-keyboards.png'
   });
 
   return (
@@ -99,7 +101,7 @@ export default function BestBudgetGuide() {
                   <span className="pick-price">{pick.price}</span>
                   <p className="pick-specs">{pick.specs}</p>
                   <p className="pick-why">{pick.why}</p>
-                  <a href={pick.link} className="pick-link" target="_blank" rel="noopener noreferrer">Check Price →</a>
+                  <a href={pick.link} className="pick-link" target="_blank" rel="noopener noreferrer" aria-label={`Check price for ${pick.name}`}>Check Price →</a>
                 </div>
               ))}
             </div>
@@ -108,7 +110,7 @@ export default function BestBudgetGuide() {
           <section>
             <h2>Quick Comparison</h2>
             <div className="table-wrap">
-              <table className="comparison-table">
+              <table className="comparison-table" aria-label="Budget keyboard comparison">
                 <thead>
                   <tr>
                     <th>Keyboard</th>
