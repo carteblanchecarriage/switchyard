@@ -547,9 +547,7 @@ export default function App() {
     return <HotswapVsSolderedPost />;
   }
   if (currentPath === '/blog') {
-    // Redirect to static blog index for now
-    window.location.href = '/blog/index.html';
-    return null;
+    return <Learn />;
   }
 
   // Main app render
