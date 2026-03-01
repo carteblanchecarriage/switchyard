@@ -16,23 +16,56 @@ interface AnalyticsData {
   vendor?: string;
   category?: string;
   price?: string;
-  confidence?: number;
-  timestamp?: string;
-  exitPrice?: number | null;
-  pnlPercent?: number;
-  pnlUsd?: number;
-  reason?: string;
+  query?: string;
+  resultCount?: number;
+  page?: string;
+  referrer?: string;
 }
 
 interface TrackClickParams {
-  product: string;
+  product: string | object;
   vendor: string;
   category: string;
   price: string;
 }
 
+// Worker endpoint configuration
+// In production, set this via environment variable or config
+const ANALYTICS_WORKER_URL = process.env.REACT_APP_ANALYTICS_URL || 
+  (typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+    ? 'http://localhost:3456' 
+    : 'https://YOUR_WORKER_URL.workers.dev');
+
 function hasNameProperty(obj: unknown): obj is { name: string } {
   return typeof obj === 'object' && obj !== null && 'name' in obj && typeof (obj as Record<string, unknown>).name === 'string';
+}
+
+/**
+ * Send analytics event to Cloudflare Worker
+ * Falls back silently on error (don't break user experience)
+ */
+async function sendToWorker(data: AnalyticsData & { type: string }) {
+  try {
+    const response = await fetch(`${ANALYTICS_WORKER_URL}/track`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        timestamp: new Date().toISOString(),
+        page: window.location.pathname,
+        referrer: document.referrer
+      })
+    });
+    
+    if (!response.ok) {
+      console.warn('Analytics worker error:', response.status);
+    }
+  } catch (e) {
+    // Silent fail - don't break user experience for analytics
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Analytics error:', e);
+    }
+  }
 }
 
 export function useAnalytics() {
@@ -41,6 +74,7 @@ export function useAnalytics() {
 
     const productName = hasNameProperty(product) ? product.name : String(product);
 
+    // Google Analytics 4
     if (window.gtag) {
       window.gtag('event', 'affiliate_click', {
         event_category: 'engagement',
@@ -54,26 +88,22 @@ export function useAnalytics() {
       });
     }
 
+    // Legacy callback (for backward compatibility)
     if (window.trackAffiliateClick) {
       window.trackAffiliateClick(productName, vendor, category, price);
     }
 
-    try {
-      fetch('/analytics/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'click',
-          product: productName,
-          vendor,
-          category,
-          price
-        })
-      }).catch(() => {});
-    } catch (e) {}
+    // Cloudflare Worker
+    sendToWorker({
+      type: 'affiliate_click',
+      product: productName,
+      vendor,
+      category,
+      price
+    });
   }, []);
 
-const trackView = useCallback((product: string | object, vendor: string, category: string): void => {
+  const trackView = useCallback((product: string | object, vendor: string, category: string, price?: string): void => {
     if (typeof window === 'undefined') return;
 
     const productName = hasNameProperty(product) ? product.name : String(product);
@@ -83,13 +113,25 @@ const trackView = useCallback((product: string | object, vendor: string, categor
         event_category: 'engagement',
         vendor: vendor,
         product_name: productName,
-        product_category: category
+        product_category: category,
+        price_range: price,
+        value: parseFloat(price || '0') || 0,
+        currency: 'USD'
       });
     }
 
     if (window.trackProductView) {
       window.trackProductView(product, vendor, category);
     }
+
+    // Cloudflare Worker
+    sendToWorker({
+      type: 'view',
+      product: productName,
+      vendor,
+      category,
+      price
+    });
   }, []);
 
   const trackSearch = useCallback((query: string, resultCount: number): void => {
@@ -106,6 +148,13 @@ const trackView = useCallback((product: string | object, vendor: string, categor
     if (window.trackSearch) {
       window.trackSearch(query, resultCount);
     }
+
+    // Cloudflare Worker
+    sendToWorker({
+      type: 'search',
+      query,
+      resultCount
+    });
   }, []);
 
   const trackVendorFilter = useCallback((vendor: string): void => {
@@ -122,6 +171,12 @@ const trackView = useCallback((product: string | object, vendor: string, categor
     if (window.trackVendorFilter) {
       window.trackVendorFilter(vendor);
     }
+
+    // Cloudflare Worker
+    sendToWorker({
+      type: 'vendor_filter',
+      vendor
+    });
   }, []);
 
   const trackCategoryFilter = useCallback((category: string): void => {
@@ -134,6 +189,12 @@ const trackView = useCallback((product: string | object, vendor: string, categor
         category: category
       });
     }
+
+    // Cloudflare Worker
+    sendToWorker({
+      type: 'category_filter',
+      category
+    });
   }, []);
 
   const trackPageView = useCallback((page: string): void => {
@@ -144,6 +205,12 @@ const trackView = useCallback((product: string | object, vendor: string, categor
         page_path: page
       });
     }
+
+    // Cloudflare Worker - page view event
+    sendToWorker({
+      type: 'pageview',
+      page
+    });
   }, []);
 
   return {
