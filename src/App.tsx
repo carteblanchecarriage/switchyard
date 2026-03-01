@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
@@ -420,9 +420,9 @@ export default function App() {
   };
 
   // Apply filters when debounced search query changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     applyFilters(activeCategory, debouncedSearchQuery);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery, activeCategory]);
 
   const loadMore = () => {
