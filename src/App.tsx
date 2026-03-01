@@ -1,10 +1,8 @@
-import React, { useState, useEffect, lazy, Suspense, memo, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
 import Wizard, { WizardState } from './components/Wizard';
-import ErrorBoundary from './components/ErrorBoundary';
-import { FadeIn } from './components/FadeIn';
 import { usePageSEO } from './hooks/usePageSEO';
 import { useDebounce } from './hooks/useDebounce';
 import { sortByAffiliatePriority } from './config';
@@ -422,6 +420,7 @@ export default function App() {
   };
 
   // Apply filters when debounced search query changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     applyFilters(activeCategory, debouncedSearchQuery);
   }, [debouncedSearchQuery, activeCategory]);
