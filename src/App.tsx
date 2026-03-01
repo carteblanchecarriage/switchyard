@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense, memo, useMemo, useCallback } from 'react';
 import './App.css';
 import Layout from './components/Layout';
 import ProductModal from './components/ProductModal';
-import Wizard from './components/Wizard';
+import Wizard, { WizardState } from './components/Wizard';
+import ErrorBoundary from './components/ErrorBoundary';
+import { FadeIn } from './components/FadeIn';
 import { usePageSEO } from './hooks/usePageSEO';
+import { useDebounce } from './hooks/useDebounce';
 import { sortByAffiliatePriority } from './config';
 import { KeyboardProduct } from './types/keyboard';
 
@@ -173,15 +176,12 @@ export default function App() {
   const [displayLimit, setDisplayLimit] = useState(12);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [wizardFilters, setWizardFilters] = useState<Product[] | null>(null);
-  const [wizardSelections, setWizardSelections] = useState<{
-    useCase: string | null;
-    workspace: string | null;
-    size: string | null;
-    hotswap: string | null;
-    budget: string | null;
-  } | null>(null);
+  const [wizardSelections, setWizardSelections] = useState<WizardState | null>(null);
   const [sortBy, setSortBy] = useState<string>('affiliate');
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Debounced search query for better performance
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   // Parse URL query parameters on mount
   useEffect(() => {
@@ -396,7 +396,7 @@ export default function App() {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
-    applyFilters(activeCategory, query);
+    // Note: Filtering happens automatically via debouncedSearchQuery effect
     
     // Update URL without reloading page
     const url = new URL(window.location.href);
@@ -413,12 +413,17 @@ export default function App() {
     applyFilters(activeCategory, '');
   };
 
-  const handleWizardFilter = (filtered: Product[], selections: any) => {
+  const handleWizardFilter = (filtered: Product[], selections: WizardState) => {
     setWizardFilters(filtered);
     setWizardSelections(selections);
-    applyFilters(activeCategory, searchQuery);
+    applyFilters(activeCategory, debouncedSearchQuery);
     setDisplayLimit(12);
   };
+
+  // Apply filters when debounced search query changes
+  useEffect(() => {
+    applyFilters(activeCategory, debouncedSearchQuery);
+  }, [debouncedSearchQuery, activeCategory]);
 
   const loadMore = () => {
     setDisplayLimit(prev => prev + 12);

@@ -8,7 +8,7 @@ interface WizardProps {
   activeFilters?: WizardState | null;
 }
 
-interface WizardState {
+export interface WizardState {
   useCase: string | null;
   workspace: string | null;
   size: string | null;
