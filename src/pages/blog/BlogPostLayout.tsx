@@ -13,6 +13,8 @@ interface BlogPostLayoutProps {
   date: string;
   readTime: string;
   category: string;
+  heroImage?: string;
+  heroAlt?: string;
   children: React.ReactNode;
 }
 
@@ -25,6 +27,8 @@ export default function BlogPostLayout({
   date,
   readTime,
   category,
+  heroImage,
+  heroAlt,
   children
 }: BlogPostLayoutProps) {
   usePageSEO({
@@ -62,6 +66,17 @@ export default function BlogPostLayout({
               By <span className="author-name">{author}</span>
             </div>
           </header>
+
+          {/* Hero Image */}
+          {heroImage && (
+            <div className="blog-hero-image">
+              <img 
+                src={heroImage} 
+                alt={heroAlt || title} 
+                loading="eager"
+              />
+            </div>
+          )}
 
           {/* Content */}
           <div className="blog-content-wrapper">

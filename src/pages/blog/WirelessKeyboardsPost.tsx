@@ -10,6 +10,8 @@ export default function WirelessKeyboardsPost() {
       date="February 27, 2026"
       readTime="9 min"
       category="Buying Guide"
+      heroImage="/blog/wireless-hero.jpg"
+      heroAlt="Minimalist laptop and peripherals on clean white desk with wireless keyboard"
     >
 
         <p>

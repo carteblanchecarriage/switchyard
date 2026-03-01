@@ -11,6 +11,8 @@ export default function GasketMountPost() {
       date="February 27, 2026"
       readTime="10 min"
       category="Buying Guide"
+      heroImage="/blog/gasket-mount-hero.jpg"
+      heroAlt="Mechanical keyboard on a dark desk setup with RGB lighting"
     >
 
         <p>

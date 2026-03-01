@@ -10,6 +10,8 @@ export default function HallEffectPost() {
       date="February 27, 2026"
       readTime="8 min"
       category="Gaming"
+      heroImage="/blog/hall-effect-hero.jpg"
+      heroAlt="Close-up of gaming keyboard with RGB lighting in dark environment"
     >
 
         <p>

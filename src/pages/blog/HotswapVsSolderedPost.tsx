@@ -10,6 +10,8 @@ export default function HotswapVsSolderedPost() {
       date="February 27, 2026"
       readTime="8 min"
       category="Buying Guide"
+      heroImage="/blog/hotswap-hero.jpg"
+      heroAlt="Person adjusting computer keyboard switches on a modern desk"
     >
 
         <p>

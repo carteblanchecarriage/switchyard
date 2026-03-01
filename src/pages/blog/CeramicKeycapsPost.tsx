@@ -10,6 +10,8 @@ export default function CeramicKeycapsPost() {
       date="March 1, 2026"
       readTime="10 min"
       category="Buying Guide"
+      heroImage="/blog/ceramic-keycaps-hero.jpg"
+      heroAlt="Ceramic pottery on display showing glaze finishes and textures"
     >
       <p>
         There's a moment in every keyboard enthusiast's journey when they think: <em>"I've tried PBT, I've tried ABS, I've tried resin artisans... what's next?"</em> For an increasing number of people in 2026, the answer is <strong>ceramic keycaps</strong>.

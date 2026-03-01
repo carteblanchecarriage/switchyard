@@ -4,6 +4,36 @@
   padding: 2rem;
 }
 
+/* Hero Image */
+.blog-hero-image {
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .blog-hero-image {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+  }
+  
+  .blog-hero-image img {
+    max-height: 300px;
+    border-radius: 8px;
+  }
+}
+
 .blog-breadcrumbs {
   margin-bottom: 1.5rem;
   font-size: 0.875rem;
