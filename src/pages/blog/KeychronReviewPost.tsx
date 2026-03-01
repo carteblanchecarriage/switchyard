@@ -10,6 +10,8 @@ export default function KeychronReviewPost() {
       date="February 27, 2026"
       readTime="10 min"
       category="Review"
+      heroImage="/blog/keychron-review-hero.jpg"
+      heroAlt="Modern mechanical keyboard on a minimal desk with computer monitor in background"
     >
 
         <p>

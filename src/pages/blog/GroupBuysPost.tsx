@@ -10,6 +10,8 @@ export default function GroupBuysPost() {
       date="February 22, 2026"
       readTime="8 min"
       category="Guide"
+      heroImage="/blog/group-buys-hero.jpg"
+      heroAlt="Diverse group of hands working together on laptop keyboard showing collaboration"
     >
 
         <p>

@@ -10,6 +10,8 @@ export default function CherryMX2APost() {
       date="February 27, 2026"
       readTime="12 min"
       category="Switches"
+      heroImage="/blog/cherry-mx2a-hero.jpg"
+      heroAlt="Mechanical keyboard switches closeup showing switch stems and housing"
     >
 
         <p>
