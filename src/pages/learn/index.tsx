@@ -19,6 +19,7 @@ const guideCategories = [
     title: 'Latest from the Blog',
     icon: '📰',
     guides: [
+      { path: '/blog/ceramic-keycaps-guide-2026', title: 'Ceramic Keycaps Guide', desc: 'Why enthusiasts pay $200-400 for kiln-fired keycaps. Worth it?', difficulty: 'Medium' },
       { path: '/blog/gasket-mount-keyboards-explained', title: 'Gasket Mount Keyboards', desc: 'Why enthusiasts are obsessed with the "thocky" typing feel.', difficulty: 'Medium' },
       { path: '/blog/wireless-mechanical-keyboards-2026', title: 'Wireless Keyboards 2026', desc: 'Is Bluetooth finally good enough? Latency testing results.', difficulty: 'Easy' },
       { path: '/blog/hot-swap-vs-soldered-keyboards', title: 'Hot-Swap vs Soldered', desc: 'Which should you choose? The pros, cons, and real talk.', difficulty: 'Easy' },
