@@ -35,6 +35,7 @@ import GroupBuysPost from './pages/blog/GroupBuysPost';
 import GasketMountPost from './pages/blog/GasketMountPost';
 import WirelessKeyboardsPost from './pages/blog/WirelessKeyboardsPost';
 import HotswapVsSolderedPost from './pages/blog/HotswapVsSolderedPost';
+import CeramicKeycapsPost from './pages/blog/CeramicKeycapsPost';
 
 // Extend KeyboardProduct with App-specific fields
 type Product = KeyboardProduct & {
@@ -550,6 +551,9 @@ export default function App() {
   }
   if (currentPath === '/blog/hot-swap-vs-soldered-keyboards') {
     return <HotswapVsSolderedPost />;
+  }
+  if (currentPath === '/blog/ceramic-keycaps-guide-2026') {
+    return <CeramicKeycapsPost />;
   }
   if (currentPath === '/blog') {
     return <Learn />;
