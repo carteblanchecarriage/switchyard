@@ -9,7 +9,6 @@ interface BlogPostLayoutProps {
   description: string;
   keywords?: string;
   ogImage?: string;
-  author?: string;
   date: string;
   readTime: string;
   category: string;
@@ -23,7 +22,6 @@ export default function BlogPostLayout({
   description,
   keywords = "",
   ogImage = "https://switchyard.club/og-image.png",
-  author = "Switchyard",
   date,
   readTime,
   category,
@@ -62,9 +60,6 @@ export default function BlogPostLayout({
             </div>
             <h1 className="blog-title">{title}</h1>
             <p className="blog-description">{description}</p>
-            <div className="blog-author">
-              By <span className="author-name">{author}</span>
-            </div>
           </header>
 
           {/* Hero Image */}
