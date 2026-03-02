@@ -148,17 +148,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-02-27T23:56:13.506Z",
-    "duration": "29.04",
-    "totalItems": 1817,
-    "newItems": 1,
-    "products": 1433,
-    "inStock": 1814,
+    "scrapedAt": "2026-03-02T14:12:43.199Z",
+    "duration": "35.23",
+    "totalItems": 1819,
+    "newItems": 2,
+    "products": 1435,
+    "inStock": 1816,
     "groupBuys": 2,
     "interestChecks": 0,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-02-27T23:56:13.506Z"
+    "updatedAt": "2026-03-02T14:12:43.199Z"
   },
   "allProducts": [
     {
@@ -22581,6 +22581,36 @@
       "tags": [],
       "scrapedAt": "2026-02-27T23:56:00.703Z",
       "source": "vendor"
+    },
+    {
+      "id": "qwerkywriter-black-chrome-qwerkywriter-international-version-hot-swap-edition-91",
+      "name": "BLACK CHROME QWERKYWRITER® INTERNATIONAL VERSION HOT SWAP EDITION",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition?sca_ref=10713146.AiDf5cQpby",
+      "price": "$299.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/2025_10_30_INTLBC_Render_TOP.jpg?v=1761865333",
+      "description": "International orders (outside the USA) may be subject to additional duties and taxes. \nOnly available in UK, Spanish, French, Italian, Nordic, and German layout.  Please see PIC for each language layo",
+      "scrapedAt": "2026-03-02T14:12:27.577Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-dcs-polch-keycaps-7809775927361",
+      "name": "DCS Polch Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/dcs-polch-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/dcs-polch-keycaps?ref=switchyard",
+      "price": "$125.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/dcs-polch-keycaps-1240461.webp?v=1772440509",
+      "description": "dcs polch keycaps use classic dolch colorways with pink alphas and accents. this set is priced at a preliminary moq but if we exceed certain pricing tiers, refunds will be sent for price difference! \n",
+      "scrapedAt": "2026-03-02T14:12:36.181Z",
+      "status": "in_stock"
     }
   ],
   "revenueProjection": {
@@ -51142,6 +51172,36 @@
       "tags": [],
       "scrapedAt": "2026-02-27T23:56:00.703Z",
       "source": "vendor"
+    },
+    {
+      "id": "qwerkywriter-black-chrome-qwerkywriter-international-version-hot-swap-edition-91",
+      "name": "BLACK CHROME QWERKYWRITER® INTERNATIONAL VERSION HOT SWAP EDITION",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition?sca_ref=10713146.AiDf5cQpby",
+      "price": "$299.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/2025_10_30_INTLBC_Render_TOP.jpg?v=1761865333",
+      "description": "International orders (outside the USA) may be subject to additional duties and taxes. \nOnly available in UK, Spanish, French, Italian, Nordic, and German layout.  Please see PIC for each language layo",
+      "scrapedAt": "2026-03-02T14:12:27.577Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-dcs-polch-keycaps-7809775927361",
+      "name": "DCS Polch Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/dcs-polch-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/dcs-polch-keycaps?ref=switchyard",
+      "price": "$125.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/dcs-polch-keycaps-1240461.webp?v=1772440509",
+      "description": "dcs polch keycaps use classic dolch colorways with pink alphas and accents. this set is priced at a preliminary moq but if we exceed certain pricing tiers, refunds will be sent for price difference! \n",
+      "scrapedAt": "2026-03-02T14:12:36.181Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -79661,6 +79721,36 @@
       "tags": [],
       "scrapedAt": "2026-02-27T23:56:00.703Z",
       "source": "vendor"
+    },
+    {
+      "id": "qwerkywriter-black-chrome-qwerkywriter-international-version-hot-swap-edition-91",
+      "name": "BLACK CHROME QWERKYWRITER® INTERNATIONAL VERSION HOT SWAP EDITION",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/black-chrome-qwerkywriter-international-version-hot-swap-edition?sca_ref=10713146.AiDf5cQpby",
+      "price": "$299.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/2025_10_30_INTLBC_Render_TOP.jpg?v=1761865333",
+      "description": "International orders (outside the USA) may be subject to additional duties and taxes. \nOnly available in UK, Spanish, French, Italian, Nordic, and German layout.  Please see PIC for each language layo",
+      "scrapedAt": "2026-03-02T14:12:27.577Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-dcs-polch-keycaps-7809775927361",
+      "name": "DCS Polch Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/dcs-polch-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/dcs-polch-keycaps?ref=switchyard",
+      "price": "$125.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/dcs-polch-keycaps-1240461.webp?v=1772440509",
+      "description": "dcs polch keycaps use classic dolch colorways with pink alphas and accents. this set is priced at a preliminary moq but if we exceed certain pricing tiers, refunds will be sent for price difference! \n",
+      "scrapedAt": "2026-03-02T14:12:36.181Z",
+      "status": "in_stock"
     }
   ],
   "parts": []
