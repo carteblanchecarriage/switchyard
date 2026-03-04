@@ -148,17 +148,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-03T11:00:28.647Z",
-    "duration": "26.50",
-    "totalItems": 1823,
+    "scrapedAt": "2026-03-04T19:00:29.680Z",
+    "duration": "27.31",
+    "totalItems": 1824,
     "newItems": 1,
-    "products": 1439,
-    "inStock": 1820,
+    "products": 1440,
+    "inStock": 1821,
     "groupBuys": 2,
     "interestChecks": 0,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-03T11:00:28.647Z"
+    "updatedAt": "2026-03-04T19:00:29.680Z"
   },
   "allProducts": [
     {
@@ -22683,6 +22683,21 @@
       ],
       "scrapedAt": "2026-03-03T11:00:03.662Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-gmk-cyl-green-alert-keycaps-7840595542081",
+      "name": "GMK CYL Green Alert Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps?ref=switchyard",
+      "price": "$148.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/GMK-CYL-Green-Alert-Keycaps-4.webp?v=1772645747",
+      "description": "gmk cyl green alert keycaps is finally running! featuring a classic beige set with green legends and alert row accents.\ngb period: march 3 - april 3, 2026\nestimated ship date: 16 weeks after gb ends\nf",
+      "scrapedAt": "2026-03-04T19:00:24.437Z",
+      "status": "in_stock"
     }
   ],
   "revenueProjection": {
@@ -51346,6 +51361,21 @@
       ],
       "scrapedAt": "2026-03-03T11:00:03.662Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-gmk-cyl-green-alert-keycaps-7840595542081",
+      "name": "GMK CYL Green Alert Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps?ref=switchyard",
+      "price": "$148.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/GMK-CYL-Green-Alert-Keycaps-4.webp?v=1772645747",
+      "description": "gmk cyl green alert keycaps is finally running! featuring a classic beige set with green legends and alert row accents.\ngb period: march 3 - april 3, 2026\nestimated ship date: 16 weeks after gb ends\nf",
+      "scrapedAt": "2026-03-04T19:00:24.437Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -79967,6 +79997,21 @@
       ],
       "scrapedAt": "2026-03-03T11:00:03.662Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-gmk-cyl-green-alert-keycaps-7840595542081",
+      "name": "GMK CYL Green Alert Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/gmk-cyl-green-alert-keycaps?ref=switchyard",
+      "price": "$148.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/GMK-CYL-Green-Alert-Keycaps-4.webp?v=1772645747",
+      "description": "gmk cyl green alert keycaps is finally running! featuring a classic beige set with green legends and alert row accents.\ngb period: march 3 - april 3, 2026\nestimated ship date: 16 weeks after gb ends\nf",
+      "scrapedAt": "2026-03-04T19:00:24.437Z",
+      "status": "in_stock"
     }
   ],
   "parts": []
