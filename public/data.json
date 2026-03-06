@@ -148,17 +148,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-05T23:00:29.504Z",
-    "duration": "28.10",
-    "totalItems": 1853,
-    "newItems": 26,
-    "products": 1469,
-    "inStock": 1850,
+    "scrapedAt": "2026-03-06T15:00:28.903Z",
+    "duration": "27.36",
+    "totalItems": 1854,
+    "newItems": 1,
+    "products": 1470,
+    "inStock": 1851,
     "groupBuys": 2,
     "interestChecks": 0,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-05T23:00:29.504Z"
+    "updatedAt": "2026-03-06T15:00:28.903Z"
   },
   "allProducts": [
     {
@@ -23133,6 +23133,28 @@
       "description": "nuxroskb substance r2 deskmats now offers new colorways for the popular splash design as well as bring back favorites such as the old school and vintage colors. it also has a larger surface area than ",
       "scrapedAt": "2026-03-05T23:00:23.360Z",
       "status": "in_stock"
+    },
+    {
+      "id": "novelkeys-gmk-cyl-taiga-r2-keycaps-8742669418663",
+      "name": "GMK CYL Taiga 2.0",
+      "type": "product",
+      "platform": "NovelKeys",
+      "vendor": "NovelKeys",
+      "category": "keycaps",
+      "url": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps",
+      "affiliateUrl": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps?ref=switchyard",
+      "price": "$140.00",
+      "image": "https://cdn.shopify.com/s/files/1/3099/8088/files/GMK_CYL_Taiga_TILE_f634c88d-7a4f-4019-a091-0ad81cd32239.jpg?v=1772548859",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-06T15:00:17.197Z",
+      "source": "vendor"
     }
   ],
   "revenueProjection": {
@@ -52246,6 +52268,28 @@
       "description": "nuxroskb substance r2 deskmats now offers new colorways for the popular splash design as well as bring back favorites such as the old school and vintage colors. it also has a larger surface area than ",
       "scrapedAt": "2026-03-05T23:00:23.360Z",
       "status": "in_stock"
+    },
+    {
+      "id": "novelkeys-gmk-cyl-taiga-r2-keycaps-8742669418663",
+      "name": "GMK CYL Taiga 2.0",
+      "type": "product",
+      "platform": "NovelKeys",
+      "vendor": "NovelKeys",
+      "category": "keycaps",
+      "url": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps",
+      "affiliateUrl": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps?ref=switchyard",
+      "price": "$140.00",
+      "image": "https://cdn.shopify.com/s/files/1/3099/8088/files/GMK_CYL_Taiga_TILE_f634c88d-7a4f-4019-a091-0ad81cd32239.jpg?v=1772548859",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-06T15:00:17.197Z",
+      "source": "vendor"
     }
   ],
   "inStock": [
@@ -81317,6 +81361,28 @@
       "description": "nuxroskb substance r2 deskmats now offers new colorways for the popular splash design as well as bring back favorites such as the old school and vintage colors. it also has a larger surface area than ",
       "scrapedAt": "2026-03-05T23:00:23.360Z",
       "status": "in_stock"
+    },
+    {
+      "id": "novelkeys-gmk-cyl-taiga-r2-keycaps-8742669418663",
+      "name": "GMK CYL Taiga 2.0",
+      "type": "product",
+      "platform": "NovelKeys",
+      "vendor": "NovelKeys",
+      "category": "keycaps",
+      "url": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps",
+      "affiliateUrl": "https://novelkeys.com/products/gmk-cyl-taiga-r2-keycaps?ref=switchyard",
+      "price": "$140.00",
+      "image": "https://cdn.shopify.com/s/files/1/3099/8088/files/GMK_CYL_Taiga_TILE_f634c88d-7a4f-4019-a091-0ad81cd32239.jpg?v=1772548859",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-06T15:00:17.197Z",
+      "source": "vendor"
     }
   ],
   "parts": []
