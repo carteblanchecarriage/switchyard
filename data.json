@@ -25,9 +25,49 @@
       "status": "live",
       "scrapedAt": "2026-02-25T20:18:03.049Z",
       "source": "reddit"
+    },
+    {
+      "id": "reddit-1rmyq4q",
+      "name": "[GB] SMPL Supply OG Deskmats are Back!",
+      "type": "group_buy",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rmyq4q/gb_smpl_supply_og_deskmats_are_back/",
+      "author": "OhYay123",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-07T05:00:28.020Z",
+      "source": "reddit"
+    },
+    {
+      "id": "reddit-1ro67nm",
+      "name": "[GB] GMK CYL Green Alert | March 3rd - April 3rd",
+      "type": "group_buy",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1ro67nm/gb_gmk_cyl_green_alert_march_3rd_april_3rd/",
+      "author": "c-mcmc",
+      "upvotes": 3,
+      "comments": 3,
+      "status": "live",
+      "scrapedAt": "2026-03-08T16:00:29.296Z",
+      "source": "reddit"
     }
   ],
-  "interestChecks": [],
+  "interestChecks": [
+    {
+      "id": "reddit-1rmsa57",
+      "name": "[IC] GMK CYL Gonzales | Vendor Announcement!",
+      "type": "interest_check",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rmsa57/ic_gmk_cyl_gonzales_vendor_announcement/",
+      "author": "Balance_1",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-06T23:00:28.346Z",
+      "source": "reddit"
+    }
+  ],
   "redditPosts": [
     {
       "id": "reddit-1rau6yo",
@@ -148,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-06T15:00:28.903Z",
-    "duration": "27.36",
-    "totalItems": 1854,
-    "newItems": 1,
-    "products": 1470,
-    "inStock": 1851,
-    "groupBuys": 2,
-    "interestChecks": 0,
+    "scrapedAt": "2026-03-08T16:00:29.300Z",
+    "duration": "27.67",
+    "totalItems": 1858,
+    "newItems": 2,
+    "products": 1471,
+    "inStock": 1852,
+    "groupBuys": 4,
+    "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-06T15:00:28.903Z"
+    "updatedAt": "2026-03-08T16:00:29.300Z"
   },
   "allProducts": [
     {
@@ -23154,6 +23194,30 @@
       },
       "tags": [],
       "scrapedAt": "2026-03-06T15:00:17.197Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-spring-sale-reservation-card-9319416267060",
+      "name": "EPOMAKER Spring Sale Reservation Card",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-sale-reservation-card",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-sale-reservation-card?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$0.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/RC-1_15f8c62a-b18d-4db7-aac9-2f385dcc1083.png?v=1772803949",
+      "description": "1.  Excluded Items \n\nDiscount Codes cannot be used to purchase EPOMAKER Bundles, Mystery Boxes , EPOMAKER Gift Cards and Switch benefit section. Please note that these products are excluded from the minimum spend calculation for Order Discount Code.\n \n\n 2.  Limit One RC Per Customer  \n\nEach customer",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "RC"
+      ],
+      "scrapedAt": "2026-03-08T16:00:09.753Z",
       "source": "vendor"
     }
   ],
@@ -52290,6 +52354,69 @@
       "tags": [],
       "scrapedAt": "2026-03-06T15:00:17.197Z",
       "source": "vendor"
+    },
+    {
+      "id": "reddit-1rmsa57",
+      "name": "[IC] GMK CYL Gonzales | Vendor Announcement!",
+      "type": "interest_check",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rmsa57/ic_gmk_cyl_gonzales_vendor_announcement/",
+      "author": "Balance_1",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-06T23:00:28.346Z",
+      "source": "reddit"
+    },
+    {
+      "id": "reddit-1rmyq4q",
+      "name": "[GB] SMPL Supply OG Deskmats are Back!",
+      "type": "group_buy",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rmyq4q/gb_smpl_supply_og_deskmats_are_back/",
+      "author": "OhYay123",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-07T05:00:28.020Z",
+      "source": "reddit"
+    },
+    {
+      "id": "epomaker-epomaker-spring-sale-reservation-card-9319416267060",
+      "name": "EPOMAKER Spring Sale Reservation Card",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-sale-reservation-card",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-sale-reservation-card?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$0.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/RC-1_15f8c62a-b18d-4db7-aac9-2f385dcc1083.png?v=1772803949",
+      "description": "1.  Excluded Items \n\nDiscount Codes cannot be used to purchase EPOMAKER Bundles, Mystery Boxes , EPOMAKER Gift Cards and Switch benefit section. Please note that these products are excluded from the minimum spend calculation for Order Discount Code.\n \n\n 2.  Limit One RC Per Customer  \n\nEach customer",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "RC"
+      ],
+      "scrapedAt": "2026-03-08T16:00:09.753Z",
+      "source": "vendor"
+    },
+    {
+      "id": "reddit-1ro67nm",
+      "name": "[GB] GMK CYL Green Alert | March 3rd - April 3rd",
+      "type": "group_buy",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1ro67nm/gb_gmk_cyl_green_alert_march_3rd_april_3rd/",
+      "author": "c-mcmc",
+      "upvotes": 3,
+      "comments": 3,
+      "status": "live",
+      "scrapedAt": "2026-03-08T16:00:29.296Z",
+      "source": "reddit"
     }
   ],
   "inStock": [
@@ -81382,6 +81509,30 @@
       },
       "tags": [],
       "scrapedAt": "2026-03-06T15:00:17.197Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-spring-sale-reservation-card-9319416267060",
+      "name": "EPOMAKER Spring Sale Reservation Card",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-sale-reservation-card",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-sale-reservation-card?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$0.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/RC-1_15f8c62a-b18d-4db7-aac9-2f385dcc1083.png?v=1772803949",
+      "description": "1.  Excluded Items \n\nDiscount Codes cannot be used to purchase EPOMAKER Bundles, Mystery Boxes , EPOMAKER Gift Cards and Switch benefit section. Please note that these products are excluded from the minimum spend calculation for Order Discount Code.\n \n\n 2.  Limit One RC Per Customer  \n\nEach customer",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "RC"
+      ],
+      "scrapedAt": "2026-03-08T16:00:09.753Z",
       "source": "vendor"
     }
   ],
