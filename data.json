@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-08T16:00:29.300Z",
-    "duration": "27.67",
-    "totalItems": 1858,
-    "newItems": 2,
-    "products": 1471,
-    "inStock": 1852,
+    "scrapedAt": "2026-03-09T10:00:29.337Z",
+    "duration": "27.55",
+    "totalItems": 1861,
+    "newItems": 3,
+    "products": 1474,
+    "inStock": 1855,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-08T16:00:29.300Z"
+    "updatedAt": "2026-03-09T10:00:29.337Z"
   },
   "allProducts": [
     {
@@ -23218,6 +23218,85 @@
         "RC"
       ],
       "scrapedAt": "2026-03-08T16:00:09.753Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-kap-vella-8098743615627",
+      "name": "KAP Vella",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/kap-vella",
+      "affiliateUrl": "https://kbdfans.com/products/kap-vella?ref=switchyard",
+      "price": "$35.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/HARBORBLUE.jpg?v=1773042210",
+      "description": "Specs\n\nProfile: KAP\nMaterial: PBT material\nProduction Method: double-shot\nManufacturer: Keyreative \nFriendly Reminds: Only keycaps included, no keyboard\nCompatible with Cherry MX switches and MX-style clones\nDesigner: Aiglatson Studio × ManuKB\n\n\nCompatibility: \n\n60% ANSI layout, 60% 7u spacebar layo",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-hot-shoe-cover-8098757378187",
+      "name": "OWL Hot Shoe Cover",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-hot-shoe-cover",
+      "affiliateUrl": "https://kbdfans.com/products/owl-hot-shoe-cover?ref=switchyard",
+      "price": "$15.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/7fb48f0c-df93-4a81-99da-9274757ff82c.jpg?v=1773048253",
+      "description": "Specs:  Material: Anodized Aluminum  Hot Shoe Cover - compatible with Sony E-mount cameras \n     \n    {\n      \"__shgImageElements\": { \"uuid\": \"s-739ab850-0c60-460b-b4db-1c74c2e799f3\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "Limited",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-aluminum-blockers-8098796241035",
+      "name": "OWL Aluminum Blockers",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-aluminum-blockers",
+      "affiliateUrl": "https://kbdfans.com/products/owl-aluminum-blockers?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/6897419c94ca494a0d91ac672ccfcd05.jpg?v=1773046870",
+      "description": "{\n      \"__shgImageV3Elements\": { \"uuid\": \"s-9eed68a1-3321-43c6-9cce-2fd74a34d939\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
       "source": "vendor"
     }
   ],
@@ -52417,6 +52496,85 @@
       "status": "live",
       "scrapedAt": "2026-03-08T16:00:29.296Z",
       "source": "reddit"
+    },
+    {
+      "id": "kbdfans-kap-vella-8098743615627",
+      "name": "KAP Vella",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/kap-vella",
+      "affiliateUrl": "https://kbdfans.com/products/kap-vella?ref=switchyard",
+      "price": "$35.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/HARBORBLUE.jpg?v=1773042210",
+      "description": "Specs\n\nProfile: KAP\nMaterial: PBT material\nProduction Method: double-shot\nManufacturer: Keyreative \nFriendly Reminds: Only keycaps included, no keyboard\nCompatible with Cherry MX switches and MX-style clones\nDesigner: Aiglatson Studio × ManuKB\n\n\nCompatibility: \n\n60% ANSI layout, 60% 7u spacebar layo",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-hot-shoe-cover-8098757378187",
+      "name": "OWL Hot Shoe Cover",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-hot-shoe-cover",
+      "affiliateUrl": "https://kbdfans.com/products/owl-hot-shoe-cover?ref=switchyard",
+      "price": "$15.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/7fb48f0c-df93-4a81-99da-9274757ff82c.jpg?v=1773048253",
+      "description": "Specs:  Material: Anodized Aluminum  Hot Shoe Cover - compatible with Sony E-mount cameras \n     \n    {\n      \"__shgImageElements\": { \"uuid\": \"s-739ab850-0c60-460b-b4db-1c74c2e799f3\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "Limited",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-aluminum-blockers-8098796241035",
+      "name": "OWL Aluminum Blockers",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-aluminum-blockers",
+      "affiliateUrl": "https://kbdfans.com/products/owl-aluminum-blockers?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/6897419c94ca494a0d91ac672ccfcd05.jpg?v=1773046870",
+      "description": "{\n      \"__shgImageV3Elements\": { \"uuid\": \"s-9eed68a1-3321-43c6-9cce-2fd74a34d939\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
     }
   ],
   "inStock": [
@@ -81533,6 +81691,85 @@
         "RC"
       ],
       "scrapedAt": "2026-03-08T16:00:09.753Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-kap-vella-8098743615627",
+      "name": "KAP Vella",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/kap-vella",
+      "affiliateUrl": "https://kbdfans.com/products/kap-vella?ref=switchyard",
+      "price": "$35.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/HARBORBLUE.jpg?v=1773042210",
+      "description": "Specs\n\nProfile: KAP\nMaterial: PBT material\nProduction Method: double-shot\nManufacturer: Keyreative \nFriendly Reminds: Only keycaps included, no keyboard\nCompatible with Cherry MX switches and MX-style clones\nDesigner: Aiglatson Studio × ManuKB\n\n\nCompatibility: \n\n60% ANSI layout, 60% 7u spacebar layo",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-hot-shoe-cover-8098757378187",
+      "name": "OWL Hot Shoe Cover",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-hot-shoe-cover",
+      "affiliateUrl": "https://kbdfans.com/products/owl-hot-shoe-cover?ref=switchyard",
+      "price": "$15.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/7fb48f0c-df93-4a81-99da-9274757ff82c.jpg?v=1773048253",
+      "description": "Specs:  Material: Anodized Aluminum  Hot Shoe Cover - compatible with Sony E-mount cameras \n     \n    {\n      \"__shgImageElements\": { \"uuid\": \"s-739ab850-0c60-460b-b4db-1c74c2e799f3\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "Limited",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
+      "source": "vendor"
+    },
+    {
+      "id": "kbdfans-owl-aluminum-blockers-8098796241035",
+      "name": "OWL Aluminum Blockers",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/owl-aluminum-blockers",
+      "affiliateUrl": "https://kbdfans.com/products/owl-aluminum-blockers?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/6897419c94ca494a0d91ac672ccfcd05.jpg?v=1773046870",
+      "description": "{\n      \"__shgImageV3Elements\": { \"uuid\": \"s-9eed68a1-3321-43c6-9cce-2fd74a34d939\" }\n    }",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Artisan keycaps",
+        "In Stock",
+        "New arrival"
+      ],
+      "scrapedAt": "2026-03-09T10:00:14.446Z",
       "source": "vendor"
     }
   ],
