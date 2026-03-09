@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-09T10:00:29.337Z",
-    "duration": "27.55",
-    "totalItems": 1861,
-    "newItems": 3,
-    "products": 1474,
-    "inStock": 1855,
+    "scrapedAt": "2026-03-09T20:00:29.545Z",
+    "duration": "27.86",
+    "totalItems": 1863,
+    "newItems": 2,
+    "products": 1476,
+    "inStock": 1857,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-09T10:00:29.337Z"
+    "updatedAt": "2026-03-09T20:00:29.545Z"
   },
   "allProducts": [
     {
@@ -23298,6 +23298,36 @@
       ],
       "scrapedAt": "2026-03-09T10:00:14.446Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-swg-euler-keycaps-7846897909825",
+      "name": "SWG Euler Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/swg-euler-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/swg-euler-keycaps?ref=switchyard",
+      "price": "$60.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/Swagkeys-Euler-Keycaps-1.webp?v=1773076982",
+      "description": "swg euler keycaps blend mathematical aesthetics, clean typography, and a calm grayscale palette. the design pays homage to leonhard euler, translating mathematical precision into a modern, minimalist ",
+      "scrapedAt": "2026-03-09T20:00:23.822Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-geon-mx-19mm-pingless-springs-7719018397761",
+      "name": "Geon MX 19mm Pingless Springs",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "accessories",
+      "url": "https://divinikey.com/products/geon-mx-19mm-pingless-springs",
+      "affiliateUrl": "https://divinikey.com/products/geon-mx-19mm-pingless-springs?ref=switchyard",
+      "price": "$6.50",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/geon-mx-19mm-pingless-springs-9268131.webp?v=1765347008",
+      "description": "geon mx pingless springs are 19mm, single-stage springs made from ni-br 0.30 material that reduces pinging. compatible with mx style switches.\ngeon mx 19mm pingless springs features:\n\n110(+5) springs ",
+      "scrapedAt": "2026-03-09T20:00:23.823Z",
+      "status": "in_stock"
     }
   ],
   "revenueProjection": {
@@ -52575,6 +52605,36 @@
       ],
       "scrapedAt": "2026-03-09T10:00:14.446Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-swg-euler-keycaps-7846897909825",
+      "name": "SWG Euler Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/swg-euler-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/swg-euler-keycaps?ref=switchyard",
+      "price": "$60.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/Swagkeys-Euler-Keycaps-1.webp?v=1773076982",
+      "description": "swg euler keycaps blend mathematical aesthetics, clean typography, and a calm grayscale palette. the design pays homage to leonhard euler, translating mathematical precision into a modern, minimalist ",
+      "scrapedAt": "2026-03-09T20:00:23.822Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-geon-mx-19mm-pingless-springs-7719018397761",
+      "name": "Geon MX 19mm Pingless Springs",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "accessories",
+      "url": "https://divinikey.com/products/geon-mx-19mm-pingless-springs",
+      "affiliateUrl": "https://divinikey.com/products/geon-mx-19mm-pingless-springs?ref=switchyard",
+      "price": "$6.50",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/geon-mx-19mm-pingless-springs-9268131.webp?v=1765347008",
+      "description": "geon mx pingless springs are 19mm, single-stage springs made from ni-br 0.30 material that reduces pinging. compatible with mx style switches.\ngeon mx 19mm pingless springs features:\n\n110(+5) springs ",
+      "scrapedAt": "2026-03-09T20:00:23.823Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -81771,6 +81831,36 @@
       ],
       "scrapedAt": "2026-03-09T10:00:14.446Z",
       "source": "vendor"
+    },
+    {
+      "id": "divinikey-swg-euler-keycaps-7846897909825",
+      "name": "SWG Euler Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/swg-euler-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/swg-euler-keycaps?ref=switchyard",
+      "price": "$60.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/Swagkeys-Euler-Keycaps-1.webp?v=1773076982",
+      "description": "swg euler keycaps blend mathematical aesthetics, clean typography, and a calm grayscale palette. the design pays homage to leonhard euler, translating mathematical precision into a modern, minimalist ",
+      "scrapedAt": "2026-03-09T20:00:23.822Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-geon-mx-19mm-pingless-springs-7719018397761",
+      "name": "Geon MX 19mm Pingless Springs",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "accessories",
+      "url": "https://divinikey.com/products/geon-mx-19mm-pingless-springs",
+      "affiliateUrl": "https://divinikey.com/products/geon-mx-19mm-pingless-springs?ref=switchyard",
+      "price": "$6.50",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/geon-mx-19mm-pingless-springs-9268131.webp?v=1765347008",
+      "description": "geon mx pingless springs are 19mm, single-stage springs made from ni-br 0.30 material that reduces pinging. compatible with mx style switches.\ngeon mx 19mm pingless springs features:\n\n110(+5) springs ",
+      "scrapedAt": "2026-03-09T20:00:23.823Z",
+      "status": "in_stock"
     }
   ],
   "parts": []
