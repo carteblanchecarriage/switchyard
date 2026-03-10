@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-10T12:00:34.971Z",
-    "duration": "32.68",
-    "totalItems": 1866,
-    "newItems": 3,
-    "products": 1479,
-    "inStock": 1860,
+    "scrapedAt": "2026-03-10T14:00:41.815Z",
+    "duration": "39.96",
+    "totalItems": 1867,
+    "newItems": 1,
+    "products": 1480,
+    "inStock": 1861,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-10T12:00:34.971Z"
+    "updatedAt": "2026-03-10T14:00:41.815Z"
   },
   "allProducts": [
     {
@@ -23455,6 +23455,21 @@
       ],
       "scrapedAt": "2026-03-10T12:00:04.042Z",
       "source": "vendor"
+    },
+    {
+      "id": "glorious-model-o-classic-wireless-mouse-8492308037807",
+      "name": "Model O Classic Wireless Mouse",
+      "type": "product",
+      "platform": "Glorious",
+      "vendor": "Glorious",
+      "category": "mice",
+      "url": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse",
+      "affiliateUrl": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse?ref=switchyard",
+      "price": "$89.99",
+      "image": "https://cdn.shopify.com/s/files/1/0549/2681/files/GLO-OC-WL-BLK_Web_Gallery_1_Perspective_2x_fe3f5d3e-a0e5-45ca-8f85-1c87b8ef6a63.webp?v=1772724905",
+      "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
+      "scrapedAt": "2026-03-10T14:00:38.315Z",
+      "status": "in_stock"
     }
   ],
   "revenueProjection": {
@@ -52889,6 +52904,21 @@
       ],
       "scrapedAt": "2026-03-10T12:00:04.042Z",
       "source": "vendor"
+    },
+    {
+      "id": "glorious-model-o-classic-wireless-mouse-8492308037807",
+      "name": "Model O Classic Wireless Mouse",
+      "type": "product",
+      "platform": "Glorious",
+      "vendor": "Glorious",
+      "category": "mice",
+      "url": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse",
+      "affiliateUrl": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse?ref=switchyard",
+      "price": "$89.99",
+      "image": "https://cdn.shopify.com/s/files/1/0549/2681/files/GLO-OC-WL-BLK_Web_Gallery_1_Perspective_2x_fe3f5d3e-a0e5-45ca-8f85-1c87b8ef6a63.webp?v=1772724905",
+      "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
+      "scrapedAt": "2026-03-10T14:00:38.315Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -82242,6 +82272,21 @@
       ],
       "scrapedAt": "2026-03-10T12:00:04.042Z",
       "source": "vendor"
+    },
+    {
+      "id": "glorious-model-o-classic-wireless-mouse-8492308037807",
+      "name": "Model O Classic Wireless Mouse",
+      "type": "product",
+      "platform": "Glorious",
+      "vendor": "Glorious",
+      "category": "mice",
+      "url": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse",
+      "affiliateUrl": "https://www.gloriousgaming.com/products/model-o-classic-wireless-mouse?ref=switchyard",
+      "price": "$89.99",
+      "image": "https://cdn.shopify.com/s/files/1/0549/2681/files/GLO-OC-WL-BLK_Web_Gallery_1_Perspective_2x_fe3f5d3e-a0e5-45ca-8f85-1c87b8ef6a63.webp?v=1772724905",
+      "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
+      "scrapedAt": "2026-03-10T14:00:38.315Z",
+      "status": "in_stock"
     }
   ],
   "parts": []
