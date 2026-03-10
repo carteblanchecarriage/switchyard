@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-10T14:00:41.815Z",
-    "duration": "39.96",
-    "totalItems": 1867,
+    "scrapedAt": "2026-03-10T20:00:30.832Z",
+    "duration": "29.17",
+    "totalItems": 1868,
     "newItems": 1,
-    "products": 1480,
-    "inStock": 1861,
+    "products": 1481,
+    "inStock": 1862,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-10T14:00:41.815Z"
+    "updatedAt": "2026-03-10T20:00:30.832Z"
   },
   "allProducts": [
     {
@@ -23469,6 +23469,21 @@
       "image": "https://cdn.shopify.com/s/files/1/0549/2681/files/GLO-OC-WL-BLK_Web_Gallery_1_Perspective_2x_fe3f5d3e-a0e5-45ca-8f85-1c87b8ef6a63.webp?v=1772724905",
       "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
       "scrapedAt": "2026-03-10T14:00:38.315Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "qwerkywriter-refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "name": "REFURBISHED BLACK CHROME QWERKYWRITER® US Layout",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired?sca_ref=10713146.AiDf5cQpby",
+      "price": "$179.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/BlackChrome_ProductPic_1_1_d_d992ad42-9569-418f-9410-36b856d80d8e.jpg?v=1699385904",
+      "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
+      "scrapedAt": "2026-03-10T20:00:22.505Z",
       "status": "in_stock"
     }
   ],
@@ -52919,6 +52934,21 @@
       "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
       "scrapedAt": "2026-03-10T14:00:38.315Z",
       "status": "in_stock"
+    },
+    {
+      "id": "qwerkywriter-refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "name": "REFURBISHED BLACK CHROME QWERKYWRITER® US Layout",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired?sca_ref=10713146.AiDf5cQpby",
+      "price": "$179.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/BlackChrome_ProductPic_1_1_d_d992ad42-9569-418f-9410-36b856d80d8e.jpg?v=1699385904",
+      "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
+      "scrapedAt": "2026-03-10T20:00:22.505Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -82286,6 +82316,21 @@
       "image": "https://cdn.shopify.com/s/files/1/0549/2681/files/GLO-OC-WL-BLK_Web_Gallery_1_Perspective_2x_fe3f5d3e-a0e5-45ca-8f85-1c87b8ef6a63.webp?v=1772724905",
       "description": "built on the foundations of the original model o. same award-winning shape, same great sensor, but now built for 5x more minecraft sessions with 100 million click rated switches.",
       "scrapedAt": "2026-03-10T14:00:38.315Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "qwerkywriter-refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "name": "REFURBISHED BLACK CHROME QWERKYWRITER® US Layout",
+      "type": "product",
+      "platform": "Qwerkywriter",
+      "vendor": "Qwerkywriter",
+      "category": "keyboard",
+      "url": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired",
+      "affiliateUrl": "https://www.qwerkywriter.com/products/refurbished-black-chrome-qwerkywriter-us-layout-typewriter-inspired?sca_ref=10713146.AiDf5cQpby",
+      "price": "$179.99",
+      "image": "https://cdn.shopify.com/s/files/1/0557/2745/files/BlackChrome_ProductPic_1_1_d_d992ad42-9569-418f-9410-36b856d80d8e.jpg?v=1699385904",
+      "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
+      "scrapedAt": "2026-03-10T20:00:22.505Z",
       "status": "in_stock"
     }
   ],
