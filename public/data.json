@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-10T20:00:30.832Z",
-    "duration": "29.17",
-    "totalItems": 1868,
+    "scrapedAt": "2026-03-11T08:00:30.230Z",
+    "duration": "28.20",
+    "totalItems": 1869,
     "newItems": 1,
-    "products": 1481,
-    "inStock": 1862,
+    "products": 1482,
+    "inStock": 1863,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-10T20:00:30.832Z"
+    "updatedAt": "2026-03-11T08:00:30.230Z"
   },
   "allProducts": [
     {
@@ -23485,6 +23485,32 @@
       "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
       "scrapedAt": "2026-03-10T20:00:22.505Z",
       "status": "in_stock"
+    },
+    {
+      "id": "kbdfans-shadow-keycap-8100045881483",
+      "name": "Shadow keycap",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/shadow-keycap",
+      "affiliateUrl": "https://kbdfans.com/products/shadow-keycap?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/1_28d52601-f62a-49a5-8282-2599b8e0230f.jpg?v=1773207341",
+      "description": "Specs     \n104 keys\nThickness: 1.7mm\nProfile: Cherry profile\nMaterial: PC material\nProduction Method: HD Screen Printing + Soft-touch Coating\nFriendly Reminds: Only keycaps included, no keyboard \nCompatible with Cherry MX switches and MX-style clones",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-11T08:00:15.753Z",
+      "source": "vendor"
     }
   ],
   "revenueProjection": {
@@ -52949,6 +52975,32 @@
       "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
       "scrapedAt": "2026-03-10T20:00:22.505Z",
       "status": "in_stock"
+    },
+    {
+      "id": "kbdfans-shadow-keycap-8100045881483",
+      "name": "Shadow keycap",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/shadow-keycap",
+      "affiliateUrl": "https://kbdfans.com/products/shadow-keycap?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/1_28d52601-f62a-49a5-8282-2599b8e0230f.jpg?v=1773207341",
+      "description": "Specs     \n104 keys\nThickness: 1.7mm\nProfile: Cherry profile\nMaterial: PC material\nProduction Method: HD Screen Printing + Soft-touch Coating\nFriendly Reminds: Only keycaps included, no keyboard \nCompatible with Cherry MX switches and MX-style clones",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-11T08:00:15.753Z",
+      "source": "vendor"
     }
   ],
   "inStock": [
@@ -82332,6 +82384,32 @@
       "description": "These are refurbished units. Most of these are brand new, never used. Some may have been returns but we do check them to make sure they're clean and will come with a 1 year warranty.\nUS KEY LAYOUT (AN",
       "scrapedAt": "2026-03-10T20:00:22.505Z",
       "status": "in_stock"
+    },
+    {
+      "id": "kbdfans-shadow-keycap-8100045881483",
+      "name": "Shadow keycap",
+      "type": "product",
+      "platform": "KBDfans",
+      "vendor": "KBDfans",
+      "category": "keycaps",
+      "url": "https://kbdfans.com/products/shadow-keycap",
+      "affiliateUrl": "https://kbdfans.com/products/shadow-keycap?ref=switchyard",
+      "price": "$25.00",
+      "image": "https://cdn.shopify.com/s/files/1/1473/3902/files/1_28d52601-f62a-49a5-8282-2599b8e0230f.jpg?v=1773207341",
+      "description": "Specs     \n104 keys\nThickness: 1.7mm\nProfile: Cherry profile\nMaterial: PC material\nProduction Method: HD Screen Printing + Soft-touch Coating\nFriendly Reminds: Only keycaps included, no keyboard \nCompatible with Cherry MX switches and MX-style clones",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "Keycaps",
+        "New arrival",
+        "on-sale"
+      ],
+      "scrapedAt": "2026-03-11T08:00:15.753Z",
+      "source": "vendor"
     }
   ],
   "parts": []
