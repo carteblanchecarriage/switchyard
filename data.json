@@ -188,17 +188,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-11T08:00:30.230Z",
-    "duration": "28.20",
-    "totalItems": 1869,
+    "scrapedAt": "2026-03-12T06:00:28.401Z",
+    "duration": "26.42",
+    "totalItems": 1870,
     "newItems": 1,
-    "products": 1482,
-    "inStock": 1863,
+    "products": 1483,
+    "inStock": 1864,
     "groupBuys": 4,
     "interestChecks": 1,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-11T08:00:30.230Z"
+    "updatedAt": "2026-03-12T06:00:28.401Z"
   },
   "allProducts": [
     {
@@ -23511,6 +23511,21 @@
       ],
       "scrapedAt": "2026-03-11T08:00:15.753Z",
       "source": "vendor"
+    },
+    {
+      "id": "cannonkeys-kap-grey-alert-7961000247407",
+      "name": "KAP Grey Alert",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/kap-grey-alert",
+      "affiliateUrl": "https://cannonkeys.com/products/kap-grey-alert?ref=switchyard",
+      "price": "$79.99",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/KAP-Grey-Alert-Base-Kit_8a3f8e25-53bb-409b-8032-99a4dca62a77.jpg?v=1764878412",
+      "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
+      "scrapedAt": "2026-03-12T06:00:21.823Z",
+      "status": "in_stock"
     }
   ],
   "revenueProjection": {
@@ -53001,6 +53016,21 @@
       ],
       "scrapedAt": "2026-03-11T08:00:15.753Z",
       "source": "vendor"
+    },
+    {
+      "id": "cannonkeys-kap-grey-alert-7961000247407",
+      "name": "KAP Grey Alert",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/kap-grey-alert",
+      "affiliateUrl": "https://cannonkeys.com/products/kap-grey-alert?ref=switchyard",
+      "price": "$79.99",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/KAP-Grey-Alert-Base-Kit_8a3f8e25-53bb-409b-8032-99a4dca62a77.jpg?v=1764878412",
+      "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
+      "scrapedAt": "2026-03-12T06:00:21.823Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -82410,6 +82440,21 @@
       ],
       "scrapedAt": "2026-03-11T08:00:15.753Z",
       "source": "vendor"
+    },
+    {
+      "id": "cannonkeys-kap-grey-alert-7961000247407",
+      "name": "KAP Grey Alert",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/kap-grey-alert",
+      "affiliateUrl": "https://cannonkeys.com/products/kap-grey-alert?ref=switchyard",
+      "price": "$79.99",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/KAP-Grey-Alert-Base-Kit_8a3f8e25-53bb-409b-8032-99a4dca62a77.jpg?v=1764878412",
+      "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
+      "scrapedAt": "2026-03-12T06:00:21.823Z",
+      "status": "in_stock"
     }
   ],
   "parts": []
