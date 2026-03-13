@@ -101,6 +101,19 @@
       ],
       "scrapedAt": "2026-03-12T12:00:04.652Z",
       "source": "vendor"
+    },
+    {
+      "id": "reddit-1rsh1yp",
+      "name": "[IC] GMK CYL Dinokidz - 🦖🦖🦖",
+      "type": "interest_check",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rsh1yp/ic_gmk_cyl_dinokidz/",
+      "author": "c-mcmc",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-13T08:00:29.182Z",
+      "source": "reddit"
     }
   ],
   "redditPosts": [
@@ -223,17 +236,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-13T06:00:28.322Z",
-    "duration": "26.80",
-    "totalItems": 1873,
-    "newItems": 2,
-    "products": 1485,
-    "inStock": 1867,
+    "scrapedAt": "2026-03-13T22:00:29.065Z",
+    "duration": "26.82",
+    "totalItems": 1875,
+    "newItems": 1,
+    "products": 1486,
+    "inStock": 1868,
     "groupBuys": 4,
-    "interestChecks": 2,
+    "interestChecks": 3,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-13T06:00:28.322Z"
+    "updatedAt": "2026-03-13T22:00:29.065Z"
   },
   "allProducts": [
     {
@@ -23590,6 +23603,21 @@
       "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/S6GKMOR1_o_6cf28ae9-6a4d-4a78-98f2-887704b54c2c.jpg?v=1770763740",
       "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
       "scrapedAt": "2026-03-13T06:00:21.015Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-keykobo-monets-psychedelic-keycaps-7842536751169",
+      "name": "Keykobo Monet's Psychedelic Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps?ref=switchyard",
+      "price": "$89.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/keykobo-monets-psychedelic-keycaps-2793333.webp?v=1772858129",
+      "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
+      "scrapedAt": "2026-03-13T22:00:23.588Z",
       "status": "in_stock"
     }
   ],
@@ -53161,6 +53189,34 @@
       "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
       "scrapedAt": "2026-03-13T06:00:21.015Z",
       "status": "in_stock"
+    },
+    {
+      "id": "reddit-1rsh1yp",
+      "name": "[IC] GMK CYL Dinokidz - 🦖🦖🦖",
+      "type": "interest_check",
+      "platform": "Reddit r/mechmarket",
+      "url": "https://reddit.com/r/mechmarket/comments/1rsh1yp/ic_gmk_cyl_dinokidz/",
+      "author": "c-mcmc",
+      "upvotes": 2,
+      "comments": 1,
+      "status": "live",
+      "scrapedAt": "2026-03-13T08:00:29.182Z",
+      "source": "reddit"
+    },
+    {
+      "id": "divinikey-keykobo-monets-psychedelic-keycaps-7842536751169",
+      "name": "Keykobo Monet's Psychedelic Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps?ref=switchyard",
+      "price": "$89.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/keykobo-monets-psychedelic-keycaps-2793333.webp?v=1772858129",
+      "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
+      "scrapedAt": "2026-03-13T22:00:23.588Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -82649,6 +82705,21 @@
       "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/S6GKMOR1_o_6cf28ae9-6a4d-4a78-98f2-887704b54c2c.jpg?v=1770763740",
       "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
       "scrapedAt": "2026-03-13T06:00:21.015Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "divinikey-keykobo-monets-psychedelic-keycaps-7842536751169",
+      "name": "Keykobo Monet's Psychedelic Keycaps",
+      "type": "product",
+      "platform": "DiviniKey",
+      "vendor": "DiviniKey",
+      "category": "keycaps",
+      "url": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps",
+      "affiliateUrl": "https://divinikey.com/products/keykobo-monets-psychedelic-keycaps?ref=switchyard",
+      "price": "$89.00",
+      "image": "https://cdn.shopify.com/s/files/1/0275/3649/0561/files/keykobo-monets-psychedelic-keycaps-2793333.webp?v=1772858129",
+      "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
+      "scrapedAt": "2026-03-13T22:00:23.588Z",
       "status": "in_stock"
     }
   ],
