@@ -66,6 +66,41 @@
       "status": "live",
       "scrapedAt": "2026-03-06T23:00:28.346Z",
       "source": "reddit"
+    },
+    {
+      "id": "keychron-keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard-8135808483417",
+      "name": "Keychron C0 HE One Handed Magnetic Switch Gaming Keyboard",
+      "type": "interest_check",
+      "platform": "Keychron",
+      "vendor": "Keychron",
+      "category": "keycaps",
+      "url": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard",
+      "affiliateUrl": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard?ref=switchyard",
+      "price": "$59.99",
+      "image": "https://cdn.shopify.com/s/files/1/0059/0630/1017/files/Keychron-C0-HE-features.jpg?v=1773276861",
+      "description": "The Keychron C0 HE is a wired one-handed magnetic switch gaming keypad with premium features such as an 8000 Hz polling rate, shine-through keycaps, built-in silicone palm rest, and more. Ideal for your gaming sessions!\nThe C0 HE is compatible exclusively with the Keychorn Ultra-fast Lime Magnetic S",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "CaseMaterial:Plastic",
+        "Connectivity:wired",
+        "Custom Keyboard",
+        "Keyboard",
+        "KeycapMaterial:ABS",
+        "KeycapMaterial:Double-shot ABS",
+        "KeycapsType:ABS Shine-through",
+        "MMO Keyboards",
+        "Profile:Normal Profile",
+        "Standard:ANSI",
+        "SwitchFacing:North-face",
+        "SwitchMount:Hot-swappable"
+      ],
+      "scrapedAt": "2026-03-12T12:00:04.652Z",
+      "source": "vendor"
     }
   ],
   "redditPosts": [
@@ -188,17 +223,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-12T06:00:28.401Z",
-    "duration": "26.42",
-    "totalItems": 1870,
-    "newItems": 1,
-    "products": 1483,
-    "inStock": 1864,
+    "scrapedAt": "2026-03-13T06:00:28.322Z",
+    "duration": "26.80",
+    "totalItems": 1873,
+    "newItems": 2,
+    "products": 1485,
+    "inStock": 1867,
     "groupBuys": 4,
-    "interestChecks": 1,
+    "interestChecks": 2,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-12T06:00:28.401Z"
+    "updatedAt": "2026-03-13T06:00:28.322Z"
   },
   "allProducts": [
     {
@@ -23525,6 +23560,36 @@
       "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/KAP-Grey-Alert-Base-Kit_8a3f8e25-53bb-409b-8032-99a4dca62a77.jpg?v=1764878412",
       "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
       "scrapedAt": "2026-03-12T06:00:21.823Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "cannonkeys-touchstone-addons-14927685746799",
+      "name": "Touchstone Addons",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/touchstone-addons",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone-addons?ref=switchyard",
+      "price": "$50.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/Touchstone_Plate_Alu_Labeled.png?v=1773186909",
+      "description": "touchstone addons\n\nextra pcbs, plates, and more for your touchstone keyboard!\ntouchstone main page here\npcb\n\navailable in solder hotswap\ncontains tkl pcb and numpad pcb and ribbon cable to connect the",
+      "scrapedAt": "2026-03-13T06:00:21.014Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "cannonkeys-touchstone-7926726557807",
+      "name": "Touchstone",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "keyboard",
+      "url": "https://cannonkeys.com/products/touchstone",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone?ref=switchyard",
+      "price": "$485.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/S6GKMOR1_o_6cf28ae9-6a4d-4a78-98f2-887704b54c2c.jpg?v=1770763740",
+      "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
+      "scrapedAt": "2026-03-13T06:00:21.015Z",
       "status": "in_stock"
     }
   ],
@@ -53031,6 +53096,71 @@
       "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
       "scrapedAt": "2026-03-12T06:00:21.823Z",
       "status": "in_stock"
+    },
+    {
+      "id": "keychron-keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard-8135808483417",
+      "name": "Keychron C0 HE One Handed Magnetic Switch Gaming Keyboard",
+      "type": "interest_check",
+      "platform": "Keychron",
+      "vendor": "Keychron",
+      "category": "keycaps",
+      "url": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard",
+      "affiliateUrl": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard?ref=switchyard",
+      "price": "$59.99",
+      "image": "https://cdn.shopify.com/s/files/1/0059/0630/1017/files/Keychron-C0-HE-features.jpg?v=1773276861",
+      "description": "The Keychron C0 HE is a wired one-handed magnetic switch gaming keypad with premium features such as an 8000 Hz polling rate, shine-through keycaps, built-in silicone palm rest, and more. Ideal for your gaming sessions!\nThe C0 HE is compatible exclusively with the Keychorn Ultra-fast Lime Magnetic S",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "CaseMaterial:Plastic",
+        "Connectivity:wired",
+        "Custom Keyboard",
+        "Keyboard",
+        "KeycapMaterial:ABS",
+        "KeycapMaterial:Double-shot ABS",
+        "KeycapsType:ABS Shine-through",
+        "MMO Keyboards",
+        "Profile:Normal Profile",
+        "Standard:ANSI",
+        "SwitchFacing:North-face",
+        "SwitchMount:Hot-swappable"
+      ],
+      "scrapedAt": "2026-03-12T12:00:04.652Z",
+      "source": "vendor"
+    },
+    {
+      "id": "cannonkeys-touchstone-addons-14927685746799",
+      "name": "Touchstone Addons",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/touchstone-addons",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone-addons?ref=switchyard",
+      "price": "$50.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/Touchstone_Plate_Alu_Labeled.png?v=1773186909",
+      "description": "touchstone addons\n\nextra pcbs, plates, and more for your touchstone keyboard!\ntouchstone main page here\npcb\n\navailable in solder hotswap\ncontains tkl pcb and numpad pcb and ribbon cable to connect the",
+      "scrapedAt": "2026-03-13T06:00:21.014Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "cannonkeys-touchstone-7926726557807",
+      "name": "Touchstone",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "keyboard",
+      "url": "https://cannonkeys.com/products/touchstone",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone?ref=switchyard",
+      "price": "$485.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/S6GKMOR1_o_6cf28ae9-6a4d-4a78-98f2-887704b54c2c.jpg?v=1770763740",
+      "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
+      "scrapedAt": "2026-03-13T06:00:21.015Z",
+      "status": "in_stock"
     }
   ],
   "inStock": [
@@ -82454,6 +82584,71 @@
       "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/KAP-Grey-Alert-Base-Kit_8a3f8e25-53bb-409b-8032-99a4dca62a77.jpg?v=1764878412",
       "description": "kap grey alert\nthis set consists of cherry profile, doubleshot pbt keycaps.\nintroducing kap grey alert, the latest set from monacokeys produced using the new kap legend system, created in partnership ",
       "scrapedAt": "2026-03-12T06:00:21.823Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "keychron-keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard-8135808483417",
+      "name": "Keychron C0 HE One Handed Magnetic Switch Gaming Keyboard",
+      "type": "interest_check",
+      "platform": "Keychron",
+      "vendor": "Keychron",
+      "category": "keycaps",
+      "url": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard",
+      "affiliateUrl": "https://keychron.com/products/keychron-c0-he-one-handed-magnetic-switch-gaming-keyboard?ref=switchyard",
+      "price": "$59.99",
+      "image": "https://cdn.shopify.com/s/files/1/0059/0630/1017/files/Keychron-C0-HE-features.jpg?v=1773276861",
+      "description": "The Keychron C0 HE is a wired one-handed magnetic switch gaming keypad with premium features such as an 8000 Hz polling rate, shine-through keycaps, built-in silicone palm rest, and more. Ideal for your gaming sessions!\nThe C0 HE is compatible exclusively with the Keychorn Ultra-fast Lime Magnetic S",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "CaseMaterial:Plastic",
+        "Connectivity:wired",
+        "Custom Keyboard",
+        "Keyboard",
+        "KeycapMaterial:ABS",
+        "KeycapMaterial:Double-shot ABS",
+        "KeycapsType:ABS Shine-through",
+        "MMO Keyboards",
+        "Profile:Normal Profile",
+        "Standard:ANSI",
+        "SwitchFacing:North-face",
+        "SwitchMount:Hot-swappable"
+      ],
+      "scrapedAt": "2026-03-12T12:00:04.652Z",
+      "source": "vendor"
+    },
+    {
+      "id": "cannonkeys-touchstone-addons-14927685746799",
+      "name": "Touchstone Addons",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "accessories",
+      "url": "https://cannonkeys.com/products/touchstone-addons",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone-addons?ref=switchyard",
+      "price": "$50.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/Touchstone_Plate_Alu_Labeled.png?v=1773186909",
+      "description": "touchstone addons\n\nextra pcbs, plates, and more for your touchstone keyboard!\ntouchstone main page here\npcb\n\navailable in solder hotswap\ncontains tkl pcb and numpad pcb and ribbon cable to connect the",
+      "scrapedAt": "2026-03-13T06:00:21.014Z",
+      "status": "in_stock"
+    },
+    {
+      "id": "cannonkeys-touchstone-7926726557807",
+      "name": "Touchstone",
+      "type": "product",
+      "platform": "CannonKeys",
+      "vendor": "CannonKeys",
+      "category": "keyboard",
+      "url": "https://cannonkeys.com/products/touchstone",
+      "affiliateUrl": "https://cannonkeys.com/products/touchstone?ref=switchyard",
+      "price": "$485.00",
+      "image": "https://cdn.shopify.com/s/files/1/0238/7342/1376/files/S6GKMOR1_o_6cf28ae9-6a4d-4a78-98f2-887704b54c2c.jpg?v=1770763740",
+      "description": "touchstone\ndesigned by james of akb.\na full size keyboard drawing material inspiration from modernist and minimalist sculpture.",
+      "scrapedAt": "2026-03-13T06:00:21.015Z",
       "status": "in_stock"
     }
   ],
