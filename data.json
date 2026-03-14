@@ -236,17 +236,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-13T22:00:29.065Z",
-    "duration": "26.82",
-    "totalItems": 1875,
-    "newItems": 1,
-    "products": 1486,
-    "inStock": 1868,
+    "scrapedAt": "2026-03-14T16:00:27.752Z",
+    "duration": "26.02",
+    "totalItems": 1877,
+    "newItems": 2,
+    "products": 1488,
+    "inStock": 1870,
     "groupBuys": 4,
     "interestChecks": 3,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-13T22:00:29.065Z"
+    "updatedAt": "2026-03-14T16:00:27.752Z"
   },
   "allProducts": [
     {
@@ -23619,6 +23619,50 @@
       "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
       "scrapedAt": "2026-03-13T22:00:23.588Z",
       "status": "in_stock"
+    },
+    {
+      "id": "epomaker-epomaker-th108-pro-click-lite-mouse-bundle-9322097803572",
+      "name": "EPOMAKER TH108 PRO + Click Lite Mouse Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$103.18",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/EPOMAKER_TH108PRO_01.png?v=1769581857",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.883Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-s",
+      "name": "EPOMAKER X AULA F108 PRO(LEOBOG Reaper Switch) + EPOMAKER Roseveil Silent Switch Set Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$93.58",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/AULA_F108_Pro-grey_yellow_1.webp?v=1766742599",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.884Z",
+      "source": "vendor"
     }
   ],
   "revenueProjection": {
@@ -53217,6 +53261,50 @@
       "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
       "scrapedAt": "2026-03-13T22:00:23.588Z",
       "status": "in_stock"
+    },
+    {
+      "id": "epomaker-epomaker-th108-pro-click-lite-mouse-bundle-9322097803572",
+      "name": "EPOMAKER TH108 PRO + Click Lite Mouse Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$103.18",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/EPOMAKER_TH108PRO_01.png?v=1769581857",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.883Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-s",
+      "name": "EPOMAKER X AULA F108 PRO(LEOBOG Reaper Switch) + EPOMAKER Roseveil Silent Switch Set Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$93.58",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/AULA_F108_Pro-grey_yellow_1.webp?v=1766742599",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.884Z",
+      "source": "vendor"
     }
   ],
   "inStock": [
@@ -82721,6 +82809,50 @@
       "description": "keykobo monet's psychedelic keycaps are centered around monet's purple. a purple that breaks the conception around the color by applying it towards shows, atmosphere, and the changing light. monet's p",
       "scrapedAt": "2026-03-13T22:00:23.588Z",
       "status": "in_stock"
+    },
+    {
+      "id": "epomaker-epomaker-th108-pro-click-lite-mouse-bundle-9322097803572",
+      "name": "EPOMAKER TH108 PRO + Click Lite Mouse Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-th108-pro-click-lite-mouse-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$103.18",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/EPOMAKER_TH108PRO_01.png?v=1769581857",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.883Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-s",
+      "name": "EPOMAKER X AULA F108 PRO(LEOBOG Reaper Switch) + EPOMAKER Roseveil Silent Switch Set Bundle",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-x-aula-f108-proleobog-reaper-switch-epomaker-roseveil-silent-switch-set-bundle?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$93.58",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/AULA_F108_Pro-grey_yellow_1.webp?v=1766742599",
+      "description": "",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [],
+      "scrapedAt": "2026-03-14T16:00:09.884Z",
+      "source": "vendor"
     }
   ],
   "parts": []
