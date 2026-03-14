@@ -236,17 +236,17 @@
     }
   ],
   "metadata": {
-    "scrapedAt": "2026-03-14T16:00:27.752Z",
-    "duration": "26.02",
-    "totalItems": 1877,
-    "newItems": 2,
-    "products": 1488,
-    "inStock": 1870,
+    "scrapedAt": "2026-03-14T18:00:28.788Z",
+    "duration": "26.61",
+    "totalItems": 1878,
+    "newItems": 1,
+    "products": 1489,
+    "inStock": 1871,
     "groupBuys": 4,
     "interestChecks": 3,
     "parts": 0,
     "filteredStale": 0,
-    "updatedAt": "2026-03-14T16:00:27.752Z"
+    "updatedAt": "2026-03-14T18:00:28.788Z"
   },
   "allProducts": [
     {
@@ -23662,6 +23662,33 @@
       },
       "tags": [],
       "scrapedAt": "2026-03-14T16:00:09.884Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-spring-mystery-box-2026-9319444152628",
+      "name": "EPOMAKER Spring Mystery Box 2026",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-mystery-box-2026",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-mystery-box-2026?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$45.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/SpringMysteryBox-1600x1600-_bg.png?v=1772868707",
+      "description": "*Note:\n1. All products are randomly selected for placement in mystery boxes, and each mystery box contains only one item.\n2. One order with multiple boxes may receive duplicate products.\n3. Mystery box products are non-refundable and non-exchangeable unless there is a quality issue. 1-year product w",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "11.11 sale",
+        "keyboard",
+        "kit",
+        "Mystery Box"
+      ],
+      "scrapedAt": "2026-03-14T18:00:11.319Z",
       "source": "vendor"
     }
   ],
@@ -53305,6 +53332,33 @@
       "tags": [],
       "scrapedAt": "2026-03-14T16:00:09.884Z",
       "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-spring-mystery-box-2026-9319444152628",
+      "name": "EPOMAKER Spring Mystery Box 2026",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-mystery-box-2026",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-mystery-box-2026?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$45.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/SpringMysteryBox-1600x1600-_bg.png?v=1772868707",
+      "description": "*Note:\n1. All products are randomly selected for placement in mystery boxes, and each mystery box contains only one item.\n2. One order with multiple boxes may receive duplicate products.\n3. Mystery box products are non-refundable and non-exchangeable unless there is a quality issue. 1-year product w",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "11.11 sale",
+        "keyboard",
+        "kit",
+        "Mystery Box"
+      ],
+      "scrapedAt": "2026-03-14T18:00:11.319Z",
+      "source": "vendor"
     }
   ],
   "inStock": [
@@ -82852,6 +82906,33 @@
       },
       "tags": [],
       "scrapedAt": "2026-03-14T16:00:09.884Z",
+      "source": "vendor"
+    },
+    {
+      "id": "epomaker-epomaker-spring-mystery-box-2026-9319444152628",
+      "name": "EPOMAKER Spring Mystery Box 2026",
+      "type": "product",
+      "platform": "Epomaker",
+      "vendor": "Epomaker",
+      "category": "keyboard",
+      "url": "https://epomaker.com/products/epomaker-spring-mystery-box-2026",
+      "affiliateUrl": "https://epomaker.com/products/epomaker-spring-mystery-box-2026?sca_ref=10691179.cOO0hJ6jvi",
+      "price": "$45.99",
+      "image": "https://cdn.shopify.com/s/files/1/0280/3931/5529/files/SpringMysteryBox-1600x1600-_bg.png?v=1772868707",
+      "description": "*Note:\n1. All products are randomly selected for placement in mystery boxes, and each mystery box contains only one item.\n2. One order with multiple boxes may receive duplicate products.\n3. Mystery box products are non-refundable and non-exchangeable unless there is a quality issue. 1-year product w",
+      "status": "in_stock",
+      "availability": {
+        "inStock": true,
+        "quantity": 0,
+        "inventoryPolicy": "deny"
+      },
+      "tags": [
+        "11.11 sale",
+        "keyboard",
+        "kit",
+        "Mystery Box"
+      ],
+      "scrapedAt": "2026-03-14T18:00:11.319Z",
       "source": "vendor"
     }
   ],
