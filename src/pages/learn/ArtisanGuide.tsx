@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const makers = [
   { name: 'KeyForge', url: 'keyforge.com', desc: 'Known for the iconic Mulder and Ori sculpts. Multi-shot resin casting masters with incredible depth and detail.', sculpts: '2', price: '$65+', material: 'Resin', icon: '[F]' },

@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const keyboardLayout = [
   ['Esc', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
@@ -19,7 +18,7 @@ const topPicks = [
     price: '$89',
     specs: '60% / Hot-Swap / Bluetooth 5.0 / ASA Profile / RGB',
     why: 'Best balance of features, build, and price. ASA profile keycaps are comfortable, Bluetooth is reliable.',
-    link: 'https://www.amazon.com/s?k=akko+3068b+plus'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=akko+3068b+plus'
   },
   {
     badge: 'Gaming Pick',
@@ -27,7 +26,7 @@ const topPicks = [
     price: '$59',
     specs: '60% / Bluetooth+Wired / Hot-Swap / RGB',
     why: 'Feature-packed at this price. Bluetooth + wired with low latency for gaming.',
-    link: 'https://www.amazon.com/s?k=rk61+royal+kludge'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=rk61+royal+kludge'
   },
   {
     badge: 'Entry Custom',
@@ -35,7 +34,7 @@ const topPicks = [
     price: '$65',
     specs: '60% / Universal Hot-Swap / Barebones',
     why: 'Cheapest way to build custom. Add switches and keycaps. Learn the hobby.',
-    link: 'https://www.amazon.com/s?k=glorious+gmmk+compact'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=glorious+gmmk+compact'
   },
   {
     badge: 'Premium',
@@ -51,7 +50,7 @@ const topPicks = [
     price: '$79',
     specs: '60% / Cherry-Gateron / PBT Keycaps',
     why: 'Surprisingly good stabilizers. Clean design. Stock PBT included.',
-    link: 'https://www.amazon.com/s?k=durgod+hk+venus'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=durgod+hk+venus'
   }
 ];
 

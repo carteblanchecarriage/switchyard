@@ -10,6 +10,8 @@
 
 # production
 /build
+/.next
+/out
 
 # misc
 .DS_Store
@@ -37,3 +39,7 @@ tarot-gumroad-assets/
 node_modules
 memory/
 MEMORY.md
+.claude/
+
+# Operational reports - not source code
+REPORTS/

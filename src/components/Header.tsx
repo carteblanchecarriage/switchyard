@@ -1,17 +1,20 @@
 import React from 'react';
-import './Header.css';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="header">
       <div className="header-content">
-        <a href="/" className="logo">
+        <Link href="/" className="logo">
           <h1>Switchyard</h1>
           <span>Mechanical Keyboard Tracker</span>
-        </a>
+        </Link>
         <nav className="nav-links">
-          <a href="/" className="nav-link">Home</a>
-          <a href="/learn" className="nav-link nav-highlight">Learn</a>
+          <Link href="/" className={`nav-link${router.pathname === '/' ? ' active' : ''}`}>Home</Link>
+          <Link href="/learn" className={`nav-link nav-highlight${router.pathname.startsWith('/learn') || router.pathname.startsWith('/blog') ? ' active' : ''}`}>Learn</Link>
         </nav>
       </div>
     </header>

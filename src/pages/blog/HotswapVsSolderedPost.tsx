@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPostLayout from './BlogPostLayout';
+import BlogProductCard from '../../components/BlogProductCard';
 
 export default function HotswapVsSolderedPost() {
   return (
@@ -182,22 +183,29 @@ export default function HotswapVsSolderedPost() {
 
         <h2>Our Hot-Swap Recommendations</h2>
 
-        <div className="product-cards">
-          <div className="product-card">
-            <h3>Entry Level: Keychron C Series</h3>
-            <p>The Keychron C1, C2 offer hot-swap under $100. Plastic body but genuine hot-swap sockets. Perfect starter board. <a href="/?search=Keychron+C1&category=keyboard">Find Keychron C →</a></p>
-          </div>
-          
-          <div className="product-card">
-            <h3>Mid-Range: Keychron V Series</h3>
-            <p>Plastic version of the Q series. Gasket mount, VIA software, south-facing RGB, $80-100. Unbeatable value. <a href="/?search=Keychron+V1&category=keyboard">Find Keychron V →</a></p>
-          </div>
-          
-          <div className="product-card">
-            <h3>Premium: Keychron Q Series</h3>
-            <p>Aluminum, gasket mount, VIA, rotary encoder option, gasket acoustic. The enthusiast standard at ~$150-180. <a href="/?search=Keychron+Q1&category=keyboard">Find Keychron Q →</a></p>
-          </div>
-        </div>
+        <BlogProductCard
+          productName="Keychron C2"
+          vendor="Keychron"
+          description="Entry level: Hot-swap under $100. Plastic body but genuine hot-swap sockets. Perfect starter board."
+          features={['Hot-swappable sockets', 'Under $100', 'USB-C wired', 'Great first mechanical keyboard']}
+          ctaText="Find Keychron C Series →"
+        />
+
+        <BlogProductCard
+          productName="Keychron V1"
+          vendor="Keychron"
+          description="Mid-range: Plastic gasket mount with VIA software support and south-facing RGB. $80–100."
+          features={['Gasket mount', 'VIA/QMK support', 'South-facing RGB', 'Unbeatable value']}
+          ctaText="Find Keychron V Series →"
+        />
+
+        <BlogProductCard
+          productName="Keychron Q1"
+          vendor="Keychron"
+          description="Premium: Aluminum gasket mount with rotary encoder option. The enthusiast standard at $150–180."
+          features={['Aluminum case', 'Gasket mount', 'VIA/QMK', 'Optional rotary encoder']}
+          ctaText="Find Keychron Q Series →"
+        />
 
         <h2>Final Verdict</h2>
 

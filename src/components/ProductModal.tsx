@@ -1,5 +1,4 @@
 import React from 'react';
-import './ProductModal.css';
 import { KeyboardProduct } from '../types/keyboard';
 
 interface ProductModalProps {
@@ -71,9 +70,15 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             )}
             
             <div className="modal-actions">
-              <a 
-                href={product.affiliateUrl || product.url} 
-                target="_blank" 
+              <a
+                href={(() => {
+                  let url = product.affiliateUrl || product.url;
+                  if (url?.includes('amazon.com') && !url.includes('tag=')) {
+                    url += (url.includes('?') ? '&' : '?') + 'tag=switchyard-20';
+                  }
+                  return url;
+                })()}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="modal-buy-button"
                 aria-label={`Buy ${product.name} from ${product.vendor || 'vendor'}`}

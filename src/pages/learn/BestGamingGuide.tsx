@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const gameTypes = [
   { icon: '🎯', name: 'FPS', examples: 'Valorant, CS2, Apex', needs: 'Fast actuation, anti-ghosting, N-key rollover' },

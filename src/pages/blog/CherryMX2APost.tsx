@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import BlogPostLayout from './BlogPostLayout';
+import BlogProductCard from '../../components/BlogProductCard';
 
 export default function CherryMX2APost() {
   return (
@@ -172,91 +174,50 @@ export default function CherryMX2APost() {
         <p>Based on our testing, here are the best options for different priorities:</p>
 
         <h3>🏆 If You Specifically Want Cherry</h3>
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Cherry MX2A Switches (70-Pack)</h4>
-            <div className="price">$49.99</div>
-            <div className="features">
-              ✅ Genuine Cherry MX2A (2024+ molds)<br />
-              ✅ Available: Red/Brown/Blue/Silent<br />
-              ✅ 1-year manufacturer warranty<br />
-              ⚠️ Verify manufacture date — some vendors sell old stock
-            </div>
-            <a href="https://keychron.com/products/cherry-mx2a-switch-set?ref=switchyard" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on Keychron →</a>
-          </div>
-        </div>
-        <p><em>Alternative:</em> <a href="/?search=Cherry+MX2A" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/?search=Cherry+MX2A'); window.dispatchEvent(new PopStateEvent('popstate')); }} style={{color: '#6366f1', textDecoration: 'underline', cursor: 'pointer'}}>Compare prices across all vendors in our database →</a></p>
+        <BlogProductCard
+          productName="Cherry MX2A Red"
+          vendor="Keychron"
+          features={['Genuine Cherry MX2A (2024+ molds)', 'Available: Red/Brown/Blue/Silent', '1-year manufacturer warranty', 'Improved tolerances ±0.1mm']}
+          ctaText="Buy Cherry MX2A →"
+        />
+        <p><em>Alternative:</em> <Link href="/?search=Cherry+MX2A" style={{color: '#6366f1', textDecoration: 'underline'}}>Compare prices across all vendors in our database →</Link></p>
 
         <h3>💰 Best Value: Smooth Linear on a Budget</h3>
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Gateron G Pro 3.0 Yellow</h4>
-            <div className="price">$15.50</div>
-            <div className="features">
-              ✅ Smoother than stock Cherry MX2A<br />
-              ✅ Pre-lubed from factory<br />
-              ✅ 50g actuation (light)<br />
-              ✅ Best value linear switch
-            </div>
-            <a href="https://kbdfans.com/products/gateron-g-pro-3-0-yellow-linear-switches?ref=switchyard" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on KBDfans →</a>
-          </div>
-        </div>
-        <p><em>Browse more:</em> <a href="/?search=Gateron+Yellow" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/?search=Gateron+Yellow'); window.dispatchEvent(new PopStateEvent('popstate')); }} style={{cursor: "pointer", color: '#6366f1'}}>See all Gateron Yellow options →</a></p>
+        <BlogProductCard
+          productName="Gateron G Pro Yellow"
+          vendor="KBDfans"
+          features={['Smoother than stock Cherry MX2A', 'Pre-lubed from factory', '50g actuation (light)', 'Best value linear switch']}
+          ctaText="Buy on KBDfans →"
+        />
+        <p><em>Browse more:</em> <Link href="/?search=Gateron+Yellow" style={{color: '#6366f1', textDecoration: 'underline'}}>See all Gateron Yellow options →</Link></p>
 
-        <h3>🛡️ Dust-Proof & Stable Stem</h3>
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Kailh Box Red</h4>
-            <div className="price">$22.00</div>
-            <div className="features">
-              ✅ IP56 dust/water resistant rating<br />
-              ✅ Box stem design (wobble-free)<br />
-              ✅ 45g actuation force<br />
-              ✅ Great for travel or dusty environments
-            </div>
-            <a href="https://dangkeebs.com/products/kailh-box-red-linear-switches" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on Dangkeebs →</a>
-          </div>
-        </div>
-        <p><em>Shop locally:</em> <a href="/?search=Kailh+Box" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/?search=Kailh+Box'); window.dispatchEvent(new PopStateEvent('popstate')); }} style={{cursor: "pointer", color: '#6366f1'}}>Find Kailh Box switches from our tracked vendors →</a></p>
+        <h3>🛡️ Dust-Proof &amp; Stable Stem</h3>
+        <BlogProductCard
+          productName="Kailh Box Red"
+          features={['IP56 dust/water resistant', 'Box stem design (wobble-free)', '45g actuation force', 'Great for travel or dusty environments']}
+          ctaText="Check Price →"
+        />
+        <p><em>Shop locally:</em> <Link href="/?search=Kailh+Box" style={{color: '#6366f1', textDecoration: 'underline'}}>Find Kailh Box switches from our tracked vendors →</Link></p>
 
         <h3>⚡ Speed Switches for Gaming</h3>
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Akko CS Silver</h4>
-            <div className="price">$14.99</div>
-            <div className="features">
-              ✅ 1.0mm actuation (vs 2.0mm standard)<br />
-              ✅ 43g light force<br />
-              ✅ Budget-friendly speed switches<br />
-              ✅ Good for competitive gaming
-            </div>
-            <a href="https://epomaker.com/products/akko-cs-silver?sca_ref=10691179.cOO0hJ6jvi" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on Epomaker →</a>
-          </div>
-        </div>
-        <p><em>More options:</em> <a href="/?search=Akko+CS" onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "?search=Akko+CS"); window.dispatchEvent(new PopStateEvent("popstate")); }} style={{cursor: "pointer", color: '#6366f1'}}>Browse Akko switches in our database →</a></p>
+        <BlogProductCard
+          productName="Akko CS Silver"
+          vendor="Epomaker"
+          features={['1.0mm actuation (vs 2.0mm standard)', '43g light force', 'Budget-friendly speed switches', 'Good for competitive gaming']}
+          ctaText="Buy on Epomaker →"
+        />
+        <p><em>More options:</em> <Link href="/?search=Akko+CS" style={{color: '#6366f1', textDecoration: 'underline'}}>Browse Akko switches in our database →</Link></p>
 
         <h3>🥛 Premium Budget: Pre-Lubed Excellence</h3>
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Gateron Oil King</h4>
-            <div className="price">$35.00</div>
-            <div className="features">
-              ✅ Factory lubed with GPL 205g0<br />
-              ✅ 55g actuation (medium)<br />
-              ✅ Deep "thocky" sound profile<br />
-              ✅ Premium feel, mid-tier price
-            </div>
-            <a href="https://kbdfans.com/products/gateron-oil-king-linear-switches?ref=switchyard" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on KBDfans →</a>
-          </div>
-        </div>
-        <p><em>Or browse:</em> <a href="/?search=Gateron+Oil+King" onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "?search=Gateron+Oil+King"); window.dispatchEvent(new PopStateEvent("popstate")); }} style={{cursor: "pointer", color: '#6366f1'}}>Compare Gateron Oil King prices →</a></p>
+        <BlogProductCard
+          productName="Gateron Oil King"
+          vendor="KBDfans"
+          features={['Factory lubed with GPL 205g0', '55g actuation (medium)', 'Deep "thocky" sound profile', 'Premium feel, mid-tier price']}
+          ctaText="Buy on KBDfans →"
+        />
+        <p><em>Or browse:</em> <Link href="/?search=Gateron+Oil+King" style={{color: '#6366f1', textDecoration: 'underline'}}>Compare Gateron Oil King prices →</Link></p>
 
-        <p><a href="/?category=switches" onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "?category=switches"); window.dispatchEvent(new PopStateEvent("popstate")); }} className="cta-button">Browse All Switches →</a></p>
+        <p><Link href="/?category=switches" className="cta-button">Browse All Switches →</Link></p>
 
         <h2>Final Verdict: Cherry's Comeback, But Not Victory</h2>
 

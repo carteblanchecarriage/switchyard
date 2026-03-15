@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import './Wizard.css';
 import { KeyboardProduct } from '../types/keyboard';
 
 interface WizardProps {

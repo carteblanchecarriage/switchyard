@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPostLayout from './BlogPostLayout';
+import BlogProductCard from '../../components/BlogProductCard';
 
 export default function WirelessKeyboardsPost() {
   return (
@@ -164,22 +165,29 @@ export default function WirelessKeyboardsPost() {
 
         <h2>Our Wireless Recommendations for 2026</h2>
 
-        <div className="product-cards">
-          <div className="product-card">
-            <h3>Best All-Rounder: Keychron K8 Pro</h3>
-            <p>TKL layout, hot-swappable, Bluetooth + 2.4GHz, 200+ hour battery, aluminum frame. Does everything well at $180-210. <a href="/?search=Keychron+K8+Pro&category=keyboard">Find Keychron K8 Pro →</a></p>
-          </div>
-          
-          <div className="product-card">
-            <h3>Best Budget: Epomaker TH80</h3>
-            <p>75% layout, triple connectivity (wired/2.4GHz/BT), south-facing RGB, under $100. Ridiculous value. <a href="/?search=Epomaker+TH80&category=keyboard">Find Epomaker TH80 →</a></p>
-          </div>
-          
-          <div className="product-card">
-            <h3>Best Low-Profile: Keychron K3 Pro</h3>
-            <p>Ultra-slim for travel and tight desks. Gateron low-profile switches, still hot-swappable. <a href="/?search=Keychron+K3+Pro&category=keyboard">Find Keychron K3 Pro →</a></p>
-          </div>
-        </div>
+        <BlogProductCard
+          productName="Keychron K8 Pro"
+          vendor="Keychron"
+          description="Best all-rounder: TKL layout, Bluetooth + 2.4GHz, 200+ hour battery, aluminum frame."
+          features={['Bluetooth 5.1 + 2.4GHz + USB-C', 'Hot-swappable switches', '200+ hour battery', 'Aluminum frame']}
+          ctaText="Find Keychron K8 Pro →"
+        />
+
+        <BlogProductCard
+          productName="Epomaker TH80"
+          vendor="Epomaker"
+          description="Best budget wireless: 75% layout, triple connectivity, south-facing RGB, under $100."
+          features={['Triple connectivity (wired/2.4GHz/BT)', 'South-facing RGB', '75% layout', 'Under $100']}
+          ctaText="Find Epomaker TH80 →"
+        />
+
+        <BlogProductCard
+          productName="Keychron K3 Pro"
+          vendor="Keychron"
+          description="Best low-profile: Ultra-slim for travel. Gateron low-profile switches, hot-swappable."
+          features={['Ultra-slim low-profile design', 'Gateron low-profile switches', 'Hot-swappable', 'Bluetooth + USB-C']}
+          ctaText="Find Keychron K3 Pro →"
+        />
 
         <h2>The Bottom Line</h2>
 

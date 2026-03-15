@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const topPicks = [
   {
@@ -19,7 +18,7 @@ const topPicks = [
     price: '$65',
     specs: '75% / Bluetooth + 2.4GHz / Hot-swap / RGB',
     why: 'Tremendous value. Bluetooth and 2.4GHz included. Battery lasts weeks. Good starter board.',
-    link: 'https://www.amazon.com/s?k=rk84+royal+kludge'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=rk84+royal+kludge'
   },
   {
     badge: 'Mod-Ready',
@@ -43,7 +42,7 @@ const topPicks = [
     price: '$349',
     specs: '75% / Aluminum / Rotary Knob / Gasket / South-Facing',
     why: 'Premium build quality. Rotary knob is useful. RGB shines through well. Polished software.',
-    link: 'https://www.amazon.com/s?k=gmmk+pro'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=gmmk+pro'
   }
 ];
 

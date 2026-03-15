@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -8,23 +8,23 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Discover</h3>
           <ul>
-            <li><a href="/">All Products</a></li>
-            <li><a href="/?category=keyboard">Keyboards</a></li>
-            <li><a href="/?category=switches">Switches</a></li>
-            <li><a href="/?category=keycaps">Keycaps</a></li>
+            <li><Link href="/">All Products</Link></li>
+            <li><Link href="/?category=keyboard">Keyboards</Link></li>
+            <li><Link href="/?category=switches">Switches</Link></li>
+            <li><Link href="/?category=keycaps">Keycaps</Link></li>
           </ul>
         </div>
-        
+
         <div className="footer-section">
           <h3>Learn</h3>
           <ul>
-            <li><a href="/learn">All Guides</a></li>
-            <li><a href="/switch-guide">Switch Guide</a></li>
-            <li><a href="/beginners-guide">Beginner's Guide</a></li>
-            <li><a href="/glossary">Glossary</a></li>
+            <li><Link href="/learn">All Guides</Link></li>
+            <li><Link href="/learn/switch-guide">Switch Guide</Link></li>
+            <li><Link href="/learn/beginners-guide">Beginner's Guide</Link></li>
+            <li><Link href="/learn/glossary">Glossary</Link></li>
           </ul>
         </div>
-        
+
         <div className="footer-section">
           <h3>Contact</h3>
           <ul>
@@ -32,18 +32,18 @@ export default function Footer() {
             <li><a href="https://twitter.com/switchyard" target="_blank" rel="noopener noreferrer">Twitter</a></li>
           </ul>
         </div>
-        
+
         <div className="footer-section">
           <h3>Legal</h3>
           <ul>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/terms">Terms of Service</a></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms of Service</Link></li>
           </ul>
         </div>
       </div>
-      
+
       <div className="footer-bottom">
-        <p>© 2026 Switchyard. All rights reserved.</p>
+        <p>© 2026 Switchyard. All rights reserved. Some links are affiliate links — we may earn a commission at no extra cost to you.</p>
       </div>
     </footer>
   );

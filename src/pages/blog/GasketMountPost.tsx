@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import BlogPostLayout from './BlogPostLayout';
 import BlogProductCard from '../../components/BlogProductCard';
 
@@ -168,7 +169,7 @@ export default function GasketMountPost() {
 
         <div className="cta-box">
           <h3>Ready to try gasket mount?</h3>
-          <p>Browse our <a href="/?search=gasket&category=keyboard">in-stock gasket mount keyboards</a> or check out our <a href="/learn/beginners-guide">beginner's guide</a> to learn more.</p>
+          <p>Browse our <Link href="/?search=gasket&category=keyboard">in-stock gasket mount keyboards</Link> or check out our <Link href="/learn/beginners-guide">beginner's guide</Link> to learn more.</p>
         </div>
     </BlogPostLayout>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { usePageSEO } from '../../hooks/usePageSEO';
+import SEOHead from '../../components/SEOHead';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './BlogPost.css';
 
 interface BlogPostLayoutProps {
   title: string;
@@ -29,23 +29,24 @@ export default function BlogPostLayout({
   heroAlt,
   children
 }: BlogPostLayoutProps) {
-  usePageSEO({
-    title: `${title} | Switchyard Blog`,
-    description,
-    keywords,
-    ogImage
-  });
-
   useScrollToTop();
 
   return (
     <Layout>
+      <SEOHead
+        title={`${title} | Switchyard Blog`}
+        description={description}
+        keywords={keywords}
+        ogImage={ogImage}
+        ogType="article"
+      />
+
       <div className="blog-post-container">
         <article className="blog-post">
           {/* Breadcrumbs */}
           <nav className="blog-breadcrumbs">
-            <a href="/">Home</a> <span>/</span>
-            <a href="/blog">Blog</a> <span>/</span>
+            <Link href="/">Home</Link> <span>/</span>
+            <Link href="/learn">Blog</Link> <span>/</span>
             <span className="current">{title}</span>
           </nav>
 
@@ -65,9 +66,9 @@ export default function BlogPostLayout({
           {/* Hero Image */}
           {heroImage && (
             <div className="blog-hero-image">
-              <img 
-                src={heroImage} 
-                alt={heroAlt || title} 
+              <img
+                src={heroImage}
+                alt={heroAlt || title}
                 loading="eager"
               />
             </div>
@@ -84,16 +85,16 @@ export default function BlogPostLayout({
               <div className="sidebar-section">
                 <h3>Related Articles</h3>
                 <ul className="related-articles">
-                  <li><a href="/blog/hall-effect-keyboards-2026">Hall Effect Keyboards Explained</a></li>
-                  <li><a href="/blog/are-keychron-keyboards-worth-it">Are Keychron Worth It?</a></li>
-                  <li><a href="/blog/cherry-mx2a-vs-original">Cherry MX2A vs Original</a></li>
+                  <li><Link href="/blog/hall-effect-keyboards-2026">Hall Effect Keyboards Explained</Link></li>
+                  <li><Link href="/blog/are-keychron-keyboards-worth-it">Are Keychron Worth It?</Link></li>
+                  <li><Link href="/blog/cherry-mx2a-vs-original">Cherry MX2A vs Original</Link></li>
                 </ul>
               </div>
 
               <div className="sidebar-cta">
                 <h3>Find Your Perfect Keyboard</h3>
                 <p>Browse 400+ mechanical keyboards with our smart filters.</p>
-                <a href="/" className="sidebar-button">Browse Keyboards</a>
+                <Link href="/" className="sidebar-button">Browse Keyboards</Link>
               </div>
             </aside>
 
@@ -101,9 +102,9 @@ export default function BlogPostLayout({
             <div className="mobile-related">
               <h3>Related Articles</h3>
               <ul>
-                <li><a href="/blog/hall-effect-keyboards-2026">Hall Effect Keyboards Explained</a></li>
-                <li><a href="/blog/are-keychron-keyboards-worth-it">Are Keychron Worth It?</a></li>
-                <li><a href="/blog/cherry-mx2a-vs-original">Cherry MX2A vs Original</a></li>
+                <li><Link href="/blog/hall-effect-keyboards-2026">Hall Effect Keyboards Explained</Link></li>
+                <li><Link href="/blog/are-keychron-keyboards-worth-it">Are Keychron Worth It?</Link></li>
+                <li><Link href="/blog/cherry-mx2a-vs-original">Cherry MX2A vs Original</Link></li>
               </ul>
             </div>
           </div>

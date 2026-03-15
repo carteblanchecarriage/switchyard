@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const topPicks = [
   {
@@ -19,7 +18,7 @@ const topPicks = [
     price: '$337',
     specs: '60% Layout / Topre Switches / Dip Switches / Bluetooth / USB-C',
     why: 'Control key is where Caps Lock usually is. Dip switches change layouts without software.',
-    link: 'https://www.amazon.com/s?k=hhkb+professional+hybrid'
+    link: 'https://www.amazon.com/s?tag=switchyard-20&k=hhkb+professional+hybrid'
   },
   {
     badge: 'Budget Pick',

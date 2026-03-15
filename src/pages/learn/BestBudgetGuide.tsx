@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './GuidePages.css';
 
 const topPicks = [
   {
@@ -21,7 +20,7 @@ const topPicks = [
     price: '$59',
     specs: '60% Layout • Bluetooth + Wired • RGB • Multiple Switch Options',
     why: 'Feature-packed at this price is unheard of. Bluetooth makes it great for laptop setups. The 60% layout frees up desk space for mouse movement.',
-    link: 'https://www.amazon.com/s?k=royal+kludge+rk61'
+    link: 'https://www.amazon.com/s?k=royal+kludge+rk61&tag=switchyard-20'
   },
   {
     badge: 'Best for Typing',
@@ -39,7 +38,7 @@ const topPicks = [
     price: '$65 (barebones)',
     specs: '60% • Hot-Swap • Modular Design • Add Your Own Switches',
     why: 'The cheapest way to build a custom keyboard. Buy the barebones kit, add switches and keycaps. Learn the hobby without spending $200+.',
-    link: 'https://www.amazon.com/s?k=glorious+gmmk+compact'
+    link: 'https://www.amazon.com/s?k=glorious+gmmk+compact&tag=switchyard-20'
   }
 ];
 

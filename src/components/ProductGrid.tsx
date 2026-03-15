@@ -1,6 +1,5 @@
 import React from 'react';
-import './ProductGrid.css';
-import ProductCard from './ProductCard';
+import { OptimizedProductCard } from './OptimizedProductCard';
 import { KeyboardProduct } from '../types/keyboard';
 
 interface ProductGridProps {
@@ -25,7 +24,7 @@ export default function ProductGrid({ products, hasMore, onLoadMore, onProductCl
     <div className="product-grid-container">
       <div className="product-grid">
         {products.map(product => (
-          <ProductCard
+          <OptimizedProductCard
             key={product.id}
             product={product}
             onClick={onProductClick}

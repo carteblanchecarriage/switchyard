@@ -1,3 +1,38 @@
-# Cloudflare Pages SPA Redirects
-# Redirect all paths to index.html for React Router
-/* /index.html 200
+# Legacy CRA routes
+/switch-guide /learn/switch-guide 301
+/beginners-guide /learn/beginners-guide 301
+/glossary /learn/glossary 301
+/artisan /learn/artisan-guide 301
+/faq /learn/faq 301
+/best-budget /learn/best-budget 301
+/best-gaming /learn/best-gaming 301
+/gaming /learn/best-gaming 301
+/best-60-percent /learn/best-60-percent 301
+/best-programming /learn/best-programming 301
+/best-tkl /learn/best-tkl 301
+/learn/artisan /learn/artisan-guide 301
+/blog /learn 301
+
+# PascalCase duplicate route redirects
+/Glossary /learn/glossary 301
+/SwitchGuide /learn/switch-guide 301
+/blog/HallEffectPost /blog/hall-effect-keyboards-2026 301
+/blog/KeychronReviewPost /blog/are-keychron-keyboards-worth-it 301
+/blog/CherryMX2APost /blog/cherry-mx2a-vs-original 301
+/blog/GroupBuysPost /blog/what-are-group-buys 301
+/blog/GasketMountPost /blog/gasket-mount-keyboards-explained 301
+/blog/WirelessKeyboardsPost /blog/wireless-mechanical-keyboards-2026 301
+/blog/HotswapVsSolderedPost /blog/hot-swap-vs-soldered-keyboards 301
+/blog/CeramicKeycapsPost /blog/ceramic-keycaps-guide-2026 301
+/learn/BeginnersGuide /learn/beginners-guide 301
+/learn/ArtisanGuide /learn/artisan-guide 301
+/learn/BestBudgetGuide /learn/best-budget 301
+/learn/BestGamingGuide /learn/best-gaming 301
+/learn/Best60PercentGuide /learn/best-60-percent 301
+/learn/Best75PercentGuide /learn/best-75-percent 301
+/learn/BestProgrammingGuide /learn/best-programming 301
+/learn/BestTKLGuide /learn/best-tkl 301
+/learn/FAQ /learn/faq 301
+/learn/GroupBuysGuide /learn/group-buys 301
+/learn/LayoutSizesGuide /learn/layout-sizes 301
+/learn/KeycapProfilesGuide /learn/keycap-profiles 301

@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import BlogPostLayout from './BlogPostLayout';
+import BlogProductCard from '../../components/BlogProductCard';
 
 export default function HallEffectPost() {
   return (
@@ -120,22 +122,14 @@ export default function HallEffectPost() {
 
         <p>If you're curious about trying hall effect, here are the top options currently available:</p>
 
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Keychron C4 HE</h4>
-            <div className="price">$139</div>
-            <div className="features">
-              ✅ Gateron hall effect switches<br />
-              ✅ 8K polling rate (lowest latency)<br />
-              ✅ More affordable than Wooting<br />
-              ✅ 75% layout with arrow keys
-            </div>
-            <a href="https://keychron.com/products/keychron-c4-he-magnetic-switch-keyboard?ref=switchyard" className="cta-button" target="_blank" rel="noopener noreferrer">Buy on Keychron →</a>
-          </div>
-        </div>
+        <BlogProductCard
+          productName="Keychron C4 HE"
+          vendor="Keychron"
+          features={['Gateron hall effect switches', '8K polling rate', 'Adjustable actuation 0.1–4.0mm', '75% layout with arrow keys']}
+          ctaText="Buy on Keychron →"
+        />
 
-        <p><a href="/?search=hall+effect" onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "?search=hall+effect"); window.dispatchEvent(new PopStateEvent("popstate")); }} className="cta-button">Browse All Hall Effect Keyboards →</a></p>
+        <p><Link href="/?search=hall+effect" className="cta-button">Browse All Hall Effect Keyboards →</Link></p>
 
         <h2>Who Should Get a Hall Effect Keyboard?</h2>
 

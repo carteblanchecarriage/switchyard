@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { usePageSEO } from '../hooks/usePageSEO';
 import { useScrollToTop } from '../hooks/useScrollToTop';
-import './Guide.css';
 
 const switchTypes = [
   {

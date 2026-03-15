@@ -1,5 +1,4 @@
 import React from 'react';
-import './FilterChips.css';
 
 interface FilterChipsProps {
   categories: string[];

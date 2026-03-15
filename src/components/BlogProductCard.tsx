@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './BlogProductCard.css';
 import { KeyboardProduct } from '../types/keyboard';
 
 interface BlogProductCardProps {
@@ -88,7 +87,8 @@ function getVendorLink(vendorName: string): string {
     cannonkeys: 'https://cannonkeys.com?ref=switchyard',
     divinikey: 'https://divinikey.com?ref=switchyard',
     boardsource: 'https://boardsource.xyz?ref=switchyard',
-    qwerkywriter: 'https://qwerkywriter.com?sca_ref=10713146.AiDf5cQpby'
+    qwerkywriter: 'https://qwerkywriter.com?sca_ref=10713146.AiDf5cQpby',
+    amazon: 'https://www.amazon.com?tag=switchyard-20',
   };
   return links[vendorName.toLowerCase()] || '#';
 }
@@ -143,9 +143,13 @@ export default function BlogProductCard({
   }, [product, vendor]);
   
   const handleBuyNow = useCallback(() => {
-    if (product?.affiliateUrl || product?.url) {
-      window.open(product.affiliateUrl || product.url, '_blank', 'noopener,noreferrer');
+    let url = product?.affiliateUrl || product?.url;
+    if (!url) return;
+    // Append Amazon Associates tag if not already present
+    if (url.includes('amazon.com') && !url.includes('tag=')) {
+      url += (url.includes('?') ? '&' : '?') + 'tag=switchyard-20';
     }
+    window.open(url, '_blank', 'noopener,noreferrer');
   }, [product]);
   
   const displayName = product?.name || productName;

@@ -7,20 +7,16 @@ interface ProductCardProps {
   onClick: (product: KeyboardProduct) => void;
 }
 
-/**
- * OptimizedProductCard - Memoized card with lazy image loading
- * Prevents unnecessary re-renders when parent updates
- * Uses IntersectionObserver for efficient image loading
- */
-export const OptimizedProductCard = memo(function ProductCard({
+const formatPrice = (price?: string) => {
+  if (!price || price === 'N/A') return 'Check Price';
+  return price.startsWith('$') ? price : `$${price}`;
+};
+
+export const OptimizedProductCard = memo(function OptimizedProductCard({
   product,
   onClick,
 }: ProductCardProps) {
   const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
-
-  const displayPrice = product.price 
-    ? `$${product.price}` 
-    : 'Price not available';
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -37,16 +33,16 @@ export const OptimizedProductCard = memo(function ProductCard({
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
-      aria-label={`View details for ${product.name} - ${displayPrice}`}
+      aria-label={`View details for ${product.name} - ${formatPrice(product.price)}`}
     >
-      <div className="product-image" aria-label="Product image" role="img">
+      <div className="product-image">
         {isVisible ? (
           <img
             src={product.image || '/placeholder-keyboard.png'}
-            alt={product.name}
+            alt={`${product.name}${product.vendor ? ` - ${product.vendor}` : ''} mechanical keyboard`}
             loading="lazy"
             decoding="async"
-            onError={(e) => {
+            onError={e => {
               (e.target as HTMLImageElement).src = '/placeholder-keyboard.png';
             }}
           />
@@ -54,17 +50,12 @@ export const OptimizedProductCard = memo(function ProductCard({
           <div className="product-image-placeholder" />
         )}
       </div>
-      
+
       <div className="product-info">
-        <h3 className="product-name">{product.name}</h3>
-        {product.vendor && (
-          <p className="product-vendor">{product.vendor}</p>
-        )}
-        <p className="product-price">{displayPrice}</p>
-        
-        {product.category && (
-          <span className="product-category">{product.category}</span>
-        )}
+        {product.vendor && <span className="vendor">{product.vendor}</span>}
+        <h3 className="name">{product.name}</h3>
+        <span className="price">{formatPrice(product.price)}</span>
+        {product.category && <span className="category">{product.category}</span>}
       </div>
     </article>
   );

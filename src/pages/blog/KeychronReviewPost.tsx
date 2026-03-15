@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import BlogPostLayout from './BlogPostLayout';
+import BlogProductCard from '../../components/BlogProductCard';
 
 export default function KeychronReviewPost() {
   return (
@@ -107,38 +109,21 @@ export default function KeychronReviewPost() {
 
         <p>Let's compare Keychron's best value pick (K8) against direct competitors:</p>
 
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Keychron K8 Max</h4>
-            <div className="price">$89</div>
-            <div className="features">
-              ✅ Best wireless implementation<br />
-              ✅ Mac/Windows native support<br />
-              ✅ Bluetooth 5.1, USB-C wired<br />
-              ⚠️ Mediocre stabilizers<br />
-              ⚠️ ABS keycaps wear fast
-            </div>
-            <a href="https://keychron.com/products/keychron-k8-max-qmk-wireless-mechanical-keyboard?ref=switchyard" className="cta-button" target="_blank" rel="noopener noreferrer">Check Price on Keychron →</a>
-          </div>
-        </div>
+        <BlogProductCard
+          productName="Keychron K8 Max"
+          vendor="Keychron"
+          features={['Best wireless implementation', 'Mac/Windows native support', 'Bluetooth 5.1 + USB-C wired', 'Hot-swappable switches']}
+          ctaText="Check Price on Keychron →"
+        />
 
-        <div className="product-card">
-          <div className="product-card-image" style={{background: '#ddd'}}></div>
-          <div className="product-card-info">
-            <h4>Epomaker TH80 Pro</h4>
-            <div className="price">$119</div>
-            <div className="features">
-              ✅ Better stabilizers (stock)<br />
-              ✅ South-facing RGB (better sound)<br />
-              ✅ PBT keycaps (more durable)<br />
-              ⚠️ Wireless less reliable than Keychron
-            </div>
-            <a href="https://epomaker.com/products/1-reservation-card-for-epomaker-th80-v2-pro?sca_ref=10691179.cOO0hJ6jvi" className="cta-button" target="_blank" rel="noopener noreferrer">Check Price on Epomaker →</a>
-          </div>
-        </div>
+        <BlogProductCard
+          productName="Epomaker TH80 Pro"
+          vendor="Epomaker"
+          features={['Better stock stabilizers', 'South-facing RGB', 'PBT keycaps (more durable)', 'Triple connectivity']}
+          ctaText="Check Price on Epomaker →"
+        />
 
-        <p><a href="/?vendor=Keychron" onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "?vendor=Keychron"); window.dispatchEvent(new PopStateEvent("popstate")); }} className="cta-button">Browse All Keychron Products →</a></p>
+        <p><Link href="/?search=Keychron" className="cta-button">Browse All Keychron Products →</Link></p>
 
         <h2>Who Should Buy Keychron?</h2>
 

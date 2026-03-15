@@ -1,15 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { usePageSEO } from '../../hooks/usePageSEO';
+import SEOHead from '../../components/SEOHead';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import './Learn.css';
 
 const guideCategories = [
   {
     title: 'Getting Started',
     icon: '🎓',
     guides: [
-      { path: '/learn/beginners-guide', title: 'Beginner\'s Guide', desc: 'New to mechanical keyboards? Start here with the basics.', difficulty: 'Easy' },
+      { path: '/learn/beginners-guide', title: "Beginner's Guide", desc: 'New to mechanical keyboards? Start here with the basics.', difficulty: 'Easy' },
       { path: '/learn/layout-sizes', title: 'Layout Sizes Explained', desc: '40%, 60%, 65%, 75%, TKL, Full-size - visual comparison.', difficulty: 'Easy' },
       { path: '/learn/glossary', title: 'Keyboard Glossary', desc: 'Master the terminology. Every term you need to know.', difficulty: 'Easy' },
       { path: '/learn/faq', title: 'FAQ', desc: 'Quick answers to common questions.', difficulty: 'Easy' },
@@ -44,7 +44,7 @@ const guideCategories = [
     guides: [
       { path: '/learn/best-budget', title: 'Best Budget Keyboards', desc: 'Quality mechanical keyboards under $100.', difficulty: 'Easy' },
       { path: '/learn/best-gaming', title: 'Best Gaming Keyboards', desc: 'Low latency, fast switches, competitive edge.', difficulty: 'Easy' },
-      { path: '/learn/best-60-percent', title: 'Best 60% Keyboards', desc: 'Compact layouts that don\'t compromise.', difficulty: 'Medium' },
+      { path: '/learn/best-60-percent', title: 'Best 60% Keyboards', desc: "Compact layouts that don't compromise.", difficulty: 'Medium' },
       { path: '/learn/best-75-percent', title: 'Best 75% Keyboards', desc: 'The enthusiast sweet spot: arrows + F-row.', difficulty: 'Medium' },
       { path: '/learn/best-programming', title: 'Best for Programming', desc: 'Comfort and efficiency for long coding sessions.', difficulty: 'Easy' },
     ]
@@ -53,15 +53,16 @@ const guideCategories = [
 
 export default function Learn() {
   useScrollToTop();
-  
-  usePageSEO({
-    title: "Learn Mechanical Keyboards | Guides & Resources | Switchyard",
-    description: "Master mechanical keyboards with our guides: beginner's guide, switch types, layout sizes, keycap profiles, artisan keycaps, group buys, and buying recommendations.",
-    keywords: "mechanical keyboard guide, keyboard tutorial, learn mechanical keyboards, switch guide, keycap profiles, layout sizes, group buy guide"
-  });
 
   return (
     <Layout>
+      <SEOHead
+        title="Learn Mechanical Keyboards | Guides & Resources | Switchyard"
+        description="Master mechanical keyboards with our guides: beginner's guide, switch types, layout sizes, keycap profiles, artisan keycaps, group buys, and buying recommendations."
+        keywords="mechanical keyboard guide, keyboard tutorial, learn mechanical keyboards, switch guide, keycap profiles, layout sizes, group buy guide"
+        canonical="/learn"
+      />
+
       <div className="learn-page">
         <header className="learn-hero">
           <h1>Learn Mechanical Keyboards</h1>
@@ -78,29 +79,18 @@ export default function Learn() {
                 {category.title}
               </h2>
               <div className="guide-grid">
-                {category.guides.map((guide) => {
-                  return (
-                    <a
-                      key={guide.path}
-                      href={guide.path}
-                      className="guide-card"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.history.pushState({}, '', guide.path);
-                        window.dispatchEvent(new PopStateEvent('popstate'));
-                      }}
-                    >
-                      <div className="guide-header">
-                        <span className={`difficulty-badge difficulty-${guide.difficulty.toLowerCase()}`}>
-                          {guide.difficulty}
-                        </span>
-                      </div>
-                      <h3>{guide.title}</h3>
-                      <p>{guide.desc}</p>
-                      <span className="guide-link">Read guide →</span>
-                    </a>
-                  );
-                })}
+                {category.guides.map((guide) => (
+                  <Link key={guide.path} href={guide.path} className="guide-card">
+                    <div className="guide-header">
+                      <span className={`difficulty-badge difficulty-${guide.difficulty.toLowerCase()}`}>
+                        {guide.difficulty}
+                      </span>
+                    </div>
+                    <h3>{guide.title}</h3>
+                    <p>{guide.desc}</p>
+                    <span className="guide-link">Read guide →</span>
+                  </Link>
+                ))}
               </div>
             </section>
           ))}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import BlogPostLayout from './BlogPostLayout';
 
 export default function CeramicKeycapsPost() {
@@ -259,14 +260,14 @@ export default function CeramicKeycapsPost() {
       </p>
 
       <div className="highlight-box info">
-        <strong>Where to Buy:</strong> Check Switchyard's <a href="/">keyboard tracker</a> for ceramic keycap drops, group buy announcements, and restock alerts from KeyTok, CraftKey Studios, and other manufacturers. We aggregate availability from Drop, NovelKeys, and direct artisan sales.
+        <strong>Where to Buy:</strong> Check Switchyard's <Link href="/">keyboard tracker</Link> for ceramic keycap drops, group buy announcements, and restock alerts from KeyTok, CraftKey Studios, and other manufacturers. We aggregate availability from Drop, NovelKeys, and direct artisan sales.
       </div>
 
       <h3>Further Reading</h3>
       <ul>
-        <li><a href="/learn/artisan-guide">Complete Artisan Keycap Guide</a></li>
-        <li><a href="/blog/cherry-mx2a-vs-original">Cherry MX2A: The Switch Upgrade Guide</a></li>
-        <li><a href="/blog/gasket-mount-guide">Gasket Mount Keyboards Explained</a></li>
+        <li><Link href="/learn/artisan-guide">Complete Artisan Keycap Guide</Link></li>
+        <li><Link href="/blog/cherry-mx2a-vs-original">Cherry MX2A: The Switch Upgrade Guide</Link></li>
+        <li><Link href="/blog/gasket-mount-keyboards-explained">Gasket Mount Keyboards Explained</Link></li>
       </ul>
     </BlogPostLayout>
   );
