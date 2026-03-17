@@ -43,3 +43,6 @@ MEMORY.md
 
 # Operational reports - not source code
 REPORTS/
+
+# Private planning, marketing, and internal docs
+_private/
