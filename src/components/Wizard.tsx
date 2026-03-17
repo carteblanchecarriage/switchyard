@@ -32,12 +32,10 @@ interface Step {
 const applyFilter = (products: KeyboardProduct[], selections: WizardState, stepId?: keyof WizardState): KeyboardProduct[] => {
   let filtered = [...products];
   
-  // 🔴 CRITICAL: Filter to keyboards only first - exclude accessories, keycaps, switches, etc.
-  const nonKeyboardCategories = ['keycaps', 'switches', 'accessories', 'mice', 'deskmats', 'lubricants', 'case', 'cable', 'artisan'];
+  // Filter to keyboards only — exclude accessories, keycaps, switches, etc.
   filtered = filtered.filter(p => {
     const cat = p.category?.toLowerCase();
-    // Include keyboards and items without a category (assume keyboard by default)
-    return !cat || cat === 'keyboard' || !nonKeyboardCategories.includes(cat);
+    return cat === 'keyboard' || !cat; // !cat = pre-audit products without a category (safe to treat as keyboard)
   });
   
   // Use case filtering
