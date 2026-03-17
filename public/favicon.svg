@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="16" fill="#1a1a1a"/>
-  <text x="50" y="68" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#c4a35a" text-anchor="middle">SY</text>
+  <!-- Outer keycap body -->
+  <rect x="8" y="12" width="84" height="80" rx="14" fill="#1a1a1a"/>
+  <!-- Inner keycap top surface (raised legend area) -->
+  <rect x="16" y="18" width="68" height="58" rx="9" fill="#2d2d2d"/>
+  <!-- Keycap top highlight (simulates the sculpted top) -->
+  <rect x="20" y="22" width="60" height="46" rx="7" fill="#c4a35a"/>
+  <!-- S legend -->
+  <text x="50" y="57" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#1a1a1a" text-anchor="middle">S</text>
 </svg>
