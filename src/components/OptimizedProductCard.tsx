@@ -52,10 +52,12 @@ export const OptimizedProductCard = memo(function OptimizedProductCard({
       </div>
 
       <div className="product-info">
-        {product.vendor && <span className="vendor">{product.vendor}</span>}
+        <div className="product-meta-row">
+          {product.vendor && <span className="vendor">{product.vendor}</span>}
+          {(product as any).size && <span className="size-badge">{(product as any).size}</span>}
+        </div>
         <h3 className="name">{product.name}</h3>
         <span className="price">{formatPrice(product.price)}</span>
-        {product.category && <span className="category">{product.category}</span>}
       </div>
     </article>
   );

@@ -41,6 +41,8 @@ export default function Home({ initialProducts }: HomeProps) {
     displayedProducts,
     hasMore,
     activeCategory,
+    priceFilter,
+    setPriceFilter,
     searchQuery,
     sortBy,
     setSortBy,
@@ -136,6 +138,25 @@ export default function Home({ initialProducts }: HomeProps) {
             <option value="name-za">Name: Z-A</option>
           </select>
         </div>
+      </div>
+
+      {/* Price Filter */}
+      <div className="price-filter-row">
+        {[
+          { key: 'all', label: 'All Prices' },
+          { key: 'under100', label: 'Under $100' },
+          { key: '100to200', label: '$100–$200' },
+          { key: 'over200', label: '$200+' },
+        ].map(({ key, label }) => (
+          <button
+            key={key}
+            className={`price-chip ${priceFilter === key ? 'active' : ''}`}
+            onClick={() => setPriceFilter(key)}
+            aria-pressed={priceFilter === key}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       <ProductGrid

@@ -98,8 +98,21 @@ function sortProducts(toSort: Product[], sortBy: string): Product[] {
   }
 }
 
+function filterByPrice(priceFilter: string, base: Product[]): Product[] {
+  if (priceFilter === 'all') return base;
+  return base.filter(p => {
+    const num = parseFloat(p.price?.replace(/[^0-9.]/g, '') || '0');
+    if (!num) return true; // no price = include
+    if (priceFilter === 'under100') return num < 100;
+    if (priceFilter === '100to200') return num >= 100 && num <= 200;
+    if (priceFilter === 'over200') return num > 200;
+    return true;
+  });
+}
+
 export function useProductFilters(products: Product[], wizardFilters: Product[] | null) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [priceFilter, setPriceFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('affiliate');
   const [displayLimit, setDisplayLimit] = useState(12);
@@ -117,9 +130,10 @@ export function useProductFilters(products: Product[], wizardFilters: Product[] 
   }, []);
 
   const applyFilters = useCallback(
-    (category: string, query: string) => {
+    (category: string, query: string, price: string) => {
       const base = wizardFilters || products;
       let filtered = filterByCategory(category, base);
+      filtered = filterByPrice(price, filtered);
       filtered = filterBySearch(query, filtered);
       setFilteredProducts(filtered);
       setDisplayLimit(12);
@@ -128,8 +142,8 @@ export function useProductFilters(products: Product[], wizardFilters: Product[] 
   );
 
   useEffect(() => {
-    applyFilters(activeCategory, debouncedQuery);
-  }, [debouncedQuery, activeCategory, applyFilters]);
+    applyFilters(activeCategory, debouncedQuery, priceFilter);
+  }, [debouncedQuery, activeCategory, priceFilter, applyFilters]);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -156,6 +170,8 @@ export function useProductFilters(products: Product[], wizardFilters: Product[] 
     displayedProducts,
     hasMore,
     activeCategory,
+    priceFilter,
+    setPriceFilter,
     searchQuery,
     sortBy,
     setSortBy,
