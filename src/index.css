@@ -1,3 +1,23 @@
+:root {
+  --accent: #c4a35a;
+  --accent-hover: #b39346;
+  --accent-dark: #8b7b52;
+  --ink: #1a1a1a;
+  --faded: #6b6b6b;
+  --border: #e8e5dc;
+  --paper: #fdfcf8;
+  --paper-dark: #f7f6f2;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --bg-elevated: #f7f6f2;
+  --success: #22c55e;
+  --bg-success: #f0fdf4;
+  --warning: #f59e0b;
+  --bg-warning: #fef3c7;
+  --info: #3b82f6;
+  --bg-info: #eff6ff;
+}
+
 /**
  * Modern CSS Reset with Accessibility Features
  * Based on best practices from React Website Builder skill

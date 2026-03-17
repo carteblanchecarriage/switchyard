@@ -617,6 +617,12 @@ gaming-cta {
   gap: 1.5rem;
 }
 
+@media (max-width: 540px) {
+  .recommendation-card {
+    grid-template-columns: 1fr;
+  }
+}
+
 .recommendation-card.compact {
   grid-template-columns: 1fr;
 }
@@ -1086,7 +1092,7 @@ gaming-cta {
 /* Layout Sizes Guide Styles */
 .size-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
@@ -1632,7 +1638,7 @@ gaming-cta {
 
 .pros-cons-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
