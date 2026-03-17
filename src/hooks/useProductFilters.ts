@@ -6,6 +6,12 @@ import { WizardState } from '../components/Wizard';
 
 type Product = KeyboardProduct & { type?: string; size?: string };
 
+// Always excluded regardless of category — placeholder/non-product listings
+const ALWAYS_EXCLUDE_KEYWORDS = [
+  'reservation card', 'slot reservation', 'early-bird voucher',
+  'discount code', 'group buy slot', 'placeholder',
+];
+
 const NON_KEYBOARD_KEYWORDS = [
   'puller', 'opener', 'plate', 'knob', 'storage box', 'single key',
   'mouse', 'cable', 'despak mat', 'dust cover', 'keychain', 'wood siding',
@@ -136,7 +142,10 @@ export function useProductFilters(products: Product[], wizardFilters: Product[] 
 
   const applyFilters = useCallback(
     (category: string, query: string, price: string) => {
-      const base = wizardFilters || products;
+      const base = (wizardFilters || products).filter(p => {
+        const name = p.name?.toLowerCase() || '';
+        return !ALWAYS_EXCLUDE_KEYWORDS.some(kw => name.includes(kw));
+      });
       let filtered = filterByCategory(category, base);
       // Skip price filter when wizard is active — wizard already handles budget
       if (!wizardFilters) filtered = filterByPrice(price, filtered);
