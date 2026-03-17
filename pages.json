@@ -1,7 +1,0 @@
-{
-  "name": "switchyard",
-  "build": {
-    "command": "npm run build",
-    "output_directory": "build"
-  }
-}

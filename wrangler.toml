@@ -1,9 +1,0 @@
-name = "switchyard"
-compatibility_date = "2026-02-22"
-
-# Cloudflare Pages build configuration
-[build]
-command = "npm run build"
-
-[site]
-bucket = "./build"
