@@ -160,6 +160,11 @@ const PART_PATTERNS = [
   /\btop (?:case|housing)\b/,
   /\bbottom (?:case|housing)\b/,
   /\bmid (?:layer|piece|section)\b/,
+  // Reservation/placeholder listings — not real purchasable products
+  /\breservation card\b/,
+  /\bslot reservation\b/,
+  /\bgroup buy slot\b/,
+  /\bplaceholder\b/,
 ];
 
 // Group buy indicators in product names
