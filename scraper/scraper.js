@@ -6,6 +6,111 @@ const path = require('path');
 const DATA_FILE = path.join(__dirname, '..', 'data.json');
 const PUBLIC_DATA_FILE = path.join(__dirname, '..', 'public', 'data.json');
 
+// =============================================
+// SIZE CLASSIFICATION - single source of truth
+// =============================================
+function classifySize(name, description, tags = []) {
+  const text = (name + ' ' + (description || '') + ' ' + tags.join(' ')).toLowerCase();
+
+  // Explicit percentage in name/description
+  if (/\b40\s*%/.test(text)) return '40%';
+  if (/\b50\s*%/.test(text)) return '50%';
+  if (/\b60\s*%/.test(text)) return '60%';
+  if (/\b65\s*%/.test(text)) return '65%';
+  if (/\b70\s*%/.test(text)) return '70%';
+  if (/\b75\s*%/.test(text)) return '75%';
+  if (/\b80\s*%/.test(text)) return '80%';
+  if (/\b96\s*%/.test(text)) return '96%';
+  if (/\b100\s*%/.test(text)) return '100%';
+
+  // TKL keywords
+  if (/\btkl\b|\btenkeyless\b/.test(text)) return 'TKL';
+
+  // Full-size keywords
+  if (/\bfull[- ]size\b/.test(text)) return 'Full';
+
+  // Key count in name (e.g. "87-key", "104 keys")
+  const keyCountMatch = text.match(/\b(40|50|61|64|65|67|68|75|76|80|82|83|84|87|88|96|98|100|104|108)[- ]?key/i);
+  if (keyCountMatch) {
+    const n = parseInt(keyCountMatch[1]);
+    if (n <= 50) return '50%';
+    if (n <= 65) return '65%';
+    if (n <= 75) return '75%';
+    if (n <= 88) return 'TKL';
+    if (n <= 100) return '96%';
+    return 'Full';
+  }
+
+  // Keychron model numbers (most important vendor)
+  const keychronMatch = name.match(/\b([qvkbc])(\d{1,2})\b/i);
+  if (keychronMatch) {
+    const series = keychronMatch[1].toUpperCase();
+    const num = parseInt(keychronMatch[2]);
+    // Verified against Keychron product pages
+    const keychron = {
+      K: { 1:'75%', 2:'75%', 3:'75%', 4:'96%', 5:'Full', 6:'65%', 7:'65%', 8:'TKL', 9:'40%', 10:'Full', 11:'65%', 12:'60%', 13:'75%', 14:'96%', 15:'Full' },
+      Q: { 1:'75%', 2:'65%', 3:'TKL', 4:'60%', 5:'TKL', 6:'Full', 7:'Full', 8:'TKL', 9:'40%', 10:'Full' },
+      V: { 1:'75%', 2:'65%', 3:'TKL', 4:'60%', 5:'TKL', 6:'Full', 7:'Full' },
+      C: { 1:'TKL', 2:'65%', 3:'60%' },
+      B: { 1:'75%' },
+    };
+    if (keychron[series]?.[num]) return keychron[series][num];
+  }
+
+  // Epomaker TH/EP model numbers
+  const epoMatch = name.match(/\b(?:th|ep|rt|g)(\d{2,3})\b/i);
+  if (epoMatch) {
+    const prefix = name.match(/\b(th|ep|rt|g)(\d{2,3})\b/i)?.[1].toLowerCase();
+    const num = parseInt(epoMatch[1]);
+    if (prefix === 'rt') return 'Full'; // RT100 = full
+    if (num <= 61) return '60%';
+    if (num <= 68) return '65%';
+    if (num <= 80) return '75%';
+    if (num <= 88) return 'TKL';
+    return 'Full';
+  }
+
+  // KBDfans named models
+  if (/\bd60\b|\btofu60\b/.test(text)) return '60%';
+  if (/\bd65\b|\btofu65\b|\bkbd67\b/.test(text)) return '65%';
+  if (/\bd84\b|\bkbd75\b/.test(text)) return '75%';
+  if (/\bfreebird\b|\bd100\b/.test(text)) return 'TKL';
+  if (/\bodin\b|\bbella\b|\bd108\b/.test(text)) return 'Full';
+
+  // NovelKeys
+  if (/\bnk65\b/.test(text)) return '65%';
+  if (/\bnk87\b|\bhope\b/.test(text)) return 'TKL';
+
+  // Drop named models
+  if (/\bdrop\s+alt\b|\balt\s+keyboard\b/.test(text)) return '65%';
+  if (/\bdrop\s+ctrl\b|\bctrl\s+keyboard\b/.test(text)) return 'TKL';
+  if (/\bdrop\s+shift\b/.test(text)) return '96%';
+  if (/\bplanck\b/.test(text)) return '40%';
+  if (/\bpreonic\b/.test(text)) return '50%';
+  if (/\bsense75\b/.test(text)) return '75%';
+
+  // Glorious
+  if (/\bgmmk\s*pro\b/.test(text)) return '75%';
+  if (/\bgmmk\s*2\b/.test(text)) return 'Full';
+  if (/\bgmmk\b/.test(text)) return 'TKL';
+
+  // RK / Royal Kludge
+  if (/\brk61\b/.test(text)) return '60%';
+  if (/\brk68\b|\brk71\b/.test(text)) return '65%';
+  if (/\brk84\b/.test(text)) return '75%';
+
+  // Nuphy
+  if (/\bnuphy\s+air60\b/.test(text)) return '60%';
+  if (/\bnuphy\s+air75\b/.test(text)) return '75%';
+  if (/\bnuphy\s+halo75\b/.test(text)) return '75%';
+
+  // Numpad implies full-size keyboard context
+  if (/\bnumpad\b/.test(text) && /\bkeyboard\b/.test(text)) return 'Full';
+  if (/\b1800\s*layout\b|\b1800\s*compact\b/.test(text)) return '96%';
+
+  return null;
+}
+
 // Affiliate tracking codes
 const AFFILIATE_CODES = {
   'Epomaker': { param: 'sca_ref', value: '10691179.cOO0hJ6jvi' },
@@ -35,11 +140,26 @@ const VENDOR_PRIORITY = {
   'Kono.store': 24
 };
 
-// Keywords that indicate a product is a PART, not a complete keyboard
-const PART_KEYWORDS = [
-  'pcb', 'plate', 'weight', 'top', 'bottom', 'mid', 'hardware pack',
-  'daughterboard', 'jst cable', 'poron', 'foam', 'gasket', 'feet', 'bump ons',
-  'screws', 'standoffs', 'o-ring'
+// Regex patterns that indicate a product is a PART, not a complete keyboard.
+// Using word boundaries (\b) to avoid false positives like "midnight" matching "mid",
+// "topping" matching "top", "heavyweight" matching "weight", etc.
+const PART_PATTERNS = [
+  /\bpcb\b/,
+  /\bplate\b/,
+  /\bbrass weight\b|\baluminum weight\b|\bsteel weight\b|\bback weight\b/,
+  /\bdaughterboard\b/,
+  /\bjst cable\b/,
+  /\bporon\b/,
+  /\bpe foam\b|\bcase foam\b|\bswitch foam\b|\bpcb foam\b/,
+  /\bgasket mount kit\b|\bgasket strip\b/,
+  /\bbump ?ons\b/,
+  /\bstandoffs?\b/,
+  /\bo-?ring\b/,
+  /\bhardware pack\b/,
+  /\bpcb mount\b/,
+  /\btop (?:case|housing)\b/,
+  /\bbottom (?:case|housing)\b/,
+  /\bmid (?:layer|piece|section)\b/,
 ];
 
 // Group buy indicators in product names
@@ -89,32 +209,26 @@ function saveData(data) {
 }
 
 function addAffiliateLink(url, vendor) {
-  if (!url || url.includes('?')) return url;
+  if (!url) return url;
   const aff = AFFILIATE_CODES[vendor];
-  if (aff) return `${url}?${aff.param}=${aff.value}`;
-  return url;
+  if (!aff) return url;
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}${aff.param}=${aff.value}`;
 }
 
 // Check if product is a part/assembly component, not a complete keyboard
 function isPart(name, description, vendor) {
   const text = (name + ' ' + (description || '')).toLowerCase();
-  
-  // Check against part keywords
-  for (const keyword of PART_KEYWORDS) {
-    if (text.includes(keyword.toLowerCase())) {
-      return true;
-    }
+
+  for (const pattern of PART_PATTERNS) {
+    if (pattern.test(text)) return true;
   }
-  
-  // Novel Keys specific: Keycult parts
+
+  // NovelKeys: Keycult kits are sold as parts (PCB + plate bundles)
   if (vendor === 'NovelKeys' && text.includes('keycult')) {
-    if (text.includes('pcb') || text.includes('plate') || 
-        text.includes('weight') || text.includes('hardware') ||
-        text.includes('top') || text.includes('bottom') || text.includes('mid')) {
-      return true;
-    }
+    if (/\bpcb\b|\bplate\b|\bhardware\b/.test(text)) return true;
   }
-  
+
   return false;
 }
 
@@ -134,11 +248,6 @@ function isGroupBuy(name, description, vendor, tags = []) {
     if (tagLower.includes('group buy') || tagLower.includes('pre-order')) {
       return true;
     }
-  }
-  
-  // Drop products with "joins" are typically group buys
-  if (vendor === 'Drop') {
-    return true; // Drop is primarily group buy platform
   }
   
   return false;
@@ -358,6 +467,8 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
         const status = availability.available ? 'in_stock' : 
                       availability.quantity > 0 ? 'low_stock' : 'out_of_stock';
         
+        const size = category === 'keyboard' ? classifySize(p.title, description, tags) : null;
+
         items.push({
           id: `${vendorName.toLowerCase()}-${p.handle}-${p.id}`.slice(0, 80),
           name: p.title,
@@ -365,6 +476,7 @@ async function scrapeShopifyStore(baseUrl, collectionPath, vendorName, maxProduc
           platform: vendorName,
           vendor: vendorName,
           category: category,
+          size: size,
           url: productUrl,
           affiliateUrl: addAffiliateLink(productUrl, vendorName),
           price: price.startsWith('$') ? price : `$${price}`,
@@ -638,6 +750,7 @@ async function scrapeQwerkywriter() {
       const price = p.variants?.[0]?.price || 'See site';
       const img = p.images?.[0]?.src || '';
       
+      const descText = p.body_html?.replace(/<[^>]*>/g, '') || '';
       allItems.push({
         id: `qwerkywriter-${p.handle}-${p.id}`.slice(0, 80),
         name: p.title,
@@ -645,11 +758,12 @@ async function scrapeQwerkywriter() {
         platform: 'Qwerkywriter',
         vendor: 'Qwerkywriter',
         category: category,
+        size: classifySize(p.title, descText, p.tags || []),
         url: productUrl,
         affiliateUrl: addAffiliateLink(productUrl, 'Qwerkywriter'),
         price: `$${price}`,
         image: img,
-        description: p.body_html?.replace(/<[^>]*>/g, '').slice(0, 200) || '',
+        description: descText.slice(0, 200),
         scrapedAt: new Date().toISOString(),
         status: 'in_stock'
       });
@@ -736,6 +850,7 @@ async function scrapeCannonKeys() {
         platform: 'CannonKeys',
         vendor: 'CannonKeys',
         category: category,
+        size: category === 'keyboard' ? classifySize(p.title, description, p.tags || []) : null,
         url: productUrl,
         affiliateUrl: addAffiliateLink(productUrl, 'CannonKeys'),
         price: `$${price}`,
@@ -821,6 +936,7 @@ async function scrapeDivinikey() {
         platform: 'DiviniKey',
         vendor: 'DiviniKey',
         category: category,
+        size: category === 'keyboard' ? classifySize(p.title, description, p.tags || []) : null,
         url: productUrl,
         affiliateUrl: addAffiliateLink(productUrl, 'DiviniKey'),
         price: `$${price}`,
@@ -897,6 +1013,7 @@ async function scrapeGlorious() {
         platform: 'Glorious',
         vendor: 'Glorious',
         category: category,
+        size: category === 'keyboard' ? classifySize(p.title, description, p.tags || []) : null,
         url: productUrl,
         affiliateUrl: addAffiliateLink(productUrl, 'Glorious'),
         price: `$${price}`,
@@ -972,6 +1089,7 @@ async function scrapeBoardsource() {
         platform: 'Boardsource',
         vendor: 'Boardsource',
         category: category,
+        size: category === 'keyboard' ? classifySize(p.title, description, p.tags || []) : null,
         url: productUrl,
         affiliateUrl: addAffiliateLink(productUrl, 'Boardsource'),
         price: `$${price}`,
@@ -1110,113 +1228,106 @@ async function scrapeReddit() {
 
 // Main
 async function runScraper() {
-  console.log('🚀 Starting Switchyard Scraper v2 - Quality Focus\n');
+  console.log('🚀 Starting Switchyard Scraper v3 - Full Refresh\n');
   const startTime = Date.now();
-  const data = loadData();
-  
-  const existingUrls = new Set(data.items?.map(i => i.url) || []);
-  const newItems = [];
-  let totalSkippedSoldOut = 0;
-  let totalSkippedParts = 0;
-  
-  // Products
+
+  // Full re-scrape every run: prices, availability, and size all stay current.
+  // We do NOT merge with old data — a complete fresh snapshot is written each time.
+  const seenUrls = new Set();
+  const freshItems = [];
+
+  // ── Vendor products ──────────────────────────────────────────────────────────
   console.log('📦 VENDOR PRODUCTS (In-Stock Only)');
   console.log('=====================================');
-  const productScrapers = [scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys, scrapeDrop, scrapeQwerkywriter, scrapeCannonKeys, scrapeDivinikey, scrapeGlorious, scrapeBoardsource];
-  
+  const productScrapers = [
+    scrapeKeychron, scrapeEpomaker, scrapeKBDfans, scrapeNovelKeys,
+    scrapeDrop, scrapeQwerkywriter, scrapeCannonKeys, scrapeDivinikey,
+    scrapeGlorious, scrapeBoardsource
+  ];
+
   for (const scraper of productScrapers) {
     try {
       const items = await scraper();
-      items.forEach(item => {
-        if (!existingUrls.has(item.url)) {
-          newItems.push(item);
-          existingUrls.add(item.url);
+      for (const item of items) {
+        if (!seenUrls.has(item.url)) {
+          seenUrls.add(item.url);
+          freshItems.push(item);
         }
-      });
+      }
     } catch (e) {
-      console.log(`   Error: ${e.message.slice(0, 50)}`);
+      console.log(`   Error: ${e.message.slice(0, 80)}`);
     }
     await new Promise(r => setTimeout(r, 1000));
   }
-  
-  // Group Buys
+
+  // ── Group buys & interest checks ─────────────────────────────────────────────
   console.log('\n🎯 GROUP BUYS & INTEREST CHECKS');
   console.log('================================');
   const gbScrapers = [scrapeGeekhack, scrapeReddit];
-  
+
   for (const scraper of gbScrapers) {
     try {
       const items = await scraper();
-      items.forEach(item => {
-        if (!existingUrls.has(item.url)) {
-          newItems.push(item);
-          existingUrls.add(item.url);
+      for (const item of items) {
+        if (!seenUrls.has(item.url)) {
+          seenUrls.add(item.url);
+          freshItems.push(item);
         }
-      });
+      }
     } catch (e) {
-      console.log(`   Error: ${e.message.slice(0, 50)}`);
+      console.log(`   Error: ${e.message.slice(0, 80)}`);
     }
   }
-  
-  // Merge and organize data
+
+  // ── Organise ─────────────────────────────────────────────────────────────────
   console.log('\n📊 PROCESSING & ORGANIZING DATA');
   console.log('=================================');
-  
-  const allItems = [...(data.items || []), ...newItems];
-  
-  // Filter out old data (items not updated in 30 days are stale)
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-  
-  const freshItems = allItems.filter(item => {
-    const itemDate = new Date(item.scrapedAt || 0);
-    return itemDate > thirtyDaysAgo || item.type === 'group_buy' || item.type === 'interest_check';
-  });
-  
-  console.log(`   Filtered ${allItems.length - freshItems.length} stale items (>30 days old)`);
-  
-  // NOTE: Sorting is now handled in the frontend (App.tsx) via sortByAffiliatePriority
-  // Data.json maintains raw order for flexibility
-  
-  // Organize by type (no sorting applied here - handled in UI)
-  data.items = freshItems;
-  data.allProducts = freshItems.filter(i => i.type === 'product' && i.category !== 'parts');
-  data.inStock = freshItems.filter(i => i.status === 'in_stock' || i.status === 'active');
-  data.groupBuys = freshItems.filter(i => i.type === 'group_buy' && i.status !== 'ended');
-  data.interestChecks = freshItems.filter(i => i.type === 'interest_check');
-  
-  // Remove parts from main view but keep them accessible
-  data.parts = freshItems.filter(i => i.category === 'parts');
-  
-  console.log(`   ✅ Sorted by affiliate priority: Keychron, Epomaker, Qwerkywriter first`);
-  
-  data.metadata = {
-    scrapedAt: new Date().toISOString(),
-    duration: ((Date.now() - startTime) / 1000).toFixed(2),
-    totalItems: freshItems.length,
-    newItems: newItems.length,
-    products: data.allProducts.length,
-    inStock: data.inStock.length,
-    groupBuys: data.groupBuys.length,
-    interestChecks: data.interestChecks.length,
-    parts: data.parts?.length || 0,
-    filteredStale: allItems.length - freshItems.length
+
+  const allProducts = freshItems.filter(i =>
+    (i.type === 'product' || i.type === 'group_buy') && i.category !== 'parts'
+  );
+  const inStock    = freshItems.filter(i => i.status === 'in_stock' || i.status === 'active');
+  const groupBuys  = freshItems.filter(i => i.type === 'group_buy' && i.status !== 'ended');
+  const interestChecks = freshItems.filter(i => i.type === 'interest_check');
+  const parts      = freshItems.filter(i => i.category === 'parts');
+
+  // Log size coverage for keyboards
+  const keyboards = allProducts.filter(i => i.category === 'keyboard');
+  const withSize  = keyboards.filter(i => i.size);
+  console.log(`   Size field coverage: ${withSize.length}/${keyboards.length} keyboards (${Math.round(withSize.length/keyboards.length*100)||0}%)`);
+
+  const data = {
+    items: freshItems,
+    allProducts,
+    inStock,
+    groupBuys,
+    interestChecks,
+    parts,
+    metadata: {
+      scrapedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      duration: ((Date.now() - startTime) / 1000).toFixed(2),
+      totalItems: freshItems.length,
+      products: allProducts.length,
+      inStock: inStock.length,
+      groupBuys: groupBuys.length,
+      interestChecks: interestChecks.length,
+      parts: parts.length,
+    }
   };
-  
+
   saveData(data);
-  
+
   console.log('\n📋 FINAL RESULTS');
   console.log('=================');
-  console.log(`   Total Items: ${freshItems.length} (${newItems.length} new today)`);
-  console.log(`   In Stock Products: ${data.allProducts.length}`);
-  console.log(`   Active Group Buys: ${data.groupBuys.length}`);
-  console.log(`   Interest Checks: ${data.interestChecks.length}`);
-  console.log(`   Parts (separate): ${data.parts?.length || 0}`);
-  console.log(`   Stale Items Removed: ${allItems.length - freshItems.length}`);
+  console.log(`   Total Items:      ${freshItems.length}`);
+  console.log(`   Products:         ${allProducts.length}`);
+  console.log(`   In Stock:         ${inStock.length}`);
+  console.log(`   Active Group Buys:${groupBuys.length}`);
+  console.log(`   Interest Checks:  ${interestChecks.length}`);
+  console.log(`   Parts (hidden):   ${parts.length}`);
   console.log(`   ⏱️  ${data.metadata.duration}s`);
-  
-  console.log(newItems.length > 0 ? '\n✅ New items found and added!' : '\n📊 No new items today');
-  
+
   return data;
 }
 

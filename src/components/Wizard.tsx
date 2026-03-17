@@ -71,77 +71,49 @@ const applyFilter = (products: KeyboardProduct[], selections: WizardState, stepI
     }
   }
 
-  // Size filtering - enhanced with model numbers for better detection
+  // Size filtering — use stored p.size field first (stamped by scraper), fall back to keywords
   if (selections.size && stepId !== 'size') {
+    // Map wizard option IDs to the size values stored in p.size
+    const sizeFieldMap: Record<string, string[]> = {
+      fullsize:   ['Full', '100%', '96%', '1800', 'Numpad'],
+      tkl:        ['TKL', '80%'],
+      '75percent': ['75%'],
+      compact:    ['60%', '65%', '70%', '50%', '40%'],
+    };
+    const validSizes = sizeFieldMap[selections.size] || [];
+
+    // Fallback keyword lists for products without a stored size field
     const sizeKeywords: Record<string, string[]> = {
-      // Full size with numpad - 100%+ keyboards
       fullsize: [
-        'full', '100%', 'numpad', '104-key', '104key', '108-key', '108key', 
-        '96%', '96', '96-key', '96key', '98%', '98-key', '98key', 
-        '104%', '108%', 'full size', 'full-size', 'fullsize',
-        // Keychron models
-        'k4', 'k10', 'k14', 'q5', 'q6', 'v5', 'v6',
-        // Other brands
-        'womier', 'akko', 'ducky', 'logitech', 'corsair', 'razer',
-        '1800', '96%', '98%'
+        'full', '100%', 'numpad', '104-key', '104key', '108-key', '108key',
+        '96%', '96-key', '96key', '98%', '98-key', '98key',
+        'full size', 'full-size', 'fullsize', '1800',
       ],
-      // TKL - 80-88 keys, no numpad, has F-row
       tkl: [
         'tkl', 'tenkeyless', '87', '88', '80%', '80-key', '80key',
         '87-key', '87key', '88-key', '88key', '84-key', '84key',
-        // Keychron models
-        'k1', 'k3', 'k5', 'k8', 'k9', 'q3', 'v3', 'k1 pro', 'k3 pro', 'k8 pro',
-        // Other brands
-        'drop', 'ctrl', 'alt', 'entertainment', 'gmmk pro'
       ],
-      // 75% - 82-84 keys, compact with F-row
       '75percent': [
-        '75%', '75', '75-key', '75key', '82-key', '82key', '80-key', '80key',
-        '75 percent', '75percent', 'seventy-five',
-        // Keychron models (most popular 75%)
-        'k2', 'q1', 'v1', 'k2 pro', 'k2 max', 'q1 pro', 'q1 max', 'v1 max',
-        'k2 he', 'k2e', 'c1', 'c1 pro',
-        // Epomaker
-        'th80', 'th80 se', 'th80 pro', 'epomaker th80',
-        'gk68', 'gk68xs', 'skyloong', 'gk75',
-        // Other popular 75%
-        'nj80', 'keydous', 'feker', 'ik75', 'ik75 pro'
+        '75%', '75-key', '75key', '82-key', '82key', '75 percent', '75percent',
       ],
-      // Compact - 60-69 keys, no numpad, no F-row or compact
       compact: [
-        '60%', '65%', '60', '65', '40%', '68', '69', '64', '61', '67',
-        '60-key', '60key', '65-key', '65key', '68-key', '68key', 
-        '69-key', '69key', '67-key', '67key', '61-key', '61key', '64-key', '64key',
+        '60%', '65%', '40%', '50%', '60-key', '60key', '65-key', '65key',
+        '68-key', '68key', '67-key', '67key', '61-key', '61key', '64-key', '64key',
         '60 percent', '65 percent', 'compact', 'mini',
-        // Keychron models
-        'k12', 'q2', 'q4', 'v2', 'v4', 'c2', 'c3', 'k6', 'k6 pro',
-        'k12 pro', 'q2 pro', 'q4 pro', 'c2 pro', 'c3 pro',
-        // Other brands
-        'gk61', 'gk64', 'rk61', 'anne pro', 'poker', 'dz60', 'ymdk'
       ],
     };
     const keywords = sizeKeywords[selections.size] || [];
-    if (keywords.length > 0) {
-      filtered = filtered.filter(p => {
-        const name = p.name?.toLowerCase() || '';
-        const desc = p.description?.toLowerCase() || '';
-        const combined = name + ' ' + desc;
-        
-        // Check for exact model matches (e.g., "k2" should match "keychron k2" but not "k20")
-        const hasKeywordMatch = keywords.some(k => {
-          // For short model codes (k2, q1, etc.), ensure word boundaries
-          if (k.length <= 3 && /^[a-z0-9]+$/.test(k)) {
-            // Model code - require word boundary or common separators
-            const pattern = new RegExp(`(\\b|keychron\\s|epomaker\\s|\\s)${k}(\\b|\\s|pro|max|he|\\-)`, 'i');
-            return pattern.test(combined);
-          }
-          // Standard keyword match
-          return combined.includes(k);
-        });
-        
-        return hasKeywordMatch;
-      });
-    }
+
+    filtered = filtered.filter(p => {
+      // Prefer stored size field
+      if ((p as any).size) {
+        return validSizes.includes((p as any).size);
+      }
+      // Fall back to keyword matching for products without a size field
+      if (keywords.length === 0) return true;
+      const combined = (p.name?.toLowerCase() || '') + ' ' + (p.description?.toLowerCase() || '');
+      return keywords.some(k => combined.includes(k));
+    });
   }
 
   // Hotswap filtering - improved logic to handle soldered filtering

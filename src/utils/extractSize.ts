@@ -20,85 +20,91 @@ export const SIZE_VALUES: Record<string, number> = {
 };
 
 export const extractSize = (product: Product): string | null => {
-  if (product.size && SIZE_VALUES[product.size]) {
+  // Use stored size field first (populated by scraper's classifySize function)
+  if (product.size && SIZE_VALUES[product.size] !== undefined) {
     return product.size;
   }
 
+  // Fallback: infer from name/description at runtime
   const text = (product.name + ' ' + (product.description || '')).toLowerCase();
 
-  const percentageMatch = text.match(/\b(40|50|60|65|70|75|80|96|100)%/);
-  if (percentageMatch) return percentageMatch[1] + '%';
+  const pctMatch = text.match(/\b(40|50|60|65|70|75|80|96|100)\s*%/);
+  if (pctMatch) return pctMatch[1] + '%';
 
-  if (text.includes('tkl') || text.includes('tenkeyless')) return 'TKL';
-  if (text.includes('full-size') || text.includes('full size')) return 'Full';
-  if (text.includes('numpad') && !text.includes('keyboard')) return 'Numpad';
-  if (text.includes('1800') || text.includes('1800 layout')) return '96%';
+  if (/\btkl\b|\btenkeyless\b/.test(text)) return 'TKL';
+  if (/\bfull[- ]size\b/.test(text)) return 'Full';
+  if (/\b1800\s*(layout|compact)\b/.test(text)) return '96%';
 
-  const vendor = product.vendor?.toLowerCase() || '';
+  const keyCountMatch = text.match(/\b(40|50|61|64|65|67|68|75|82|83|84|87|88|96|98|100|104|108)[- ]?key/i);
+  if (keyCountMatch) {
+    const n = parseInt(keyCountMatch[1]);
+    if (n <= 50) return '50%';
+    if (n <= 65) return '65%';
+    if (n <= 75) return '75%';
+    if (n <= 88) return 'TKL';
+    if (n <= 100) return '96%';
+    return 'Full';
+  }
+
   const name = product.name?.toLowerCase() || '';
+  const vendor = product.vendor?.toLowerCase() || '';
 
+  // Keychron model map — verified against Keychron product pages
   if (vendor === 'keychron') {
-    const modelMatch = name.match(/\b(q|v|k|c|b)\d+/i);
-    if (modelMatch) {
-      const model = modelMatch[0].toUpperCase();
-      if (model === 'Q1' || model === 'V1' || model === 'B1') return '75%';
-      if (model === 'Q2' || model === 'V2' || model === 'K2') return '65%';
-      if (model === 'Q3' || model === 'V3' || model === 'K3' || model === 'C1') return 'TKL';
-      if (model === 'Q4' || model === 'K4') return '60%';
-      if (model === 'Q5' || model === 'V5' || model === 'K5') return 'TKL';
-      if (model === 'Q6' || model === 'V6' || model === 'K6') return 'Full';
-      if (model === 'Q7' || model === 'V7' || model === 'K7') return 'Full';
-      if (model === 'Q8' || model === 'V8' || model === 'K8') return 'TKL';
-      if (model === 'Q9' || model === 'K9') return '40%';
-      if (model === 'Q10' || model === 'V10' || model === 'K10' || model === 'K14' || model === 'K15') return 'Full';
+    const m = name.match(/\b([qvkbc])(\d{1,2})\b/i);
+    if (m) {
+      const s = m[1].toUpperCase(), n = parseInt(m[2]);
+      const map: Record<string, Record<number, string>> = {
+        K: { 1:'75%', 2:'75%', 3:'75%', 4:'96%', 5:'Full', 6:'65%', 7:'65%', 8:'TKL', 9:'40%', 10:'Full', 11:'65%', 12:'60%', 13:'75%', 14:'96%', 15:'Full' },
+        Q: { 1:'75%', 2:'65%', 3:'TKL', 4:'60%', 5:'TKL', 6:'Full', 7:'Full', 8:'TKL', 9:'40%', 10:'Full' },
+        V: { 1:'75%', 2:'65%', 3:'TKL', 4:'60%', 5:'TKL', 6:'Full', 7:'Full' },
+        C: { 1:'TKL', 2:'65%', 3:'60%' },
+        B: { 1:'75%' },
+      };
+      if (map[s]?.[n]) return map[s][n];
     }
   }
 
   if (vendor === 'epomaker') {
-    const thMatch = name.match(/th(\d+)/i);
+    const thMatch = name.match(/\b(?:th|ep|rt|g)(\d{2,3})\b/i);
     if (thMatch) {
-      const size = parseInt(thMatch[1]);
-      if (size <= 70) return '65%';
-      if (size <= 100) return 'TKL';
-      if (size <= 110) return 'Full';
-      return '96%';
+      const prefix = name.match(/\b(th|ep|rt|g)(\d{2,3})\b/i)?.[1]?.toLowerCase();
+      const num = parseInt(thMatch[1]);
+      if (prefix === 'rt') return 'Full';
+      if (num <= 61) return '60%';
+      if (num <= 68) return '65%';
+      if (num <= 80) return '75%';
+      if (num <= 88) return 'TKL';
+      return 'Full';
     }
-    if (name.includes('g84')) return '75%';
-    if (name.includes('rt100')) return 'Full';
-    if (name.includes('he30')) return 'Numpad';
   }
 
   if (vendor === 'drop') {
-    if (name.includes('alt')) return '65%';
-    if (name.includes('ctrl')) return 'TKL';
-    if (name.includes('shift')) return '96%';
-    if (name.includes('sense75')) return '75%';
-    if (name.includes('preonic')) return '50%';
-    if (name.includes('planck')) return '40%';
+    if (/\balt\b/.test(name)) return '65%';
+    if (/\bctrl\b/.test(name)) return 'TKL';
+    if (/\bshift\b/.test(name)) return '96%';
+    if (/\bplanck\b/.test(name)) return '40%';
+    if (/\bpreonic\b/.test(name)) return '50%';
+    if (/\bsense75\b/.test(name)) return '75%';
   }
 
   if (vendor === 'kbdfans') {
-    if (name.includes('60') || name.includes('d60') || name.includes('tofu60')) return '60%';
-    if (name.includes('65') || name.includes('d65') || name.includes('tofu65') || name.includes('kbd67')) return '65%';
-    if (name.includes('75') || name.includes('kbd75') || name.includes('d84')) return '75%';
-    if (name.includes('8x') || name.includes('freebird') || name.includes('d100')) return 'TKL';
-    if (name.includes('odin') || name.includes('bella') || name.includes('mountain') || name.includes('d108')) return 'Full';
+    if (/\bd60\b|\btofu60\b/.test(name)) return '60%';
+    if (/\bd65\b|\btofu65\b|\bkbd67\b/.test(name)) return '65%';
+    if (/\bd84\b|\bkbd75\b/.test(name)) return '75%';
+    if (/\bfreebird\b|\bd100\b/.test(name)) return 'TKL';
+    if (/\bodin\b|\bbella\b|\bd108\b/.test(name)) return 'Full';
   }
 
   if (vendor === 'novelkeys') {
-    if (name.includes('nk65')) return '65%';
-    if (name.includes('nk87')) return 'TKL';
-    if (name.includes('hope')) return 'TKL';
-    if (name.includes('nibble')) return '65%';
-    if (name.includes('big switch')) return 'Novelty';
+    if (/\bnk65\b/.test(name)) return '65%';
+    if (/\bnk87\b|\bhope\b/.test(name)) return 'TKL';
   }
 
-  const genericMatch = name.match(/\b(th|ek|p|a|d)(\d{2,3})\b/i);
-  if (genericMatch) {
-    const size = parseInt(genericMatch[2]);
-    if (size <= 65) return '65%';
-    if (size <= 80) return 'TKL';
-    if (size <= 100) return 'Full';
+  if (vendor === 'glorious') {
+    if (/\bgmmk\s*pro\b/.test(name)) return '75%';
+    if (/\bgmmk\s*2\b/.test(name)) return 'Full';
+    if (/\bgmmk\b/.test(name)) return 'TKL';
   }
 
   return null;
