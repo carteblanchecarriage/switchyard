@@ -129,11 +129,17 @@ export function useProductFilters(products: Product[], wizardFilters: Product[] 
     if (category) setActiveCategory(category);
   }, []);
 
+  // When wizard activates, reset price chip so they don't conflict
+  useEffect(() => {
+    if (wizardFilters) setPriceFilter('all');
+  }, [wizardFilters]);
+
   const applyFilters = useCallback(
     (category: string, query: string, price: string) => {
       const base = wizardFilters || products;
       let filtered = filterByCategory(category, base);
-      filtered = filterByPrice(price, filtered);
+      // Skip price filter when wizard is active — wizard already handles budget
+      if (!wizardFilters) filtered = filterByPrice(price, filtered);
       filtered = filterBySearch(query, filtered);
       setFilteredProducts(filtered);
       setDisplayLimit(12);
