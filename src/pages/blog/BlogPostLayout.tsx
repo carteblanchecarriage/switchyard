@@ -1,8 +1,19 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import SEOHead from '../../components/SEOHead';
+import BlogProductCard from '../../components/BlogProductCard';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
+
+const DOMAIN = 'https://switchyard.club';
+
+interface ShopPick {
+  productName: string;
+  vendor?: string;
+  description?: string;
+  ctaText?: string;
+}
 
 interface BlogPostLayoutProps {
   title: string;
@@ -14,6 +25,9 @@ interface BlogPostLayoutProps {
   category: string;
   heroImage?: string;
   heroAlt?: string;
+  shopPicks?: ShopPick[];
+  catalogLink?: string;
+  catalogLinkText?: string;
   children: React.ReactNode;
 }
 
@@ -27,9 +41,40 @@ export default function BlogPostLayout({
   category,
   heroImage,
   heroAlt,
+  shopPicks,
+  catalogLink = "/",
+  catalogLinkText = "Browse all keyboards →",
   children
 }: BlogPostLayoutProps) {
   useScrollToTop();
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: ogImage,
+    datePublished: date,
+    dateModified: date,
+    author: {
+      '@type': 'Organization',
+      name: 'Switchyard',
+      url: DOMAIN,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Switchyard',
+      url: DOMAIN,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${DOMAIN}/favicon.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': DOMAIN,
+    },
+  };
 
   return (
     <Layout>
@@ -40,6 +85,12 @@ export default function BlogPostLayout({
         ogImage={ogImage}
         ogType="article"
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
 
       <div className="blog-post-container">
         <article className="blog-post">
@@ -108,6 +159,32 @@ export default function BlogPostLayout({
               </ul>
             </div>
           </div>
+
+          {/* Shop These Picks */}
+          {shopPicks && shopPicks.length > 0 && (
+            <div className="shop-picks-section">
+              <div className="shop-picks-header">
+                <h2>Shop These Picks</h2>
+                <p>Keyboards mentioned or relevant to this article, sourced from our live catalog.</p>
+              </div>
+              <div className="shop-picks-grid">
+                {shopPicks.map((pick, i) => (
+                  <BlogProductCard
+                    key={i}
+                    productName={pick.productName}
+                    vendor={pick.vendor}
+                    description={pick.description}
+                    ctaText={pick.ctaText || "Check Price →"}
+                  />
+                ))}
+              </div>
+              <div className="shop-picks-footer">
+                <Link href={catalogLink} className="shop-picks-browse-link">
+                  {catalogLinkText}
+                </Link>
+              </div>
+            </div>
+          )}
         </article>
       </div>
     </Layout>

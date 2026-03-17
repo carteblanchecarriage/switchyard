@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -213,6 +215,19 @@ export default function Best60PercentGuide() {
             <h2>Ready to go small?</h2>
             <p>Compare sizes and features across all keyboards.</p>
             <a href="/" className="cta-button">Browse 60% Keyboards →</a>
+          </section>
+
+          <section className="catalog-picks-section">
+            <h2>From Our Live Catalog</h2>
+            <p>Top 60% keyboards with current pricing from our verified vendor network.</p>
+            <div className="catalog-picks-grid">
+              <BlogProductCard productName="Keychron K12 Pro" vendor="Keychron" description="60% wireless with hot-swap and Bluetooth 5.1, Mac/Windows" ctaText="Check Price →" />
+              <BlogProductCard productName="Epomaker EP84" vendor="Epomaker" description="Budget 60% hot-swap — great entry point with RGB" ctaText="Check Price →" />
+              <BlogProductCard productName="Glorious GMMK Compact" vendor="Glorious" description="Modular 60% barebones — customize with any switch you want" ctaText="Check Price →" />
+            </div>
+            <div className="catalog-picks-footer">
+              <Link href="/?size=60%25" className="catalog-picks-browse-link">Browse all 60% keyboards →</Link>
+            </div>
           </section>
         </div>
       </article>

@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -188,6 +190,20 @@ export default function Best75PercentGuide() {
             <h2>Find your 75%</h2>
             <p>Browse all 75% keyboards in our dashboard.</p>
             <a href="/" className="cta-button">Browse 75% Keyboards →</a>
+          </section>
+
+          <section className="catalog-picks-section">
+            <h2>From Our Live Catalog</h2>
+            <p>Top 75% keyboards with current pricing from our verified vendor network.</p>
+            <div className="catalog-picks-grid">
+              <BlogProductCard productName="Keychron Q1 Pro" vendor="Keychron" description="Best-in-class 75% — CNC aluminum, gasket mount, QMK/VIA, wireless" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron V1" vendor="Keychron" description="Best value 75% — gasket mount, hot-swap, under $100" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron K3 Pro" vendor="Keychron" description="Ultra-slim 75% with wireless and low-profile switches" ctaText="Check Price →" />
+              <BlogProductCard productName="Epomaker TH80 Pro" vendor="Epomaker" description="75% wireless with gasket mount and hall effect option" ctaText="Check Price →" />
+            </div>
+            <div className="catalog-picks-footer">
+              <Link href="/?size=75%25" className="catalog-picks-browse-link">Browse all 75% keyboards →</Link>
+            </div>
           </section>
         </div>
       </article>

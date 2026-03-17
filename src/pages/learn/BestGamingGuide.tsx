@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -473,9 +475,23 @@ export default function BestGamingGuide() {
             <p>Browse our live inventory filtered for gaming features and low latency specs.</p>
             <a href="/" className="cta-button">Browse Gaming Keyboards →</a>
             <p className="related-links" style={{marginTop: '1.5rem', fontSize: '0.875rem'}}>
-              Also check: <a href="/learn/switch-guide">Switch Guide</a> • 
+              Also check: <a href="/learn/switch-guide">Switch Guide</a> •
               <a href="/blog/hall-effect-keyboards-2026">Hall Effect Breakdown</a>
             </p>
+          </section>
+
+          <section className="catalog-picks-section">
+            <h2>From Our Live Catalog</h2>
+            <p>Top-rated gaming keyboards with current pricing from verified vendors.</p>
+            <div className="catalog-picks-grid">
+              <BlogProductCard productName="Keychron C4 HE" vendor="Keychron" description="Hall effect + rapid trigger — the competitive gaming standard for 2026" ctaText="Check Price →" />
+              <BlogProductCard productName="Glorious GMMK Pro" vendor="Glorious" description="75% hot-swap barebones — build your ideal gaming keyboard" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron K8 Pro" vendor="Keychron" description="TKL wireless gaming — reliable, fast, Mac/Windows" ctaText="Check Price →" />
+              <BlogProductCard productName="Epomaker TH80 SE" vendor="Epomaker" description="75% hall effect with gasket mount and wireless" ctaText="Check Price →" />
+            </div>
+            <div className="catalog-picks-footer">
+              <Link href="/?search=gaming" className="catalog-picks-browse-link">Browse all gaming keyboards →</Link>
+            </div>
           </section>
         </div>
       </article>

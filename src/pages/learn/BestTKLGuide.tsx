@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -216,6 +218,20 @@ export default function BestTKLGuide() {
             (do you really use it?) and gain desk space, better mouse positioning, and a 
             cleaner aesthetic.
           </p>
+        </section>
+
+        <section className="catalog-picks-section">
+          <h2>From Our Live Catalog</h2>
+          <p>Top TKL keyboards with current pricing from our verified vendor network.</p>
+          <div className="catalog-picks-grid">
+            <BlogProductCard productName="Keychron Q3 Pro" vendor="Keychron" description="Best premium TKL — CNC aluminum, gasket mount, QMK/VIA, wireless" ctaText="Check Price →" />
+            <BlogProductCard productName="Keychron C3 Pro" vendor="Keychron" description="Best budget TKL — under $50, hot-swap, RGB backlight" ctaText="Check Price →" />
+            <BlogProductCard productName="Keychron Q3 HE" vendor="Keychron" description="Hall effect TKL — rapid trigger for competitive gaming" ctaText="Check Price →" />
+            <BlogProductCard productName="Epomaker EP84" vendor="Epomaker" description="Budget TKL hot-swap with wireless — great value" ctaText="Check Price →" />
+          </div>
+          <div className="catalog-picks-footer">
+            <Link href="/?size=TKL" className="catalog-picks-browse-link">Browse all TKL keyboards →</Link>
+          </div>
         </section>
       </div>
     </div>

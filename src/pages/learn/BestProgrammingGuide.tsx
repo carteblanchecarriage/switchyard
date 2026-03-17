@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -221,6 +223,20 @@ export default function BestProgrammingGuide() {
             <h2>Ready to code faster?</h2>
             <p>Find your perfect development keyboard.</p>
             <a href="/" className="cta-button">Browse All Keyboards →</a>
+          </section>
+
+          <section className="catalog-picks-section">
+            <h2>From Our Live Catalog</h2>
+            <p>Developer-favorite keyboards with current pricing from our verified vendors.</p>
+            <div className="catalog-picks-grid">
+              <BlogProductCard productName="Keychron Q1 Pro" vendor="Keychron" description="Top developer pick — QMK/VIA programmability, gasket mount, wireless" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron Q2 Pro" vendor="Keychron" description="65% with QMK/VIA — keeps arrow keys without the bulk of a 75%" ctaText="Check Price →" />
+              <BlogProductCard productName="KBDfans Tiger Lite" vendor="KBDfans" description="Custom 65% — premium typing feel loved by developers and writers" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron V1" vendor="Keychron" description="Budget developer board — gasket mount + QMK/VIA under $100" ctaText="Check Price →" />
+            </div>
+            <div className="catalog-picks-footer">
+              <Link href="/" className="catalog-picks-browse-link">Browse all keyboards →</Link>
+            </div>
           </section>
         </div>
       </article>

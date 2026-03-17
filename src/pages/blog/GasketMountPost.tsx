@@ -14,6 +14,13 @@ export default function GasketMountPost() {
       category="Buying Guide"
       heroImage="/blog/gasket-mount-hero.jpg"
       heroAlt="Mechanical keyboard on a dark desk setup with RGB lighting"
+      shopPicks={[
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "Full aluminum gasket mount, wireless, QMK/VIA — our top pick under $200", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron V1", vendor: "Keychron", description: "Best budget gasket mount — QMK/VIA, south-facing RGB, under $100", ctaText: "Buy on Keychron →" },
+        { productName: "Epomaker TH80 Pro", vendor: "Epomaker", description: "75% gasket mount with wireless, hot-swap, excellent build for the price", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?search=gasket"
+      catalogLinkText="Browse all gasket mount keyboards →"
     >
 
         <p>

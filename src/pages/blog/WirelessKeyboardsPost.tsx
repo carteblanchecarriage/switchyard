@@ -13,6 +13,13 @@ export default function WirelessKeyboardsPost() {
       category="Buying Guide"
       heroImage="/blog/wireless-hero.jpg"
       heroAlt="Minimalist laptop and peripherals on clean white desk with wireless keyboard"
+      shopPicks={[
+        { productName: "Keychron K3 Pro", vendor: "Keychron", description: "Ultra-slim 75% wireless — best multi-device wireless keyboard for Mac/Windows", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "Premium wireless with full CNC aluminum, gasket mount, and Bluetooth 5.1", ctaText: "Buy on Keychron →" },
+        { productName: "Epomaker TH80 Pro", vendor: "Epomaker", description: "75% wireless with 2.4GHz dongle + Bluetooth, gasket mount, hot-swap", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?search=wireless"
+      catalogLinkText="Browse all wireless keyboards →"
     >
 
         <p>

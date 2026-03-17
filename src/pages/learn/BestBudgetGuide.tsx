@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
+import BlogProductCard from '../../components/BlogProductCard';
 import { usePageSEO } from '../../hooks/usePageSEO';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -170,6 +172,20 @@ export default function BestBudgetGuide() {
             <h2>Ready to Buy?</h2>
             <p>These picks are consistently in stock on Amazon and vendor sites. Prices fluctuate, so check back if something is out of stock.</p>
             <p><strong>Pro tip:</strong> Watch for sales around Black Friday and Prime Day. These boards often drop 15-25%.</p>
+          </section>
+
+          <section className="catalog-picks-section">
+            <h2>From Our Live Catalog</h2>
+            <p>Current prices and availability pulled directly from vendor stores.</p>
+            <div className="catalog-picks-grid">
+              <BlogProductCard productName="Keychron V1" vendor="Keychron" description="Best overall budget pick — gasket mount, hot-swap, QMK/VIA" ctaText="Check Price →" />
+              <BlogProductCard productName="Keychron K8" vendor="Keychron" description="TKL wireless — great for Mac/Windows, office use" ctaText="Check Price →" />
+              <BlogProductCard productName="Epomaker TH80" vendor="Epomaker" description="75% wireless with hot-swap and gasket mount under $100" ctaText="Check Price →" />
+              <BlogProductCard productName="Glorious GMMK Compact" vendor="Glorious" description="60% hot-swap barebones — best starter custom build platform" ctaText="Check Price →" />
+            </div>
+            <div className="catalog-picks-footer">
+              <Link href="/?maxPrice=100" className="catalog-picks-browse-link">Browse all keyboards under $100 →</Link>
+            </div>
           </section>
 
         </div>

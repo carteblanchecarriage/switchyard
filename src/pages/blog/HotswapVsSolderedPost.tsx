@@ -13,6 +13,13 @@ export default function HotswapVsSolderedPost() {
       category="Buying Guide"
       heroImage="/blog/hotswap-hero.jpg"
       heroAlt="Person adjusting computer keyboard switches on a modern desk"
+      shopPicks={[
+        { productName: "Keychron V1", vendor: "Keychron", description: "Best beginner hot-swap — gasket mount, QMK/VIA, under $100", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "Premium hot-swap with CNC aluminum, wireless, and full programmability", ctaText: "Buy on Keychron →" },
+        { productName: "Epomaker EP84", vendor: "Epomaker", description: "Budget TKL hot-swap — great starter board for switch experimentation", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?search=hot+swap"
+      catalogLinkText="Browse all hot-swap keyboards →"
     >
 
         <p>

@@ -14,6 +14,13 @@ export default function CherryMX2APost() {
       category="Switches"
       heroImage="/blog/cherry-mx2a-hero.jpg"
       heroAlt="Mechanical keyboard switches closeup showing switch stems and housing"
+      shopPicks={[
+        { productName: "Keychron C1 Pro", vendor: "Keychron", description: "TKL with Cherry MX2A switches — clean, affordable, hot-swap", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron Q3 Pro", vendor: "Keychron", description: "Premium TKL with Cherry MX2A Brown option, CNC aluminum, QMK/VIA", ctaText: "Buy on Keychron →" },
+        { productName: "Glorious GMMK Pro", vendor: "Glorious", description: "75% barebones — pair with any Cherry MX2A or Gateron switch you prefer", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?search=cherry"
+      catalogLinkText="Browse keyboards with Cherry MX switches →"
     >
 
         <p>

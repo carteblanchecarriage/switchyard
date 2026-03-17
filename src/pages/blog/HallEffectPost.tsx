@@ -14,6 +14,13 @@ export default function HallEffectPost() {
       category="Gaming"
       heroImage="/blog/hall-effect-hero.jpg"
       heroAlt="Close-up of gaming keyboard with RGB lighting in dark environment"
+      shopPicks={[
+        { productName: "Keychron C4 HE", vendor: "Keychron", description: "Gateron hall effect switches, 8K polling, adjustable actuation 0.1–4.0mm", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron Q1 HE", vendor: "Keychron", description: "Full aluminum CNC body with hall effect switches and QMK/VIA support", ctaText: "Check Price →" },
+        { productName: "Epomaker TH80 SE", vendor: "Epomaker", description: "75% hall effect keyboard with gasket mount and wireless connectivity", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?search=hall+effect"
+      catalogLinkText="Browse all hall effect keyboards →"
     >
 
         <p>

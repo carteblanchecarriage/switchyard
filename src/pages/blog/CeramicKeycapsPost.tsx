@@ -13,6 +13,13 @@ export default function CeramicKeycapsPost() {
       category="Buying Guide"
       heroImage="/blog/ceramic-keycaps-hero.jpg"
       heroAlt="Ceramic pottery on display showing glaze finishes and textures"
+      shopPicks={[
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "Popular canvas for keycap upgrades — aluminum build shows off premium keycaps beautifully", ctaText: "Buy on Keychron →" },
+        { productName: "KBDfans Tiger Lite", vendor: "KBDfans", description: "Budget custom platform — great base to put your ceramic keycaps on", ctaText: "Check Price →" },
+        { productName: "Keychron V1", vendor: "Keychron", description: "Most popular 75% to pair with artisan and premium keycap sets under $100", ctaText: "Buy on Keychron →" },
+      ]}
+      catalogLink="/"
+      catalogLinkText="Browse keyboards to pair with your keycaps →"
     >
       <p>
         There's a moment in every keyboard enthusiast's journey when they think: <em>"I've tried PBT, I've tried ABS, I've tried resin artisans... what's next?"</em> For an increasing number of people in 2026, the answer is <strong>ceramic keycaps</strong>.

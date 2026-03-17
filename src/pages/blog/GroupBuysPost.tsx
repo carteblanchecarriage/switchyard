@@ -12,6 +12,13 @@ export default function GroupBuysPost() {
       category="Guide"
       heroImage="/blog/group-buys-hero.jpg"
       heroAlt="Diverse group of hands working together on laptop keyboard showing collaboration"
+      shopPicks={[
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "In-stock endgame alternative to a GB — aluminum, gasket mount, wireless", ctaText: "Buy Now →" },
+        { productName: "KBDfans Tiger Lite", vendor: "KBDfans", description: "Custom-style 65% available in-stock — get the GB experience without the wait", ctaText: "Check Price →" },
+        { productName: "NovelKeys NK87", vendor: "NovelKeys", description: "TKL from a trusted GB vendor — in stock, easy to build on", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/"
+      catalogLinkText="Browse all in-stock keyboards →"
     >
 
         <p>

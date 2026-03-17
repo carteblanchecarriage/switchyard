@@ -14,6 +14,14 @@ export default function KeychronReviewPost() {
       category="Review"
       heroImage="/blog/keychron-review-hero.jpg"
       heroAlt="Modern mechanical keyboard on a minimal desk with computer monitor in background"
+      shopPicks={[
+        { productName: "Keychron K3 Pro", vendor: "Keychron", description: "Best value Keychron — ultra-slim 75%, hot-swap, wireless, Mac/Windows", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron Q1 Pro", vendor: "Keychron", description: "Premium 75% with full aluminum CNC, gasket mount, QMK/VIA, wireless", ctaText: "Buy on Keychron →" },
+        { productName: "Keychron V1", vendor: "Keychron", description: "Best budget Keychron — gasket mount, QMK/VIA, under $100", ctaText: "Buy on Keychron →" },
+        { productName: "Epomaker TH80 Pro", vendor: "Epomaker", description: "Solid Keychron alternative — gasket mount, wireless, 75%, better QC consistency", ctaText: "Check Price →" },
+      ]}
+      catalogLink="/?vendor=Keychron"
+      catalogLinkText="Browse all Keychron keyboards →"
     >
 
         <p>
