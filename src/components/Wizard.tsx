@@ -304,27 +304,28 @@ export default function Wizard({ products, onFilterChange, activeFilters }: Wiza
   const handleSelect = (optionId: string) => {
     const stepId = steps[currentStep].id;
     const newSelections = { ...selections, [stepId]: optionId };
-    
-    // Check if this selection would result in 0 matches
+
     const testCount = calculateOptionMatches(products, selections, stepId, optionId);
-    
-    if (testCount === 0) {
-      // Don't allow selection that leads to 0 results
-      return;
-    }
-    
+    if (testCount === 0) return;
+
     setSelections(newSelections);
-    
+
     if (currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1);
+    } else {
+      // Last step — auto-apply and close
+      const filtered = applyFilter(products, newSelections);
+      setIsOpen(false);
+      onFilterChange(filtered, newSelections);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // Note: We don't auto-apply filters on final step anymore - user must click "See Results"
   };
 
   const applyFilters = () => {
     const filtered = applyFilter(products, selections);
     setIsOpen(false);
     onFilterChange(filtered, selections);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const resetWizard = () => {

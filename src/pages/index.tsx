@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GetStaticProps } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -50,10 +50,10 @@ export default function Home({ initialProducts }: HomeProps) {
     loadMore,
   } = useProductFilters(allProducts, wizardFilters);
 
-  const handleWizardFilter = (filtered: Product[], selections: WizardState) => {
+  const handleWizardFilter = useCallback((filtered: Product[], selections: WizardState) => {
     setWizardFilters(filtered);
     setWizardSelections(selections);
-  };
+  }, []);
 
   const getPageTitle = () => {
     if (searchQuery) return `"${searchQuery}" | Search Results - Switchyard`;
